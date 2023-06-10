@@ -28,9 +28,7 @@ char	*read_line_to_buffer(int fd, char **buffer, int *eof)
 {
 	int		r_val;
 	char	*tmp;
-	char	*endchar;
 
-	endchar = buffer[0] + BUFFER_SIZE;
 	tmp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!tmp)
 		return (NULL);
@@ -42,7 +40,7 @@ char	*read_line_to_buffer(int fd, char **buffer, int *eof)
 	}
 	if (r_val < 0)
 		return (free(tmp), free(*buffer), NULL);
-	if (r_val == 0 && *eof == 1)
+	if (*eof == 1)
 		return (free(tmp), NULL);
 	tmp[r_val] = 0;
 	return (gnl_strjoin(*buffer, tmp));
