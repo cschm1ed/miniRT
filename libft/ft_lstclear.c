@@ -3,25 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 14:59:19 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:58:50 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/29 08:28:51 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:57:08 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//  Prototyped as void ft_lstclear(t_list **lst, void (*del)(void*))
+//  -> lst: the address of a pointer to a node
+//  -> del: the address of the function used to delete the content
+//  -> deletes and frees the given node and every successor of that node,
+//     using the function ’del’ and free(3)
+//  -> finally, the pointer to the list must be set to NULL
+//  -> the memory of ’next’ must not be freed
+//  -> external functs: free
+//  -> return: none
+
 #include "libft.h"
 
+// Deletes and frees the given node and every successor of that node,
+// using the function ’del’ and free(3)
+// Finally, the pointer to the list must be set to NULL
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp;
 
-	if (del == 0 || lst == 0 || *lst == 0)
-		return ;
-	while (lst != 0 && *lst != 0)
+	while (*lst != NULL)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		if ((*lst)->content)
+			del((*lst)->content);
+		tmp = *lst;
+		*lst = tmp->next;
+		free(tmp);
 	}
+	*lst = NULL;
+}
+
+void	do_nothing(void *arg)
+{
+	(void)arg;
 }

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_free_dbl_ptr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nristorc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:29:59 by nristorc          #+#    #+#             */
-/*   Updated: 2017/11/15 17:49:48 by nristorc         ###   ########.fr       */
+/*   Created: 2023/03/29 19:36:03 by lspohle           #+#    #+#             */
+/*   Updated: 2023/06/01 13:17:08 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putchar(char c)
+char	**ft_free_dbl_ptr(char ***array)
 {
-	write(1, &c, 1);
+	int		i;
+
+	i = 0;
+	if (*array)
+	{
+		while ((*array)[i])
+		{
+			free((*array)[i]);
+			i ++;
+		}
+		free(*array);
+	}
+	*array = NULL;
+	return (NULL);
 }

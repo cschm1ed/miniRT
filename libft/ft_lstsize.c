@@ -3,24 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 21:06:53 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:01:24 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/21 12:57:55 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:57:54 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//  Prototyped as int ft_lstsize(t_list *lst)
+//  -> lst: the beginning of the list
+//  -> counts the number of nodes in a list
+//  -> external functs: none
+//  -> return: the length of the list
+
 #include "libft.h"
 
+// Counts the number of nodes in a list
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int	len;
 
-	i = 0;
+	len = 0;
 	while (lst != NULL)
 	{
 		lst = lst->next;
-		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }

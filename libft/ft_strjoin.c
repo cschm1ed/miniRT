@@ -3,28 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 20:24:23 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:52:48 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/19 07:34:35 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 08:32:13 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//     Prototyped as char *ft_strjoin(char const *s1, char const *s2)
+//     -> allocates (with malloc(3)) and returns a “fresh” string ending with
+//        ’\0’, output of the concatenation of s1 and s2
+//     -> return: “fresh” string output of the concatenation of the 2 strings
+//                NULL if allocation fails
+//     -> external functions: malloc(3)
+
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+// Allocates and returns a “fresh” string ending with ’\0’
+// Returns the concatenation of s1 and s2
+// Returns NULL if allocation fails
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*p;
-	size_t	len;
+	char	*result;
+	int		i;
+	int		j;
 
-	if (!s1 || !s2)
-		return (0);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	p = malloc (len + 1);
-	if (!p)
-		return (0);
-	ft_strlcpy(p, s1, len + 1);
-	ft_strlcat(p, s2, len + 1);
-	return (p);
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
+	else if (s1 == NULL)
+		return (ft_strdup(s2));
+	else if (s2 == NULL)
+		return (ft_strdup(s1));
+	result = malloc (ft_strlen(s1) + (ft_strlen(s2) + 1) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+	i = -1;
+	while (s1[++i] != '\0')
+		result[i] = s1[i];
+	j = -1;
+	while (s2[++j] != '\0')
+		result[i++] = s2[j];
+	result[i] = '\0';
+	return (result);
 }

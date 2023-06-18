@@ -3,69 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 14:27:37 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:51:42 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/13 09:49:39 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:08:11 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+// Note
+//     Prototyped as int atoi(const char *str)
+//     -> #include <stdlib.h>
+//     -> converts the initial portion of str to
+//        int representation
+//     -> uses the current locale (!= atoi_l())
+//     -> returns the converted int (if no valid conversion could be performed,
+//        it returns zero)
 
+// Warning!
+//     Recommended to use strtol() instead of atoi()
+
+#include "libft.h"
+
+// Converts str to int representation
+// Returns converted int
+// Returns zero if no valid conversion could be performed
 int	ft_atoi(const char *str)
 {
+	int	i;
 	int	sign;
-	int	temp;
+	int	output;
 
+	i = 0;
 	sign = 1;
-	temp = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\f' || *str == '\v' || *str == '\r')
-			str++;
-	if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' \
-	&& *str <= 'z') || *str == '\e')
-		return (0);
-	if (*str == '-')
-		sign = -1;
-	if (*str < '0' || *str > '9')
-		str++;
-	if ((*str < '0' && *str > '9') && *str != '-' && *str != '+' )
-		return (0);
-	while (*str >= '0' && *str <= '9')
+	output = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		temp = (temp * 10) + (*str - '0');
-		str++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return (temp * sign);
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+		output = output * 10 + (str[i++] - '0');
+	return (sign * output);
 }
-// int main ()
-// {
-// 	int i;
-// 	i = 0;
-// 	const char str_1[] = "-21474836487";
-// 	const char str_2[] = "";
-// 	const char str_3[] = "\e\v3";
-// 	const char str_4[] = "12h3";
-// 	const char str_5[] = "00123";
-// 	const char str_6[] = "123z56";
-// 	const char str_7[] = "-0123hh";
-// 	const char str_8[] = "\n\n123";
-// 	const char str_9[] = "+--123";
-// 	const char str_10[] = "−28";
-// 	const char str_11[] = "test";
-
-// 	const char *arr[] ={str_1, str_2, str_3, str_4, str_5,
-// 		str_6, str_7, str_8, str_9, str_10, str_11};
-
-// 	while (i != 11)
-// 	{
-// 		printf("Ergebnis atoi
-//str_%-10d: %-10dErgebnis \
-//ft_atoi str_%-10d:%-10d \n", i+1,
-//atoi(arr[i]), i+1, ft_atoi(arr[i]));
-// 		i++;
-// 	}
-
-// 	return 0;
-// }

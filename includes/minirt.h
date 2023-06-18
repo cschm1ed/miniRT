@@ -23,8 +23,9 @@
 # include "../libft/libft.h"
 # include "utils.h"
 # include "parsing.h"
-# include "../get_next_line/get_next_line_bonus.h"
 
+# define WIDTH 1000
+# define HEIGHT 800
 # define SUCCESS 1
 # define FAILURE -1
 # define TRUE 1

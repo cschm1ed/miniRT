@@ -3,45 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 19:34:14 by estruckm          #+#    #+#             */
-/*   Updated: 2023/03/23 15:48:40 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/19 07:30:29 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 17:06:31 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//     Prototyped as
+//     char *ft_substr(char const *s, unsigned int start, size_t len)
+//     -> allocates (with malloc(3)) and returns a substring from the string
+//        given as argument
+//     -> the substring begins at index start and is of size len
+//     -> return value: the substring
+//                      NULL if allocation fails
+//     -> external functions: malloc(3)
+
 #include "libft.h"
-#include <stdlib.h>
 
-// char	*ft_substr(char const *s, unsigned int start, size_t len)
-// {
-// 	char	*p;
-
-// 	if (s == 0)
-// 		return (0);
-// 	if (ft_strlen(s) < start)
-// 		len = 0;
-// 	if (ft_strlen(s + start) < len)
-// 		len = ft_strlen(s + start);
-// 	p = malloc((len + 1));
-// 	if (p == 0)
-// 		return (NULL);
-// 	ft_strlcpy(p, s + start, len +1);
-// 	return (p);
-// }
-
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+// Allocates and returns a substring from the string given as argument
+// The substring begins at index start and is of size len
+// Returns the substring
+// Returns NULL if allocation fails
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char	*sub;
+	size_t	length;
+	size_t	i;
 
-	if (ft_strlen(s) < start || s == NULL)
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	substr = (char *)malloc(len * sizeof(char) + 1);
-	if (substr == NULL)
+	length = ft_strlen(s);
+	if (len == 0)
 		return (NULL);
-	ft_strlcpy(substr, s + start, len + 1);
-	return (substr);
+	if (start >= length)
+		len = 0;
+	if (start < length)
+		length = length - start;
+	if (len > length)
+		len = length;
+	sub = malloc((len + 1) * sizeof(char));
+	if (sub == NULL)
+		return (NULL);
+	i = -1;
+	while (++i < len && s[start] != '\0')
+		sub[i] = s[start++];
+	sub[i] = '\0';
+	return (sub);
 }

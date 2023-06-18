@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nristorc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:35:50 by nristorc          #+#    #+#             */
-/*   Updated: 2017/11/15 17:49:10 by nristorc         ###   ########.fr       */
+/*   Created: 2023/05/01 14:39:38 by cschmied          #+#    #+#             */
+/*   Updated: 2023/05/01 14:40:56 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_putstr(char const *s)
+int	ft_strcmp(const char *str1, const char *str2)
 {
-	int i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-	}
+	return (ft_strncmp(str1, str2, ft_strlen(str1) + 1));
 }

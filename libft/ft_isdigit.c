@@ -3,43 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 12:30:26 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:55:52 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 13:37:38 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:10:36 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <ctype.h>
-//#include "libft.h"
+// 	Prototyped as int isdigit(int c)
+// 	-> #include <ctype.h>
+// 	-> tests for a decimal digit character
+// 	-> regardless of locale, this includes the following characters only
+// 	-> returns zero if the character tests false
+// 	   returns non-zero if the character tests true
 
-int	ft_isdigit(int chr)
+#include "libft.h"
+
+// Tests for a decimal digit character
+int	ft_isdigit(int c)
 {
-	unsigned char	c;
-
-	c = (unsigned char) chr;
 	if (c >= '0' && c <= '9')
-	{
 		return (1);
-	}
 	else
-	{
 		return (0);
-	}
 }
-
-// int main ()
-// {
-// 	int a;
-// 	int b;
-// 	b = 'c';
-// 	a = '6';
-// 	printf(" test1: %d", isdigit(a));
-// 	printf(" test2: %d", isdigit(b));
-// 	printf(" test1: %d/n", ft_isdigit(a));
-// 	printf(" test2: %d", ft_isdigit(b));
-
-// 	return 0;
-
-// }

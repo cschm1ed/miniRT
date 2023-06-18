@@ -3,24 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 20:06:16 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/22 20:08:44 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/21 08:26:31 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:57:37 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+// Note
+//  Prototyped as t_list *ft_lstnew(void *content)
+//  -> content: the content to create the node with
+//  -> allocates (with malloc(3)) and returns a new node
+//  -> member variable ’content’ is initialized with value of parameter
+//     ’content’
+//  -> the variable ’next’ is initialized to NULL
+//  -> external functs: malloc
+//  -> return: the new node
+
+// Links
+//  -> structs (video): https://www.youtube.com/watch?v=dqa0KMSMx2w
+//  -> linked lists (video): https://www.youtube.com/watch?v=VOpjAHCee7c
+//  -> linked lists: https://www.learn-c.org/en/Linked_lists
+
 #include "libft.h"
 
+// Allocates and returns a new node
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*ret;
+	t_list	*new;
 
-	ret = malloc(sizeof(t_list));
-	if (!ret)
-		return (0);
-	ret->content = content;
-	ret->next = 0;
-	return (ret);
+	new = ft_calloc(1, sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

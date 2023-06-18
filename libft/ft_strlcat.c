@@ -3,61 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 14:45:15 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 20:00:37 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/20 12:01:48 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 13:54:37 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+// Note
+// Prototyped as
+// size_t strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+// -> #include <string.h>
+// -> concatenates strings with the same input parameters and output result
+//    as snft_printf(3)
+// -> safer, more consistent, and less error prone replacements for the
+//    easily misused function strncat(3)
+// -> takes the full size of the destination buffer and guarantee
+//    NULL-termination if there is room (note that room for the NUL should
+//    be included in dstsize
+// -> returns the total length of the string they tried to create
+//    (the initial length of dst plus the length of src)
+// -> appends string src to the end of dst
+// -> it appends at most dstsize - strlen(dst) - 1 characters
+// -> NULL-termination, unless dstsize is 0 or the original dst string was
+//    longer than dstsize
+// -> if the src and dst strings overlap, the behavior is undefined
+// -> if the return value is >= dstsize, the output string has been truncated
+
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
+// Concatenates 'dst' and 'src'
+// Takes full size of dst buffer and guarantee NULL-termination if room
+// Returns the initial length of dst plus the length of src
+// If the src and dst strings overlap, the behavior is undefined
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t	dst_len;
+	size_t	src_len;
 	size_t	i;
-	size_t	j;
-	size_t	k;
 
-	i = 0;
-	k = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[k])
-		k++;
-	if (dstsize <= i)
-		k = k + dstsize;
-	else
-		k = k + i;
-	while (src[j] != '\0' && i + 1 < dstsize)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = -1;
+	if (src != NULL)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		while (src[++i] != '\0' && dst_len + i + 1 < dstsize)
+			dst[dst_len + i] = src[i];
+		dst[dst_len + i] = '\0';
 	}
-	dest[i] = '\0';
-	return (k);
+	if (dstsize < dst_len)
+		return (src_len + dstsize);
+	return (dst_len + src_len);
 }
-// int main()
-// {
-// 	size_t result_1;
-// 	size_t result_2;
-// 	char dst[20] = "abcdds";
-// 	char dst_2[20] = "abcddds";
-
-// 	result_1 = ft_strlcat(dst, "lorem ipsum dolor sit amet", 15);
-// 	result_2 = strlcat(dst_2, "orem ipsum dolor sit amet", 15);
-// 	printf("result: %lu\n", result_1);
-// 	printf("After ft_strlcat(): %s\n", dst);
-// 	printf("result: %lu\n", result_2);
-// 	printf("After strlcat(): %s\n", dst_2);
-
-// 	// result_2 = ft_strlcat(dst_2, src_2, 4);
-// 	// ft_strlcat(dst_2, src_2, 4);
-// 	// printf("After ft_strlcat): %s\n", dst_2);
-// 	// printf("Wert: %zu", result_2);
-
-// 	return 0;
-// }

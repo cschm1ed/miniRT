@@ -3,71 +3,101 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 16:09:22 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/26 12:38:20 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 13:37:15 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 10:02:12 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//     Prototyped as char *ft_itoa(int n)
+//     -> allocates (with malloc(3)) and returns a string representing the
+//        integer received as an argument
+//     -> negative numbers must be handled
+//     -> return value: the string representing the integer passed as argument
+//                      returns NULL if allocation fails
+//     -> libc functions: malloc(3)
+
+// Note_malloc
+//     Prototyped as (void*) malloc(size_t size)
+//     -> #include <stdlib.h>
+//     -> allocates size bytes of memory (assigned to the heap; dynamic memory)
+//     -> allocated memory is aligned such that it can be used for any data type
+//        (including AltiVec- and SSE-related types)
+//     -> returns a pointer to the allocated memory
+//     -> !!! free(pointer to the allocated memory) frees allocations !!!
+//     (-> checking for memory leaks)
+
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-static int	ft_numlen(int n, int base)
+static int	ft_logarithm(int n)
 {
-	int	count;
+	int		exponent;
 
-	count = 0;
-	if (n <= 0)
-		++count;
-	while (n && ++count)
-		n /= base;
-	return (count);
-}
-
-static char	*ft_numstorage(int len, int num, char *array_2)
-{
-	while (len--, num > 0)
-	{
-		array_2[len] = num % 10 + '0';
-		num = num / 10;
-	}
-	return (array_2);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*array;
-	int		len_n;
-
-	len_n = ft_numlen(n, 10);
-	array = malloc(sizeof(char) * (len_n + 1));
-	if (array == 0)
-		return (NULL);
-	array[len_n] = '\0';
+	exponent = 1;
 	if (n < 0)
 	{
-		array[0] = '-';
-		if (n == -2147483648)
-		{
-			array[--len_n] = '8';
-			n /= 10;
-		}
-		n *= -1;
+		n = -n;
+		exponent++;
 	}
-	if (n == 0)
-		array[0] = '0';
-	array = ft_numstorage(len_n, n, array);
-	return (array);
+	while (n > 9)
+	{
+		n = n / 10;
+		exponent++;
+	}
+	return (exponent);
 }
 
-// int main ()
-// {
-// 	char* str;
+static int	ft_get_divisor(int index)
+{
+	int		divisor;
 
-// 	str = ft_itoa(9887);
-// 	printf("Ergebnis: 			%s\n", str);
-// 	printf("Ergebnis count:		%d\n", ft_numlen(100, 10));
-// 	return 0;
-// }
+	divisor = 1;
+	while (index > 1)
+	{
+		divisor *= 10;
+		index--;
+	}
+	return (divisor);
+}
+
+static char	*ft_convert_to_string(int n, char *str, int len)
+{
+	int		divisor;
+	int		i;
+
+	i = 0;
+	if (n < 0)
+	{
+		str[i++] = '-';
+		len--;
+		n = -n;
+	}
+	while (len > 0)
+	{
+		divisor = ft_get_divisor(len);
+		str[i++] = n / divisor + 48;
+		len--;
+		n %= divisor;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+// Allocates and returns a str representing int
+// Returns NULL if allocation failed
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = ft_logarithm(n);
+	str = (char *) malloc ((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_convert_to_string(n, str, len);
+	return (str);
+}

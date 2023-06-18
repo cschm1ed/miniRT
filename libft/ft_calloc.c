@@ -3,46 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:57:45 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:53:26 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/19 13:16:28 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 19:00:57 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+// Note_calloc
+//     Prototyped as void *calloc(size_t count, size_t size)
+//     -> #include <stdlib.h>
+//     -> contiguously allocates enough space for count objects that are
+//        size bytes of memory each
+//     -> allocated memory can be used for any data type
+//     -> the allocated memory is filled with bytes of value zero
+//     -> returns a pointer to the allocated memory
+//     -> if there is an error, it returns a NULL pointer and
+//        sets errno to ENOMEM
+
+// Note_malloc
+//     Prototyped as void *malloc(size_t size)
+//     -> #include <stdlib.h>
+//     -> allocates size bytes of memory
+//        (assigned to the heap; dynamic memory)
+//     -> allocated memory can be used for any data type
+//     -> returns a pointer to the allocated memory
+//     -> !!! free(pointer to the allocated memory) frees allocations !!!
+//        (-> checking for memory leaks)
+
+// Note_errno
+//     https://man7.org/linux/man-pages/man3/errno.3.html
+//     -> ENOMEM: Not enough space/cannot allocate memory (POSIX.1-2001)
+
 #include "libft.h"
 
-// cc ft_calloc.c ft_bzero.c ft_memset.c
-
-#include <stdlib.h>
-#include "libft.h"
-
+// Allocates memory for count objects that are size bytes each
+// Takes more time than just calling malloc
+// Allocated memory is filled with bytes of value zero
+// Returns a pointer to the allocated memory
+// Returns a NULL pointer if allocation failed
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
+	void	*mem;
 
-	p = malloc(size * count);
-	if (!p)
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	mem = malloc (count * size);
+	if (mem == 0)
 		return (0);
-	ft_bzero(p, size * count);
-	return (p);
+	ft_bzero(mem, count * size);
+	return (mem);
 }
-
-// int main() {
-//     int i, * ptr, sum = 0;
-//     ptr = ft_calloc(4, 4);
-//     if (ptr == NULL) {
-//         printf("Error! memory not allocated.");
-//         exit(0);
-//     }
-//     printf("Building and calculating the sequence
-//sum of the first 10 terms \n ");
-//     for (i = 0; i < 10; ++i) { * (ptr + i) = i;
-//         sum += * (ptr + i);
-//     }
-//     printf("Sum = %d", sum);
-//     free(ptr);
-//     return 0;
-// }

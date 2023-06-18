@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_isspecial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 12:42:12 by gemartin          #+#    #+#             */
-/*   Updated: 2023/02/25 18:57:12 by estruckm         ###   ########.fr       */
+/*   Created: 2023/04/26 19:03:00 by lspohle           #+#    #+#             */
+/*   Updated: 2023/05/22 10:54:11 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../includes/minishell.h"
 
-char	*ft_free(char **str)
+/**
+ * @brief checks if c is a special character ('>' '<'  '|')
+ * @param c character to check
+ * @return true or false
+ */
+int	ft_isspecial(char c)
 {
-	free(*str);
-	*str = NULL;
-	return (NULL);
+	return (c == '>' || c == '<' || c == '|');
 }

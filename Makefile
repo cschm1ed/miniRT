@@ -13,50 +13,49 @@
 NAME = miniRT
 SRCS =	main.c \
 		init.c \
-		string_utils1.c \
 		parsing.c \
-		interpret_scene.c
+		interpret_scene.c \
+		free_stuff.c \
+		put_pixel.c \
+		trgb.c
 
-VPATH	:= sources:sources/parsing:sources/utils
+VPATH	:= sources:sources/parsing:sources/utils:sources/mlx_utils
 CC = gcc
 CCFLAG = -Wall -Werror -Wextra -g
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
-LIB = -C ./libft
-GET = -C ./Get_next_line/
+LIB = ./libft
+
+MAKE	:= make
 
 SUCCESS_COLOR = \033[32m
 
 OBJECT = $(SRCS:.c=.o)
-D_SRCS = ./srcs/
 
 all : $(NAME)
 
-%.o:$(D_SRCS)%.c
+%.o:%.c
 	$(CC) $(CCFLAG) -o $@ -c $<
 
 $(NAME) : $(OBJECT)
-	make $(LIB)
-	make $(GET)
-	$(CC) $(CCFLAG) $(MLXFLAGS)  $(OBJECT) ./Get_next_line/get_next_line_bonus.a ./libft/libft.a -o $(NAME)
-	echo "$(SUCCESS_COLOR)$(NAME) - Compiled with Success"
+	$(MAKE) -C $(LIB)
+	$(CC) $(CCFLAG) $(MLXFLAGS) $(OBJECT) ./libft/libft.a -o $(NAME)
+	echo "$(SUCCESS_COLOR) $(NAME) - Compiled with Success"
+
+.PHONY: all clean fclean re compile
 
 clean :
-	@make clean $(LIB)
-	@make clean $(GET)
-	@echo "$(SUCCESS_COLOR)$(NAME) - Cleaned with Success"
-	@/bin/rm -rf $(OBJECT)
+	@$(MAKE) -C $(LIB) clean
+	@echo "$(SUCCESS_COLOR) $(NAME) - Cleaned with Success"
+	@rm -rf $(OBJECT)
 
 fclean : clean
-	@make fclean $(LIB)
-	@make fclean $(GET)
+	@$(MAKE) -C $(LIB) fclean
 	@rm -rf ./$(NAME)
-	@echo "$(SUCCESS_COLOR)$(NAME) - FCleaned with Success"
+	@echo "$(SUCCESS_COLOR) $(NAME) - FCleaned with Success"
 
 re : fclean all
-
-.PHONY: all clean fclean re
 
 compile:
 	make re
