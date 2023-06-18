@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_isredirect.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 16:40:59 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/21 16:41:36 by estruckm         ###   ########.fr       */
+/*   Created: 2023/04/28 11:31:19 by lspohle           #+#    #+#             */
+/*   Updated: 2023/04/28 16:40:53 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_numlen(int n, int base)
-{
-	int	count;
+#include "../includes/minishell.h"
 
-	count = 0;
-	if (n <= 0)
-		++count;
-	while (n && count++)
-		n /= base;
-	return (count);
+/**
+ * @brief checks if c is a special character ('>' '<')
+ * @param c character to check
+ * @return true or false
+ */
+int	ft_isredirect(char c)
+{
+	return (c == '>' || c == '<');
 }

@@ -14,7 +14,13 @@
 # define UTILS_H
 
 // inits
-int	init_parsing(t_data *data);
-int	init_data(int argc, char **argv, t_data *data);
+int		init_parsing(t_data *data);
+int		init_data(int argc, char **argv, t_data *data);
+
+// mlx stuff
+void	loop_mlx(t_data *data);
+void	put_pixel(int x, int y, int color, t_data *data);
+
+int		free_stuff(t_data *data);
 
 #endif

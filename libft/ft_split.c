@@ -3,164 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 14:21:27 by estruckm          #+#    #+#             */
-/*   Updated: 2023/03/23 15:50:40 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/20 17:06:55 by lspohle           #+#    #+#             */
+/*   Updated: 2023/04/01 17:34:33 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// Note
+//     Prototyped as char **ft_split(char const *s, char c)
+//     -> allocates (with malloc(3)) returns an array of strings obtained by
+//        splitting ’s’ using the character ’c’ as a delimiter
+//     -> the array must end with a NULL pointer
+//     -> return: array of new strings resulting from the split
+//                NULL if allocation fails
+//     -> external functions: malloc(3), free
+
 #include "libft.h"
-#include <stdlib.h>
-#include <unistd.h>
 
-// void	free_memory(char **array)
-// {
-// 	int	i;
+static void	free_arr(char **arr);
 
-// 	i = 0;
-// 	if (array == NULL)
-// 	{
-// 		while (array[i] != NULL)
-// 		{
-// 			free(array[i]);
-// 			i++;
-// 		}
-// 		free(array);
-// 	}
-// }
+static int	ft_count_strings(const char *s, char c)
+{
+	int	i;
+	int	counter;
 
-// int	ft_countchr(char const *s, char c)
-// {
-// 	int	i;
+	i = -1;
+	counter = 0;
+	while (s[++i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			counter++;
+			while (s[i] != c && s[i] != '\0')
+				i++;
+			if (s[i] == '\0')
+				break ;
+		}
+	}
+	return (counter);
+}
 
-// 	i = 0;
-// 	while (*s != '\0')
-// 	{
-// 		while (*s == c)
-// 			s++;
-// 		if (*s != '\0')
-// 			i++;
-// 		while (*s != c && *s != '\0')
-// 				s++;
-// 	}
-// 	return (i);
-// }
-
-// char	**ft_split(const char *s, char c)
-// {
-// 	char	**ret;
-// 	size_t	i;
-// 	size_t	len;
-
-// 	if (!s)
-// 		return (0);
-// 	i = 0;
-// 	ret = malloc(sizeof(char *) * (ft_countchr(s, c) + 1));
-// 	if (!ret)
-// 		return (0);
-// 	while (*s)
-// 	{
-// 		if (*s != c)
-// 		{
-// 			len = 0;
-// 			while (*s && *s != c && ++len)
-// 				++s;
-// 			ret[i++] = ft_substr(s - len, 0, len);
-// 			free_memory(ret);
-// 		}
-// 		else
-// 			++s;
-// 	}
-// 	ret[i] = 0;
-// 	return (ret);
-// }
-
-static int	ft_count_char(const char *s, char c)
+static char	**ft_split_string(char **result, const char *s, char c)
 {
 	unsigned int	i;
-	int				count_c;
+	unsigned int	start;
+	unsigned int	j;
 
-	i = 0;
-	count_c = 0;
-	while (s[i] == c && c != '\0')
-		i++;
-	if (s[i] == '\0')
-		return (-1);
-	while (s[i])
+	i = -1;
+	j = 0;
+	while (s[++i] != '\0')
 	{
-		if (s[i] == c && i != 0)
+		if (s[i] != c)
 		{
-			count_c++;
-			while (s[i] == c)
+			start = i;
+			while (s[i] != c && s[i] != '\0')
 				i++;
-			if (!s[i])
-				count_c--;
+			result[j] = ft_substr(s, start, i - start);
+			if (!result[j++])
+			{
+				free_arr(result);
+				return (NULL);
+			}
+			if (s[i] == '\0')
+				break ;
 		}
-		else
-			i++;
 	}
-	return (count_c);
+	result[j] = NULL;
+	return (result);
 }
 
-// skips the delimiter char(s) in s and counts the lenght of the string
-static void	ft_count(char const *s, char c, size_t *i_, size_t *len_)
-{
-	size_t	i;
-	size_t	len;
-
-	i = *i_;
-	len = *len_;
-	while (s[i] == c)
-		i++;
-	len = i;
-	while (s[len] != c && s[len] != '\0')
-		len++;
-	*len_ = len;
-	*i_ = i;
-}
-
-// free the array if there is an error while using substr
-static char	**ft_free(char **sp_string)
+static void	free_arr(char **arr)
 {
 	int	i;
 
 	i = 0;
-	while (sp_string[i])
+	if (arr == NULL)
+		return ;
+	while (arr[i])
 	{
-		free(sp_string[i]);
-		i++;
+		free(arr[i]);
+		i ++;
 	}
-	free(sp_string);
-	return (NULL);
+	free(arr);
 }
 
-// split the input string into multiple strings and
-// returns them in a array of strings
-char	**ft_split(char const *s, char c)
+// Allocates and returns an array of strings obtained by splitting ’s’ using
+// the character ’c’ as a delimiter
+// The array must end with a NULL pointer
+// Returns array of new strings resulting from the split
+// Returns NULL if allocation fails
+char	**ft_split(const char *s, char c)
 {
-	size_t			i;
-	size_t			len;
-	char			**sp_string;
-	int				index;
+	char	**result;
 
-	index = 0;
-	i = 0;
-	if (s == NULL)
+	result = ft_calloc(ft_count_strings(s, c) + 1, sizeof(char *));
+	if (result == NULL)
 		return (NULL);
-	sp_string = malloc (sizeof(char *) * (ft_count_char(s, c) + 2));
-	if (sp_string == NULL)
+	if (ft_split_string(result, s, c) == NULL)
 		return (NULL);
-	while (index < (ft_count_char(s, c) + 1))
-	{
-		ft_count(s, c, &i, &len);
-		sp_string[index] = ft_substr(s, i, len - i);
-		if (!sp_string[index])
-			return (ft_free(sp_string));
-		index++;
-		i = len;
-	}
-	sp_string[index] = NULL;
-	return (sp_string);
+	return (result);
 }

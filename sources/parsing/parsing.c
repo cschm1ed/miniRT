@@ -21,10 +21,13 @@ int	slicer(char *str, t_data *data)
 	split = ft_split(str, ' ');
 	if (split == NULL)
 		return (FAILURE);
-	while (i < 8)
+	while (i < 1)
+	{
 		if (!ft_strcmp(data->parsing[i].name, split[0]))
-			if (data->parsing[i++].f(split) == FAILURE)
+			if (data->parsing[i].f(split) == FAILURE)
 				return (FAILURE);
+		i ++;
+	}
 	return (SUCCESS);
 }
 

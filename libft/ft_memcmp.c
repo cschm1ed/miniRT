@@ -3,48 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 12:16:37 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:03:45 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/15 11:43:47 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:13:09 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+// Note
+//     Prototyped as int memcmp(const void *s1, const void *s2, size_t n)
+//     -> #include <string.h>
+//     -> compares byte string s1 against byte string s2
+//		  (both strings are assumed to be n bytes long)
+//     -> if s1 == s2, return (0) (zero-length strings are always identical)
+//        otherwise returns the difference between the first two differing
+//        bytes (treated as unsigned char values)
+//        if s1 > s2, return (s1[i] - s2[i]) [return greater than 0]
 
+// Links
+//     memcmp: https://www.youtube.com/watch?v=ypG9W33LOTk
+
+#include "libft.h"
+
+// Compares s1 against s2 (both strings are assumed to be n bytes long)
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int				i;
-	unsigned char	*s1_1;
-	unsigned char	*s2_2;
+	unsigned char	*char_s1;
+	unsigned char	*char_s2;
+	size_t			i;
 
+	char_s1 = (unsigned char *) s1;
+	char_s2 = (unsigned char *) s2;
 	i = 0;
-	s1_1 = (unsigned char *) s1;
-	s2_2 = (unsigned char *) s2;
-	while (n != 0)
-	{
-		if (s1_1[i] != s2_2[i])
-			return (s1_1[i] - s2_2[i]);
+	while (i != n && char_s1[i] == char_s2[i])
 		i++;
-		n--;
-	}
-	return (0);
+	if (i == n)
+		return (0);
+	return (char_s1[i] - char_s2[i]);
 }
-
-// int main ()
-// {
-// 	char str_1[] ="";
-// 	char str_2[] ="";
-
-// 	int result_1;
-// 	int result_2;
-
-// 	result_1 = memcmp(str_1, str_2, 1);
-// 	result_2 = ft_memcmp(str_1, str_2, 1);
-
-// 	printf("Ergebnis von memcmp: %d\n", result_1);
-// 	printf("Ergebnis von ft_memcmp: %d\n", result_2);
-
-// 	return 0;
-// }

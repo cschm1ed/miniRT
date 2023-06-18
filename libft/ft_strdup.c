@@ -3,32 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 15:39:43 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/26 13:06:10 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/19 07:29:01 by lspohle           #+#    #+#             */
+/*   Updated: 2023/05/31 17:02:43 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// Note_strdup
+//     Prototyped as char *strdup(const char *s1)
+//     -> #include <string.h>
+//     -> function allocates sufficient memory for a copy of the string s1
+//     -> does the copy
+//     -> returns a pointer to it
+//     -> returns NULL if insufficient memory is available,
+//        and errno is set to ENOMEM // Note_errno
+//     -> caller has to use the pointer as an argument to free() the on the
+//        heap allocated memory
+
+// Note_malloc
+//     Prototyped as (void*) malloc(size_t size)
+//     -> #include <stdlib.h>
+//     -> allocates size bytes of memory (assigned to the heap; dynamic memory)
+//     -> allocated memory can be used for any data type
+//     -> returns a pointer to the allocated memory
+//     -> if there is an error, it returns a NULL pointer and
+//        sets errno to ENOMEM
+//     -> !!! free(pointer to the allocated memory) frees allocations !!!
+//     (-> checking for memory leaks)
+
+// Note_errno
+//     https://man7.org/linux/man-pages/man3/errno.3.html
+//     -> ENOMEM: Not enough space/cannot allocate memory (POSIX.1-2001)
+
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+// Function allocates sufficient memory for a copy of s1, does the copy
+// Returns a pointer to it
+// Returns NULL if insufficient memory is available
+char	*ft_strdup(const char *src)
 {
-	char	*p;
+	int		i;
+	char	*copy;
 
-	if (*s1 == '\0')
-	{
-		p = ft_calloc(1, 1);
-		return (p);
-	}
-	p = ft_calloc(1, ft_strlen(s1) + 1);
-	if (p == 0)
+	copy = (char *) ft_calloc((ft_strlen(src) + 1), sizeof(char));
+	if (!copy)
 		return (0);
-	ft_strlcpy(p, s1, ft_strlen(s1) + 1);
-	return (p);
+	if (src == NULL)
+		return (copy);
+	i = -1;
+	while (src[++i])
+		copy[i] = src[i];
+	copy[i] = '\0';
+	return (copy);
 }
-// int main ()
-// {
-// 	return 0;
-// }

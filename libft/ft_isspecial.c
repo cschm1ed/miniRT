@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_isspecial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nristorc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:35:50 by nristorc          #+#    #+#             */
-/*   Updated: 2017/11/15 17:49:10 by nristorc         ###   ########.fr       */
+/*   Created: 2023/04/26 19:03:00 by lspohle           #+#    #+#             */
+/*   Updated: 2023/05/22 10:54:11 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/minishell.h"
 
-void			ft_putstr(char const *s)
+/**
+ * @brief checks if c is a special character ('>' '<'  '|')
+ * @param c character to check
+ * @return true or false
+ */
+int	ft_isspecial(char c)
 {
-	int i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-	}
+	return (c == '>' || c == '<' || c == '|');
 }

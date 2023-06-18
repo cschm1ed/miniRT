@@ -3,22 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 16:17:16 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:59:23 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/29 08:29:19 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:56:18 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Note
+//  Prototyped as void ft_lstiter(t_list *lst, void (*f)(void*))
+//  -> lst: the address of a pointer to a node
+//  -> f: the address of the function used to iterate on the list
+//  -> iterates the list 'lst' and applies the function 'f' on the content of
+//     each node
+//  -> the memory of ’next’ must not be freed
+//  -> external functs: none
+//  -> return: none
+
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+// Iterates the list 'lst' and applies 'f' on the content of each node
+void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	if (f == 0)
-		return ;
-	while (lst != 0)
+	while (lst != NULL)
 	{
-		(*f)(lst->content);
+		f(lst->content);
 		lst = lst->next;
 	}
 }

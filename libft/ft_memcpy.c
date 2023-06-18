@@ -3,44 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 22:08:03 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:07:17 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/13 10:13:36 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:13:40 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+// Note
+//     Prototyped as
+// 	void *memcpy(void *restrict dst, const void *restrict src, size_t n)
+//     -> #include <string.h>
+//     -> copies n bytes from memory area src to memory area dst
+//     -> if dst and src overlap, behavior is undefined
+//     -> returns the original value of dst
 
+// Warning
+//     Applications in which dst and src might overlap,
+// 	one should use memmove(3) instead
+
+// Links
+//     memcpy: https://www.youtube.com/watch?v=ypG9W33LOTk
+
+#include "libft.h"
+
+// Copies n bytes from memory area src to memory area dst
+// If dst and src overlap, behavior is undefined
+// Returns the original value of dst
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*char_dst;
+	unsigned char	*char_src;
 
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		*(char *)(dst + i) = *(char *)(src + i);
-		i++;
-	}
+	char_dst = (unsigned char *) dst;
+	char_src = (unsigned char *) src;
+	i = -1;
+	while (++i != n && (dst != NULL || src != NULL))
+		char_dst[i] = char_src[i];
 	return (dst);
 }
-// int main ()
-// {
-//  /* Create a place to store our results */
-//     /* Create two arrays to hold our data */
-//     char original[6] = "";
-// 	char original_2[6] = "";
-//     char newcopy[] = "elefant";
-
-// 	ft_memcpy(original, newcopy, 3);
-// 	ft_memcpy(original_2, newcopy, 3);
-
-// 	printf("ergebnis nach ft_memcpy: %s\n", original);
-// 	printf("ergebnis nach    memcpy: %s\n", original_2);
-
-// 	return 0;
-
-// }

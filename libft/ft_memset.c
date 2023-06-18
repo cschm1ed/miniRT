@@ -3,38 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 16:36:47 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:08:43 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 17:36:35 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:14:00 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
+// Note
+// 	Prototyped as void *memset(void *b, int c, size_t len)
+// 	-> #include <string.h>
+// 	-> writes len bytes of value c
+//	   (converted to an unsigned char) to the string b
+// 	-> returns its first argument
 
+#include "libft.h"
+
+// Writes len bytes of value c (converted to an unsigned char) to b
+// Returns its first argument
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*p;
 	size_t			i;
+	unsigned char	*char_b;
 
-	i = 0;
-	p = (unsigned char *)b;
-	while (len != 0)
-	{
-		*p = (unsigned char)c;
-		p++;
-		i++;
-		len --;
-	}
-	return (p - i);
+	char_b = (unsigned char *) b;
+	i = -1;
+	while (++i != len)
+		char_b[i] = c;
+	return (b);
 }
-//  int main()
-// {
-//  	char str[100] = "Libc is the standard library.";
-
-// 	ft_memset(str, '.', 15 * sizeof(char));
-// 	printf("After memset(): %s\n", str);
-// 	return 0;
-// }

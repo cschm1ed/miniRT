@@ -3,42 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:46:05 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/12 16:05:17 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 14:13:29 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:11:00 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <ctype.h>
+// Note
+// 	Prototyped as int isprint(int c)
+// 	-> #include <ctype.h>
+// 	-> tests for any character for any printing character, including space (` ')
+// 	-> the value of the argument must be representable as an unsigned
+// 	   char or the value of EOF
+// 	-> returns zero if the character tests false
+// 	   returns non-zero if the character tests true
 
-int	ft_isprint(int chr)
+#include "libft.h"
+
+// Tests for any character for any printing character, including space (` ')
+int	ft_isprint(int c)
 {
-	unsigned char	c;
-
-	c = (unsigned char) chr;
-	if (c >= ' ' && c <= '~')
-	{
+	if (c >= 32 && c <= 126)
 		return (1);
-	}
 	else
-	{
 		return (0);
-	}
 }
-
-// int main ()
-// {
-// 	int a;
-// 	int b;
-// 	b = '';
-// 	a = '6';
-// 	printf(" test1: %d", isprint(a));
-// 	printf(" test2: %d", isprint(b));
-// 	printf(" test1: %d/n", ft_isprint(a));
-// 	printf(" test2: %d", ft_isprint(b));
-
-// 	return 0;
-
-// }

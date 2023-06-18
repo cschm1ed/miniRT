@@ -3,31 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 11:49:37 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:56:58 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 17:35:33 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:21:12 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+// Note
+//     Prototyped as size_t strlen(const char *s)
+//     -> #include <string.h>
+//     -> returns the number of characters that precede
+//        the terminating NUL character
+//     -> returns the length of s excluding '\0'
+
+// Difference between an array and a string
+//     -> array: stores a set of integers, doubles, floats, etc.
+//               data structure
+//               does not end with a null character
+//     -> string: only stores characters (items of only the char data type)
+//                object
+//                ends with a null character
+
+// Links
+//     Difference between an array and a string:
+// 	https://askanydifference.com/difference-between-array-and-string/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+// Returns the number of characters that precede the terminating NULL
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (str == NULL)
+		return (0);
+	while (str[i])
 		i++;
 	return (i);
 }
-
-/*
- int main()
- {
- 	char str[] = "Life is good.";
- 	int result = ft_strlen(str);
- 	printf("The length of the string is %d.\n", result);
- 	return 0;
- }*/

@@ -19,6 +19,16 @@ int	main(int argc, char **argv)
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	parsing(&data);
-
+	loop_mlx(&data);
 	return (0);
+}
+
+void	loop_mlx(t_data *data)
+{
+	t_mlx_data *ui;
+
+	ui = &data->mlx_data;
+	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
+	mlx_hook(ui->win, 17, 0, &free_stuff, data);
+	mlx_loop(ui->mlx);
 }

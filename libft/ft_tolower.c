@@ -3,25 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 16:26:10 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 20:01:33 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/13 18:56:42 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:18:52 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+// Note
+//     Prototyped as int tolower(int c)
+//     -> #include <ctype.h>
+//     -> converts an upper-case letter to the corresponding lower-case letter
+//     -> value of the argument must be representable
+// 	   as an unsigned char or the value of EOF
+//     -> if the argument is an upper-case letter, the tolower() function
+// 	   returns the corresponding lower-case letter
+//     -> otherwise, the argument is returned unchanged
 
+#include "libft.h"
+
+// Converts an upper-case letter to the corresponding lower-case letter
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-	c += 32;
-	return (c);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
 }
-
-// int main()
-// {
-// 	int a = 'D';
-// 	printf("%d", ft_tolower(a));
-// }

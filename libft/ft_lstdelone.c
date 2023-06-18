@@ -3,23 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 14:41:45 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:59:05 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/21 14:50:14 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:56:49 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+// Note
+//  Prototyped as void ft_lstdelone(t_list *lst, void (*del)(void*))
+//  -> lst: the node to free
+//  -> del: the address of the function used to delete the content
+//  -> takes as a parameter a node and frees the memory of the node’s content
+//     using the function ’del’ given as a parameter and frees the node
+//  -> the memory of ’next’ must not be freed
+//  -> external functs: free
+//  -> return: none
 
+#include "libft.h"
+
+// Takes a node and frees the memory of the node’s content
+// using the function ’del’ and frees the node
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!del)
-		return ;
-	if (lst)
-	{
-		(*del)(lst->content);
-		free(lst);
-	}
+	del(lst->content);
+	free(lst);
 }

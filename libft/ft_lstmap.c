@@ -3,45 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 17:58:04 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 18:36:18 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/17 19:42:45 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:32 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+// The function ft_lstmap() iterates the linked-list 'lst', and creates a new
+// list resulting of the successive applications of the function 'f' to the
+// content of each node.
+
 #include "libft.h"
+
+static t_list	*delete_node(t_list *node, t_list *head, void (*del)(void *))
+{
+	t_list	*tmp;
+
+	while (head != node)
+	{
+		del(head->content);
+		tmp = head;
+		ft_lstdelone(head, del);
+		head = tmp->next;
+	}
+	del(node->content);
+	ft_lstdelone(node, del);
+	return (NULL);
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*n;
-	t_list	*b;
+	t_list	*head;
+	t_list	*node;
 
-	n = NULL;
+	if (!lst)
+		return (NULL);
+	head = ft_lstnew(f(lst->content));
+	if (!head)
+	{
+		del(head->content);
+		ft_lstdelone(head, del);
+		return (NULL);
+	}
+	lst = lst->next;
 	while (lst)
 	{
-		b = ft_lstnew((*f)(lst->content));
-		if (!b)
-		{
-			ft_lstclear(&n, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&n, b);
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+			return (delete_node(node, head, del));
+		ft_lstadd_back(&head, node);
 		lst = lst->next;
 	}
-	return (n);
+	return (head);
 }
-
-// int main ()
-// {
-// 	t_list *list;
-// 	list = NULL;
-// 	list = ft_add_front(list, "Päckchen 1");
-// 	list = ft_add_front(list, "Päckchen 2");
-// 	list = ft_add_front(list, "Päckchen 3");
-
-// 	print_list(list);
-
-// 	return 0;
-// }

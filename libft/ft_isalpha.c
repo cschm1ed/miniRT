@@ -3,42 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 22:53:42 by estruckm          #+#    #+#             */
-/*   Updated: 2023/01/07 13:59:07 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/12 13:37:15 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 11:54:32 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
+// Note
+// 	Prototyped as int isalpha(int c)
+// 	-> #include <ctype.h>
+// 	-> tests for any character for which isupper(3) or islower(3) is true
+// 	-> the value of the argument must be representable as an unsigned
+// 	   char or the value of EOF
+// 	-> returns zero if the character tests false
+// 	   returns non-zero if the character tests true
 
-int	ft_isalpha(int chr)
+#include "libft.h"
+
+// Tests for any character for which isupper(3) or islower(3) is true
+int	ft_isalpha(int c)
 {
-	unsigned char	c;
-
-	c = (unsigned char) chr;
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	else
 		return (0);
 }
-
-// int main()
-// {
-// 	char c, result;
-
-//     c = '*';
-//  	result = ft_isalpha(c);
-//     printf("The result is %d\n", result);
-
-//     c = 'g';
-//  	result = ft_isalpha(c);
-//     printf("The result is %d\n", result);
-
-//     c = '+';
-//  	result = ft_isalpha(c);
-//     printf("The result is %d\n", result);
-
-//  	return 0;
-// }

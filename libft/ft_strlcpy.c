@@ -3,58 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 10:48:32 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 20:10:03 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/13 19:42:29 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 11:56:10 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+// Note
+//     Prototyped as
+// size_t strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+//     -> #include <string.h>
+//     -> copies strings with the same input parameters
+//        and output result as snft_printf(3)
+//     -> safer, more consistent, and less error prone replacements
+//        for the easily misused functions strncpy(3) and strncat(3)
+//     -> takes the full size of the destination buffer and guarantee
+//        NUL-termination if there is room
+//     -> copies up to dstsize - 1 characters from the string src to dst,
+//        NUL-terminating the result if dstsize is not 0
+//     -> if the src and dst strings overlap, the behavior is undefined
+//     -> returns the total length of the string they tried to create
+//        (len of src)
+//     -> if the return value is >= dstsize, the output string has been
+//        truncated
 
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+#include "libft.h"
+
+// Copies up to dstsize - 1 characters from 'src' to 'dst',
+// Takes full size of dst buffer and guarantee NULL-termination if room
+// Returns len of src
+// If the src and dst strings overlap, the behavior is undefined
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t		i;
 
 	i = 0;
-	if (dstsize == 0)
-	{
-		while (src[i])
-			i++;
-		return (i);
-	}
-	while (i < dstsize - 1 && src[i] != '\0')
+	while (dstsize != 0 && i < dstsize - 1 && src[i])
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	if (i < dstsize)
+	if (dstsize > 0)
 		dst[i] = '\0';
-	while (src[i])
-		i++;
-	return (i);
+	return (ft_strlen(src));
 }
-
-// int main()
-// {
-// 	size_t result;
-// 	size_t result_2;
-//  	char src[10] = "ffff";
-// 	char dst[20] = "";
-
-// 	char src_2[10] = "ffff";
-// 	char dst_2[20] = "";
-// 	//strlcpy(dst, src, 2);
-// 	result = strlcpy(dst, src, 0);
-// 	strlcpy(dst, src, 3);
-// 	printf("After strlcpy(): %s\n", dst);
-// 	printf("Wert: %zu\n\n", result);
-
-// 	result_2 = ft_strlcpy(dst_2, src_2, 0);
-// 	ft_strlcpy(dst_2, src_2, 3);
-// 	printf("After ft_strlcpy(): %s\n", dst_2);
-// 	printf("Wert: %zu", result_2);
-
-// 	return 0;
-// }

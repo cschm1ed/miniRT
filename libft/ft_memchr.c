@@ -3,46 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 22:37:10 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:02:44 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/14 14:49:58 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/29 18:58:11 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+// Note
+//     Prototyped as void *memchr(const void *s, int c, size_t n)
+//     -> #include <string.h>
+//     -> locates the first occurrence of c (converted to an unsigned char)
+//        in string s
+//     -> returns a pointer to the byte located
+//     -> returns NULL if no such byte exists within n bytes
+
+// Links
+//     memchr: https://www.youtube.com/watch?v=ypG9W33LOTk
+
 #include "libft.h"
 
+// Locates first occurrence of c (converted to an unsigned char) in s
+// Returns a pointer to the byte located
+// Returns NULL if no such byte exists within n bytes
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*s_2;
-	unsigned char	c_2;
+	unsigned char	*char_s;
+	unsigned char	char_c;
+	size_t			i;
 
-	s_2 = (unsigned char *)s;
-	c_2 = (unsigned char)c;
-	while (n != 0)
+	char_s = (unsigned char *) s;
+	char_c = (unsigned char) c;
+	i = 0;
+	while (i != n)
 	{
-		if (*s_2 == c_2)
-		{
-			return (s_2);
-		}
-		n--;
-		s_2++;
+		if (char_s[i] == char_c)
+			return (&char_s[i]);
+		i++;
 	}
 	return (NULL);
 }
-//  int main () {
-//    const char str[] = "";
-//    const char ch = '.';
-//    char *ret;
-//    char *ret_2;
-
-//    ret = memchr(str, ch, -3);
-//    ret_2 = ft_memchr(str, ch, -3);
-
-//    printf("String after |%c| is - |%s|\n", ch, ret);
-//    printf("String after |%c| is - |%s|\n", ch, ret_2);
-
-//    return(0);
-// }

@@ -3,34 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 16:31:48 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 19:51:20 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/15 10:23:50 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/16 12:21:40 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+// Note
+//     Prototyped as char *strchr(const char *s, int c)
+//     -> #include <string.h>
+//     -> locates the first occurrence of c (converted to a char) in the string
+//        pointed to by s
+//     -> the terminating null character is considered to be part of the string;
+//        therefore if c is ‘\0’, the functions locate the terminating ‘\0’
+//     -> returns a pointer to the located character
+//     -> returns NULL if the character does not appear in the string
 
+#include "libft.h"
+
+// Locates the first occurrence of c in s
+// The terminating null character is considered to be part of the string
+// Returns a pointer to the located character
+// Returns NULL if the character does not appear in the string
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != (unsigned char)c)
-		if (!*s++)
-			return (0);
-	return ((char *)s);
+	int		i;
+
+	i = -1;
+	while (s[++i] != '\0')
+		if (s[i] == (char) c)
+			return (&((char *)s)[i]);
+	if (s[i] == (char) c)
+		return (&((char *)s)[i]);
+	return (NULL);
 }
-
-// int main () {
-//    const char str[] = "testtest.hallohallo";
-//    const char ch = '.';
-//    char *ret;
-
-//    ret = strchr(str, ch);
-
-//    printf("String after |%c| is - |%s|\n", ch, ret);
-
-// 	ret = ft_strchr(str, ch);
-// 	 printf("String after |%c| is - |%s|\n", ch, ret);
-//    return(0);
-// }

@@ -3,44 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lspohle <lspohle@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 17:01:49 by estruckm          #+#    #+#             */
-/*   Updated: 2022/12/23 20:00:28 by estruckm         ###   ########.fr       */
+/*   Created: 2022/12/15 10:39:07 by lspohle           #+#    #+#             */
+/*   Updated: 2022/12/20 12:00:21 by lspohle          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "libft.h"
-#include <stdio.h>
+// Note
+//     Prototyped as char *strrchr(const char *s, int c)
+//     -> #include <string.h>
+//     -> identical to strchr(), except it locates the last occurrence of c
 
+#include "libft.h"
+
+// Locates the last occurrence of c in s
+// The terminating null character is considered to be part of the string
+// Returns a pointer to the located character
+// Returns NULL if the character does not appear in the string
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ret;
+	char			*char_s;
+	char			*tmp;
+	size_t			i;
 
-	ret = 0;
-	while (*s)
+	char_s = (char *) s;
+	tmp = NULL;
+	i = 0;
+	while (i <= ft_strlen(s))
 	{
-		if (*s == (unsigned char)c)
-			ret = (char *)s;
-		++s;
+		if (char_s[i] == (char) c)
+			tmp = &char_s[i];
+		i++;
 	}
-	if (!c)
-		ret = ((char *)s);
-	return (ret);
+	return (tmp);
 }
-
-// int main ()
-// {
-//    const char str[] = "soinfso.oifnosi.sd";
-//    const char ch = '.';
-//    char *ret;
-
-//    ret = strrchr(str, ch);
-
-//    printf("String after |%c| is - |%s|\n", ch, ret);
-
-// 	ret = ft_strrchr(str, ch);
-// 	 printf("String after |%c| is - |%s|\n", ch, ret);
-//    return(0);
-// }
