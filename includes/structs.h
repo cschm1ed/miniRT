@@ -13,17 +13,11 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct s_mlx t_mlx;
 typedef struct s_data t_data;
 typedef struct s_parsing t_parsing;
+typedef struct s_mlx_data t_mlx_data;
 
-typedef struct s_data
-{
-	char		*scene_filename;
-	t_parsing	*parsing;
-}	t_data;
-
-typedef struct s_mlx
+typedef struct s_mlx_data
 {
 	void		*mlx;
 	void		*win;
@@ -35,7 +29,14 @@ typedef struct s_mlx
 	int			endian;
 	int			width;
 	int			height;
-}	t_mlx;
+}	t_mlx_data;
+
+typedef struct s_data
+{
+	char			*scene_filename;
+	t_parsing		*parsing;
+	t_mlx_data		mlx_data;
+}	t_data;
 
 typedef struct s_direction
 {

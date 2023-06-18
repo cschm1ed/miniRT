@@ -50,5 +50,5 @@ int	parsing(t_data *data)
 			perror("malloc failure");
 	}
 	close(fd);
+	return (SUCCESS);
 }
-

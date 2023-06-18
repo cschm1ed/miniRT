@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	data.scene_filename = argv[1];
-	init_parsing(&data);
+	if (init_data(argc, argv, &data) == FAILURE)
+		return (1);
 	parsing(&data);
 
 	return (0);

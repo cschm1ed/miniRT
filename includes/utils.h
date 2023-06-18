@@ -13,8 +13,8 @@
 #ifndef UTILS_H
 # define UTILS_H
 
-int ft_strcmp(char *s1, char *s2);
+// inits
 int	init_parsing(t_data *data);
-
+int	init_data(int argc, char **argv, t_data *data);
 
 #endif
