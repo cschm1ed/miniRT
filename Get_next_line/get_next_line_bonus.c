@@ -6,13 +6,13 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:42:12 by gemartin          #+#    #+#             */
-/*   Updated: 2023/02/25 18:59:59 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 19:41:43 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*storage[OPEN_MAX];
 	char		*line;

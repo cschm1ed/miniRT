@@ -6,22 +6,20 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:48:32 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 17:33:39 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 19:51:04 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# include <minirt.h>
-
 typedef struct s_mlx t_mlx;
 typedef struct s_data t_data;
+typedef struct s_parsing t_parsing;
 
 typedef struct s_data
 {
-	t_mlx	mlx;
-	char	*scene_filename;
+	char		*scene_filename;
 	t_parsing	*parsing;
 }	t_data;
 

@@ -6,14 +6,19 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:23:17 by nristorc          #+#    #+#             */
-/*   Updated: 2023/06/18 16:44:56 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 19:57:58 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../includes/minirt.h"
 
 int	main(int argc, char **argv)
 {
-	printf("hello world\n");
+	t_data	data;
+
+	data.scene_filename = argv[1];
+	init_parsing(&data);
+	parsing(&data);
+
 	return (0);
 }

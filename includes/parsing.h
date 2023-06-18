@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/18 17:31:45 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:48:27 by estruckm         ###   ########.fr       */
+/*   Created: 2023/06/18 19:21:19 by estruckm          #+#    #+#             */
+/*   Updated: 2023/06/18 19:52:52 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minirt.h"
+#ifndef PARSING_H
+# define PARSING_H
 
-int	init_parsing(t_data *data)
-{
-	data->parsing = ft_calloc(sizeof(t_parsing), 7);
-	if (data->parsing == NULL)
-		return (perror("malloc"), FAILURE);
-	data->parsing[0] = (t_parsing){"L", interpret_lightsource};
-	return (SUCCESS);
-}
+int interpret_lightsource(char **str);
+int	parsing(t_data *data);
+
+#endif

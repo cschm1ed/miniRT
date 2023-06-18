@@ -1,4 +1,4 @@
-#include "minirt.h"
+#include "../../includes/minirt.h"
 
 int ft_strcmp(char *s1, char *s2)
 {

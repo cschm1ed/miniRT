@@ -6,11 +6,27 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:54:41 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 17:26:56 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 19:54:35 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minirt.h>
+#include "../../includes/minirt.h"
+
+int	slicer(char *str, t_data *data)
+{
+	char	**split;
+	int		i;
+
+	i = 0;
+	split = ft_split(str, ' ');
+	if (split == NULL)
+		return (FAILURE);
+	while (i < 8)
+		if (!ft_strcmp(data->parsing[i].name, split[0]))
+			if (data->parsing[i++].f(split) == FAILURE)
+				return (FAILURE);
+	return (SUCCESS);
+}
 
 
 int	parsing(t_data *data)
@@ -26,7 +42,7 @@ int	parsing(t_data *data)
 	while (str != NULL)
 	{
 		if (*str != '\n')
-			if (slicer(str) == FAILURE)
+			if (slicer(str, data) == FAILURE)
 				return (FAILURE);
 		free(str);
 		str = (get_next_line(fd));
@@ -36,13 +52,3 @@ int	parsing(t_data *data)
 	close(fd);
 }
 
-int	slicer(char *str)
-{
-	char	**split;
-
-	split = ft_split(str, ' ');
-	if (split == NULL)
-		return (FAILURE);
-	
-
-}

@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:53:00 by gemartin          #+#    #+#             */
-/*   Updated: 2023/03/21 19:35:19 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 19:42:00 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_strdup_gnl(char *s1);
 char	*ft_strchr_gnl(char *s, int c);
 char	*ft_substr_gnl(char *s, unsigned int start, size_t len);
-char	*ft_get_next_line(int fd);
+char	*get_next_line(int fd);
 char	*ft_free(char **str);
 
 char	*clean_storage(char *storage);
