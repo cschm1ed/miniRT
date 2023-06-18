@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:48:32 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 17:03:45 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:33:39 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_data
 {
 	t_mlx	mlx;
 	char	*scene_filename;
+	t_parsing	*parsing;
 }	t_data;
 
 typedef struct s_mlx
@@ -51,5 +52,11 @@ typedef struct s_pos
 	float	y;
 	float	z;
 } t_pos;
+
+typedef struct s_parsing
+{
+	char	*name;
+	int		(*f)(char **str);
+} t_parsing;
 
 #endif

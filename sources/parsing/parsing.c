@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:54:41 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 17:23:25 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:26:56 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,24 @@ int	parsing(t_data *data)
 	str = get_next_line(fd);
 	while (str != NULL)
 	{
-		if (slicer(str) == FAILURE)
-			return (FAILURE);
+		if (*str != '\n')
+			if (slicer(str) == FAILURE)
+				return (FAILURE);
 		free(str);
 		str = (get_next_line(fd));
 		if (str == NULL)
-			perror("malloc failure")
+			perror("malloc failure");
 	}
 	close(fd);
+}
+
+int	slicer(char *str)
+{
+	char	**split;
+
+	split = ft_split(str, ' ');
+	if (split == NULL)
+		return (FAILURE);
+	
+
 }
