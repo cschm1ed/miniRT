@@ -28,7 +28,8 @@ CCFLAG 			:= -Wall -Werror -Wextra -g
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
 
-MLXFLAGS 		:= -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS 		:= -I /usr/X11/include -L /usr/X11/lib -lX11 \
+                   			-lmlx -lXext -lm -framework OpenGL -framework AppKit
 LIB 			:= ./libft
 
 MAKE			:= make
