@@ -18,6 +18,7 @@ int	init_parsing(t_data *data)
 	if (data->parsing == NULL)
 		return (perror("malloc"), FAILURE);
 	data->parsing[0] = (t_parsing){"L", interpret_lightsource};
+
 	return (SUCCESS);
 }
 

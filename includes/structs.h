@@ -13,9 +13,12 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+#include "minirt.h"
+
 typedef struct s_data t_data;
 typedef struct s_parsing t_parsing;
 typedef struct s_mlx_data t_mlx_data;
+typedef struct s_scene t_scene;
 
 typedef struct s_mlx_data
 {
@@ -36,6 +39,7 @@ typedef struct s_data
 	char			*scene_filename;
 	t_parsing		*parsing;
 	t_mlx_data		mlx_data;
+	struct s_scene	*scene;
 }	t_data;
 
 typedef struct s_direction
@@ -62,7 +66,7 @@ typedef struct s_vector
 typedef struct s_parsing
 {
 	char	*name;
-	int		(*f)(char **str);
+	int		(*f)(char **str, t_data *data);
 } t_parsing;
 
 typedef struct s_sphere
@@ -88,34 +92,34 @@ typedef struct s_cylinder
 	int colour;
 } t_cylinder;
 
-typedef camera
+typedef struct s_camera
 {
 	t_pos *center;
 	t_vector *s_vector;
 	int degrees;
 } t_camera;
 
-typedef ambient_light
+typedef struct s_ambient_light
 {
 	float light_ratio;
 	int colour;
 } t_ambient_light;
 
-typedef light_source
+typedef struct s_light_source
 {
 	t_pos *center;
 	float light_ratio;
 	int colour;
 } t_light_source;
 
-typedef scene
+typedef struct s_scene
 {
-	t_camera *camera;
-	t_light_source *light_lst;
-	t_ambient_light *ambient_light;
-	t_sphere *sphere_lst;
-	t_plane *plane_lst;
-	t_cylinder *cylinder_lst;
+	t_list *camera;
+	t_list *light_lst;
+	t_list *ambient_light;
+	t_list *sphere_lst;
+	t_list *plane_lst;
+	t_list *cylinder_lst;
 } t_scene;
 
 #endif

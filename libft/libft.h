@@ -55,7 +55,7 @@ void	ft_putendl_fd(char *c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
-	char			*content;
+	void			*content;
 	struct s_list	*next;
 	int				flag;
 }					t_list;

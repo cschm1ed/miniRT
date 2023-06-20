@@ -13,7 +13,7 @@
 #ifndef PARSING_H
 # define PARSING_H
 
-int interpret_lightsource(char **str);
+int interpret_lightsource(char **str, t_data *data);
 int	parsing(t_data *data);
 
 #endif

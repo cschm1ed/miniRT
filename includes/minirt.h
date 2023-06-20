@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
-# include "structs.h"
 # include "../libft/libft.h"
+# include "structs.h"
 # include "utils.h"
 # include "parsing.h"
 
