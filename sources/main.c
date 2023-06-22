@@ -16,19 +16,37 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	data.scene = init_scene(data.scene);
+//	if (scene == NULL)
+//		return (1);
+	data.scene_filename = "./scenes/test.rt";
+
+
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	parsing(&data);
-	loop_mlx(&data);
+	t_list *light_element = data.scene->light_lst;
+	while (light_element != NULL)
+	{
+
+		t_light_source *light_source = (t_light_source *)light_element->content;
+
+		printf("Center coordinates: (%f, %f, %f)\n", light_source->center.x, light_source->center.y, light_source->center.z);
+		printf("Light ratio: %f\n", light_source->light_ratio);
+		light_element = light_element->next;
+	}
+//	loop_mlx(&data);
 	return (0);
 }
 
-void	loop_mlx(t_data *data)
-{
-	t_mlx_data *ui;
-
-	ui = &data->mlx_data;
-	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
-	mlx_hook(ui->win, 17, 0, &free_stuff, data);
-	mlx_loop(ui->mlx);
-}
+//void	loop_mlx(t_data *data)
+//{
+//	t_mlx_data *ui;
+//
+//	ui = &data->mlx_data;
+//
+//
+//	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
+//	mlx_hook(ui->win, 17, 0, &free_stuff, data);
+//	mlx_loop(ui->mlx);
+//}

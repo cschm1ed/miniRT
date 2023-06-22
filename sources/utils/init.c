@@ -12,12 +12,33 @@
 
 #include "../../includes/minirt.h"
 
+t_scene *init_scene(t_scene *scene)
+{
+	scene = malloc(sizeof(t_scene));
+	if (scene == NULL)
+		return NULL;
+
+	scene->camera = NULL;
+	scene->light_lst = NULL;
+	scene->ambient_light = NULL;
+	scene->sphere_lst = NULL;
+	scene->plane_lst = NULL;
+	scene->cylinder_lst = NULL;
+
+	return scene;
+}
+
 int	init_parsing(t_data *data)
 {
 	data->parsing = ft_calloc(sizeof(t_parsing), 7);
 	if (data->parsing == NULL)
 		return (perror("malloc"), FAILURE);
 	data->parsing[0] = (t_parsing){"L", interpret_lightsource};
+	data->parsing[1] = (t_parsing){"C", interpret_camera};
+	data->parsing[2] = (t_parsing){"A", interpret_ambient_light};
+	data->parsing[3] = (t_parsing){"pl", interpret_plane};
+	data->parsing[4] = (t_parsing){"sp", interpret_sphere};
+	data->parsing[5] = (t_parsing){"cy", interpret_cylinder};
 
 	return (SUCCESS);
 }

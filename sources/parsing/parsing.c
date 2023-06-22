@@ -21,12 +21,12 @@ int	slicer(char *str, t_data *data)
 	split = ft_split(str, ' ');
 	if (split == NULL)
 		return (FAILURE);
-	while (i < 1)
+	while (i < 6)
 	{
 		if (!ft_strcmp(data->parsing[i].name, split[0]))
 			if (data->parsing[i].f(split, data) == FAILURE)
 				return (FAILURE);
-		i ++;
+		i++;
 	}
 	return (SUCCESS);
 }
@@ -46,7 +46,9 @@ int	parsing(t_data *data)
 	{
 		if (*str != '\n')
 			if (slicer(str, data) == FAILURE)
+			{
 				return (FAILURE);
+			}
 		free(str);
 		str = (get_next_line(fd));
 		if (str == NULL)

@@ -12,37 +12,70 @@
 
 #include "../../includes/minirt.h"
 
-int float_checker(char *str)
+int get_singleInteger(char *str, int *variable)
 {
-	int len;
+	if (check_integerString(str) == FAILURE)
+		return (FAILURE);
+	(*variable) = ft_atoi(str);
+	return (SUCCESS);
+}
+
+int get_singleFloat(char *str, float *variable)
+{
+	if (check_floatString(str) == FAILURE)
+		return (FAILURE);
+	(*variable) = ft_atod((const char*)str);
+	return (SUCCESS);
+}
+
+int get_center(char *str, t_pos *center)
+{
+	char **split;
+
+	if (check_centerString(str) == FAILURE)
+		return (FAILURE);
+	split = ft_split(str, ',');
+	center->x = ft_atod((const char *) split[0]);
+	center->y = ft_atod((const char *) split[1]);
+	center->z = ft_atod((const char *) split[2]);
+	free_stringArray(split);
+	return (SUCCESS);
+}
+
+int get_trgb(char *str, int *colour)
+{
+	char **split;
+	int r;
+	int g;
+	int b;
+	int t;
+
+	if (check_rgbString(str) == FAILURE)
+		return (FAILURE);
+	split = ft_split(str, ',');
+	t = 0;
+	r = ft_atoi((const char *) split[0]);
+	g = ft_atoi((const char *) split[1]);
+	b = ft_atoi((const char *) split[2]);
+	(*colour) = trgb(t, r, g, b);
+	free_stringArray(split);
+	return (SUCCESS);
+}
+
+int count_elements(char **str)
+{
 	int i;
-	int point_check
 
 	i = 0;
-	point_check = 0;
-	len = ft_strlen(str);
-	if (str[0] == '.')
-		return (1);
-	if (str[len - 1] == '.')
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (ft_isdigit(str[i]) != 1 && str[i] != '.')
-			return (1);
-		if (str[i] == '.')
-			point_check++;
-		if (point_check > 1)
-			return (1);
+	while (str[i] != NULL)
 		i++;
-	}
-	return (0);
+	return (i);
 }
+
 long double    ft_atod(const char *str)
 {
 	long double    result;
 	long double    float_part;
-	if (float_checker(str) != 0)
-		printf("not a valid float variable\n");
 	result = ft_atoi(str);
 	while (*str != '.' && *str != ',' && *str != '\0')
 		str++;
@@ -52,4 +85,14 @@ long double    ft_atod(const char *str)
 	return (result + float_part);
 }
 
-.9879.
+void free_stringArray(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		i++;
+	}
+}

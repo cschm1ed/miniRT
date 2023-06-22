@@ -17,7 +17,9 @@ SRCS 			:= main.c \
 				   interpret_scene.c \
 				   free_stuff.c \
 				   put_pixel.c \
-				   trgb.c
+				   trgb.c \
+				   slice_utils1.c \
+				   parsing_check_utils.c
 
 VPATH			:= sources:sources/parsing:sources/utils:sources/mlx_utils
 BUILDDIR		:= build
