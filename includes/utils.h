@@ -32,9 +32,16 @@ t_scene		*init_scene(t_scene *scene);
 int			init_parsing(t_data *data);
 int			init_data(int argc, char **argv, t_data *data);
 
-// mlx s	tuff
+// mlx stuff
 void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
+
+// math stuff
+float		dot(t_vector v1, t_vector v2);
+float		vector_len(t_vector vec);
+t_vector 	cross(t_vector v1, t_vector v2);
+t_vector	vector_add(t_vector v1, t_vector v2);
+t_vector	vector_substract(t_vector v1, t_vector v2);
 
 int			free_stuff(t_data *data);
 void		free_stringArray(char **str);

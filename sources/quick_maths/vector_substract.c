@@ -19,4 +19,5 @@ t_vector	vector_substract(t_vector v1, t_vector v2)
 	out.x = v1.x - v2.x;
 	out.y = v1.y - v2.y;
 	out.z = v1.z - v2.z;
+	return (out);
 }

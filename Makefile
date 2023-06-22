@@ -19,9 +19,21 @@ SRCS 			:= main.c \
 				   put_pixel.c \
 				   trgb.c \
 				   slice_utils1.c \
-				   parsing_check_utils.c
+				   parsing_check_utils.c \
+				   dot_product.c \
+				   cross_product.c \
+				   vector_len.c \
+				   vector_add.c \
+				   vector_substract.c \
+				   angles_to_vector.c
 
-VPATH			:= sources:sources/parsing:sources/utils:sources/mlx_utils
+VPATH			:= sources:\
+					sources/parsing:\
+					sources/utils:\
+					sources/mlx_utils:\
+					sources/intersections\
+					sources/quick_maths
+
 BUILDDIR		:= build
 
 CC 				:= gcc

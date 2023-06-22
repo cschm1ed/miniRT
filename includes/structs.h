@@ -42,12 +42,12 @@ typedef struct s_data
 	struct s_scene	*scene;
 }	t_data;
 
-typedef struct s_direction
+typedef struct s_vector
 {
 	float	x;
 	float	y;
 	float	z;
-}	t_direction;
+}	t_vector;
 
 typedef struct s_pos
 {
@@ -71,10 +71,16 @@ typedef struct s_sphere
 
 typedef struct s_plane
 {
-	t_pos		point;
+	t_pos	point;
 	t_pos	vector;
 	int colour;
 } t_plane;
+
+typedef struct s_line
+{
+    t_pos       base;
+    t_vector direction;
+}   t_line;
 
 typedef struct s_cylinder
 {
