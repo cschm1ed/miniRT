@@ -48,12 +48,13 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	t_line		line;
 	t_sphere	sphere;
 	t_plane		plane;
+	t_vector 	tmp;
 
 	line.base = (t_vector){0, 0, 0};
 	plane.base = (t_vector){0, 5, 0};
 	plane.v1 = (t_vector){1, 0, 0};
 	plane.v2 = (t_vector){1, 0, 1};
-	sphere.center = (t_vector){1, -3, 0};
+	sphere.center = (t_vector){0, -3, -1};
 	sphere.diameter = 1;
 	x = 0;
 	y = 0;
@@ -64,9 +65,9 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 			a1 = ((float)90 / ui->width * x) - 45;
 			a2 = ((float)90 / ui->height * y) - 45;
 			line.direction = angles_to_vector(a1, a2);
-			if (intersection_line_sphere(sphere, line))
+			if (intersection_line_sphere(sphere, line, &tmp))
 				put_pixel(x, y, trgb(0, 100, 20, 200), data);
-			else if (interesction_line_plane(plane, line))
+			else if (interesction_line_plane(plane, line, &tmp))
 				put_pixel(x, y, trgb(0, 20, 150 , 50), data);
 			y ++;
 		}

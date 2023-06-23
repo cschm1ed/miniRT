@@ -28,6 +28,7 @@ SRCS 			:= main.c \
 				   angles_to_vector.c \
 				   line_sphere.c \
 				   line_plane.c \
+				   vector_x_scalar.c
 
 VPATH			:= sources:\
 					sources/parsing:\

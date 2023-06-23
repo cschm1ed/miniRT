@@ -22,16 +22,16 @@ typedef struct s_scene t_scene;
 
 typedef struct s_mlx_data
 {
-	void		*mlx;
-	void		*win;
-	void		*img;
-	char		*img_addr;
-	char		*titel;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	int			width;
-	int			height;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*img_addr;
+	char			*titel;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	int				width;
+	int				height;
 }	t_mlx_data;
 
 typedef struct s_data
@@ -44,22 +44,22 @@ typedef struct s_data
 
 typedef struct s_vector
 {
-	float	x;
-	float	y;
-	float	z;
+	float		x;
+	float		y;
+	float		z;
 }	t_vector;
 
 typedef struct s_pos
 {
-	float	x;
-	float	y;
-	float	z;
+	float		x;
+	float		y;
+	float		z;
 } t_pos;
 
 typedef struct s_parsing
 {
-	char	*name;
-	int		(*f)(char **str, t_data *data);
+	char		*name;
+	int			(*f)(char **str, t_data *data);
 } t_parsing;
 
 typedef struct s_sphere
@@ -74,52 +74,52 @@ typedef struct s_plane
 	t_vector	base;
 	t_vector	v1;
 	t_vector 	v2;
-	int colour;
+	int 		colour;
 } t_plane;
 
 typedef struct s_line
 {
-    t_vector       base;
-    t_vector direction;
+    t_vector	base;
+    t_vector	direction;
 }   t_line;
 
 typedef struct s_cylinder
 {
-	t_vector center;
-	t_vector vector;
-	float diameter;
-	float height;
-	int colour;
+	t_vector	center;
+	t_vector	vector;
+	float		diameter;
+	float		height;
+	int			colour;
 } t_cylinder;
 
 typedef struct s_camera
 {
-	t_vector center;
-	t_vector vector;
-	int degrees;
+	t_vector 	center;
+	t_vector 	vector;
+	int 		degrees;
 } t_camera;
 
 typedef struct s_ambient_light
 {
-	float light_ratio;
-	int colour;
+	float 		light_ratio;
+	int 		colour;
 } t_ambient_light;
 
 typedef struct s_light_source
 {
-	t_vector center;
-	float light_ratio;
-	int colour;
+	t_vector	center;
+	float		light_ratio;
+	int 		colour;
 } t_light_source;
 
 typedef struct s_scene
 {
-	t_list *camera;
-	t_list *light_lst;
-	t_list *ambient_light;
-	t_list *sphere_lst;
-	t_list *plane_lst;
-	t_list *cylinder_lst;
+	t_list		*camera;
+	t_list		*light_lst;
+	t_list 		*ambient_light;
+	t_list 		*sphere_lst;
+	t_list 		*plane_lst;
+	t_list 		*cylinder_lst;
 } t_scene;
 
 #endif

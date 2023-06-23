@@ -14,10 +14,9 @@
 
 static int line_in_plane(t_plane plane, t_line line);
 
-int interesction_line_plane(t_plane plane, t_line line)
+int interesction_line_plane(t_plane plane, t_line line, t_vector *result)
 {
 	t_vector	n;
-	t_vector 	intersect;
 	float 		t;
 
 	n = cross(plane.v1, plane.v2);
@@ -29,10 +28,9 @@ int interesction_line_plane(t_plane plane, t_line line)
 	}
 	t = (dot(vector_substract(plane.base, line.base), n)
 			/ dot(line.direction , n));
-	intersect = (t_vector){line.base.x + line.direction.x * t,
-						   line.base.y + line.direction.y * t,
-						   line.base.z + line.direction.z * t};
-	(void)intersect;
+	result->x = line.base.x + line.direction.x * t;
+	result->y = line.base.y + line.direction.y * t;
+	result->z = line.base.z + line.direction.z * t;
 	return (TRUE);
 }
 
