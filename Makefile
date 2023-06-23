@@ -25,7 +25,9 @@ SRCS 			:= main.c \
 				   vector_len.c \
 				   vector_add.c \
 				   vector_substract.c \
-				   angles_to_vector.c
+				   angles_to_vector.c \
+				   line_sphere.c \
+				   line_plane.c \
 
 VPATH			:= sources:\
 					sources/parsing:\

@@ -33,7 +33,7 @@ int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)
 ** win_x_return and win_y_return are set to zero and the function returns 0.
 */
 
-int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \
+int		mlx_mouse_get_vector(t_xvar *xvar, t_win_list *win, \
 			int *win_x_return, int *win_y_return)
 {
 	Window		root_return;

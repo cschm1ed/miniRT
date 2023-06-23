@@ -18,9 +18,9 @@ int			float_checker(char *str);
 long double	ft_atod(const char *str);
 int			count_elements(char **str);
 int			trgb(int t, int r, int g, int b);
-int			get_center(char *str, t_pos *center);
-int			get_singleFloat(char *str, float *variable);
-int			get_singleInteger(char *str, int *variable);
+int			get_center(char *str, t_vector *center);
+int			get_single_float(char *str, float *variable);
+int			get_single_integer(char *str, int *variable);
 
 int			check_integerString(char *str);
 int			check_centerString(char *str);
@@ -37,11 +37,17 @@ void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
 
 // math stuff
-float		dot(t_vector v1, t_vector v2);
+int 		intersection_line_sphere(t_sphere sphere, t_line line);
+int			interesction_line_plane(t_plane plane, t_line line);
+int 		intersection_line_cylinder(t_cylinder, t_line line);
+
 float		vector_len(t_vector vec);
-t_vector 	cross(t_vector v1, t_vector v2);
 t_vector	vector_add(t_vector v1, t_vector v2);
+float		dot(t_vector v1, t_vector v2);
+t_vector 	cross(t_vector v1, t_vector v2);
 t_vector	vector_substract(t_vector v1, t_vector v2);
+t_vector	angles_to_vector(float ayx, float axz);
+
 
 int			free_stuff(t_data *data);
 void		free_stringArray(char **str);

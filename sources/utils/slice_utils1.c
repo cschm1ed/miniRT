@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-int get_singleInteger(char *str, int *variable)
+int get_single_integer(char *str, int *variable)
 {
 	if (check_integerString(str) == FAILURE)
 		return (FAILURE);
@@ -20,7 +20,7 @@ int get_singleInteger(char *str, int *variable)
 	return (SUCCESS);
 }
 
-int get_singleFloat(char *str, float *variable)
+int get_single_float(char *str, float *variable)
 {
 	if (check_floatString(str) == FAILURE)
 		return (FAILURE);
@@ -28,7 +28,7 @@ int get_singleFloat(char *str, float *variable)
 	return (SUCCESS);
 }
 
-int get_center(char *str, t_pos *center)
+int get_center(char *str, t_vector *center)
 {
 	char **split;
 

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   angles_to_vector.c                                 :+:      :+:    :+:   */
+/*   line_cylinder.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 09:03:27 by cschmied          #+#    #+#             */
-/*   Updated: 2023/06/22 09:03:27 by cschmied         ###   ########.fr       */
+/*   Created: 2023/06/23 11:22:18 by cschmied          #+#    #+#             */
+/*   Updated: 2023/06/23 11:22:18 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-t_vector angles_to_vector(float ayx, float az)
+int line_cylinder(t_cylinder cylinder, t_line line)
 {
-	t_vector out;
 
-	out.x = sin(ayx * M_PI / 180);
-	out.y = cos(ayx * M_PI / 180);
-	out.z = sin(az * M_PI / 180);
-	return (out);
 }

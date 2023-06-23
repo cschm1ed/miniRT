@@ -64,28 +64,29 @@ typedef struct s_parsing
 
 typedef struct s_sphere
 {
-	t_pos	center;
-	int		diameter;
-	int		colour;
+	t_vector	center;
+	float		diameter;
+	int			colour;
 } t_sphere;
 
 typedef struct s_plane
 {
-	t_pos	point;
-	t_pos	vector;
+	t_vector	base;
+	t_vector	v1;
+	t_vector 	v2;
 	int colour;
 } t_plane;
 
 typedef struct s_line
 {
-    t_pos       base;
+    t_vector       base;
     t_vector direction;
 }   t_line;
 
 typedef struct s_cylinder
 {
-	t_pos center;
-	t_pos vector;
+	t_vector center;
+	t_vector vector;
 	float diameter;
 	float height;
 	int colour;
@@ -93,8 +94,8 @@ typedef struct s_cylinder
 
 typedef struct s_camera
 {
-	t_pos center;
-	t_pos vector;
+	t_vector center;
+	t_vector vector;
 	int degrees;
 } t_camera;
 
@@ -106,7 +107,7 @@ typedef struct s_ambient_light
 
 typedef struct s_light_source
 {
-	t_pos center;
+	t_vector center;
 	float light_ratio;
 	int colour;
 } t_light_source;
