@@ -20,18 +20,20 @@ int intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result)
 	float 		a;
 	float 		b;
 	float 		c;
+	float 		discriminant;
 
 	oc = vector_substract(line.base, sphere.center);
 	a = dot(line.direction, line.direction);
 	b = 2 * dot(oc, line.direction);
 	c = dot(oc, oc) - pow(sphere.diameter, 2);
-	if (b * b - (4 * a * c) > 0)
+	discriminant = b * b - (4 * a * c);
+	if (discriminant > 0)
 	{
 		t1 = -b;
-		t1 += (float)sqrt(pow(b, 2) - ((float)4*a*c));
+		t1 += (float)sqrt(discriminant);
 		t1 /= (float)2 * a;
 		t2 = -b;
-		t2 -= sqrt(pow(b, 2) - (4*a*c));
+		t2 -= sqrt(discriminant);
 		t2 /= 2 * a;
 		if (t1 < 0 && t2 < 0)
 			return (FALSE);

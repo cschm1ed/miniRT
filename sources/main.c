@@ -73,6 +73,7 @@ int	main(int argc, char **argv)
 		x ++;
 	}
 }*/
+
 void	draw_image(t_mlx_data *ui, t_data *data)
 {
 	int 	x;

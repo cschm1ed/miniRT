@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:20:21 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:55:00 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:30:48 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,20 +104,21 @@ int interpret_plane(char **str, t_data *data)
 	t_plane *new_plane;
 
 	new_plane = malloc(sizeof(t_plane));
-	if (count_elements(str) != 4)
+	if (count_elements(str) != 5)
 		return (ft_printf("Wrong number of elements in light_source, there are %d elements in side\n",
 			1, count_elements(str)), FAILURE);
 	else
 	{
 		if (get_center(str[1], &new_plane->base) == FAILURE
 			|| get_center(str[2], &new_plane->v1) == FAILURE
+            || get_center(str[3], &new_plane->v2) == FAILURE
 			|| get_trgb(str[3], &new_plane->colour) == FAILURE)
 			return (free(new_plane), FAILURE);
 	}
 	new_element = ft_lstnew(new_plane);
 	ft_lstadd_back(&data->scene->plane_lst, new_element);
 //	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
-	printf("colour = %d\n", new_plane->colour);
+	printf("new plane colour = %d\n", new_plane->colour);
 	return (SUCCESS);
 }
 

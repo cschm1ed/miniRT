@@ -32,5 +32,6 @@
 # define TRUE 1
 # define FALSE 0
 # define MAX_DEPTH 1
+# define EPSILON 1e-9
 
 #endif

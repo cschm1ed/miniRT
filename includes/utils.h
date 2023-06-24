@@ -14,7 +14,7 @@
 # define UTILS_H
 
 //trace stuff
-int trace_ray(t_data *data, t_line line, int depth);
+int 		trace_ray(t_data *data, t_line line, int depth);
 
 //slice_utils
 int			float_checker(char *str);
@@ -42,7 +42,7 @@ void		put_pixel(int x, int y, int color, t_data *data);
 
 // math stuff
 int 		intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result);
-int intersection_line_plane(t_plane plane, t_line line, t_vector *result);
+int			intersection_line_plane(t_plane plane, t_line line, t_vector *result);
 int 		intersection_line_cylinder(t_cylinder, t_line line);
 
 t_vector	vector_x_scalar(t_vector vector, float scalar);
@@ -57,6 +57,6 @@ t_vector	angles_to_vector(float ayx, float axz);
 int			free_stuff(t_data *data);
 void		free_stringArray(char **str);
 
-void	print_vector(t_vector vector);
+void		print_vector(t_vector vector);
 
 #endif
