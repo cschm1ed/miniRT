@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "X11/keysym.h"
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
 # include "../libft/libft.h"
@@ -30,5 +31,6 @@
 # define FAILURE -1
 # define TRUE 1
 # define FALSE 0
+# define MAX_DEPTH 1
 
 #endif

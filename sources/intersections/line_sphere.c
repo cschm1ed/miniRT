@@ -27,8 +27,14 @@ int intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result)
 	c = dot(oc, oc) - pow(sphere.diameter, 2);
 	if (b * b - (4 * a * c) > 0)
 	{
-		t1 = (float)(-b + sqrt(pow(b, 2) - (4 * a * c)))/ (float)2 * a;
-		t2 = (float)(-b - sqrt(pow(b, 2) - (4 * a * c)))/ (float)2 * a;
+		t1 = -b;
+		t1 += (float)sqrt(pow(b, 2) - ((float)4*a*c));
+		t1 /= (float)2 * a;
+		t2 = -b;
+		t2 -= sqrt(pow(b, 2) - (4*a*c));
+		t2 /= 2 * a;
+		if (t1 < 0 && t2 < 0)
+			return (FALSE);
 		if (vector_len(vector_add(vector_x_scalar(line.direction, t1), line.base)) <
 				vector_len(vector_add(vector_x_scalar(line.direction, t2), line.base)))
 			*result = vector_add(vector_x_scalar(line.direction, t1), line.base);

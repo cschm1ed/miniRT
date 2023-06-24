@@ -14,7 +14,7 @@
 
 static int line_in_plane(t_plane plane, t_line line);
 
-int interesction_line_plane(t_plane plane, t_line line, t_vector *result)
+int intersection_line_plane(t_plane plane, t_line line, t_vector *result)
 {
 	t_vector	n;
 	float 		t;
@@ -28,6 +28,8 @@ int interesction_line_plane(t_plane plane, t_line line, t_vector *result)
 	}
 	t = (dot(vector_substract(plane.base, line.base), n)
 			/ dot(line.direction , n));
+	if (t < 0)
+		return (FALSE);
 	result->x = line.base.x + line.direction.x * t;
 	result->y = line.base.y + line.direction.y * t;
 	result->z = line.base.z + line.direction.z * t;

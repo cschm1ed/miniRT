@@ -139,7 +139,7 @@ int interpret_sphere(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_sphere);
 	ft_lstadd_back(&data->scene->sphere_lst, new_element);
-//	printf("colour = %d\n", new_sphere->colour);
+	printf("parsing Sphere: center %f,%f,%f colour = %d\n", new_sphere->center.x, new_sphere->center.y, new_sphere->center.z, new_sphere->colour);
 	return (SUCCESS);
 }
 

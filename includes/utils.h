@@ -13,6 +13,9 @@
 #ifndef UTILS_H
 # define UTILS_H
 
+//trace stuff
+int trace_ray(t_data *data, t_line line, int depth);
+
 //slice_utils
 int			float_checker(char *str);
 long double	ft_atod(const char *str);
@@ -33,12 +36,13 @@ int			init_parsing(t_data *data);
 int			init_data(int argc, char **argv, t_data *data);
 
 // mlx stuff
+int			handle_keypress(int keysym, t_data *data);
 void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
 
 // math stuff
 int 		intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result);
-int 		interesction_line_plane(t_plane plane, t_line line, t_vector *result);
+int intersection_line_plane(t_plane plane, t_line line, t_vector *result);
 int 		intersection_line_cylinder(t_cylinder, t_line line);
 
 t_vector	vector_x_scalar(t_vector vector, float scalar);
@@ -52,5 +56,7 @@ t_vector	angles_to_vector(float ayx, float axz);
 
 int			free_stuff(t_data *data);
 void		free_stringArray(char **str);
+
+void	print_vector(t_vector vector);
 
 #endif

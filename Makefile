@@ -28,14 +28,17 @@ SRCS 			:= main.c \
 				   angles_to_vector.c \
 				   line_sphere.c \
 				   line_plane.c \
-				   vector_x_scalar.c
+				   vector_x_scalar.c \
+				   key_events.c \
+				   trace_ray.c
 
 VPATH			:= sources:\
 					sources/parsing:\
 					sources/utils:\
 					sources/mlx_utils:\
 					sources/intersections\
-					sources/quick_maths
+					sources/quick_maths:\
+					sources/tracing
 
 BUILDDIR		:= build
 
