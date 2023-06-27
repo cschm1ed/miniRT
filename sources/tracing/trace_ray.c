@@ -12,10 +12,13 @@
 
 #include "../../includes/minirt.h"
 
+static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc);
+
 int trace_ray(t_data *data, t_line line, int depth)
 {
 	t_list		*objs;
 	t_vector 	intersection;
+	t_vector 	intensity;
 	float 		len_min;
 	float 		len_tmp;
 	int 		color;
@@ -32,10 +35,11 @@ int trace_ray(t_data *data, t_line line, int depth)
 	{
 		if (objs->intersection(objs->content, line, &intersection))
 		{
-			len_tmp = vector_len(substract(intersection, line.base));
+			len_tmp = vector_len(subtract(intersection, line.base));
 			if (!hit || len_tmp < len_min)
 			{
-				color = trgb(0, 250, 50, 100);
+				intensity = calculate_intensity(data->scene, objs, intersection, line);
+				color = colour_x_intensity((*(int*)((objs->content))), intensity);
 				len_min = len_tmp;
 				hit = TRUE;
 			}
@@ -43,4 +47,16 @@ int trace_ray(t_data *data, t_line line, int depth)
 		objs = objs->next;
 	}
 	return (color + trace_ray(data, (t_line){intersection, {0, 0, 0}}, depth + 1));
+}
+
+static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc)
+{
+	t_vector	out;
+	float 		distance;
+
+	out = (t_vector){255, 255, 255};
+	distance = vector_len(subtract(intersect, inc.base));
+	(void)scene; // add actual light
+	(void)obj; // add actual camera
+	return (vector_x_scalar(out, 1 / distance));
 }

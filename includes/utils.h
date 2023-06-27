@@ -56,7 +56,7 @@ float		vector_len(t_vector vec);
 t_vector	vector_add(t_vector v1, t_vector v2);
 float		dot(t_vector v1, t_vector v2);
 t_vector 	cross(t_vector v1, t_vector v2);
-t_vector	substract(t_vector v1, t_vector v2);
+t_vector	subtract(t_vector v1, t_vector v2);
 t_vector	angles_to_vector(float ayx, float axz);
 void		vector_multiply(t_vector vec, float factor);
 float		vector_scalar(t_vector vector1, t_vector vector2);

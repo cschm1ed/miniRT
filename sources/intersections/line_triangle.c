@@ -20,7 +20,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 
 //	Normal Vector N = AB × AC = (4, 1, 0) × (2, 5, 0) = (0, 0, 19)
 	(void)result;
-	normalized_Vector = cross(substract(triangle.C, triangle.A), substract(triangle.B, triangle.A));
+	normalized_Vector = cross(subtract(triangle.C, triangle.A), subtract(triangle.B, triangle.A));
 	vector_divide(normalized_Vector, vector_len(normalized_Vector));
 	factor_d = vector_scalar(normalized_Vector, triangle.A);
 	if (vector_scalar(normalized_Vector, line.direction) == 0)
@@ -57,7 +57,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 //
 //The intersection point is (0, 2, 0).
 //
-////t_vector	substract(t_vector v1, t_vector v2)
+////t_vector	subtract(t_vector v1, t_vector v2)
 ////{
 ////	t_vector	out;
 ////
