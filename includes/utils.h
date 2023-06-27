@@ -44,6 +44,7 @@ void		put_pixel(int x, int y, int color, t_data *data);
 int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);
 int			intersection_line_plane(void *object, t_line line, t_vector *result);
 int 		intersection_line_cylinder(t_cylinder, t_line line);
+int			intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result);
 
 t_vector	normal_sphere(void *sphere, t_vector point);
 t_vector	normal_plane(void *plane, t_vector point);
@@ -55,8 +56,11 @@ float		vector_len(t_vector vec);
 t_vector	vector_add(t_vector v1, t_vector v2);
 float		dot(t_vector v1, t_vector v2);
 t_vector 	cross(t_vector v1, t_vector v2);
-t_vector	vector_substract(t_vector v1, t_vector v2);
+t_vector	substract(t_vector v1, t_vector v2);
 t_vector	angles_to_vector(float ayx, float axz);
+void		vector_multiply(t_vector vec, float factor);
+float		vector_scalar(t_vector vector1, t_vector vector2);
+void		vector_divide(t_vector vector, float factor);
 
 
 int			free_stuff(t_data *data);

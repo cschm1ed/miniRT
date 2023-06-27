@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector	vector_substract(t_vector v1, t_vector v2)
+t_vector	substract(t_vector v1, t_vector v2)
 {
 	t_vector	out;
 

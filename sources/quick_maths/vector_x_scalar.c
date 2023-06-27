@@ -21,3 +21,11 @@ t_vector vector_x_scalar(t_vector vector, float scalar)
 	result.z = vector.z * scalar;
 	return (result);
 }
+
+float vector_scalar(t_vector vector1, t_vector vector2)
+{
+	float result;
+
+	result = (vector1.x * vector2.x) + (vector1.y * vector2.y) + (vector1.z * vector2.z);
+	return (result);
+}

@@ -26,8 +26,10 @@ SRCS 			:= main.c \
 				   vector_add.c \
 				   vector_substract.c \
 				   angles_to_vector.c \
+				   vector_multiply.c \
 				   line_sphere.c \
 				   line_plane.c \
+				   line_triangle.c \
 				   vector_x_scalar.c \
 				   key_events.c \
 				   trace_ray.c \
