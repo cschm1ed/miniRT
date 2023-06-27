@@ -36,7 +36,8 @@ SRCS 			:= main.c \
 				   surface_normal_sphere.c \
 				   surface_normal_plane.c \
 				   angle_between_vectors.c \
-				   rad_to_deg.c
+				   rad_to_deg.c \
+				   color_x_intensity.c
 
 VPATH			:= sources:\
 					sources/parsing:\

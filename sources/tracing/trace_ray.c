@@ -24,6 +24,7 @@ int trace_ray(t_data *data, t_line line, int depth)
 	hit = 0;
 	len_min = 0;
 	color = 0;
+	intersection = (t_vector){0, 0, 0};
 	if (depth == MAX_DEPTH)
 		return (0);
 	objs = data->scene->all_objs;

@@ -62,6 +62,8 @@ void		vector_multiply(t_vector vec, float factor);
 float		vector_scalar(t_vector vector1, t_vector vector2);
 void		vector_divide(t_vector vector, float factor);
 
+int colour_x_intensity(int colour, t_vector intensity);
+
 
 int			free_stuff(t_data *data);
 void		free_stringArray(char **str);
