@@ -26,7 +26,7 @@ int intersection_line_plane(t_plane plane, t_line line, t_vector *result)
 			return (TRUE);
 		return (FALSE);
 	}
-	t = (dot(vector_substract(plane.base, line.base), n)
+	t = (dot(substract(plane.base, line.base), n)
 			/ dot(line.direction , n));
 	if (t < 0)
 		return (FALSE);

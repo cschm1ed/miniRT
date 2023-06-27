@@ -34,9 +34,9 @@ int trace_ray(t_data *data, t_line line, int depth)
 		if (intersection_line_sphere(*((t_sphere*)(sphere_list->content)), line,
 				&intersection_tmp) == TRUE)
 		{
-			if (vector_len(vector_substract(intersection_tmp, line.base)) < len_min || !hit)
+			if (vector_len(substract(intersection_tmp, line.base)) < len_min || !hit)
 			{
-				len_min = vector_len(vector_substract(intersection_tmp, line.base));
+				len_min = vector_len(substract(intersection_tmp, line.base));
 				intersection = intersection_tmp;
 				colour = (((t_sphere*)(sphere_list->content)))->colour;
 				hit = TRUE;
@@ -49,9 +49,9 @@ int trace_ray(t_data *data, t_line line, int depth)
 		if (intersection_line_plane(*((t_plane*)(plane_list->content)), line,
 									 &intersection_tmp) == TRUE || !hit)
 		{
-			if (!hit || vector_len(vector_substract(intersection_tmp, line.base)) < len_min)
+			if (!hit || vector_len(substract(intersection_tmp, line.base)) < len_min)
 			{
-				len_min = vector_len(vector_substract(intersection_tmp, line.base));
+				len_min = vector_len(substract(intersection_tmp, line.base));
 				intersection = intersection_tmp;
 				//colour = (((t_plane*)(plane_list->content)))->colour;
 				colour = trgb(0, 255 / (len_min / 15), 50 / (len_min / 15), 255 / (len_min / 15));

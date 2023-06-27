@@ -92,6 +92,14 @@ typedef struct s_cylinder
 	int			colour;
 } t_cylinder;
 
+typedef struct s_triangle
+{
+	t_vector A;
+	t_vector B;
+	t_vector C;
+	int colour;
+} t_triangle;
+
 typedef struct s_camera
 {
 	t_vector 	center;
@@ -120,6 +128,9 @@ typedef struct s_scene
 	t_list 		*sphere_lst;
 	t_list 		*plane_lst;
 	t_list 		*cylinder_lst;
+	t_list		*triangle_lst;
+	t_list		*cylinder;
+
 } t_scene;
 
 #endif
