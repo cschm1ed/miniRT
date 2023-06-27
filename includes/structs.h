@@ -19,6 +19,7 @@ typedef struct s_data t_data;
 typedef struct s_parsing t_parsing;
 typedef struct s_mlx_data t_mlx_data;
 typedef struct s_scene t_scene;
+typedef struct s_list t_list;
 
 typedef struct s_mlx_data
 {
@@ -120,6 +121,7 @@ typedef struct s_scene
 	t_list 		*sphere_lst;
 	t_list 		*plane_lst;
 	t_list 		*cylinder_lst;
+	t_list		*all_objs;
 } t_scene;
 
 #endif

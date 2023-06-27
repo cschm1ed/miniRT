@@ -14,19 +14,21 @@
 
 static int line_in_plane(t_plane plane, t_line line);
 
-int intersection_line_plane(t_plane plane, t_line line, t_vector *result)
+int intersection_line_plane(void *object, t_line line, t_vector *result)
 {
 	t_vector	n;
 	float 		t;
+	t_plane		*plane;
 
-	n = cross(plane.v1, plane.v2);
+	plane = (t_plane*)object;
+	n = cross(plane->v1, plane->v2);
 	if (fabs(dot(n, line.direction)) < EPSILON) // parallel
 	{
-		if (line_in_plane(plane, line) == TRUE)
+		if (line_in_plane(*plane, line) == TRUE)
 			return (TRUE);
 		return (FALSE);
 	}
-	t = (dot(vector_substract(plane.base, line.base), n)
+	t = (dot(vector_substract(plane->base, line.base), n)
 			/ dot(line.direction , n));
 	if (t < 0)
 		return (FALSE);

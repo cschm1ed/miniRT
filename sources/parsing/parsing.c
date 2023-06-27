@@ -28,6 +28,8 @@ int	slicer(char *str, t_data *data)
 				return (FAILURE);
 		i++;
 	}
+	data->scene->all_objs = data->scene->sphere_lst;
+	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
 	return (SUCCESS);
 }
 

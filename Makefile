@@ -30,7 +30,11 @@ SRCS 			:= main.c \
 				   line_plane.c \
 				   vector_x_scalar.c \
 				   key_events.c \
-				   trace_ray.c
+				   trace_ray.c \
+				   surface_normal_sphere.c \
+				   surface_normal_plane.c \
+				   angle_between_vectors.c \
+				   rad_to_deg.c
 
 VPATH			:= sources:\
 					sources/parsing:\

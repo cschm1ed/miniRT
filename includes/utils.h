@@ -41,10 +41,15 @@ void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
 
 // math stuff
-int 		intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result);
-int			intersection_line_plane(t_plane plane, t_line line, t_vector *result);
+int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);
+int			intersection_line_plane(void *object, t_line line, t_vector *result);
 int 		intersection_line_cylinder(t_cylinder, t_line line);
 
+t_vector	normal_sphere(void *sphere, t_vector point);
+t_vector	normal_plane(void *plane, t_vector point);
+
+float 		rad_to_deg(float rad);
+float 		angle_between_vectors(t_vector v1, t_vector v2);
 t_vector	vector_x_scalar(t_vector vector, float scalar);
 float		vector_len(t_vector vec);
 t_vector	vector_add(t_vector v1, t_vector v2);

@@ -12,9 +12,10 @@
 
 #include "../../includes/minirt.h"
 
-int intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result)
+int intersection_line_sphere(void *object, t_line line, t_vector *result)
 {
 	t_vector	oc;
+	t_sphere	*sphere;
 	float 		t1;
 	float 		t2;
 	float 		a;
@@ -22,10 +23,11 @@ int intersection_line_sphere(t_sphere sphere, t_line line, t_vector *result)
 	float 		c;
 	float 		discriminant;
 
-	oc = vector_substract(line.base, sphere.center);
+	sphere = (t_sphere*)object;
+	oc = vector_substract(line.base, sphere->center);
 	a = dot(line.direction, line.direction);
 	b = 2 * dot(oc, line.direction);
-	c = dot(oc, oc) - pow(sphere.diameter, 2);
+	c = dot(oc, oc) - pow(sphere->diameter, 2);
 	discriminant = b * b - (4 * a * c);
 	if (discriminant > 0)
 	{
