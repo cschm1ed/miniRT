@@ -26,6 +26,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 	if (vector_scalar(normalized_Vector, line.direction) == 0)
 		return (FALSE);
 	factor_t = (factor_d - vector_scalar(normalized_Vector, line.base)) / vector_scalar(normalized_Vector, line.direction);
+	(void)factor_t;
 	return (TRUE);
 }
 
@@ -56,7 +57,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 //
 //The intersection point is (0, 2, 0).
 //
-////t_vector	vector_substract(t_vector v1, t_vector v2)
+////t_vector	substract(t_vector v1, t_vector v2)
 ////{
 ////	t_vector	out;
 ////

@@ -24,7 +24,7 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 	float 		discriminant;
 
 	sphere = (t_sphere*)object;
-	oc = vector_substract(line.base, sphere->center);
+	oc = substract(line.base, sphere->center);
 	a = dot(line.direction, line.direction);
 	b = 2 * dot(oc, line.direction);
 	c = dot(oc, oc) - pow(sphere->diameter, 2);

@@ -31,7 +31,7 @@ int trace_ray(t_data *data, t_line line, int depth)
 	{
 		if (objs->intersection(objs->content, line, &intersection))
 		{
-			len_tmp = vector_len(vector_substract(intersection, line.base));
+			len_tmp = vector_len(substract(intersection, line.base));
 			if (!hit || len_tmp < len_min)
 			{
 				color = trgb(0, 250, 50, 100);
