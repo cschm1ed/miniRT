@@ -41,6 +41,8 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 	if (dot(n , line.direction) == 0)
 		return (FALSE);
 	t = t / dot(n, line.direction);
+	if (t < 0)
+		return (FALSE);
 	intersection_point = vector_add(line.base, vector_multiply(line.direction, t));
 	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
 	{
