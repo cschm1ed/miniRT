@@ -17,11 +17,11 @@ int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_
 	int check;
 
 	check = 0;
-	if (dot(cross(substract(triangle.B, triangle.A), substract(intersection_point, triagnle.A)), n) >= 0)
+	if (dot(cross(subtract(triangle.B, triangle.A), subtract(intersection_point, triangle.A)), n) >= 0)
 		check++;
-	if (dot(cross(substract(triangle.C, triangle.B), substract(intersection_point, triagnle.B)), n) >= 0)
+	if (dot(cross(subtract(triangle.C, triangle.B), subtract(intersection_point, triangle.B)), n) >= 0)
 		check++;
-	if (dot(cross(substract(triangle.A, triangle.C), substract(intersection_point, triagnle.C)), n) >= 0)
+	if (dot(cross(subtract(triangle.A, triangle.C), subtract(intersection_point, triangle.C)), n) >= 0)
 		check++;
 	if (check == 3)
 		return (TRUE);
@@ -30,21 +30,21 @@ int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_
 int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result)
 {
 	t_vector	n;
-	t_vector 	intersection_point
+	t_vector 	intersection_point;
 	float		d;
 	float		t;
 
-	n = cross(substract(triangle.B, triangle.A), substract(triangle.C, triagnle.A));
+	n = cross(subtract(triangle.B, triangle.A), subtract(triangle.C, triangle.A));
 	n = vector_divide(n, vector_len(n));
 	d = dot(n, triangle.A);
 	t = (d - dot(n, line.base));
-	if (dot(n , d) == 0)
+	if (dot(n , line.direction) == 0)
 		return (FALSE);
-	t = t / dot(n, d);
-	intersection_point = dot(line.base, vector_multiply(line.direction, d));
+	t = t / dot(n, line.direction);
+	intersection_point = vector_add(line.base, vector_multiply(line.direction, t));
 	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
 	{
-		*result = vector_add(line.base, vector_multiply(line.direction, t));
+		*result = intersection_point;
 		return (TRUE);
 	}
 	return (FALSE);
@@ -81,7 +81,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 //
 //The intersection point is (0, 2, 0).
 //
-////t_vector	vector_substract(t_vector v1, t_vector v2)
+////t_vector	subtract(t_vector v1, t_vector v2)
 ////{
 ////	t_vector	out;
 ////

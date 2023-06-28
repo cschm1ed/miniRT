@@ -12,53 +12,51 @@
 
 #include "../../includes/minirt.h"
 
+static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc);
+
 int trace_ray(t_data *data, t_line line, int depth)
 {
-	t_list		*sphere_list;
-	t_list		*plane_list;
+	t_list		*objs;
 	t_vector 	intersection;
-	t_vector 	intersection_tmp;
+	t_vector 	intensity;
+	float 		len_min;
+	float 		len_tmp;
+	int 		color;
 	int 		hit;
-	int 		len_min;
-	int 		colour;
 
-	len_min = 0;
 	hit = 0;
-	plane_list = data->scene->plane_lst;
-	sphere_list = data->scene->sphere_lst;
-	colour = 0;
+	len_min = 0;
+	color = 0;
+	intersection = (t_vector){0, 0, 0};
 	if (depth == MAX_DEPTH)
 		return (0);
-	while (sphere_list)
+	objs = data->scene->all_objs;
+	while (objs)
 	{
-		if (intersection_line_sphere(*((t_sphere*)(sphere_list->content)), line,
-				&intersection_tmp) == TRUE)
+		if (objs->intersection(objs->content, line, &intersection))
 		{
-			if (vector_len(substract(intersection_tmp, line.base)) < len_min || !hit)
+			len_tmp = vector_len(subtract(intersection, line.base));
+			if (!hit || len_tmp < len_min)
 			{
-				len_min = vector_len(substract(intersection_tmp, line.base));
-				intersection = intersection_tmp;
-				colour = (((t_sphere*)(sphere_list->content)))->colour;
+				intensity = calculate_intensity(data->scene, objs, intersection, line);
+				color = colour_x_intensity((*(int*)((objs->content))), intensity);
+				len_min = len_tmp;
 				hit = TRUE;
 			}
 		}
-		sphere_list = sphere_list->next;
+		objs = objs->next;
 	}
-	while (plane_list)
-	{
-		if (intersection_line_plane(*((t_plane*)(plane_list->content)), line,
-									 &intersection_tmp) == TRUE || !hit)
-		{
-			if (!hit || vector_len(substract(intersection_tmp, line.base)) < len_min)
-			{
-				len_min = vector_len(substract(intersection_tmp, line.base));
-				intersection = intersection_tmp;
-				//colour = (((t_plane*)(plane_list->content)))->colour;
-				colour = trgb(0, 255 / (len_min / 15), 50 / (len_min / 15), 255 / (len_min / 15));
-				hit = TRUE;
-			}
-		}
-		plane_list = plane_list->next;
-	}
-	return (colour + trace_ray(data, (t_line){intersection, {0}}, depth + 1));
+	return (color + trace_ray(data, (t_line){intersection, {0, 0, 0}}, depth + 1));
+}
+
+static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc)
+{
+	t_vector	out;
+	float 		distance;
+
+	out = (t_vector){255, 255, 255};
+	distance = vector_len(subtract(intersect, inc.base));
+	(void)scene; // add actual light
+	(void)obj; // add actual camera
+	return (vector_x_scalar(out, 1 / distance));
 }

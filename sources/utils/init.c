@@ -24,6 +24,7 @@ t_scene *init_scene(t_scene *scene)
 	scene->sphere_lst = NULL;
 	scene->plane_lst = NULL;
 	scene->cylinder_lst = NULL;
+	scene->all_objs = NULL;
 
 	return scene;
 }

@@ -19,6 +19,7 @@ typedef struct s_data t_data;
 typedef struct s_parsing t_parsing;
 typedef struct s_mlx_data t_mlx_data;
 typedef struct s_scene t_scene;
+typedef struct s_list t_list;
 
 typedef struct s_mlx_data
 {
@@ -64,17 +65,17 @@ typedef struct s_parsing
 
 typedef struct s_sphere
 {
+	int			colour;
 	t_vector	center;
 	float		diameter;
-	int			colour;
 } t_sphere;
 
 typedef struct s_plane
 {
+	int 		colour;
 	t_vector	base;
 	t_vector	v1;
 	t_vector 	v2;
-	int 		colour;
 } t_plane;
 
 typedef struct s_line
@@ -85,19 +86,19 @@ typedef struct s_line
 
 typedef struct s_cylinder
 {
+	int			colour;
 	t_vector	center;
 	t_vector	vector;
 	float		diameter;
 	float		height;
-	int			colour;
 } t_cylinder;
 
 typedef struct s_triangle
 {
+	int colour;
 	t_vector A;
 	t_vector B;
 	t_vector C;
-	int colour;
 } t_triangle;
 
 typedef struct s_camera
@@ -109,15 +110,15 @@ typedef struct s_camera
 
 typedef struct s_ambient_light
 {
-	float 		light_ratio;
 	int 		colour;
+	float 		light_ratio;
 } t_ambient_light;
 
 typedef struct s_light_source
 {
+	int 		colour;
 	t_vector	center;
 	float		light_ratio;
-	int 		colour;
 } t_light_source;
 
 typedef struct s_scene
@@ -128,9 +129,7 @@ typedef struct s_scene
 	t_list 		*sphere_lst;
 	t_list 		*plane_lst;
 	t_list 		*cylinder_lst;
-	t_list		*triangle_lst;
-	t_list		*cylinder;
-
+	t_list		*all_objs;
 } t_scene;
 
 #endif

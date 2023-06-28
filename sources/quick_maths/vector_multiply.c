@@ -12,16 +12,21 @@
 
 #include "../../includes/minirt.h"
 
-void	vector_multiply(t_vector vector, float factor)
+t_vector	vector_multiply(t_vector vector, float factor)
 {
-	vector.x = vector.x * factor;
-	vector.y = vector.y * factor;
-	vector.z = vector.z * factor;
+	t_vector out;
+	out.x = vector.x * factor;
+	out.y = vector.y * factor;
+	out.z = vector.z * factor;
+	return (out);
 }
 
-void	vector_divide(t_vector vector, float factor)
+t_vector	vector_divide(t_vector vector, float factor)
 {
-	vector.x = vector.x / factor;
-	vector.y = vector.y / factor;
-	vector.z = vector.z / factor;
+	t_vector out;
+
+	out.x = vector.x / factor;
+	out.y = vector.y / factor;
+	out.z = vector.z / factor;
+	return (out);
 }

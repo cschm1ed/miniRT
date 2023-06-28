@@ -24,7 +24,7 @@ SRCS 			:= main.c \
 				   cross_product.c \
 				   vector_len.c \
 				   vector_add.c \
-				   vector_substract.c \
+				   vector_subtract.c \
 				   angles_to_vector.c \
 				   vector_multiply.c \
 				   line_sphere.c \
@@ -32,7 +32,12 @@ SRCS 			:= main.c \
 				   line_triangle.c \
 				   vector_x_scalar.c \
 				   key_events.c \
-				   trace_ray.c
+				   trace_ray.c \
+				   surface_normal_sphere.c \
+				   surface_normal_plane.c \
+				   angle_between_vectors.c \
+				   rad_to_deg.c \
+				   colour_x_intensiti.c
 
 VPATH			:= sources:\
 					sources/parsing:\

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vecotr_substract.c                                 :+:      :+:    :+:   */
+/*   vecotr_subtract.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector	substract(t_vector v1, t_vector v2)
+t_vector	subtract(t_vector v1, t_vector v2)
 {
 	t_vector	out;
 
