@@ -12,22 +12,47 @@
 
 #include "../../includes/minirt.h"
 
+int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_vector n)
+{
+	int check;
+
+	check = 0;
+	if (dot(cross(substract(triangle.B, triangle.A), substract(intersection_point, triagnle.A)), n) >= 0)
+		check++;
+	if (dot(cross(substract(triangle.C, triangle.B), substract(intersection_point, triagnle.B)), n) >= 0)
+		check++;
+	if (dot(cross(substract(triangle.A, triangle.C), substract(intersection_point, triagnle.C)), n) >= 0)
+		check++;
+	if (check == 3)
+		return (TRUE);
+	return (FALSE);
+}
 int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result)
 {
-	t_vector normalized_Vector;
-	float factor_t;
-	float factor_d;
+	t_vector	n;
+	t_vector 	intersection_point
+	float		d;
+	float		t;
 
-//	Normal Vector N = AB × AC = (4, 1, 0) × (2, 5, 0) = (0, 0, 19)
-	(void)result;
-	normalized_Vector = cross(substract(triangle.C, triangle.A), substract(triangle.B, triangle.A));
-	vector_divide(normalized_Vector, vector_len(normalized_Vector));
-	factor_d = vector_scalar(normalized_Vector, triangle.A);
-	if (vector_scalar(normalized_Vector, line.direction) == 0)
+	n = cross(substract(triangle.B, triangle.A), substract(triangle.C, triagnle.A));
+	n = vector_divide(n, vector_len(n));
+	d = dot(n, triangle.A);
+	t = (d - dot(n, line.base));
+	if (dot(n , d) == 0)
 		return (FALSE);
-	factor_t = (factor_d - vector_scalar(normalized_Vector, line.base)) / vector_scalar(normalized_Vector, line.direction);
-	return (TRUE);
+	t = t / dot(n, d);
+	intersection_point = dot(line.base, vector_multiply(line.direction, d));
+	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
+	{
+		*result = vector_add(line.base, vector_multiply(line.direction, t));
+		return (TRUE);
+	}
+	return (FALSE);
 }
+
+
+
+
 
 //Determine the Intersection Point with the Plane:
 //Next, we need to find where the vector intersects the plane z = 0. Let's say the vector is defined by a starting point S (2, 4, 2) and a direction D (-1, -1, -1).
