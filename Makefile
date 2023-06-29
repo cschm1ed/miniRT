@@ -30,6 +30,7 @@ SRCS 			:= main.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \
+				   line_cylinder.c \
 				   vector_x_scalar.c \
 				   key_events.c \
 				   trace_ray.c \
@@ -37,6 +38,8 @@ SRCS 			:= main.c \
 				   surface_normal_plane.c \
 				   angle_between_vectors.c \
 				   rad_to_deg.c \
+				   pow_vector.c \
+				   sqrt_vector.c \
 				   colour_x_intensiti.c
 
 VPATH			:= sources:\
