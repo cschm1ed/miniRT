@@ -62,6 +62,8 @@ t_vector	angles_to_vector(float ayx, float axz);
 t_vector		vector_multiply(t_vector vec, float factor);
 float		vector_scalar(t_vector vector1, t_vector vector2);
 t_vector		vector_divide(t_vector vector, float factor);
+t_vector	sqrt_vector(t_vector vector);
+t_vector	pow_vector(t_vector vector);
 
 int			colour_x_intensity(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);
