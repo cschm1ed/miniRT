@@ -39,10 +39,9 @@ SRCS 			:= main.c \
 				   angle_between_vectors.c \
 				   rad_to_deg.c \
 				   colour_x_intensity.c \
-				   colour_to_vector.c
+				   colour_to_vector.c \
 				   pow_vector.c \
-				   sqrt_vector.c \
-				   colour_x_intensiti.c
+				   sqrt_vector.c
 
 VPATH			:= sources:\
 					sources/parsing:\
