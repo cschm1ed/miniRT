@@ -64,13 +64,10 @@ int interpret_camera(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_camera);
 	ft_lstadd_back(&data->scene->camera, new_element);
-//	printf("center.x = %f\n", new_camera->center.x);
-//	printf("center.y = %f\n", new_camera->center.y);
-//	printf("center.z = %f\n", new_camera->center.z);
-//	printf("direction.x = %f\n", new_camera->v1.x);
-//	printf("v1.y = %f\n", new_camera->v1.y);
-//	printf("v1.z = %f\n", new_camera->v1.z);
-//	printf("degress = %d\n", new_camera->degrees);
+	printf("center.x = %f\n", new_camera->center.x);
+	printf("center.y = %f\n", new_camera->center.y);
+	printf("center.z = %f\n", new_camera->center.z);
+	printf("degress = %d\n", new_camera->degrees);
 	return (SUCCESS);
 }
 
@@ -112,7 +109,7 @@ int interpret_plane(char **str, t_data *data)
 		if (get_center(str[1], &new_plane->base) == FAILURE
 			|| get_center(str[2], &new_plane->v1) == FAILURE
             || get_center(str[3], &new_plane->v2) == FAILURE
-			|| get_trgb(str[3], &new_plane->colour) == FAILURE)
+			|| get_trgb(str[4], &new_plane->colour) == FAILURE)
 			return (free(new_plane), FAILURE);
 	}
 	new_element = ft_lstnew(new_plane);
@@ -121,7 +118,7 @@ int interpret_plane(char **str, t_data *data)
 	new_element->surface_normal = normal_plane;
 	ft_lstadd_back(&data->scene->plane_lst, new_element);
 //	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
-	printf("new plane colour = %d\n", new_plane->colour);
+	//printf("new plane colour = %d\n", new_plane->colour);
 	return (SUCCESS);
 }
 

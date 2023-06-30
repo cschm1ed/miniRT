@@ -19,9 +19,7 @@ int colour_x_intensity(int colour, t_vector intensity)
 	float 		max;
 	t_vector	rgb;
 
-	rgb.x = colour >> 16 & 0xFF;
-	rgb.y = colour >> 8 & 0xFF;
-	rgb.z = colour & 0xFF;
+	rgb = colour_to_vector(colour);
 	max = fmax(fmax(rgb.x, rgb.y), rgb.z);
 	rgb.z = multiply_intensity(max, rgb.z, intensity.z);
 	rgb.y = multiply_intensity(max, rgb.y, intensity.y);

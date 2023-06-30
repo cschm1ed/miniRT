@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc);
+static t_vector calculate_intensity(t_scene *scene, t_vector intersect, t_line inc);
 
 int trace_ray(t_data *data, t_line line, int depth)
 {
@@ -38,8 +38,9 @@ int trace_ray(t_data *data, t_line line, int depth)
 			len_tmp = vector_len(subtract(intersection, line.base));
 			if (!hit || len_tmp < len_min)
 			{
-				intensity = calculate_intensity(data->scene, objs, intersection, line);
+				intensity = calculate_intensity(data->scene, intersection, line);
 				color = colour_x_intensity((*(int*)((objs->content))), intensity);
+				color = colour_add(color, colour_add((*(int*)(objs->content)), ((t_ambient_light*)data->scene->ambient_light->content)->colour));
 				len_min = len_tmp;
 				hit = TRUE;
 			}
@@ -49,14 +50,28 @@ int trace_ray(t_data *data, t_line line, int depth)
 	return (color + trace_ray(data, (t_line){intersection, {0, 0, 0}}, depth + 1));
 }
 
-static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc)
+static t_vector calculate_intensity(t_scene *scene, t_vector intersect, t_line inc)
 {
 	t_vector	out;
+	t_vector 	light;
+	t_vector 	direction;
+	t_list		*objs;
 	float 		distance;
 
-	out = (t_vector){255, 255, 255};
-	distance = vector_len(subtract(intersect, inc.base));
-	(void)scene; // add actual light
-	(void)obj; // add actual camera
-	return (vector_x_scalar(out, 1 / distance));
+	objs = scene-> all_objs;
+	light = ((t_light_source *)scene->light_lst->content)->center;
+	while (objs)
+	{
+		direction = subtract(light, intersect);
+		intersect = vector_add(intersect, vector_x_scalar(direction, 0.001f));
+		if (objs->intersection(objs->content, (t_line){intersect, direction}, &out))
+			if (vector_len(out) < vector_len(direction))
+				return ((t_vector){0,0,0});
+		objs = objs->next;
+	}
+	out = colour_to_vector(((t_light_source*)scene->light_lst->content)->colour);
+	distance = vector_len(direction);
+	distance /= 2;
+	(void)inc;
+	return (vector_x_scalar(out, 1 / pow(distance, 2)));
 }

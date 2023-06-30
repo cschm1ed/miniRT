@@ -21,3 +21,21 @@ t_vector angles_to_vector(float ayx, float az)
 	out.z = sin(az * M_PI / 180);
 	return (out);
 }
+
+t_vector rotate_vector(t_vector vec, float xy_degree, float xz_degree)
+{
+	t_vector result;
+	float xy_rad;
+	float xz_rad;
+	float tmp_x;
+
+	xy_rad = xy_degree * DEG_TO_RAD;
+	xz_rad = xz_degree * DEG_TO_RAD;
+	result.x = vec.x * cosf(xz_rad) - vec.z * sinf(xz_rad);
+	result.z = vec.x * sinf(xz_rad) + vec.z * cosf(xz_rad);
+	result.y = vec.y;
+	tmp_x = result.x;
+	result.x = tmp_x * cosf(xy_rad) - result.y * sinf(xy_rad);
+	result.y = tmp_x * sinf(xy_rad) + result.y * cosf(xy_rad);
+	return result;
+}

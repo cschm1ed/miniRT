@@ -21,7 +21,7 @@ int			float_checker(char *str);
 long double	ft_atod(const char *str);
 int			count_elements(char **str);
 int			trgb(int t, int r, int g, int b);
-int			get_center(char *str, t_vector *center);
+int			get_center(char *str, t_vector *center );
 int			get_single_float(char *str, float *variable);
 int			get_single_integer(char *str, int *variable);
 
@@ -49,6 +49,7 @@ int			intersection_line_triangle(t_triangle triangle, t_line line, t_vector *res
 t_vector	normal_sphere(void *sphere, t_vector point);
 t_vector	normal_plane(void *plane, t_vector point);
 
+t_vector	rotate_vector(t_vector vec, float xy_degree, float xz_degree);
 float 		rad_to_deg(float rad);
 float 		angle_between_vectors(t_vector v1, t_vector v2);
 t_vector	vector_x_scalar(t_vector vector, float scalar);
@@ -62,7 +63,11 @@ t_vector		vector_multiply(t_vector vec, float factor);
 float		vector_scalar(t_vector vector1, t_vector vector2);
 t_vector		vector_divide(t_vector vector, float factor);
 
-int colour_x_intensity(int colour, t_vector intensity);
+int			colour_x_intensity(int colour, t_vector intensity);
+t_vector	colour_to_vector(int colour);
+int 		vector_to_colour(t_vector colour);
+int 		colour_add(int c1, int c2);
+
 
 
 int			free_stuff(t_data *data);
