@@ -3,5 +3,5 @@
 
 int main()
 {
-	printf("%f\n", (float)70 / 500);
+	printf("%f\n", (double)70 / 500);
 }

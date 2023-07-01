@@ -26,12 +26,14 @@
 # include "parsing.h"
 
 # define WIDTH 1000
-# define HEIGHT 800
+# define HEIGHT 1000
+# define FOV_HEIGHT 90
 # define SUCCESS 1
 # define FAILURE -1
 # define TRUE 1
 # define FALSE 0
 # define MAX_DEPTH 1
 # define EPSILON 1e-9
+# define DEG_TO_RAD M_PI / 180.0
 
 #endif

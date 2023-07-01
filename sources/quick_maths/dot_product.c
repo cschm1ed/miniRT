@@ -12,13 +12,13 @@
 
 #include "../../includes/minirt.h"
 
-float	dot(t_vector v1, t_vector v2)
+double	_dot(t_vector v1, t_vector v2)
 {
-	float dot_product;
+	double _dot_product;
 
-	dot_product = 0;
-	dot_product += v1.x * v2.x;
-	dot_product += v1.y * v2.y;
-	dot_product += v1.z * v2.z;
-	return (dot_product);
+	_dot_product = 0;
+	_dot_product += v1.x * v2.x;
+	_dot_product += v1.y * v2.y;
+	_dot_product += v1.z * v2.z;
+	return (_dot_product);
 }

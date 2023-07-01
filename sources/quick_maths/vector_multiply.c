@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_multiply.c                                  :+:      :+:    :+:   */
+/*   _multiply.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estruckm <estruckm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector	vector_multiply(t_vector vector, float factor)
+t_vector	_multiply(t_vector vector, double factor)
 {
 	t_vector out;
 	out.x = vector.x * factor;
@@ -21,7 +21,7 @@ t_vector	vector_multiply(t_vector vector, float factor)
 	return (out);
 }
 
-t_vector	vector_divide(t_vector vector, float factor)
+t_vector	_divide(t_vector vector, double factor)
 {
 	t_vector out;
 

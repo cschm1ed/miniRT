@@ -17,23 +17,23 @@ static int line_in_plane(t_plane plane, t_line line);
 int intersection_line_plane(void *object, t_line line, t_vector *result)
 {
 	t_vector	n;
-	float 		t;
+	double 		t;
 	t_plane		*plane;
 
 	plane = (t_plane*)object;
-	n = cross(plane->v1, plane->v2);
-	if (fabs(dot(n, line.direction)) < EPSILON) // parallel
+	n = _cross(plane->v1, plane->v2);
+	if (fabs(_dot(n, line.direction)) < EPSILON) // parallel
 	{
 		if (line_in_plane(*plane, line) == TRUE)
 			return (TRUE);
 		return (FALSE);
 	}
-	t = (dot(subtract(plane->base, line.base), n)
-			/ dot(line.direction , n));
+	t = (_dot(_subtract(plane->base, line.base), n)
+			/ _dot(line.direction , n));
 	if (t < 0)
 		return (FALSE);
 	*result = vector_x_scalar(line.direction, t);
-	*result = vector_add(*result, line.base);
+	*result = _add(*result, line.base);
 	return (TRUE);
 }
 
@@ -41,10 +41,10 @@ int line_in_plane(t_plane plane, t_line line)
 {
 	t_vector	n;
 
-	n = cross(plane.v1, plane.v2);
-	if (dot(n, line.direction) != 0)
+	n = _cross(plane.v1, plane.v2);
+	if (_dot(n, line.direction) != 0)
 		return (FALSE);
-	if (dot(line.base, n) == dot(plane.base, n))
+	if (_dot(line.base, n) == _dot(plane.base, n))
 		return (TRUE);
 	return (FALSE);
 }

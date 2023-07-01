@@ -12,16 +12,14 @@
 
 #include "../../includes/minirt.h"
 
-static int multiply_intensity(float max, float col, float intensity);
+static int multiply_intensity(double max, double col, double intensity);
 
 int colour_x_intensity(int colour, t_vector intensity)
 {
-	float 		max;
+	double 		max;
 	t_vector	rgb;
 
-	rgb.x = colour >> 16 & 0xFF;
-	rgb.y = colour >> 8 & 0xFF;
-	rgb.z = colour & 0xFF;
+	rgb = colour_to_vector(colour);
 	max = fmax(fmax(rgb.x, rgb.y), rgb.z);
 	rgb.z = multiply_intensity(max, rgb.z, intensity.z);
 	rgb.y = multiply_intensity(max, rgb.y, intensity.y);
@@ -29,7 +27,7 @@ int colour_x_intensity(int colour, t_vector intensity)
 	return (trgb(0, rgb.x, rgb.y, rgb.z));
 }
 
-static int multiply_intensity(float max, float col, float intensity)
+static int multiply_intensity(double max, double col, double intensity)
 {
 	col = (int)((col / max) * intensity);
 	if (col > 255 || col < 0)

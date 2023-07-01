@@ -12,15 +12,16 @@
 
 #include "../../includes/minirt.h"
 
-static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc);
+static t_vector calculate_intensity(t_scene *scene, t_vector intersect, t_line inc, void *obj);
+static	int ambient_illumination(void *obj, t_scene *scene);
 
 int trace_ray(t_data *data, t_line line, int depth)
 {
 	t_list		*objs;
 	t_vector 	intersection;
 	t_vector 	intensity;
-	float 		len_min;
-	float 		len_tmp;
+	double 		len_min;
+	double 		len_tmp;
 	int 		color;
 	int 		hit;
 
@@ -35,11 +36,12 @@ int trace_ray(t_data *data, t_line line, int depth)
 	{
 		if (objs->intersection(objs->content, line, &intersection))
 		{
-			len_tmp = vector_len(subtract(intersection, line.base));
+			len_tmp = vector_len(_subtract(intersection, line.base));
 			if (!hit || len_tmp < len_min)
 			{
-				intensity = calculate_intensity(data->scene, objs, intersection, line);
-				color = colour_x_intensity((*(int*)((objs->content))), intensity);
+				intensity = calculate_intensity(data->scene, intersection, line, objs);
+				color = ambient_illumination(objs, data->scene);
+				color = colour_add(color, colour_x_intensity((*(int*)((objs->content))), intensity));
 				len_min = len_tmp;
 				hit = TRUE;
 			}
@@ -49,14 +51,46 @@ int trace_ray(t_data *data, t_line line, int depth)
 	return (color + trace_ray(data, (t_line){intersection, {0, 0, 0}}, depth + 1));
 }
 
-static t_vector calculate_intensity(t_scene *scene, void *obj, t_vector intersect, t_line inc)
+static	int ambient_illumination(void *obj, t_scene *scene)
+{
+	t_vector colobj;
+	t_vector colambient;
+	t_vector out;
+
+	colobj = colour_to_vector(*((int*)obj));
+	colobj = _divide(colobj, 255);
+	colambient = colour_to_vector(scene->ambient_light->colour);
+	colambient = _divide(colambient, 255);
+	colambient = _multiply(colambient, scene->ambient_light->light_ratio);
+	out = (t_vector){colobj.x * colambient.x, colobj.y * colambient.y, colobj.z *colambient.z};
+	return (vector_to_colour(_multiply(out, 255)));
+}
+
+static t_vector calculate_intensity(t_scene *scene, t_vector intersect, t_line inc, void *obj)
 {
 	t_vector	out;
-	float 		distance;
+	t_vector 	light;
+	t_vector 	direction;
+	t_list		*objs;
+	double 		distance;
 
-	out = (t_vector){255, 255, 255};
-	distance = vector_len(subtract(intersect, inc.base));
-	(void)scene; // add actual light
-	(void)obj; // add actual camera
-	return (vector_x_scalar(out, 1 / distance));
+	objs = scene-> all_objs;
+	light = ((t_light_source *)scene->light_lst->content)->center;
+	direction = _subtract(light, intersect);
+	intersect = _add(intersect, vector_x_scalar(direction, 0.001f));
+	distance = vector_len(direction);
+	while (objs)
+	{
+		if (objs->intersection(objs->content, (t_line){intersect, direction}, &out))
+			if (vector_len(out) + 0.001f < distance)
+				return ((t_vector){0,0,0});
+		objs = objs->next;
+	}
+	out = colour_to_vector(((t_light_source*)scene->light_lst->content)->colour);
+	distance /= 2;
+	(void)inc;
+	(void)obj;
+	// Calculate diffuse intensity
+	out = colour_to_vector(((t_light_source*)scene->light_lst->content)->colour);
+	return (vector_x_scalar(out, 1 / pow(distance, 2)));
 }
