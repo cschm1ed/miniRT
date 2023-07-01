@@ -14,5 +14,5 @@
 
 t_vector normal_sphere(void *sphere, t_vector point)
 {
-	return (vector_add(subtract(point, ((t_sphere*)sphere)->center), ((t_sphere*)sphere)->center));
+	return (_add(_subtract(point, ((t_sphere*)sphere)->center), ((t_sphere*)sphere)->center));
 }

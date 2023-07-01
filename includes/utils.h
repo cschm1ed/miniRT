@@ -15,19 +15,20 @@
 
 //trace stuff
 int 		trace_ray(t_data *data, t_line line, int depth);
+void		draw_image(t_mlx_data *ui, t_data *data);
 
 //slice_utils
-int			float_checker(char *str);
+int			double_checker(char *str);
 long double	ft_atod(const char *str);
 int			count_elements(char **str);
 int			trgb(int t, int r, int g, int b);
 int			get_center(char *str, t_vector *center );
-int			get_single_float(char *str, float *variable);
+int			get_single_double(char *str, double *variable);
 int			get_single_integer(char *str, int *variable);
 
 int			check_integerString(char *str);
 int			check_centerString(char *str);
-int			check_floatString(char *str);
+int			check_doubleString(char *str);
 int			get_trgb(char *str, int *colour);
 int			check_rgbString(char *str);
 // inits
@@ -49,21 +50,21 @@ int			intersection_line_triangle(t_triangle triangle, t_line line, t_vector *res
 t_vector	normal_sphere(void *sphere, t_vector point);
 t_vector	normal_plane(void *plane, t_vector point);
 
-t_vector	rotate_vector(t_vector vec, float xy_degree, float xz_degree);
-float 		rad_to_deg(float rad);
-float 		angle_between_vectors(t_vector v1, t_vector v2);
-t_vector	vector_x_scalar(t_vector vector, float scalar);
-float		vector_len(t_vector vec);
-t_vector	vector_add(t_vector v1, t_vector v2);
-float		dot(t_vector v1, t_vector v2);
-t_vector 	cross(t_vector v1, t_vector v2);
-t_vector	subtract(t_vector v1, t_vector v2);
-t_vector	angles_to_vector(float ayx, float axz);
-t_vector		vector_multiply(t_vector vec, float factor);
-float		vector_scalar(t_vector vector1, t_vector vector2);
-t_vector		vector_divide(t_vector vector, float factor);
+t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
+double 		rad_to_deg(double rad);
+double 		angle_between_vectors(t_vector v1, t_vector v2);
+t_vector	vector_x_scalar(t_vector vector, double scalar);
+double		vector_len(t_vector vec);
+t_vector	_add(t_vector v1, t_vector v2);
+double		_dot(t_vector v1, t_vector v2);
+t_vector 	_cross(t_vector v1, t_vector v2);
+t_vector	_subtract(t_vector v1, t_vector v2);
+t_vector	angles_to_vector(double ayx, double axz);
+t_vector		_multiply(t_vector vec, double factor);
+double		vector_scalar(t_vector vector1, t_vector vector2);
+t_vector		_divide(t_vector vector, double factor);
 t_vector	sqrt_vector(t_vector vector);
-t_vector	pow_vector(t_vector vector);
+t_vector	_pow(t_vector vector);
 
 int			colour_x_intensity(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);

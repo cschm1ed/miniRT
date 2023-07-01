@@ -26,7 +26,7 @@ int 	colour_add(int c1, int c2)
 {
 	t_vector 	out;
 
-	out = vector_add(colour_to_vector(c2), colour_to_vector(c1));
+	out = _add(colour_to_vector(c2), colour_to_vector(c1));
 	out.x = fmin(out.x, 255);
 	out.y = fmin(out.y, 255);
 	out.z = fmin(out.z, 255);

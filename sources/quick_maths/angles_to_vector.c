@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector angles_to_vector(float ayx, float az)
+t_vector angles_to_vector(double ayx, double az)
 {
 	t_vector out;
 
@@ -22,12 +22,12 @@ t_vector angles_to_vector(float ayx, float az)
 	return (out);
 }
 
-t_vector rotate_vector(t_vector vec, float xy_degree, float xz_degree)
+t_vector _rotate(t_vector vec, double xy_degree, double xz_degree)
 {
 	t_vector result;
-	float xy_rad;
-	float xz_rad;
-	float tmp_x;
+	double xy_rad;
+	double xz_rad;
+	double tmp_x;
 
 	xy_rad = xy_degree * DEG_TO_RAD;
 	xz_rad = xz_degree * DEG_TO_RAD;

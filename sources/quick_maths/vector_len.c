@@ -12,9 +12,9 @@
 
 #include "../../includes/minirt.h"
 
-float	vector_len(t_vector vec)
+double	vector_len(t_vector vec)
 {
-	float out;
+	double out;
 
 	out = pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2);
 	out = sqrtf(out);

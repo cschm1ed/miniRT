@@ -18,7 +18,7 @@
 //     -> returns the length of s excluding '\0'
 
 // Difference between an array and a string
-//     -> array: stores a set of integers, doubles, floats, etc.
+//     -> array: stores a set of integers, doubles, doubles, etc.
 //               data structure
 //               does not end with a null character
 //     -> string: only stores characters (items of only the char data type)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pow_vector.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 12:08:34 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/29 12:08:34 by estruckm         ###   ########.fr       */
+/*   Created: 2023/06/30 14:31:23 by cschmied          #+#    #+#             */
+/*   Updated: 2023/06/30 14:58:27 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-t_vector pow_vector(t_vector vector)
+t_vector _pow(t_vector vector)
 {
 	t_vector out;
 

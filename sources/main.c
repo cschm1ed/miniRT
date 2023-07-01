@@ -37,51 +37,15 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-/*void	draw_image(t_mlx_data *ui, t_data *data)
-{
-	int x;
-	int y;
-	float a1;
-	float a2;
-	t_line		line;
-	t_sphere	sphere;
-	t_plane		plane;
-	t_vector 	tmp;
-
-	line.base = (t_vector){0, 0, 0};
-	plane.base = (t_vector){0, 5, 0};
-	plane.v1 = (t_vector){1, 0, 0};
-	plane.v2 = (t_vector){1, 0, 1};
-	sphere.center = (t_vector){0, 3, 1};
-	sphere.diameter = 1;
-	x = 0;
-	y = 0;
-	while (x < ui->width)
-	{
-		while (y < ui->height)
-		{
-			a1 = ((float)90 / ui->width * x) - 45;
-			a2 = ((float)90 / ui->height * y) - 45;
-			line.direction = angles_to_vector(a1, a2);
-			if (intersection_line_sphere(sphere, line, &tmp))
-				put_pixel(x, y, trgb(0, 100, 20, 200), data);
-			else if (intersection_line_plane(plane, line, &tmp))
-				put_pixel(x, y, trgb(0, 20, 150 , 50), data);
-			y ++;
-		}
-		y = 0;
-		x ++;
-	}
-}*/
-
+/*
 void	draw_image(t_mlx_data *ui, t_data *data)
 {
 	int 	x;
 	int 	y;
 	int 	color;
 	t_line	camera;
-	float 	a1;
-	float 	a2;
+	double 	a1;
+	double 	a2;
 
 	x = 0;
 	y = 0;
@@ -89,8 +53,8 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	{
 		while (y < ui->height)
 		{
-			a1 = ((float)90 / ui->width * x) - 45;
-			a2 = ((float)90 / ui->height * y) - 45;
+			a1 = ((double)90 / ui->width * x) - 45;
+			a2 = ((double)90 / ui->height * y) - 45;
 			camera.base = ((t_camera*)(data->scene->camera))->center;
 			camera.direction = angles_to_vector(a1, a2);
 			color = trace_ray(data, camera, 0);
@@ -103,6 +67,7 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		x ++;
 	}
 }
+*/
 
 void	loop_mlx(t_data *data)
 {

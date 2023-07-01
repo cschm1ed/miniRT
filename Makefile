@@ -41,7 +41,8 @@ SRCS 			:= main.c \
 				   colour_x_intensity.c \
 				   colour_to_vector.c \
 				   pow_vector.c \
-				   sqrt_vector.c
+				   sqrt_vector.c \
+				   render_scene.c
 
 VPATH			:= sources:\
 					sources/parsing:\
@@ -54,7 +55,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g
+CCFLAG 			:= -O3 -Wall -Werror -Wextra -g
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping

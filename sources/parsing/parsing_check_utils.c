@@ -35,16 +35,16 @@ int check_centerString(char *str)
 	split = ft_split(str, ',');
 	while (split[i] != NULL)
 	{
-		if (float_checker(split[i]) == FAILURE)
+		if (double_checker(split[i]) == FAILURE)
 			return (FAILURE);
 		i++;
 	}
 	return (SUCCESS);
 }
 
-int check_floatString(char *str)
+int check_doubleString(char *str)
 {
-	if (float_checker(str) == FAILURE)
+	if (double_checker(str) == FAILURE)
 		return (FAILURE);
 	else
 		return (SUCCESS);
@@ -72,7 +72,7 @@ int check_rgbString(char *str)
 	return (SUCCESS);
 }
 
-int float_checker(char *str)
+int double_checker(char *str)
 {
 	int len;
 	int i;

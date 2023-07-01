@@ -211,7 +211,7 @@ SOFTWARE.
 #define XK_KP_Multiply                   0xffaa
 #define XK_KP_Add                        0xffab
 #define XK_KP_Separator                  0xffac  /* Separator, often comma */
-#define XK_KP_Subtract                   0xffad
+#define XK_KP__subtract                   0xffad
 #define XK_KP_Decimal                    0xffae
 #define XK_KP_Divide                     0xffaf
 

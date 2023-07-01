@@ -20,9 +20,9 @@ int get_single_integer(char *str, int *variable)
 	return (SUCCESS);
 }
 
-int get_single_float(char *str, float *variable)
+int get_single_double(char *str, double *variable)
 {
-	if (check_floatString(str) == FAILURE)
+	if (check_doubleString(str) == FAILURE)
 		return (FAILURE);
 	(*variable) = ft_atod((const char*)str);
 	return (SUCCESS);
@@ -75,14 +75,15 @@ int count_elements(char **str)
 long double    ft_atod(const char *str)
 {
 	long double    result;
-	long double    float_part;
+	long double    double_part;
+
 	result = ft_atoi(str);
 	while (*str != '.' && *str != ',' && *str != '\0')
 		str++;
-	float_part = ft_atoi(str + 1);
-	while (float_part >= 1)
-		float_part /= 10;
-	return (result + float_part);
+	double_part = ft_atoi(str + 1);
+	while (double_part > 1)
+		double_part /= 10;
+	return (result + double_part);
 }
 
 void free_stringArray(char **str)

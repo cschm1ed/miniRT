@@ -45,16 +45,16 @@ typedef struct s_data
 
 typedef struct s_vector
 {
-	float		x;
-	float		y;
-	float		z;
+	double		x;
+	double		y;
+	double		z;
 }	t_vector;
 
 typedef struct s_pos
 {
-	float		x;
-	float		y;
-	float		z;
+	double		x;
+	double		y;
+	double		z;
 } t_pos;
 
 typedef struct s_parsing
@@ -67,7 +67,7 @@ typedef struct s_sphere
 {
 	int			colour;
 	t_vector	center;
-	float		diameter;
+	double		diameter;
 } t_sphere;
 
 typedef struct s_plane
@@ -89,8 +89,8 @@ typedef struct s_cylinder
 	int			colour;
 	t_vector	center;
 	t_vector	vector;
-	float		diameter;
-	float		height;
+	double		diameter;
+	double		height;
 } t_cylinder;
 
 typedef struct s_triangle
@@ -111,19 +111,19 @@ typedef struct s_camera
 typedef struct s_ambient_light
 {
 	int 		colour;
-	float 		light_ratio;
+	double 		light_ratio;
 } t_ambient_light;
 
 typedef struct s_light_source
 {
 	int 		colour;
 	t_vector	center;
-	float		light_ratio;
+	double		light_ratio;
 } t_light_source;
 
 typedef struct s_scene
 {
-	t_list		*camera;
+	t_camera	*camera;
 	t_list		*light_lst;
 	t_list 		*ambient_light;
 	t_list 		*sphere_lst;

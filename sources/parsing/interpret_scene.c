@@ -23,7 +23,7 @@ int interpret_lightsource(char **str, t_data *data)
 	else
 	{
 		if (get_center(str[1], &new_light->center) == FAILURE
-			|| get_single_float(str[2], &new_light->light_ratio) == FAILURE
+			|| get_single_double(str[2], &new_light->light_ratio) == FAILURE
 			|| get_trgb(str[3], &new_light->colour) == FAILURE)
 		{
 			free(new_light);
@@ -42,7 +42,6 @@ int interpret_lightsource(char **str, t_data *data)
 
 int interpret_camera(char **str, t_data *data)
 {
-	t_list *new_element;
 	t_camera *new_camera;
 
 	new_camera = malloc(sizeof(t_camera));
@@ -62,8 +61,7 @@ int interpret_camera(char **str, t_data *data)
 		}
 
 	}
-	new_element = ft_lstnew(new_camera);
-	ft_lstadd_back(&data->scene->camera, new_element);
+	data->scene->camera = new_camera;
 	printf("center.x = %f\n", new_camera->center.x);
 	printf("center.y = %f\n", new_camera->center.y);
 	printf("center.z = %f\n", new_camera->center.z);
@@ -84,7 +82,7 @@ int interpret_ambient_light(char **str, t_data *data)
 	}
 	else
 	{
-		if (get_single_float(str[1], &new_ambient_light->light_ratio) == FAILURE
+		if (get_single_double(str[1], &new_ambient_light->light_ratio) == FAILURE
 			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
 			return (free(new_ambient_light), FAILURE);
 	}
@@ -134,7 +132,7 @@ int interpret_sphere(char **str, t_data *data)
 	else
 	{
 		if (get_center(str[1], &new_sphere->center) == FAILURE
-			|| get_single_float(str[2], &new_sphere->diameter) == FAILURE
+			|| get_single_double(str[2], &new_sphere->diameter) == FAILURE
 			|| get_trgb(str[3], &new_sphere->colour) == FAILURE)
 			return (free(new_sphere), FAILURE);
 	}
@@ -162,8 +160,8 @@ int interpret_cylinder(char **str, t_data *data)
 	{
 		if (get_center(str[1], &new_cylinder->center) == FAILURE
 			|| get_center(str[2], &new_cylinder->vector) == FAILURE
-			|| get_single_float(str[3], &new_cylinder->diameter) == FAILURE
-			|| get_single_float(str[4], &new_cylinder->height) == FAILURE
+			|| get_single_double(str[3], &new_cylinder->diameter) == FAILURE
+			|| get_single_double(str[4], &new_cylinder->height) == FAILURE
 			|| get_trgb(str[5], &new_cylinder->colour) == FAILURE)
 		{
 			free(new_cylinder);
