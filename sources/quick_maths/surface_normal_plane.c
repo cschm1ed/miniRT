@@ -14,5 +14,6 @@
 
 t_vector normal_plane(void *plane, t_vector point)
 {
-	return (_add(point, _cross(((t_plane*)plane)->v1, ((t_plane*)plane)->v2)));
+	(void)point;
+	return (_cross(((t_plane*)plane)->v1, ((t_plane*)plane)->v2));
 }

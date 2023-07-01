@@ -123,13 +123,13 @@ typedef struct s_light_source
 
 typedef struct s_scene
 {
-	t_camera	*camera;
-	t_list		*light_lst;
-	t_list 		*ambient_light;
-	t_list 		*sphere_lst;
-	t_list 		*plane_lst;
-	t_list 		*cylinder_lst;
-	t_list		*all_objs;
+	t_camera		*camera;
+	t_ambient_light	*ambient_light;
+	t_list			*light_lst;
+	t_list 			*sphere_lst;
+	t_list 			*plane_lst;
+	t_list 			*cylinder_lst;
+	t_list			*all_objs;
 } t_scene;
 
 #endif

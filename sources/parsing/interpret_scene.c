@@ -71,7 +71,6 @@ int interpret_camera(char **str, t_data *data)
 
 int interpret_ambient_light(char **str, t_data *data)
 {
-	t_list *new_element;
 	t_ambient_light *new_ambient_light;
 
 	new_ambient_light = malloc(sizeof(t_ambient_light));
@@ -86,8 +85,7 @@ int interpret_ambient_light(char **str, t_data *data)
 			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
 			return (free(new_ambient_light), FAILURE);
 	}
-	new_element = ft_lstnew(new_ambient_light);
-	ft_lstadd_back(&data->scene->ambient_light, new_element);
+	data->scene->ambient_light = new_ambient_light;
 //	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
 //	printf("colour = %d\n", new_ambient_light->colour);
 	return (SUCCESS);
