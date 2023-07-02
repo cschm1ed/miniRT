@@ -78,6 +78,7 @@ void	loop_mlx(t_data *data)
 	ui->width = WIDTH;
 	//data->redraw = TRUE;
 	printf("data->redraw before:%d\n", data->redraw);
+    data->redraw = 0;
 	draw_image(ui, data);
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 	mlx_hook(ui->win, 17, 0, &free_stuff, data);
