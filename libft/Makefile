@@ -11,12 +11,7 @@ SRCS		= ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 			  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
               ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-BSRCS		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-			  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
 OBJS		= ${SRCS:.c=.o}
-
-BOBJS		= ${BSRCS:.c=.o}
 
 GCCW		= gcc -Wall -Wextra -Werror -O2 -I ../includes/ -I .
 
@@ -30,13 +25,7 @@ ${NAME}:	${OBJS}
 ${OBJS}:	${SRCS}
 			@${GCCW} -c ${SRCS}
 
-${BOBJS}:	${BSRCS}
-			@${GCCW} -c ${BSRCS} ${SRCS}
-
 all:		${NAME}
-
-bonus:		${BOBJS} ${OBJS}
-			@${AR} ${NAME} ${BOBJS} ${OBJS}
 
 clean:
 			@${RM} ${OBJS} ${BOBJS}
