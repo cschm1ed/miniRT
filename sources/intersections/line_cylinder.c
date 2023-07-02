@@ -57,3 +57,6 @@ int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 	*result = P;
 	return (TRUE);
 }
+
+
+//https://nachodevblog.com/posts/ray-cylinder-intersection/

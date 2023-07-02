@@ -101,6 +101,14 @@ typedef struct s_triangle
 	t_vector B;
 	t_vector C;
 } t_triangle;
+typedef struct s_cone
+{
+	int colour;
+	t_vector apex;
+	t_vector axis_direction;
+	float	opening_angle;
+} t_cone;
+
 
 typedef struct s_camera
 {
