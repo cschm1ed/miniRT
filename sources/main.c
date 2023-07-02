@@ -74,18 +74,14 @@ void	loop_mlx(t_data *data)
 	t_mlx_data *ui;
 
 	ui = &data->mlx_data;
-	mlx_key_hook(ui->win, &handle_keypress, data);
-	ui->height = 1000;
-	ui->width = 1000;
+	ui->height = HEIGHT;
+	ui->width = WIDTH;
+	//data->redraw = TRUE;
+	printf("data->redraw before:%d\n", data->redraw);
 	draw_image(ui, data);
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 	mlx_hook(ui->win, 17, 0, &free_stuff, data);
+	mlx_key_hook(ui->win, &handle_keypress, data);
+	mlx_loop_hook(ui->mlx, &no_event, ui);
 	mlx_loop(ui->mlx);
-}
-
-void	print_vector(t_vector vector)
-{
-	ft_printf("x -> %d\n", 1, vector.x);
-	ft_printf("y -> %d\n", 1, vector.y);
-	ft_printf("z -> %d\n", 1, vector.z);
 }

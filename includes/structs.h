@@ -41,6 +41,7 @@ typedef struct s_data
 	t_parsing		*parsing;
 	t_mlx_data		mlx_data;
 	struct s_scene	*scene;
+	int 			redraw;
 }	t_data;
 
 typedef struct s_vector

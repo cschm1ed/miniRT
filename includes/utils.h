@@ -40,6 +40,7 @@ int			init_data(int argc, char **argv, t_data *data);
 int			handle_keypress(int keysym, t_data *data);
 void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
+int			no_event(t_data *data);
 
 // math stuff
 int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);

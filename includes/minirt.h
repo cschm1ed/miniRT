@@ -35,5 +35,5 @@
 # define MAX_DEPTH 1
 # define EPSILON 1e-9
 # define DEG_TO_RAD M_PI / 180.0
-
+# define MOVE_RATE 0.5
 #endif
