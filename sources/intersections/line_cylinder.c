@@ -31,11 +31,11 @@ int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 	RDf = line.direction;
 	RDf.y = 0;
 	c = _dot(RDf, cylinder.center);
-	angle_alpha = acosf(c);
-	length_TC = sinf(angle_alpha) * vector_len(cylinder.center);
+	angle_alpha = acos(c);
+	length_TC = sin(angle_alpha) * _len(cylinder.center);
 	if (length_TC > cylinder.diameter / 2)
 		return (FALSE);
-	length_TI = sqrtf(powf(cylinder.diameter / 2, 2) - powf(vector_len(cylinder.center), 2));
+	length_TI = sqrt(pow(cylinder.diameter / 2, 2) - pow(_len(cylinder.center), 2));
 	length_TP = _dot(cylinder.center, RDf);
 	length_IP = length_TP - length_TI;
 	cosinus_beta = _dot(line.direction, cylinder.center);
@@ -52,7 +52,7 @@ int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 	cosinus_w = _dot(line.direction, Yd);
 	D = cylinder.height /cosinus_w;
 	P = _add(line.base, _multiply(line.direction, D));
-	if (sqrtf(powf(P.x, 2) + powf(P.z, 2)) > cylinder.diameter / 2)
+	if (sqrt(pow(P.x, 2) + pow(P.z, 2)) > cylinder.diameter / 2)
 		return (FALSE);
 	*result = P;
 	return (TRUE);

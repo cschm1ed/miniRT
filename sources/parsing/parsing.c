@@ -56,6 +56,7 @@ int	parsing(t_data *data)
 	}
 	close(fd);
 	data->scene->all_objs = data->scene->sphere_lst;
+    data->scene->all_last_tmp = ft_lstlast(data->scene->all_objs);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
 	return (SUCCESS);
 }

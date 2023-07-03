@@ -35,7 +35,7 @@ int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *resul
 	double		t;
 
 	n = _cross(_subtract(triangle.B, triangle.A), _subtract(triangle.C, triangle.A));
-	n = _divide(n, vector_len(n));
+	n = _divide(n, _len(n));
 	d = _dot(n, triangle.A);
 	t = (d - _dot(n, line.base));
 	if (_dot(n , line.direction) == 0)

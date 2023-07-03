@@ -15,6 +15,7 @@
 t_vector	_multiply(t_vector vector, double factor)
 {
 	t_vector out;
+
 	out.x = vector.x * factor;
 	out.y = vector.y * factor;
 	out.z = vector.z * factor;

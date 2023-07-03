@@ -31,11 +31,11 @@ t_vector _rotate(t_vector vec, double xy_degree, double xz_degree)
 
 	xy_rad = xy_degree * DEG_TO_RAD;
 	xz_rad = xz_degree * DEG_TO_RAD;
-	result.x = vec.x * cosf(xz_rad) - vec.z * sinf(xz_rad);
-	result.z = vec.x * sinf(xz_rad) + vec.z * cosf(xz_rad);
+	result.x = vec.x * cos(xz_rad) - vec.z * sin(xz_rad);
+	result.z = vec.x * sin(xz_rad) + vec.z * cos(xz_rad);
 	result.y = vec.y;
 	tmp_x = result.x;
-	result.x = tmp_x * cosf(xy_rad) - result.y * sinf(xy_rad);
-	result.y = tmp_x * sinf(xy_rad) + result.y * cosf(xy_rad);
+	result.x = tmp_x * cos(xy_rad) - result.y * sin(xy_rad);
+	result.y = tmp_x * sin(xy_rad) + result.y * cos(xy_rad);
 	return result;
 }

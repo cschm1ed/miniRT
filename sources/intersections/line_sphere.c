@@ -28,22 +28,22 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 	a = _dot(line.direction, line.direction);
 	b = 2 * _dot(oc, line.direction);
 	c = _dot(oc, oc) - pow(sphere->diameter, 2);
-	discriminant = b * b - (4 * a * c);
-	if (discriminant > 0)
+	discriminant = pow(b, 2) - (4 * a * c);
+	if (discriminant >= 0)
 	{
 		t1 = -b;
-		t1 += (double)sqrt(discriminant);
-		t1 /= (double)2 * a;
+		t1 += sqrt(discriminant);
+		t1 /= 2 * a;
 		t2 = -b;
 		t2 -= sqrt(discriminant);
 		t2 /= 2 * a;
 		if (t1 < 0 && t2 < 0)
 			return (FALSE);
-		if (vector_len(_add(vector_x_scalar(line.direction, t1), line.base)) <
-				vector_len(_add(vector_x_scalar(line.direction, t2), line.base)))
-			*result = _add(vector_x_scalar(line.direction, t1), line.base);
+		if (_len(_add(_multiply(line.direction, t1), line.base)) <
+            _len(_add(_multiply(line.direction, t2), line.base)))
+			*result = _add(_multiply(line.direction, t1), line.base);
 		else
-			*result = _add(vector_x_scalar(line.direction, t2), line.base);
+			*result = _add(_multiply(line.direction, t2), line.base);
 		return (TRUE);
 	}
 	return (FALSE);

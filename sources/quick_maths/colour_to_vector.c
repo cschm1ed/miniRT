@@ -22,7 +22,7 @@ int 	vector_to_colour(t_vector colour)
 	return (trgb(0, colour.x, colour.y, colour.z));
 }
 
-int 	colour_add(int c1, int c2)
+int 	c_add(int c1, int c2)
 {
 	t_vector 	out;
 

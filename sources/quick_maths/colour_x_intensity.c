@@ -14,7 +14,7 @@
 
 static int multiply_intensity(double max, double col, double intensity);
 
-int colour_x_intensity(int colour, t_vector intensity)
+int c_multiply(int colour, t_vector intensity)
 {
 	double 		max;
 	t_vector	rgb;

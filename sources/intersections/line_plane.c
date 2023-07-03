@@ -32,7 +32,7 @@ int intersection_line_plane(void *object, t_line line, t_vector *result)
 			/ _dot(line.direction , n));
 	if (t < 0)
 		return (FALSE);
-	*result = vector_x_scalar(line.direction, t);
+	*result = _multiply(line.direction, t);
 	*result = _add(*result, line.base);
 	return (TRUE);
 }

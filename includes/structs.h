@@ -41,6 +41,7 @@ typedef struct s_data
 	t_parsing		*parsing;
 	t_mlx_data		mlx_data;
 	struct s_scene	*scene;
+    t_list          *tmp;
 	int 			redraw;
 }	t_data;
 
@@ -139,6 +140,14 @@ typedef struct s_scene
 	t_list 			*plane_lst;
 	t_list 			*cylinder_lst;
 	t_list			*all_objs;
+    t_list          *all_last_tmp;
 } t_scene;
+
+typedef struct s_intersect
+{
+    t_list      *obj;
+    t_vector    point;
+    t_line      ray;
+}   t_intersect;
 
 #endif

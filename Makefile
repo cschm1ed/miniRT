@@ -31,7 +31,6 @@ SRCS 			:= main.c \
 				   line_plane.c \
 				   line_triangle.c \
 				   line_cylinder.c \
-				   vector_x_scalar.c \
 				   key_events.c \
 				   trace_ray.c \
 				   surface_normal_sphere.c \
@@ -43,7 +42,8 @@ SRCS 			:= main.c \
 				   pow_vector.c \
 				   sqrt_vector.c \
 				   render_scene.c \
-				   no_event.c
+				   no_event.c \
+				   shading.c
 
 VPATH			:= sources:\
 					sources/parsing:\
@@ -61,7 +61,7 @@ CCFLAG 			:= -Wall -Werror -Wextra -g
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
 
-MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macos -L /usr/X11/lib -lX11 \
+MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macosf -L /usr/X11/lib -lX11 \
                    			-lmlx -lXext -lm -framework OpenGL -framework AppKit
 LIB 			:= ./libft
 

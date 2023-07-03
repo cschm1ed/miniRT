@@ -17,7 +17,7 @@ void	create_vision_plane(t_data *data, t_plane *vp)
 	t_camera 	*cam;
 
 	cam = data->scene->camera;
-	cam->vector = _divide(cam->vector, vector_len(cam->vector));
+	cam->vector = _divide(cam->vector, _len(cam->vector));
 	vp->base = _add(cam->center, cam->vector);
 
 	vp->v1 = _rotate(cam->vector, -90, 0);
@@ -32,10 +32,10 @@ t_vector	get_direction(t_data *data, t_plane vp, int x, int y)
 
 	width = 2 * tanf((data->scene->camera->degrees / 2) * M_PI / 180);
 	height = width / (WIDTH / HEIGHT);
-	start = _add(vp.base, vector_x_scalar(vp.v2, height / 2));
-	start = _add(start, vector_x_scalar(vp.v1, width / 2));
-	start = _add(start, vector_x_scalar(vp.v2, -y * (height / HEIGHT)));
-	start = _add(start, vector_x_scalar(vp.v1, -x * (width / WIDTH)));
+	start = _add(vp.base, _multiply(vp.v2, height / 2));
+	start = _add(start, _multiply(vp.v1, width / 2));
+	start = _add(start, _multiply(vp.v2, -y * (height / HEIGHT)));
+	start = _add(start, _multiply(vp.v1, -x * (width / WIDTH)));
 	return (_subtract(start, data->scene->camera->center));
 }
 

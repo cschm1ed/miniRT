@@ -14,5 +14,5 @@
 
 double	angle_between_vectors(t_vector v1, t_vector v2)
 {
-	return (rad_to_deg(acos(_dot(v1, v2) / (vector_len(v1) * vector_len(v2)))));
+	return (rad_to_deg(acos(_dot(v1, v2) / (_len(v1) * _len(v2)))));
 }

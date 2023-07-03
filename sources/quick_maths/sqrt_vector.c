@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sqrt_vector.c                                      :+:      :+:    :+:   */
+/*   sqrtf_vector.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estruckm <estruckm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,12 +12,12 @@
 
 #include "../../includes/minirt.h"
 
-t_vector sqrt_vector(t_vector vector)
+t_vector sqrtf_vector(t_vector vector)
 {
 	t_vector out;
 
-	out.x = sqrtf(vector.x);
-	out.y = sqrtf(vector.y);
-	out.z = sqrtf(vector.z);
+	out.x = sqrt(vector.x);
+	out.y = sqrt(vector.y);
+	out.z = sqrt(vector.z);
 	return (out);
 }

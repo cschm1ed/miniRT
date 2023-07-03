@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_len.c                                       :+:      :+:    :+:   */
+/*   _len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "../../includes/minirt.h"
 
-double	vector_len(t_vector vec)
+double	_len(t_vector vec)
 {
 	double out;
 
 	out = pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2);
-	out = sqrtf(out);
+	out = sqrt(out);
 	return (out);
 }

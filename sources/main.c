@@ -37,8 +37,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-/*
-void	draw_image(t_mlx_data *ui, t_data *data)
+/*void	draw_image(t_mlx_data *ui, t_data *data)
 {
 	int 	x;
 	int 	y;
@@ -66,8 +65,7 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		y = 0;
 		x ++;
 	}
-}
-*/
+}*/
 
 void	loop_mlx(t_data *data)
 {

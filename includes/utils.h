@@ -16,6 +16,12 @@
 //trace stuff
 int 		trace_ray(t_data *data, t_line line, int depth);
 void		draw_image(t_mlx_data *ui, t_data *data);
+int			closest_intersection(t_scene *scene, t_intersect *intersect);
+//shading
+t_vector get_intensity(t_scene *scene, t_intersect inter);
+int ambient_illumination(void *obj, t_scene *scene);
+int is_obscured(t_scene *scene, double distance, t_vector intersect);
+int calculate_color(t_data *data, t_intersect intersect);
 
 //slice_utils
 int			double_checker(char *str);
@@ -54,8 +60,8 @@ t_vector	normal_plane(void *plane, t_vector point);
 t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
 double 		rad_to_deg(double rad);
 double 		angle_between_vectors(t_vector v1, t_vector v2);
-t_vector	vector_x_scalar(t_vector vector, double scalar);
-double		vector_len(t_vector vec);
+t_vector	_multiply(t_vector vector, double scalar);
+double		_len(t_vector vec);
 t_vector	_add(t_vector v1, t_vector v2);
 double		_dot(t_vector v1, t_vector v2);
 t_vector 	_cross(t_vector v1, t_vector v2);
@@ -64,13 +70,13 @@ t_vector	angles_to_vector(double ayx, double axz);
 t_vector		_multiply(t_vector vec, double factor);
 double		vector_scalar(t_vector vector1, t_vector vector2);
 t_vector		_divide(t_vector vector, double factor);
-t_vector	sqrt_vector(t_vector vector);
+t_vector	sqrtf_vector(t_vector vector);
 t_vector	_pow(t_vector vector);
 
-int			colour_x_intensity(int colour, t_vector intensity);
+int			c_multiply(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);
 int 		vector_to_colour(t_vector colour);
-int 		colour_add(int c1, int c2);
+int 		c_add(int c1, int c2);
 
 
 
