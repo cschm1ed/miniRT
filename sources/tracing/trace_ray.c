@@ -61,3 +61,14 @@ int closest_intersection(t_scene *scene, t_intersect *intersect)
 		return (TRUE);
     return (FALSE);
 }
+
+t_vector	_reflect(t_vector inc, t_vector normal)
+{
+	float	dot;
+	t_vector 	mul;
+
+	dot = _dot(normal, inc);
+	mul = _multiply(normal, dot);
+	mul = _multiply(mul, 2.0f);
+	return (_subtract(inc, mul));
+}

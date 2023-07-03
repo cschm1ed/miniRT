@@ -55,9 +55,32 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	{
 		return ((t_vector){0,0,0});
 	}
-	distance /= 2;
+	distance /= 2.3;
+
 	out = colour_to_vector(((t_light_source*)scene->light_lst->content)->colour);
-	return (_multiply(out, 1 / pow(distance, 2)));
+	out = _divide(out, 255);
+	out = _multiply(out, 1 / pow(distance, 2));
+
+	double		diffuse;
+	t_vector 	normal;
+
+	normal = inter.obj->surface_normal(inter.obj, inter.point);
+	normal = _divide(normal, _len(normal));
+	diffuse = fmax(_dot(normal, _divide(direction, _len(direction))), 0.0f);
+
+
+	double		specular;
+	t_vector 	ref_dir;
+	t_vector 	inc_dir;
+
+	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
+	ref_dir = _reflect(_multiply(direction, -1), normal);
+	ref_dir = _divide(ref_dir, _len(ref_dir));
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 8);
+
+	out = _multiply(out, diffuse * 0.8);
+
+	return (_multiply(out, 255));
 }
 
 int is_obscured(t_scene *scene, double distance, t_vector intersect)
