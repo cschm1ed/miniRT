@@ -14,37 +14,134 @@
 
 /*static void handle_movement(int keysym, t_data *data);*/
 
-int	handle_keypress(int keysym, t_data *data) {
-	int events_movement[] = {XK_w, XK_a, XK_s, XK_d, XK_e, XK_r, XK_q, XK_y, XK_x, 0};
-	int i;
+void	draw_image_2(t_mlx_data *ui, t_data *data)
+{
+	int 	x;
+	int 	y;
+	int 	color;
+	t_line	camera;
+	t_plane	vp;
+
+	x = 0;
+	y = 0;
+	create_vision_plane(data, &vp);
+	camera.base = data->scene->camera->center;
+	printf("center.y in draw input = %f\n", data->scene->camera->center.y);
+	while (x < ui->width)
+	{
+		while (y < ui->height)
+		{
+			camera.direction = get_direction(data, vp, x, y);
+			color = trace_ray(data, camera, 0);
+
+			if (color != 0)
+			{
+				put_pixel(x, y, COLOR_BLUE, data);
+			}
+			color = 0;
+			y++;
+		}
+		y = 0;
+		x ++;
+	}
+	printf("neu gezeichnet\n");
+}
+
+void	ft_reset_image(t_mlx_data *ui)
+{
+	int		i;
+	int		j;
+	char	*index;
 
 	i = 0;
-	while (events_movement[i])
+	while (i < WIDTH)
 	{
-		if (keysym == events_movement[i++])
+		j = 0;
+		while (j < HEIGHT)
 		{
-			t_camera *cam;
-
-			cam = data->scene->camera;
-			if (keysym == XK_w)
-				cam->center.y += MOVE_RATE;
-			else if (keysym == XK_s)
-				cam->center.x -= MOVE_RATE;
-			else if (keysym == XK_a)
-				cam->center.y -= MOVE_RATE;
-			else if (keysym == XK_d)
-				cam->center.y += MOVE_RATE;
-			data->redraw = TRUE;
-			//handle_movement(keysym, data);
-			printf("moving\n");
-			return (SUCCESS);
+			index = ui->img_addr + (j * ui->line_length
+									   + i * ui->bits_per_pixel / 8);
+			if (*(int *)index)
+				*(int *)index = 0;
+			j++;
 		}
+		i++;
 	}
+}
 
-	if (keysym == XK_Escape)
+int	handle_keypress(int keysym, t_data *data)
+{
+	t_camera *cam;
+	t_mlx_data *ui;
+
+	ui = &data->mlx_data;
+	ui->height = HEIGHT;
+	ui->width = WIDTH;
+
+	cam = data->scene->camera;
+	if (keysym == KEYBOARD_W)
+	{
+		printf("center.y vorher = %f\n", cam->center.y);
+		cam->center.y += MOVE_RATE;
+		printf("center.y nachher = %f\n", cam->center.y);
+		printf("test taste w\n");
+	}
+	else if (keysym == XK_s)
+		cam->center.x -= MOVE_RATE;
+	else if (keysym == XK_a)
+		cam->center.y -= MOVE_RATE;
+	else if (keysym == XK_d)
+		cam->center.y += MOVE_RATE;
+	else if (keysym == XK_Escape)
 		free_stuff(data);
+//	mlx_destroy_image(ui->mlx, ui->img);
+//	ui->img = mlx_new_image(ui->mlx, WIDTH, HEIGHT);
+//	ui->img_addr = mlx_get_data_addr(ui->img, &ui->bits_per_pixel,
+//									 &ui->line_length, &ui->endian);
+	printf("test1 segfault\n");
+	ft_memset((ui->img_addr), 0, WIDTH * HEIGHT);
+	printf("test2 segfault\n");
+	draw_image_2(&data->mlx_data, data);
+	mlx_put_image_to_window(&data->mlx_data, &data->mlx_data, &data->mlx_data, 0, 0);
+	printf("test3 segfault\n");
+//	data->redraw = TRUE;
 	return (SUCCESS);
 }
+
+//int	handle_keypress(int keysym, t_data *data) {
+//	int events_movement[] = {XK_w, XK_a, XK_s, XK_d, XK_e, XK_r, XK_q, XK_y, XK_x, 0};
+//	int i;
+//
+//	i = 0;
+//	while (events_movement[i])
+//	{
+//		if (keysym == events_movement[i++])
+//		{
+//			t_camera *cam;
+//
+//			cam = data->scene->camera;
+//			if (keysym == KEYBOARD_W)
+//			{
+//				cam->center.y += MOVE_RATE;
+//				printf("test taste w\n");
+//			}
+//			else if (keysym == XK_s)
+//				cam->center.x -= MOVE_RATE;
+//			else if (keysym == XK_a)
+//				cam->center.y -= MOVE_RATE;
+//			else if (keysym == XK_d)
+//				cam->center.y += MOVE_RATE;
+//			data->redraw = TRUE;
+//			//handle_movement(keysym, data);
+//			printf("moving\n");
+//			return (SUCCESS);
+//		}
+//	}
+//
+//	if (keysym == XK_Escape)
+//		free_stuff(data);
+//	return (SUCCESS);
+//}
 
 /*
 static void handle_movement(int keysym, t_data *data)

@@ -61,7 +61,7 @@ CCFLAG 			:= -Wall -Werror -Wextra -g
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
 
-MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macosf -L /usr/X11/lib -lX11 \
+MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macos -L /usr/X11/lib -lX11 \
                    			-lmlx -lXext -lm -framework OpenGL -framework AppKit
 LIB 			:= ./libft
 

@@ -51,18 +51,21 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	y = 0;
 	create_vision_plane(data, &vp);
 	camera.base = data->scene->camera->center;
+	printf("center.y in draw input = %f\n", data->scene->camera->center.y);
 	while (x < ui->width)
 	{
 		while (y < ui->height)
 		{
 			camera.direction = get_direction(data, vp, x, y);
 			color = trace_ray(data, camera, 0);
+
 			if (color != 0)
 				put_pixel(x, y, color, data);
 			color = 0;
-			y ++;
+			y++;
 		}
 		y = 0;
 		x ++;
 	}
+	printf("neu gezeichnet\n");
 }
