@@ -36,4 +36,11 @@
 # define EPSILON 1e-9
 # define DEG_TO_RAD M_PI / 180.0
 # define MOVE_RATE 0.5
+# define COLOR_BLUE 0xFF0000
+
+# define KEYBOARD_A                     0x00
+# define KEYBOARD_S                     0x01
+# define KEYBOARD_D                     0x02
+# define KEYBOARD_W                     0x0D
+
 #endif

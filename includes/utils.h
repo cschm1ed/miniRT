@@ -86,4 +86,7 @@ void		free_stringArray(char **str);
 
 void		print_vector(t_vector vector);
 
+t_vector	get_direction(t_data *data, t_plane vp, int x, int y);
+void		create_vision_plane(t_data *data, t_plane *vp);
+
 #endif
