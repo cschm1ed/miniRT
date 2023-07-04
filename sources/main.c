@@ -81,6 +81,6 @@ void	loop_mlx(t_data *data)
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 	mlx_hook(ui->win, 17, 0, &free_stuff, data);
 	mlx_key_hook(ui->win, &handle_keypress, data);
-	mlx_loop_hook(ui->mlx, &no_event, ui);
+//	mlx_loop_hook(ui->mlx, &no_event, ui);
 	mlx_loop(ui->mlx);
 }

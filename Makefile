@@ -56,7 +56,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g
+CCFLAG 			:= -Wall -Werror -Wextra -g -fsanitize=address
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
