@@ -90,7 +90,7 @@ typedef struct s_cylinder
 {
 	int			colour;
 	t_vector	center;
-	t_vector	vector;
+	t_vector	axis_direction;
 	double		diameter;
 	double		height;
 } t_cylinder;

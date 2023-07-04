@@ -157,7 +157,7 @@ int interpret_cylinder(char **str, t_data *data)
 	else
 	{
 		if (get_center(str[1], &new_cylinder->center) == FAILURE
-			|| get_center(str[2], &new_cylinder->vector) == FAILURE
+			|| get_center(str[2], &new_cylinder->axis_direction) == FAILURE
 			|| get_single_double(str[3], &new_cylinder->diameter) == FAILURE
 			|| get_single_double(str[4], &new_cylinder->height) == FAILURE
 			|| get_trgb(str[5], &new_cylinder->colour) == FAILURE)
