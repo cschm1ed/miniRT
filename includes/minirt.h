@@ -43,4 +43,10 @@
 # define KEYBOARD_D                     0x02
 # define KEYBOARD_W                     0x0D
 
+# define KEYBOARD_X                     0x07
+# define KEYBOARD_Y                     0x10
+
+# define KEYBOARD_1                     0x12
+# define KEYBOARD_2                     0x13
+
 #endif

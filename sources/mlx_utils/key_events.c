@@ -14,38 +14,38 @@
 
 /*static void handle_movement(int keysym, t_data *data);*/
 
-void	draw_image_2(t_mlx_data *ui, t_data *data)
-{
-	int 	x;
-	int 	y;
-	int 	color;
-	t_line	camera;
-	t_plane	vp;
-
-	x = 0;
-	y = 0;
-	create_vision_plane(data, &vp);
-	camera.base = data->scene->camera->center;
-	printf("center.y in draw input = %f\n", data->scene->camera->center.y);
-	while (x < ui->width)
-	{
-		while (y < ui->height)
-		{
-			camera.direction = get_direction(data, vp, x, y);
-			color = trace_ray(data, camera, 0);
-
-			if (color != 0)
-			{
-				put_pixel(x, y, COLOR_BLUE, data);
-			}
-			color = 0;
-			y++;
-		}
-		y = 0;
-		x ++;
-	}
-	printf("neu gezeichnet\n");
-}
+//void	draw_image_2(t_mlx_data *ui, t_data *data)
+//{
+//	int 	x;
+//	int 	y;
+//	int 	color;
+//	t_line	camera;
+//	t_plane	vp;
+//
+//	x = 0;
+//	y = 0;
+//	create_vision_plane(data, &vp);
+//	camera.base = data->scene->camera->center;
+//	printf("center.y in draw input = %f\n", data->scene->camera->center.y);
+//	while (x < ui->width)
+//	{
+//		while (y < ui->height)
+//		{
+//			camera.direction = get_direction(data, vp, x, y);
+//			color = trace_ray(data, camera, 0);
+//
+//			if (color != 0)
+//			{
+//				put_pixel(x, y, COLOR_BLUE, data);
+//			}
+//			color = 0;
+//			y++;
+//		}
+//		y = 0;
+//		x ++;
+//	}
+//	printf("neu gezeichnet\n");
+//}
 
 void	ft_reset_image(t_mlx_data *ui)
 {
@@ -80,29 +80,29 @@ int	handle_keypress(int keysym, t_data *data)
 
 	cam = data->scene->camera;
 	if (keysym == KEYBOARD_W)
-	{
-		printf("center.y vorher = %f\n", cam->center.y);
 		cam->center.y += MOVE_RATE;
-		printf("center.y nachher = %f\n", cam->center.y);
-		printf("test taste w\n");
-	}
-	else if (keysym == XK_s)
-		cam->center.x -= MOVE_RATE;
-	else if (keysym == XK_a)
+	else if (keysym == KEYBOARD_S)
 		cam->center.y -= MOVE_RATE;
-	else if (keysym == XK_d)
-		cam->center.y += MOVE_RATE;
+	else if (keysym == KEYBOARD_D)
+		cam->center.x -= MOVE_RATE;
+	else if (keysym == KEYBOARD_A)
+		cam->center.x += MOVE_RATE;
+	else if (keysym == KEYBOARD_1)
+		cam->center.z += MOVE_RATE;
+	else if (keysym == KEYBOARD_2)
+		cam->center.z -= MOVE_RATE;
+
 	else if (keysym == XK_Escape)
 		free_stuff(data);
 //	mlx_destroy_image(ui->mlx, ui->img);
 //	ui->img = mlx_new_image(ui->mlx, WIDTH, HEIGHT);
 //	ui->img_addr = mlx_get_data_addr(ui->img, &ui->bits_per_pixel,
 //									 &ui->line_length, &ui->endian);
-	printf("test1 segfault\n");
-	ft_memset((ui->img_addr), 0, WIDTH * HEIGHT);
+//	ft_reset_image(ui);
+//	ft_memset((ui->img_addr), 0, WIDTH * HEIGHT);
+	draw_image(&data->mlx_data, data);
 	printf("test2 segfault\n");
-	draw_image_2(&data->mlx_data, data);
-	mlx_put_image_to_window(&data->mlx_data, &data->mlx_data, &data->mlx_data, 0, 0);
+	mlx_put_image_to_window(data->mlx_data.mlx, data->mlx_data.win, data->mlx_data.img, 0, 0);
 	printf("test3 segfault\n");
 //	data->redraw = TRUE;
 	return (SUCCESS);
