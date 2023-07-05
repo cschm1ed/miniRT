@@ -12,10 +12,55 @@
 
 #include "../../includes/minirt.h"
 
-//int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
-//{
-//
-//}
+static int line_plane_intersection(t_line line, t_cylinder cylinder, t_vector *result)
+{
+	double dot_Product;
+	double distance;
+
+	dot_Product = _dot(line.direction, cylinder.axis_direction);
+	if (dot_Product == 0)
+		return (FALSE);
+	distance = _dot(_subtract(cylinder.center, line.base), cylinder.axis_direction) / dot_Product;
+	if (distance < 0)
+		return (FALSE);
+	*result = _add(line.base, _multiply(line.direction, distance));
+	return (TRUE);
+	//intersectionPoint = rayOrigin + distance * rayDirection
+}
+
+static int check_direction_intersection(t_vector intersect, t_vector apex, t_cylinder cylinder)
+{
+	double len_max;
+	double len_intersect;
+
+	len_max = sqrt(pow(cylinder.diameter / 2, 2) + pow(_len(_subtract(cylinder.center, apex)), 2));
+	len_intersect = _len(_subtract(apex, intersect));
+	if (len_intersect <= len_max)
+		return (TRUE);
+	return (FALSE);
+}
+int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
+{
+	t_vector A;
+	double angle;
+	double dot_product;
+	double factor;
+	double b_check;
+
+	if (line_plane_intersection(line, cylinder, result) == FALSE)
+		return (FALSE);
+	A = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
+	dot_product= _dot(_subtract(A, cylinder.center), _subtract(*result, cylinder.center));
+	factor = _len(_subtract(A, cylinder.center)) * _len(_subtract(*result, cylinder.center));
+	angle  = acos(dot_product / factor);
+	b_check = sin(angle) * _len(_subtract(*result, cylinder.center));
+	if (b_check == cylinder.diameter / 2)
+	{
+		if (check_direction_intersection(*result, A, cylinder) == TRUE)
+			return (TRUE);
+	}
+	return (FALSE);
+}
 //int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 //{
 //	t_vector RDf;

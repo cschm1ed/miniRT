@@ -72,6 +72,7 @@ double		vector_scalar(t_vector vector1, t_vector vector2);
 t_vector		_divide(t_vector vector, double factor);
 t_vector	sqrtf_vector(t_vector vector);
 t_vector	_pow(t_vector vector);
+t_vector	_scalar(t_vector v1, t_vector v2);
 
 int			c_multiply(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);

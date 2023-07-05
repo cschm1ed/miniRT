@@ -25,6 +25,7 @@ SRCS 			:= main.c \
 				   vector_len.c \
 				   vector_add.c \
 				   vector_subtract.c \
+				   vector_scalar.c \
 				   angles_to_vector.c \
 				   vector_multiply.c \
 				   line_sphere.c \
@@ -56,7 +57,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g -fsanitize=address
+CCFLAG 			:= -Wall -Werror -Wextra -O3
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
