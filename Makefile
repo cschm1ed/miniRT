@@ -31,7 +31,6 @@ SRCS 			:= main.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \
-				   line_cylinder.c \
 				   key_events.c \
 				   trace_ray.c \
 				   surface_normal_sphere.c \
@@ -44,7 +43,7 @@ SRCS 			:= main.c \
 				   sqrt_vector.c \
 				   render_scene.c \
 				   no_event.c \
-				   shading.c
+				   shading.c \
 
 VPATH			:= sources:\
 					sources/parsing:\
@@ -57,7 +56,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -O3
+CCFLAG 			:= -g -O1
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping

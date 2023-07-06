@@ -88,3 +88,8 @@ void	loop_mlx(t_data *data)
 //	mlx_loop_hook(ui->mlx, &no_event, ui);
 	mlx_loop(ui->mlx);
 }
+
+void	print_vector(t_vector vec)
+{
+	printf("x: %f, y: %f, z %f\n", vec.x, vec.y, vec.z);
+}

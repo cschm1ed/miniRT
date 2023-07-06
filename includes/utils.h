@@ -73,6 +73,7 @@ t_vector		_divide(t_vector vector, double factor);
 t_vector	sqrtf_vector(t_vector vector);
 t_vector	_pow(t_vector vector);
 t_vector	_scalar(t_vector v1, t_vector v2);
+t_vector	_reflect(t_vector incoming, t_vector normal);
 
 int			c_multiply(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);
@@ -86,7 +87,7 @@ void		free_stringArray(char **str);
 
 void		print_vector(t_vector vector);
 
-t_vector	get_direction(t_data *data, t_plane vp, int x, int y);
+t_vector	get_direction(t_data *data, t_plane vp, double x, double y);
 void		create_vision_plane(t_data *data, t_plane *vp);
 
 #endif
