@@ -78,9 +78,7 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	out = _multiply(out, diffuse * 0.2 + specular * 0.6);
 	distance /= 10;
 
-	printf("out before %f\n", out.x);
 	out = _multiply(out, 1 / pow(distance, 2));
-	printf("out after %f\n", out.x);
 	return (_multiply(out, 255));
 }
 

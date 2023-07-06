@@ -31,7 +31,6 @@ SRCS 			:= main.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \
-				   line_cylinder.c \
 				   key_events.c \
 				   trace_ray.c \
 				   surface_normal_sphere.c \
@@ -44,7 +43,7 @@ SRCS 			:= main.c \
 				   sqrt_vector.c \
 				   render_scene.c \
 				   no_event.c \
-				   shading.c
+				   shading.c \
 
 VPATH			:= sources:\
 					sources/parsing:\
