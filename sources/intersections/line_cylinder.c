@@ -39,14 +39,16 @@
 //		return (TRUE);
 //	return (FALSE);
 //}
-int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
+int line_cylinder(void *object, t_line line, t_vector *result)
 {
 	double A;
 	double B;
 	double C;
 	double t_1;
 	double t_2;
+	t_cylinder cylinder;
 
+	cylinder = *((t_cylinder*)object);
 //	A = ||V||^2 * ||D||^2
 //	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
 //	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2

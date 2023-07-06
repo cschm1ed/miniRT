@@ -51,7 +51,7 @@ int			no_event(t_data *data);
 // math stuff
 int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);
 int			intersection_line_plane(void *object, t_line line, t_vector *result);
-int 		intersection_line_cylinder(t_cylinder, t_line line);
+int			line_cylinder(void *cylinder, t_line line, t_vector *result);
 int			intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result);
 
 t_vector	normal_sphere(void *sphere, t_vector point);
