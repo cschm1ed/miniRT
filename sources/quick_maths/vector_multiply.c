@@ -26,6 +26,8 @@ t_vector	_divide(t_vector vector, double factor)
 {
 	t_vector out;
 
+	if (factor == 0)
+		return (vector);
 	out.x = vector.x / factor;
 	out.y = vector.y / factor;
 	out.z = vector.z / factor;
