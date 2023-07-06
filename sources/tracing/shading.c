@@ -21,7 +21,7 @@ int calculate_color(t_data *data, t_intersect inter)
 	color = 0;
 	obj_col = (*(int *)((inter.obj->content)));
 	intensity = get_intensity(data->scene, inter);
-	//color = ambient_illumination(inter.obj, data->scene);
+	color = ambient_illumination(inter.obj, data->scene);
 	color = c_add(color, c_multiply(obj_col, intensity));
 	return (color);
 }
