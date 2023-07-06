@@ -55,11 +55,8 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	{
 		return ((t_vector){0,0,0});
 	}
-	distance /= 2.3;
-
 	out = colour_to_vector(((t_light_source*)scene->light_lst->content)->colour);
 	out = _divide(out, 255);
-	out = _multiply(out, 1 / pow(distance, 2));
 
 	double		diffuse;
 	t_vector 	normal;
@@ -76,10 +73,14 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
 	ref_dir = _reflect(_multiply(direction, -1), normal);
 	ref_dir = _divide(ref_dir, _len(ref_dir));
-	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 8);
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 100);
 
-	out = _multiply(out, diffuse * 0.8);
+	out = _multiply(out, diffuse * 0.2 + specular * 0.6);
+	distance /= 10;
 
+	printf("out before %f\n", out.x);
+	out = _multiply(out, 1 / pow(distance, 2));
+	printf("out after %f\n", out.x);
 	return (_multiply(out, 255));
 }
 
