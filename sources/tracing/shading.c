@@ -21,7 +21,8 @@ int calculate_color(t_data *data, t_intersect inter)
 	color = 0;
 	obj_col = (*(int *)((inter.obj->content)));
 	intensity = get_intensity(data->scene, inter);
-	color = ambient_illumination(inter.obj, data->scene);
+	if (data->scene->ambient_light)
+		color = ambient_illumination(inter.obj, data->scene);
 	color = c_add(color, c_multiply(obj_col, intensity));
 	return (color);
 }
@@ -72,17 +73,27 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	t_vector 	inc_dir;
 
 	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
-	ref_dir = _reflect(_multiply(direction, -1), normal);
+	ref_dir = _reflect(_multiply(direction, 1), normal);
 	ref_dir = _divide(ref_dir, _len(ref_dir));
-	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 100);
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 20);
 
 	distance /= 10;
-	out = _multiply(out, diffuse * 0.2 + specular * 0.6);
+	out = _multiply(out, diffuse * 0.3 + specular * 0.6);
 
 	out = _multiply(out, 1 / pow(distance, 2));
 	out = (t_vector){fmin(out.x, 1), fmin(out.y, 1), fmin(out.z, 1)};
 
 	return (_multiply(out, 255));
+}
+
+t_vector get_diffuse()
+{
+
+}
+
+t_vector get_specular()
+{
+	
 }
 
 int is_obscured(t_scene *scene, double distance, t_vector intersect)
