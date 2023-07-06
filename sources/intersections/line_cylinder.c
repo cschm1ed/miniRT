@@ -41,19 +41,41 @@
 //}
 int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 {
-	double S_x;
-	double S_y;
-	double S_Z;
+	double A;
+	double B;
+	double C;
+	double t_1;
+	double t_2;
 
-	(void)result;
 //	A = ||V||^2 * ||D||^2
 //	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
 //	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2
+//
+//	At^2 + Bt + C = 0 what the equation to solve for t
+//
+//			ChatGPT
+//	To solve the quadratic equation At^2 + Bt + C = 0, you can use the quadratic formula:
+//
+//	t = (-B ± √(B^2 - 4AC)) / (2A)
 
-	S_x = pow(_len(line.direction), 2) * pow(_len(cylinder.axis_direction), 2);
-	S_y = 2 * (_dot(line.direction, cylinder.axis_direction) * _dot(_subtract(line.base, cylinder.center), cylinder.axis_direction) - pow(_dot(line.direction, cylinder.axis_direction), 2));
-	S_Z = pow(_len(_subtract(line.base, cylinder.center)), 2) * pow(_len(cylinder.axis_direction), 2) - pow(_dot(_subtract(line.base, cylinder.center), cylinder.axis_direction), 2) - pow(cylinder.diameter / 2, 2);
-	return (TRUE);
+	A = pow(_len(line.direction), 2) * pow(_len(cylinder.axis_direction), 2);
+	B = 2 * (_dot(line.direction, cylinder.axis_direction) * _dot(_subtract(line.base, cylinder.center), cylinder.axis_direction) - pow(_dot(line.direction, cylinder.axis_direction), 2));
+	C = pow(_len(_subtract(line.base, cylinder.center)), 2) * pow(_len(cylinder.axis_direction), 2) - pow(_dot(_subtract(line.base, cylinder.center), cylinder.axis_direction), 2) - pow(cylinder.diameter / 2, 2);
+
+	t_1 = (-1) * B + sqrt((pow(B, 2) - 4 * A * C) / 2 * A);
+	if (t_1 > 0)
+	{
+		*result = _add(line.base, _multiply(line.direction, t_1));
+		return (TRUE);
+	}
+
+	t_2 = (-1) * B - sqrt((pow(B, 2) - 4 * A * C) / 2 * A);
+	if (t_2 > 0)
+	{
+		*result = _add(line.base, _multiply(line.direction, t_2));
+		return (TRUE);
+	}
+	return (FALSE);
 }
 //int line_cylinder(t_cylinder cylinder, t_line line, t_vector *result)
 //{
