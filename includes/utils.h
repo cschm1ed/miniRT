@@ -56,6 +56,7 @@ int			intersection_line_triangle(t_triangle triangle, t_line line, t_vector *res
 
 t_vector	normal_sphere(void *sphere, t_vector point);
 t_vector	normal_plane(void *plane, t_vector point);
+t_vector normal_cylinder(void *cylinder, t_vector point);
 
 t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
 double 		rad_to_deg(double rad);

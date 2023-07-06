@@ -168,6 +168,7 @@ int interpret_cylinder(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_cylinder);
 	new_element->intersection = line_cylinder;
+	new_element->surface_normal = normal_cylinder;
 	ft_lstadd_back(&data->scene->cylinder_lst, new_element);
 	printf("parsing cylinder ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylinder->center.x, new_cylinder->center.y, new_cylinder->center.z, new_cylinder->axis_direction.x,
 		   new_cylinder->center.y, new_cylinder->center.z, new_cylinder->diameter, new_cylinder->height, new_cylinder->colour);

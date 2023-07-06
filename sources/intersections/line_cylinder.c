@@ -41,14 +41,26 @@
 //}
 int line_cylinder(void *object, t_line line, t_vector *result)
 {
+	t_vector h;
+	t_vector apex;
+	t_vector h_normal;
 	double A;
 	double B;
 	double C;
+
 	double t_1;
 	double t_2;
 	t_cylinder cylinder;
 
 	cylinder = *((t_cylinder*)object);
+	line.direction = _divide(line.direction, _len(line.direction));
+	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
+
+	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
+	h = _subtract(apex, cylinder.center);
+	h_normal = _divide(h, _len(h));
+	/*h=(H−C)ĥ =(H−C)‖H−C‖*/
+
 //	A = ||V||^2 * ||D||^2
 //	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
 //	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2
@@ -60,11 +72,15 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 //
 //	t = (-B ± √(B^2 - 4AC)) / (2A)
 
-	A = pow(_len(line.direction), 2) * pow(_len(cylinder.axis_direction), 2);
-	B = 2 * (_dot(line.direction, cylinder.axis_direction) * _dot(_subtract(line.base, cylinder.center), cylinder.axis_direction) - pow(_dot(line.direction, cylinder.axis_direction), 2));
-	C = pow(_len(_subtract(line.base, cylinder.center)), 2) * pow(_len(cylinder.axis_direction), 2) - pow(_dot(_subtract(line.base, cylinder.center), cylinder.axis_direction), 2) - pow(cylinder.diameter / 2, 2);
+	A = pow(_len(line.direction), 2);
+	A *= pow(_len(h_normal), 2);
+	B = 2 * (_dot(line.direction, cylinder.axis_direction) * _dot(_subtract(line.base, cylinder.center), h_normal) - pow(_dot(line.direction, h_normal), 2));
+	C = pow(_len(_subtract(line.base, cylinder.center)), 2);
+	C *= pow(_len(h_normal), 2) - pow(_dot(_subtract(line.base, cylinder.center), h_normal), 2);
+	C -= pow(cylinder.diameter / 2, 2);
 
-	t_1 = (-1) * B + sqrt((pow(B, 2) - 4 * A * C) / 2 * A);
+	t_1 = (-1) * B + sqrt(pow(B, 2) - 4 * A * C);
+	t_1 /= 2 * A;
 	if (t_1 > 0)
 	{
 		*result = _add(line.base, _multiply(line.direction, t_1));

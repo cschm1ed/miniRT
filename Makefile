@@ -44,7 +44,8 @@ SRCS 			:= main.c \
 				   render_scene.c \
 				   no_event.c \
 				   shading.c \
-				   line_cylinder.c
+				   line_cylinder.c \
+				   surface_normal_cylinder.c
 
 VPATH			:= sources:\
 					sources/parsing:\
