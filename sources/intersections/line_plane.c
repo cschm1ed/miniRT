@@ -22,6 +22,7 @@ int intersection_line_plane(void *object, t_line line, t_vector *result)
 
 	plane = (t_plane*)object;
 	n = _cross(plane->v1, plane->v2);
+	line.direction = _divide(line.direction, _len(line.direction));
 	if (fabs(_dot(n, line.direction)) < EPSILON) // parallel
 	{
 		if (line_in_plane(*plane, line) == TRUE)
