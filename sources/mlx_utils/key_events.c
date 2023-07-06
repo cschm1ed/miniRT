@@ -94,17 +94,8 @@ int	handle_keypress(int keysym, t_data *data)
 
 	else if (keysym == XK_Escape)
 		free_stuff(data);
-//	mlx_destroy_image(ui->mlx, ui->img);
-//	ui->img = mlx_new_image(ui->mlx, WIDTH, HEIGHT);
-//	ui->img_addr = mlx_get_data_addr(ui->img, &ui->bits_per_pixel,
-//									 &ui->line_length, &ui->endian);
-//	ft_reset_image(ui);
-//	ft_memset((ui->img_addr), 0, WIDTH * HEIGHT);
 	draw_image(&data->mlx_data, data);
-	printf("test2 segfault\n");
 	mlx_put_image_to_window(data->mlx_data.mlx, data->mlx_data.win, data->mlx_data.img, 0, 0);
-	printf("test3 segfault\n");
-//	data->redraw = TRUE;
 	return (SUCCESS);
 }
 

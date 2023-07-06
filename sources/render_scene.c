@@ -51,7 +51,6 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	y = 0;
 	create_vision_plane(data, &vp);
 	camera.base = data->scene->camera->center;
-	printf("center.y in draw input = %f\n", data->scene->camera->center.y);
 	while (x < ui->width)
 	{
 		while (y < ui->height)
@@ -67,5 +66,4 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		y = 0;
 		x ++;
 	}
-	printf("neu gezeichnet\n");
 }

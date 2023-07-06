@@ -148,7 +148,7 @@ int interpret_cylinder(char **str, t_data *data)
 	t_list *new_element;
 	t_cylinder *new_cylinder;
 
-	new_cylinder = malloc(sizeof(t_sphere));
+	new_cylinder = malloc(sizeof(t_cylinder));
 	if (count_elements(str) != 6)
 	{
 		ft_printf("Wrong number of elements in cylinder, there are %d elements in side\n", 1, count_elements(str));
@@ -157,7 +157,7 @@ int interpret_cylinder(char **str, t_data *data)
 	else
 	{
 		if (get_center(str[1], &new_cylinder->center) == FAILURE
-			|| get_center(str[2], &new_cylinder->vector) == FAILURE
+			|| get_center(str[2], &new_cylinder->axis_direction) == FAILURE
 			|| get_single_double(str[3], &new_cylinder->diameter) == FAILURE
 			|| get_single_double(str[4], &new_cylinder->height) == FAILURE
 			|| get_trgb(str[5], &new_cylinder->colour) == FAILURE)
@@ -168,7 +168,8 @@ int interpret_cylinder(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_cylinder);
 	ft_lstadd_back(&data->scene->cylinder_lst, new_element);
-	printf("colour_cylinder = %d\n", new_cylinder->colour);
+	printf("parsing cylinder ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylinder->center.x, new_cylinder->center.y, new_cylinder->center.z, new_cylinder->axis_direction.x,
+		   new_cylinder->center.y, new_cylinder->center.z, new_cylinder->diameter, new_cylinder->height, new_cylinder->colour);
 	return (SUCCESS);
 }
 
