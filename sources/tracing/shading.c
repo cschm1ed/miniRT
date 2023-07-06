@@ -77,7 +77,6 @@ t_vector get_intensity(t_scene *scene, t_intersect inter)
 	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 100);
 
 	distance /= 10;
-	diffuse = 0;
 	out = _multiply(out, diffuse * 0.2 + specular * 0.6);
 
 	out = _multiply(out, 1 / pow(distance, 2));
