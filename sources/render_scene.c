@@ -12,6 +12,9 @@
 
 #include "../includes/minirt.h"
 
+static int average_pixel(int x, int y, t_data *data, t_line camera, t_plane vp);
+static int average_colours(int c1, int c2, int c3, int c4);
+
 void	create_vision_plane(t_data *data, t_plane *vp)
 {
 	t_camera 	*cam;
@@ -24,7 +27,7 @@ void	create_vision_plane(t_data *data, t_plane *vp)
 	vp->v2 = _rotate(vp->v1, 0, 90);
 }
 
-t_vector	get_direction(t_data *data, t_plane vp, int x, int y)
+t_vector	get_direction(t_data *data, t_plane vp, double x, double y)
 {
 	t_vector	start;
 	double 		width;
@@ -55,8 +58,11 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	{
 		while (y < ui->height)
 		{
-			camera.direction = get_direction(data, vp, x, y);
-			color = trace_ray(data, camera, 0);
+
+			color = average_pixel(x, y, data, camera, vp);
+
+			//camera.direction = get_direction(data, vp, x, y);
+			//color = trace_ray(data, camera, 0);
 
 			if (color != 0)
 				put_pixel(x, y, color, data);
@@ -66,4 +72,39 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		y = 0;
 		x ++;
 	}
+}
+
+static int average_pixel(int x, int y, t_data *data, t_line camera, t_plane vp)
+{
+	int c1;
+	int c2;
+	int c3;
+	int	c4;
+
+	camera.direction = get_direction(data, vp, x + 0.25f, y);
+	c1 = trace_ray(data, camera, 0);
+	camera.direction = get_direction(data, vp, x + 0.75f, y);
+	c2 = trace_ray(data, camera, 0);
+	camera.direction = get_direction(data, vp, x + 0.25f, y + 0.75f);
+	c3 = trace_ray(data, camera, 0);
+	camera.direction = get_direction(data, vp, x + 0.75f, y + 0.75f);
+	c4 = trace_ray(data, camera, 0);
+	return (average_colours(c1, c2, c3, c4));
+}
+
+static int average_colours(int c1, int c2, int c3, int c4)
+{
+	t_vector col1;
+	t_vector col2;
+	t_vector col3;
+	t_vector col4;
+
+	col1 = colour_to_vector(c1);
+	col2 = colour_to_vector(c2);
+	col3 = colour_to_vector(c3);
+	col4 = colour_to_vector(c4);
+	col1.x = (col1.x + col2.x + col3.x + col4.x) / 4;
+	col1.y = (col1.y + col2.y + col3.y + col4.y) / 4;
+	col1.z = (col1.z + col2.z + col3.z + col4.z) / 4;
+	return (trgb(0, col1.x, col1.y, col1.z));
 }

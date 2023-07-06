@@ -27,6 +27,7 @@ int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_
 		return (TRUE);
 	return (FALSE);
 }
+
 int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result)
 {
 	t_vector	n;
