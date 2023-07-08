@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:21:38 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:22:12 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/08 09:53:18 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		draw_image(t_mlx_data *ui, t_data *data);
 int			closest_intersection(t_scene *scene, t_intersect *intersect);
 //shading
 t_vector get_intensity(t_scene *scene, t_intersect inter);
-int ambient_illumination(void *obj, t_scene *scene);
+t_vector ambient_illumination(t_list *obj, t_scene *scene);
 int is_obscured(t_scene *scene, double distance, t_vector intersect);
 int calculate_color(t_data *data, t_intersect intersect);
 
@@ -73,7 +73,7 @@ double		vector_scalar(t_vector vector1, t_vector vector2);
 t_vector		_divide(t_vector vector, double factor);
 t_vector	sqrtf_vector(t_vector vector);
 t_vector	_pow(t_vector vector);
-t_vector	_scalar(t_vector v1, t_vector v2);
+t_vector	_multiply_element_wise(t_vector v1, t_vector v2);
 t_vector	_reflect(t_vector incoming, t_vector normal);
 
 int			c_multiply(int colour, t_vector intensity);
@@ -90,5 +90,12 @@ void		print_vector(t_vector vector);
 
 t_vector	get_direction(t_data *data, t_plane vp, double x, double y);
 void		create_vision_plane(t_data *data, t_plane *vp);
+
+t_vector	get_colour_sphere(t_list *obj);
+t_vector	get_colour_plane(t_list *obj);
+t_vector	get_colour_cylinder(t_list *obj);
+t_vector	get_colour_triangle(t_list *obj);
+t_vector	get_colour_lightsource(t_list *obj);
+
 
 #endif
