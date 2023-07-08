@@ -22,22 +22,20 @@ int calculate_color(t_data *data, t_intersect inter)
 	obj_col = (*(int *)((inter.obj->content)));
 	intensity = get_intensity(data->scene, inter);
 	if (data->scene->ambient_light)
-		color = ambient_illumination(inter.obj, data->scene);
+		color = ambient_illumination(inter.obj, data->scene->ambient_light);
 	color = c_add(color, c_multiply(obj_col, intensity));
 	return (color);
 }
 
-int ambient_illumination(void *obj, t_scene *scene)
+int ambient_illumination(t_list *obj, t_ambient_light *ambient_light)
 {
 	t_vector colobj;
 	t_vector colamb;
 	t_vector out;
 
-	colobj = colour_to_vector(*((int*)((t_list*)obj)->content));
-	colobj = _divide(colobj, 255);
-	colamb = colour_to_vector(scene->ambient_light->colour);
-	colamb = _divide(colamb, 255);
-	colamb = _multiply(colamb, scene->ambient_light->light_ratio);
+	colobj = obj->get_colour(obj);
+	colamb = _divide(colour_to_vector(ambient_light->colour), 255);
+	colamb = _multiply(colamb, ambient_light->light_ratio);
 	out = (t_vector){colobj.x * colamb.x, colobj.y * colamb.y, colobj.z *colamb.z};
 	return (vector_to_colour(_multiply(out, 255)));
 }

@@ -45,7 +45,8 @@ SRCS 			:= main.c \
 				   no_event.c \
 				   shading.c \
 				   line_cylinder.c \
-				   surface_normal_cylinder.c
+				   surface_normal_cylinder.c \
+				   get_colour.c
 
 VPATH			:= sources:\
 					sources/parsing:\
@@ -58,7 +59,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -g -O1
+CCFLAG 			:= -g -Ofast -flto
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
