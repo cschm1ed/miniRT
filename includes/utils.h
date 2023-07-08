@@ -18,9 +18,8 @@ int 		trace_ray(t_data *data, t_line line, int depth);
 void		draw_image(t_mlx_data *ui, t_data *data);
 int			closest_intersection(t_scene *scene, t_intersect *intersect);
 //shading
-t_vector get_intensity(t_scene *scene, t_intersect inter);
-int ambient_illumination(t_list *obj, t_ambient_light *ambient_light);
-int is_obscured(t_scene *scene, double distance, t_vector intersect);
+double	get_intensity(t_list *light_sources, t_vector intersection);
+int is_obscured(t_scene *scene, t_vector intersect);
 int calculate_color(t_data *data, t_intersect intersect);
 
 //slice_utils

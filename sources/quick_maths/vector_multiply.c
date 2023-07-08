@@ -33,3 +33,13 @@ t_vector	_divide(t_vector vector, double factor)
 	out.z = vector.z / factor;
 	return (out);
 }
+
+t_vector _multiply_element_wise(t_vector v1, t_vector v2)
+{
+	t_vector out;
+
+	out.x = v1.x * v2.x;
+	out.y = v1.y * v2.y;
+	out.z = v1.z * v2.z;
+	return (out);
+}

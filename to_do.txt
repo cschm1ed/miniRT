@@ -1,0 +1,5 @@
+fix camera direction rotation / angle
+
+sphere around light not blocking
+
+plane not blocking light
