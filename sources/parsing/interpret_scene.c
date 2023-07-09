@@ -137,12 +137,12 @@ int interpret_sphere(char **str, t_data *data)
 			return (free(new_sphere), FAILURE);
 	}
 	new_element = ft_lstnew(new_sphere);
+	new_element->mirror = 1;
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->surface_normal = normal_sphere;
 	new_element->get_colour = get_colour_sphere;
 	ft_lstadd_back(&data->scene->sphere_lst, new_element);
-	printf("parsing Sphere: center %f,%f,%f colour = %d\n", new_sphere->center.x, new_sphere->center.y, new_sphere->center.z, new_sphere->colour);
 	return (SUCCESS);
 }
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 static int average_pixel(int x, int y, t_data *data, t_line camera, t_plane vp);
 static int average_colours(int c1, int c2, int c3, int c4);
@@ -59,11 +59,13 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		while (y < ui->height)
 		{
 
-			color = average_pixel(x, y, data, camera, vp);
-
-			//camera.direction = get_direction(data, vp, x, y);
-			//color = trace_ray(data, camera, 0);
-
+			if (ANTI_ALIASING)
+				color = average_pixel(x, y, data, camera, vp);
+			else
+			{
+				camera.direction = get_direction(data, vp, x, y);
+				color = trace_ray(data, camera, 0);
+			}
 			if (color != 0)
 				put_pixel(x, y, color, data);
 			color = 0;

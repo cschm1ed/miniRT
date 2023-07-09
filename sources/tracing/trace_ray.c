@@ -25,8 +25,17 @@ int trace_ray(t_data *data, t_line line, int depth)
 	{
 		bounce.base = inters.point;
 		bounce.direction = (t_vector){0,0,0};
-		color = calculate_color(data, inters);
-		color += trace_ray(data, bounce, depth + 1);
+		if (inters.obj->mirror == TRUE)
+		{
+			printf("test1\n");
+			bounce.direction = _reflect(inters.ray.direction,
+					inters.obj->surface_normal(inters.obj, inters.point));
+			printf("test2\n");
+			color = trace_ray(data, bounce, MAX_DEPTH - 1);
+		}
+		else
+			color = calculate_color(data, inters);
+		//color += trace_ray(data, bounce, depth + 1);
 		return (color);
 	}
 	return (0);

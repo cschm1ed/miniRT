@@ -22,6 +22,10 @@ double	get_intensity(t_list *light_sources, t_vector intersection);
 int is_obscured(t_scene *scene, t_vector intersect);
 int calculate_color(t_data *data, t_intersect intersect);
 
+t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight);
+t_vector get_diffuse(t_scene *scene, t_intersect inter);
+t_vector get_specular(t_light_source lightSource, t_intersect inter);
+
 //slice_utils
 int			double_checker(char *str);
 long double	ft_atod(const char *str);

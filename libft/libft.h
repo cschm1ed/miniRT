@@ -66,6 +66,7 @@ typedef struct s_list
 	t_vector 		(*surface_normal)(void *object, t_vector point);
 	t_vector		(*get_colour)(t_list *self);
 	int				flag;
+	int 			mirror;
 }					t_list;
 
 t_list	*ft_lstnew(void *content);

@@ -25,6 +25,7 @@
 # include "utils.h"
 # include "parsing.h"
 
+# define ANTI_ALIASING 1
 # define DISTANCE_FACTOR 5
 # define DIFFUSE 0.5
 # define SPECULAR 0.4

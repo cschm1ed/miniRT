@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	data.scene = init_scene(data.scene);
 	data.scene_filename = "./scenes/test.rt";
 
-
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	printf("test segfault 1 \n");
