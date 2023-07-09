@@ -31,6 +31,7 @@ int interpret_lightsource(char **str, t_data *data)
 		}
 	}
 	new_element = ft_lstnew(new_light);
+	new_element->get_colour = get_colour_lightsource;
 	ft_lstadd_back(&data->scene->light_lst, new_element);
 //	printf("center.x = %f\n", new_light->center.x);
 //	printf("center.y = %f\n", new_light->center.y);
@@ -112,6 +113,7 @@ int interpret_plane(char **str, t_data *data)
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->surface_normal = normal_plane;
+	new_element->get_colour = get_colour_plane;
 	ft_lstadd_back(&data->scene->plane_lst, new_element);
 //	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
 	//printf("new plane colour = %d\n", new_plane->colour);
@@ -138,6 +140,7 @@ int interpret_sphere(char **str, t_data *data)
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->surface_normal = normal_sphere;
+	new_element->get_colour = get_colour_sphere;
 	ft_lstadd_back(&data->scene->sphere_lst, new_element);
 	printf("parsing Sphere: center %f,%f,%f colour = %d\n", new_sphere->center.x, new_sphere->center.y, new_sphere->center.z, new_sphere->colour);
 	return (SUCCESS);
@@ -169,6 +172,7 @@ int interpret_cylinder(char **str, t_data *data)
 	new_element = ft_lstnew(new_cylinder);
 	new_element->intersection = line_cylinder;
 	new_element->surface_normal = normal_cylinder;
+	new_element->get_colour = get_colour_cylinder;
 	ft_lstadd_back(&data->scene->cylinder_lst, new_element);
 	printf("parsing cylinder ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylinder->center.x, new_cylinder->center.y, new_cylinder->center.z, new_cylinder->axis_direction.x,
 		   new_cylinder->center.y, new_cylinder->center.z, new_cylinder->diameter, new_cylinder->height, new_cylinder->colour);
