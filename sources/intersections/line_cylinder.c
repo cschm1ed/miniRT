@@ -12,97 +12,83 @@
 
 #include "../../includes/minirt.h"
 
-//int line_cylinder(void *object, t_line line, t_vector *result)
+
+//int cap_intersection_test(t_cylinder cylinder, t_line line, t_vector height, double )
 //{
-//	t_vector h;
-//	t_vector apex;
-//	t_vector h_normal;
-//	double A;
-//	double B;
-//	double C;
 //
-//	double t_1;
-//	double t_2;
-//	t_cylinder cylinder;
-//
-//	cylinder = *((t_cylinder*)object);
-//	line.direction = _divide(line.direction, _len(line.direction));
-//	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
-//
-//	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
-//	h = _subtract(apex, cylinder.center);
-//	h_normal = _divide(h, _len(h));
-//	/*h=(H−C)ĥ =(H−C)‖H−C‖*/
-//
-////	A = ||V||^2 * ||D||^2
-////	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
-////	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2
-////
-////	At^2 + Bt + C = 0 what the equation to solve for t
-////
-////			ChatGPT
-////	To solve the quadratic equation At^2 + Bt + C = 0, you can use the quadratic formula:
-////
-////	t = (-B ± √(B^2 - 4AC)) / (2A)
-//
-//	A = pow(_len(line.direction), 2);
-//	A *= pow(_len(h_normal), 2);
-//	B = 2 * (_dot(line.direction, cylinder.axis_direction) * _dot(_subtract(line.base, cylinder.center), h_normal) - pow(_dot(line.direction, h_normal), 2));
-//	C = pow(_len(_subtract(line.base, cylinder.center)), 2);
-//	C *= pow(_len(h_normal), 2) - pow(_dot(_subtract(line.base, cylinder.center), h_normal), 2);
-//	C -= pow(cylinder.diameter / 2, 2);
-//
-//	t_1 = (-1) * B + sqrt(pow(B, 2) - 4 * A * C);
-//	t_1 /= 2 * A;
-//	if (t_1 > 0)
-//	{
-//		*result = _add(line.base, _multiply(line.direction, t_1));
-//		return (TRUE);
-//	}
-//
-//	t_2 = (-1) * B - sqrt((pow(B, 2) - 4 * A * C) / 2 * A);
-//	if (t_2 > 0)
-//	{
-//		*result = _add(line.base, _multiply(line.direction, t_2));
-//		return (TRUE);
-//	}
-//	return (FALSE);
 //}
 int line_cylinder(void *object, t_line line, t_vector *result)
 {
+	t_vector h;
+	t_vector apex;
+	t_vector h_normal;
+	t_vector w;
+	t_vector line_normal;
+	t_vector check;
 	double a;
 	double b;
 	double c;
-	double delta;
+
 	double t1;
 	double t2;
 	double t;
-	double r;
+	double root_term;
 	t_cylinder cylinder;
 
+
 	cylinder = *((t_cylinder*)object);
+	line_normal = _divide(line.direction, _len(line.direction));
+	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
 
+	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
+	h = _subtract(apex, cylinder.center);
+	h_normal = _divide(h, _len(h));
+	w = _subtract(line.base, cylinder.center);
+	/*h=(H−C)ĥ =(H−C)‖H−C‖*/
 
-	a = (line.direction.x * line.direction.x) + (line.direction.z * line.direction.z);
-	b = 2 * (line.direction.x * (line.base.x - cylinder.center.x) + line.direction.z * (line.base.z - cylinder.center.z));
-	c = (line.base.x - cylinder.center.x) * (line.base.x -cylinder.center.x) + (line.base.z - cylinder.center.z) * (line.base.z - cylinder.center.z) - (cylinder.diameter / 2 * cylinder.diameter / 2);
-	delta = b * b - 4 * (a * c);
-	if (fabs(delta) < 0.001)
+//	A = ||V||^2 * ||D||^2
+//	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
+//	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2
+//
+//	At^2 + Bt + C = 0 what the equation to solve for t
+//
+//			ChatGPT
+//	To solve the quadratic equation At^2 + Bt + C = 0, you can use the quadratic formula:
+//
+//	t = (-B ± √(B^2 - 4AC)) / (2A)
+
+	a = _dot(line.direction, line.direction) - pow(_dot(line.direction, h_normal), 2);
+	b = 2 * (_dot(line.direction, w) - _dot(line.direction, h_normal) * _dot(w, h_normal));
+	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylinder.diameter / 2, 2);
+	root_term = pow(b, 2) - (4 * a * c);
+	if (root_term > 0)
+	{
+		t1 = (-1) * b + sqrt(pow(b, 2) - 4 * a * c);
+		t2 = (-1) * b - sqrt(pow(b, 2) - 4 * a * c);
+		if (t1 > t2)
+			t = t1;
+		else
+			t = t2;
+		check = _add(line.base, _multiply(line.direction, t));
+		if (0 <= _dot(_subtract(check, cylinder.center), h) &&  _dot(_subtract(check, cylinder.center), h) <= _len(h))
+		{
+			*result = _add(line.base, _multiply(line.direction, t));
+			return (TRUE);
+		}
+	}
+	if (root_term == 0)
 		return (FALSE);
-	if (delta < 0)
+	if (fabs(_dot(line_normal, h_normal)) != 1)
+	{
+		t = (-1) * b / 2 * a;
+		*result = _add(line.base, _multiply(line.direction, t));
+		return (TRUE);
+	}
+	if (root_term < 0)
 		return (FALSE);
-	t1 = (-b - sqrt(delta)) / (2 * a);
-	t2 = (-b + sqrt(delta)) / (2 * a);
-	if (t1 > t2)
-		t = t2;
-	else
-		t = t1;
-	r = line.base.y + t * line.direction.y;
-	if ((r >= cylinder.center.y) && (r <= cylinder.center.y + cylinder.height))
-		return (FALSE);
-	*result = _add(line.base, _multiply(line.direction, t));
-	return (TRUE);
+	return (FALSE);
 }
+
 
 //float Cylinder::intersect(Vector pos, Vector dir)
 //{
