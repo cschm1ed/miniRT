@@ -110,6 +110,8 @@ int interpret_plane(char **str, t_data *data)
 			return (free(new_plane), FAILURE);
 	}
 	new_element = ft_lstnew(new_plane);
+	if (new_plane->base.y == 5)
+		new_element->mirror = 1;
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->surface_normal = normal_plane;
@@ -137,7 +139,6 @@ int interpret_sphere(char **str, t_data *data)
 			return (free(new_sphere), FAILURE);
 	}
 	new_element = ft_lstnew(new_sphere);
-	//new_element->mirror = 1;
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->surface_normal = normal_sphere;

@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:46:43 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:46:31 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/09 14:49:14 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 # define ANTI_ALIASING 1
 # define DISTANCE_FACTOR 5
 # define DIFFUSE 0.5
-# define SPECULAR 0.4
+# define SPECULAR 0.3
 # define MAX_DEPTH 2
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 1500
+# define HEIGHT 1500
 # define FOV_HEIGHT 90
 # define SUCCESS 1
 # define FAILURE -1

@@ -21,16 +21,18 @@ int trace_ray(t_data *data, t_line line, int depth)
 	if (depth == MAX_DEPTH)
 		return (0);
     inters.ray = line;
+	color = 0;
 	if (closest_intersection(data->scene, &inters))
 	{
 		bounce.base = inters.point;
 		bounce.direction = _reflect(inters.ray.direction,
 					inters.obj->surface_normal(inters.obj, inters.point));
+		bounce.base = _add(bounce.base, _multiply(bounce.direction, 0.00000001f));
 		if (inters.obj->mirror == TRUE)
-			color = trace_ray(data, bounce, 0);
+			color = trace_ray(data, bounce, depth + 1);
 		else
 			color = calculate_color(data, inters);
-		color += trace_ray(data, bounce, depth + 1);
+		//color = c_add(trace_ray(data, bounce, depth + 1), color);
 		return (color);
 	}
 	return (0);

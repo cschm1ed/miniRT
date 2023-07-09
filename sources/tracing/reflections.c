@@ -25,7 +25,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 	ref_dir = _reflect(_multiply(direction, 1),
 					   inter.obj->surface_normal(inter.obj, inter.point));
 	ref_dir = _divide(ref_dir, _len(ref_dir));
-	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 100) / SPECULAR;
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 120) / SPECULAR;
 	colour = _multiply(_divide(colour_to_vector(lightSource.colour), 255), lightSource.light_ratio);
 	return (_multiply(colour, specular));
 }

@@ -59,7 +59,7 @@ VPATH			:= sources:\
 
 BUILDDIR		:= build
 
-CC 				:= gcc
+CC 				:= gcc -Ofast
 CCFLAG 			:= -g
 
 # -fsanitize=address
