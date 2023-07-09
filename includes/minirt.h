@@ -29,6 +29,7 @@
 # define DISTANCE_FACTOR 5
 # define DIFFUSE 0.5
 # define SPECULAR 0.4
+# define MAX_DEPTH 2
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -37,7 +38,6 @@
 # define FAILURE -1
 # define TRUE 1
 # define FALSE 0
-# define MAX_DEPTH 1
 # define EPSILON 1e-9
 # define DEG_TO_RAD M_PI / 180.0
 # define MOVE_RATE 0.5

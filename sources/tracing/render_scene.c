@@ -71,6 +71,8 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 			color = 0;
 			y++;
 		}
+		if (x % 3 == 0)
+			mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 		y = 0;
 		x ++;
 	}
