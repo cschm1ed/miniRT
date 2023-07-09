@@ -22,9 +22,7 @@ int	main(int argc, char **argv)
 
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
-	printf("test segfault 1 \n");
 	parsing(&data);
-	printf("test segfault 2 \n");
 	t_list *light_element = data.scene->light_lst;
 	while (light_element != NULL)
 	{
@@ -77,11 +75,8 @@ void	loop_mlx(t_data *data)
 	ui->height = HEIGHT;
 	ui->width = WIDTH;
 	//data->redraw = TRUE;
-	printf("data->redraw before:%d\n", data->redraw);
     data->redraw = 0;
-	printf("test segfault 3 \n");
 	draw_image(ui, data);
-	printf("test segfault 4 \n");
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 	mlx_hook(ui->win, 17, 0, &free_stuff, data);
 	mlx_key_hook(ui->win, &handle_keypress, data);

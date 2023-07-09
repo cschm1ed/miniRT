@@ -15,16 +15,34 @@
 
 //int cap_intersection_test(t_cylinder cylinder, t_line line, t_vector height, double )
 //{
-//
+//	check_
 //}
+
+int cap_intersection(t_vector center, t_vector point, double radius)
+{
+	double check;
+	double x;
+	double y;
+	double z;
+
+	x = pow(point.x - center.x , 2);
+	y = pow(point.y - center.y , 2);
+	z = pow(point.z - center.z , 2);
+
+	check = x + y + z - pow(radius, 2);
+	if (check <= 0.00001)
+		return (TRUE);
+	return (FALSE);
+}
 int line_cylinder(void *object, t_line line, t_vector *result)
 {
 	t_vector h;
 	t_vector apex;
 	t_vector h_normal;
 	t_vector w;
+	t_vector v;
 	t_vector line_normal;
-	t_vector check;
+	t_vector point;
 	double a;
 	double b;
 	double c;
@@ -33,6 +51,7 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 	double t2;
 	double t;
 	double root_term;
+	double check;
 	t_cylinder cylinder;
 
 
@@ -41,9 +60,11 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
 
 	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
+//	printf("apex: %f|%f|%f \n", apex.x, apex.y, apex.z);
 	h = _subtract(apex, cylinder.center);
 	h_normal = _divide(h, _len(h));
 	w = _subtract(line.base, cylinder.center);
+	v = line.direction;
 	/*h=(H−C)ĥ =(H−C)‖H−C‖*/
 
 //	A = ||V||^2 * ||D||^2
@@ -57,35 +78,54 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 //
 //	t = (-B ± √(B^2 - 4AC)) / (2A)
 
-	a = _dot(line.direction, line.direction) - pow(_dot(line.direction, h_normal), 2);
-	b = 2 * (_dot(line.direction, w) - _dot(line.direction, h_normal) * _dot(w, h_normal));
+	a = _dot(v, v) - pow(_dot(v, h_normal), 2);
+	b = 2 * (_dot(v, w) - _dot(v, h_normal) * _dot(w, h_normal));
 	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylinder.diameter / 2, 2);
 	root_term = pow(b, 2) - (4 * a * c);
+//	check = fabs(_dot(_divide(v, _len(v)), h_normal));
+//	check = fabs(_dot(line.direction, h_normal));
+//	if (1 != check)
+//	{
+//		t = (-1) * b / (2 * a);
+//		point = _add(line.base, _multiply(line.direction, t));
+//		*result = point;
+//	}
 	if (root_term > 0)
 	{
-		t1 = (-1) * b + sqrt(pow(b, 2) - 4 * a * c);
-		t2 = (-1) * b - sqrt(pow(b, 2) - 4 * a * c);
+		t1 = ((-1) * b + sqrt(root_term)) / 2 * a;
+		t2 = ((-1) * b - sqrt(root_term)) / 2 * a;
 		if (t1 > t2)
 			t = t1;
 		else
 			t = t2;
-		check = _add(line.base, _multiply(line.direction, t));
-		if (0 <= _dot(_subtract(check, cylinder.center), h) &&  _dot(_subtract(check, cylinder.center), h) <= _len(h))
+		point = _add(line.base, _multiply(line.direction, t));
+		check =  _dot(_subtract(point, cylinder.center), h);
+		if (0 <= check &&  check <= _len(h))
 		{
-			*result = _add(line.base, _multiply(line.direction, t));
+			printf("check between caps\n");
+			*result = point;
 			return (TRUE);
 		}
+		check =  _dot(_subtract(point, cylinder.center), h);
+		if (0 > check)
+		{
+			if (cap_intersection(cylinder.center, point, cylinder.diameter / 2) == TRUE)
+			{
+				printf("check base cap\n");
+				*result = point;
+				return (TRUE);
+			}
+		}
+		if (_len(h) < check)
+		{
+			if (cap_intersection(apex, point, cylinder.diameter / 2) == TRUE)
+			{
+				printf("check bottom cap\n");
+				*result = point;
+				return (TRUE);
+			}
+		}
 	}
-	if (root_term == 0)
-		return (FALSE);
-	if (fabs(_dot(line_normal, h_normal)) != 1)
-	{
-		t = (-1) * b / 2 * a;
-		*result = _add(line.base, _multiply(line.direction, t));
-		return (TRUE);
-	}
-	if (root_term < 0)
-		return (FALSE);
 	return (FALSE);
 }
 
