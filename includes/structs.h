@@ -139,6 +139,7 @@ typedef struct s_scene
 	t_list 			*sphere_lst;
 	t_list 			*plane_lst;
 	t_list 			*cylinder_lst;
+	t_list			*triangle_lst;
 	t_list			*all_objs;
     t_list          *all_last_tmp;
 } t_scene;

@@ -42,7 +42,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 	direction = _subtract(lightSource.center, inter.point);
 	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
 	ref_dir = _reflect(_multiply(direction, 1),
-		inter.obj->surface_normal(inter.obj, inter.point));
+		inter.obj->surface_normal(inter.obj, inter.ray));
 	ref_dir = _divide(ref_dir, _len(ref_dir));
 	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 100) / SPECULAR;
 	colour = _multiply(_divide(colour_to_vector(lightSource.colour), 255), lightSource.light_ratio);
@@ -58,7 +58,7 @@ t_vector get_diffuse(t_scene *scene, t_intersect inter)
 
 	direction = _subtract(((t_light_source*)
 			scene->light_lst->content)->center, inter.point);
-	normal = inter.obj->surface_normal(inter.obj, inter.point);
+	normal = inter.obj->surface_normal(inter.obj, inter.ray);
 	normal = _divide(normal, _len(normal));
 	diffuse = fmax(_dot(normal, _divide(direction, _len(direction))), 0.0f);
 	diffuse *= DIFFUSE;

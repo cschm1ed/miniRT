@@ -63,7 +63,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 	int 			(*intersection)(void *object, t_line line, t_vector *result);
-	t_vector 		(*surface_normal)(void *object, t_vector point);
+	t_vector 		(*surface_normal)(void *object, t_line line);
 	t_vector		(*get_colour)(t_list *self);
 	int				flag;
 }					t_list;

@@ -12,10 +12,10 @@
 
 #include "../../includes/minirt.h"
 
-t_vector normal_sphere(void *sphere, t_vector point)
+t_vector normal_sphere(void *sphere, t_line line)
 {
 	t_sphere	*sp;
 
 	sp = ((t_list*)sphere)->content;
-	return (_subtract(point, sp->center));
+	return (_subtract(line.base, sp->center));
 }

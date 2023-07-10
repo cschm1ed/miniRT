@@ -12,11 +12,11 @@
 
 #include "../../includes/minirt.h"
 
-t_vector normal_plane(void *plane, t_vector point)
+t_vector normal_plane(void *plane, t_line line)
 {
 	t_plane	*pl;
 
-	(void)point;
+	(void)line;
 	pl = ((t_list*)plane)->content;
 	return (_cross(pl->v1, pl->v2));
 }

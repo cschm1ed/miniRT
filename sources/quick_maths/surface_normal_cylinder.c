@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector normal_cylinder(void *cylinder, t_vector point)
+t_vector normal_cylinder(void *cylinder, t_line line)
 {
 	t_cylinder	*cy;
 	t_vector apex;
@@ -22,19 +22,19 @@ t_vector normal_cylinder(void *cylinder, t_vector point)
 
 	cy = ((t_list*)cylinder)->content;
 	apex = _add(cy->center, _multiply(cy->axis_direction, cy->height));
-	if (cap_intersection(apex, point, cy->diameter / 2, (t_vector){0,0,0}) == TRUE)
+	if (top_cap_intersection(*cy, line.direction, line.base) == TRUE)
 	{
-		surface_normal = _subtract(apex, cy->center);
+		surface_normal = cy->axis_direction;
 		return (surface_normal);
 	}
-	if (cap_intersection(cy->center, point, cy->diameter / 2, (t_vector){0,0,0}) == TRUE)
+	if (bottom_cap_intersection(*cy, line.direction, line.base) == TRUE)
 	{
-		surface_normal = _subtract(cy->center, apex);
+		surface_normal = _multiply(cy->axis_direction, -1);
 		return (surface_normal);
 	}
 	len_q = sqrt(_len(cy->center) - pow(cy->diameter / 2, 2));
 	q = _add(cy->center, _multiply(cy->axis_direction, len_q));
-	surface_normal = _subtract(point, q);
+	surface_normal = _subtract(line.base, q);
 	return (surface_normal);
 }
 

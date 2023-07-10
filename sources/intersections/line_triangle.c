@@ -28,29 +28,30 @@ int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_
 	return (FALSE);
 }
 
-int intersection_line_triangle(t_triangle triangle, t_line line, t_vector *result)
+int intersection_line_triangle(void *object, t_line line, t_vector *result)
 {
-	t_vector	n;
-	t_vector 	intersection_point;
-	double		d;
-	double		t;
-
-	n = _cross(_subtract(triangle.B, triangle.A), _subtract(triangle.C, triangle.A));
-	n = _divide(n, _len(n));
-	d = _dot(n, triangle.A);
-	t = (d - _dot(n, line.base));
-	if (_dot(n , line.direction) == 0)
-		return (FALSE);
-	t = t / _dot(n, line.direction);
-	if (t < 0)
-		return (FALSE);
-	intersection_point = _add(line.base, _multiply(line.direction, t));
-	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
-	{
-		*result = intersection_point;
-		return (TRUE);
-	}
-	return (FALSE);
+	return (TRUE);
+//	t_vector	n;
+//	t_vector 	intersection_point;
+//	double		d;
+//	double		t;
+//
+//	n = _cross(_subtract(triangle.B, triangle.A), _subtract(triangle.C, triangle.A));
+//	n = _divide(n, _len(n));
+//	d = _dot(n, triangle.A);
+//	t = (d - _dot(n, line.base));
+//	if (_dot(n , line.direction) == 0)
+//		return (FALSE);
+//	t = t / _dot(n, line.direction);
+//	if (t < 0)
+//		return (FALSE);
+//	intersection_point = _add(line.base, _multiply(line.direction, t));
+//	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
+//	{
+//		*result = intersection_point;
+//		return (TRUE);
+//	}
+//	return (FALSE);
 }
 
 

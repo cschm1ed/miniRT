@@ -179,6 +179,39 @@ int interpret_cylinder(char **str, t_data *data)
 	return (SUCCESS);
 }
 
+int interpret_triangle(char **str, t_data *data)
+{
+	t_list *new_element;
+	t_triangle *new_triangle;
+
+	new_triangle = malloc(sizeof(t_triangle));
+	if (count_elements(str) != 5)
+	{
+		ft_printf("Wrong number of elements in cylinder, there are %d elements in side\n", 1, count_elements(str));
+		return (FAILURE);
+	}
+	else
+	{
+		if (get_center(str[1], &new_triangle->A) == FAILURE
+			|| get_center(str[2], &new_triangle->B) == FAILURE
+			|| get_center(str[3], &new_triangle->C) == FAILURE
+			|| get_trgb(str[4], &new_triangle->colour) == FAILURE)
+		{
+			free(new_triangle);
+			return (FAILURE);
+		}
+	}
+	new_element = ft_lstnew(new_triangle);
+	new_element->intersection = intersection_line_triangle;
+//	new_element->surface_normal = normal_cylinder;
+	new_element->get_colour = get_colour_triangle;
+	ft_lstadd_back(&data->scene->triangle_lst, new_element);
+	printf("parsing triangle ---> A %f,%f,%f B: %f,%f,%f C: %f,%f,%f colour: %d\n", new_triangle->A.x, new_triangle->A.y, new_triangle->A.z, new_triangle->B.x,
+		   new_triangle->B.y, new_triangle->B.z, new_triangle->C.x, new_triangle->C.y, new_triangle->C.z, new_triangle->colour);
+	return (SUCCESS);
+}
+
+
 //cy 50.0,0.0,20.6 0,0,1.0 14.2 21.42 10,0,255
 
 //sp 0,0,20 20 255,0,0
