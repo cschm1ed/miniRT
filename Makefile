@@ -46,7 +46,8 @@ SRCS 			:= main.c \
 				   shading.c \
 				   line_cylinder.c \
 				   surface_normal_cylinder.c \
-				   get_colour.c
+				   get_colour.c \
+				   line_cylinder2.c
 
 VPATH			:= sources:\
 					sources/parsing:\

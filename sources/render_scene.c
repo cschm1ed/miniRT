@@ -70,6 +70,8 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 			y++;
 		}
 		y = 0;
+        if (x % 4 == 0)
+            mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 		x ++;
 	}
 }

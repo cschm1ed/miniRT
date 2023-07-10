@@ -18,7 +18,7 @@
 //	check_
 //}
 
-int cap_intersection(t_vector center, t_vector point, double radius)
+int cap_intersection(t_vector center, t_vector point, double radius, t_vector h)
 {
 	double check;
 	double x;
@@ -30,10 +30,19 @@ int cap_intersection(t_vector center, t_vector point, double radius)
 	z = pow(point.z - center.z , 2);
 
 	check = x + y + z - pow(radius, 2);
-	if (check <= 0.00001)
+    if (_len(_subtract(point, center)) < 2)
+        return (TRUE);
+
+	if (check <= 0.0001)
 		return (TRUE);
 	return (FALSE);
 }
+
+int cap_intersection2(t_vector center, t_vector point, double radius, t_vector h)
+{
+
+}
+
 int line_cylinder(void *object, t_line line, t_vector *result)
 {
 	t_vector h;
@@ -41,8 +50,8 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 	t_vector h_normal;
 	t_vector w;
 	t_vector v;
-	t_vector line_normal;
 	t_vector point;
+
 	double a;
 	double b;
 	double c;
@@ -52,79 +61,58 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 	double t;
 	double root_term;
 	double check;
+
 	t_cylinder cylinder;
 
-
 	cylinder = *((t_cylinder*)object);
-	line_normal = _divide(line.direction, _len(line.direction));
 	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
+    apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height / 2));
 
-	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
-//	printf("apex: %f|%f|%f \n", apex.x, apex.y, apex.z);
-	h = _subtract(apex, cylinder.center);
+	h = _multiply(_subtract(apex, cylinder.center), 2);
 	h_normal = _divide(h, _len(h));
 	w = _subtract(line.base, cylinder.center);
-	v = line.direction;
-	/*h=(H−C)ĥ =(H−C)‖H−C‖*/
-
-//	A = ||V||^2 * ||D||^2
-//	B = 2((V dot D)(P - O) dot D - (V dot D)^2)
-//	C = ||P - O||^2 * ||D||^2 - ((P - O) dot D)^2 - r^2
-//
-//	At^2 + Bt + C = 0 what the equation to solve for t
-//
-//			ChatGPT
-//	To solve the quadratic equation At^2 + Bt + C = 0, you can use the quadratic formula:
-//
-//	t = (-B ± √(B^2 - 4AC)) / (2A)
+	v = _divide(line.direction, _len(line.direction));
 
 	a = _dot(v, v) - pow(_dot(v, h_normal), 2);
 	b = 2 * (_dot(v, w) - _dot(v, h_normal) * _dot(w, h_normal));
 	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylinder.diameter / 2, 2);
+
 	root_term = pow(b, 2) - (4 * a * c);
-//	check = fabs(_dot(_divide(v, _len(v)), h_normal));
-//	check = fabs(_dot(line.direction, h_normal));
-//	if (1 != check)
-//	{
-//		t = (-1) * b / (2 * a);
-//		point = _add(line.base, _multiply(line.direction, t));
-//		*result = point;
-//	}
+
 	if (root_term > 0)
 	{
-		t1 = ((-1) * b + sqrt(root_term)) / 2 * a;
-		t2 = ((-1) * b - sqrt(root_term)) / 2 * a;
-		if (t1 > t2)
+		t1 = (-b + sqrt(root_term)) / (2 * a);
+		t2 = (-b - sqrt(root_term)) / (2 * a);
+		if (t1 < t2 && t1 > 0)
 			t = t1;
-		else
+		else if (t2 > 0)
 			t = t2;
-		point = _add(line.base, _multiply(line.direction, t));
+		point = _add(line.base, _multiply(v, t));
 		check =  _dot(_subtract(point, cylinder.center), h);
-		if (0 <= check &&  check <= _len(h))
+
+		if (_len(h) < check)
 		{
-			printf("check between caps\n");
+			if (cap_intersection(apex, point, cylinder.diameter / 2, h) == TRUE)
+			{
+                printf("top cap\n");
+				*result = point;
+				return (TRUE);
+			}
+		}
+		if (0 <= check && check <= _len(h))
+		{
 			*result = point;
 			return (TRUE);
 		}
-		check =  _dot(_subtract(point, cylinder.center), h);
-		if (0 > check)
-		{
-			if (cap_intersection(cylinder.center, point, cylinder.diameter / 2) == TRUE)
-			{
-				printf("check base cap\n");
-				*result = point;
-				return (TRUE);
-			}
-		}
-		if (_len(h) < check)
-		{
-			if (cap_intersection(apex, point, cylinder.diameter / 2) == TRUE)
-			{
-				printf("check bottom cap\n");
-				*result = point;
-				return (TRUE);
-			}
-		}
+        if (0 > check)
+        {
+            if (cap_intersection(cylinder.center, point, cylinder.diameter / 2, h) == TRUE)
+            {
+                printf("bottom cap\n");
+                *result = point;
+                return (TRUE);
+            }
+        }
 	}
 	return (FALSE);
 }
