@@ -12,6 +12,8 @@
 
 #include "../../includes/minirt.h"
 
+static int set_DSR(t_list *obj, char **str, int i);
+
 int interpret_lightsource(char **str, t_data *data)
 {
 	t_list *new_element;
@@ -87,8 +89,6 @@ int interpret_ambient_light(char **str, t_data *data)
 			return (free(new_ambient_light), FAILURE);
 	}
 	data->scene->ambient_light = new_ambient_light;
-//	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
-//	printf("colour = %d\n", new_ambient_light->colour);
 	return (SUCCESS);
 }
 
@@ -98,9 +98,17 @@ int interpret_plane(char **str, t_data *data)
 	t_plane *new_plane;
 
 	new_plane = malloc(sizeof(t_plane));
-	if (count_elements(str) != 4)
-		return (ft_printf("Wrong number of elements in light_source, there are %d elements in side\n",
-			1, count_elements(str)), FAILURE);
+    new_element = ft_lstnew(new_plane);
+    if (count_elements(str) != 4)
+    {
+        if (count_elements(str) == 7)
+        {
+            if (set_DSR(new_element, str, 4) == FAILURE)
+                return (FAILURE);
+        }
+        else
+            return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+    }
 	else
 	{
 		if (get_center(str[1], &new_plane->base) == FAILURE
@@ -108,14 +116,11 @@ int interpret_plane(char **str, t_data *data)
 			|| get_trgb(str[3], &new_plane->colour) == FAILURE)
 			return (free(new_plane), FAILURE);
 	}
-	new_element = ft_lstnew(new_plane);
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->surface_normal = normal_plane;
 	new_element->get_colour = get_colour_plane;
 	ft_lstadd_back(&data->scene->plane_lst, new_element);
-//	printf("light_ratio = %f\n", new_ambient_light->light_ratio);
-	//printf("new plane colour = %d\n", new_plane->colour);
 	return (SUCCESS);
 }
 
@@ -125,9 +130,17 @@ int interpret_sphere(char **str, t_data *data)
 	t_sphere *new_sphere;
 
 	new_sphere = malloc(sizeof(t_sphere));
-	if (count_elements(str) != 4)
-		return (ft_printf("Wrong number of elements in light_source, there are %d elements in side\n",
-			1, count_elements(str)),FAILURE);
+    new_element = ft_lstnew(new_sphere);
+    if (count_elements(str) != 4)
+    {
+        if (count_elements(str) == 7)
+        {
+            if (set_DSR(new_element, str, 4) == FAILURE)
+                return (FAILURE);
+        }
+            else
+                return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+    }
 	else
 	{
 		if (get_center(str[1], &new_sphere->center) == FAILURE
@@ -135,7 +148,6 @@ int interpret_sphere(char **str, t_data *data)
 			|| get_trgb(str[3], &new_sphere->colour) == FAILURE)
 			return (free(new_sphere), FAILURE);
 	}
-	new_element = ft_lstnew(new_sphere);
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->surface_normal = normal_sphere;
@@ -151,10 +163,16 @@ int interpret_cylindner(char **str, t_data *data)
 	t_cylindner *new_cylindner;
 
 	new_cylindner = malloc(sizeof(t_cylindner));
+    new_element = ft_lstnew(new_cylindner);
 	if (count_elements(str) != 6)
 	{
-		ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str));
-		return (FAILURE);
+        if (count_elements(str) == 9)
+        {
+            if (set_DSR(new_element, str, 6) == FAILURE)
+                return (FAILURE);
+        }
+        else
+            return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
 	}
 	else
 	{
@@ -168,7 +186,6 @@ int interpret_cylindner(char **str, t_data *data)
 			return (FAILURE);
 		}
 	}
-	new_element = ft_lstnew(new_cylindner);
 	new_element->intersection = line_cylindner;
 	new_element->surface_normal = normal_cylindner;
 	new_element->get_colour = get_colour_cylindner;
@@ -184,10 +201,16 @@ int interpret_triangle(char **str, t_data *data)
 	t_triangle *new_triangle;
 
 	new_triangle = malloc(sizeof(t_triangle));
+    new_element = ft_lstnew(new_triangle);
 	if (count_elements(str) != 5)
 	{
-		ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str));
-		return (FAILURE);
+        if (count_elements(str) == 8)
+        {
+            if (set_DSR(new_element, str, 6) == FAILURE)
+                return (FAILURE);
+        }
+        else
+		    return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
 	}
 	else
 	{
@@ -195,12 +218,8 @@ int interpret_triangle(char **str, t_data *data)
 			|| get_center(str[2], &new_triangle->B) == FAILURE
 			|| get_center(str[3], &new_triangle->C) == FAILURE
 			|| get_trgb(str[4], &new_triangle->colour) == FAILURE)
-		{
-			free(new_triangle);
-			return (FAILURE);
-		}
+			return (free(new_triangle), FAILURE);
 	}
-	new_element = ft_lstnew(new_triangle);
 	new_element->intersection = intersection_line_triangle;
 	new_element->surface_normal = normal_triangle;
 	new_element->get_colour = get_colour_triangle;
@@ -210,6 +229,17 @@ int interpret_triangle(char **str, t_data *data)
 	return (SUCCESS);
 }
 
+static int set_DSR(t_list *obj, char **str, int i)
+{
+    if (check_doubleString(str[i]) == FAILURE
+        || check_doubleString(str[i + 1]) == FAILURE
+        || check_doubleString(str[i + 2]) == FAILURE)
+        return (FAILURE);
+    obj->diffuse = ft_atod(str[i]);
+    obj->specular = ft_atod(str[i + 1]);
+    obj->reflective = ft_atod(str[i + 2]);
+    return (SUCCESS);
+}
 
 //cy 50.0,0.0,20.6 0,0,1.0 14.2 21.42 10,0,255
 

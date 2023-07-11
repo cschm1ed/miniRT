@@ -45,7 +45,7 @@ t_vector get_reflection(t_data *data, t_intersect inter, int depth)
     reflection.base = _add(reflection.base, _multiply(dir_norm, 0.0001f));
     reflected = colour_to_vector(trace_ray(data, reflection, depth + 1));
     reflected = _divide(reflected, 255);
-    return (_multiply(reflected, REFLECTIVENES));
+    return (_multiply(reflected, inter.obj->reflective));
 }
 
 t_vector get_specular(t_light_source lightSource, t_intersect inter)
@@ -62,7 +62,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 		inter.obj->surface_normal(inter.obj, inter.ray, inter.point));
 	ref_dir = _divide(ref_dir, _len(ref_dir));
 	colour = _multiply(_divide(colour_to_vector(lightSource.colour), 255), lightSource.light_ratio);
-	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), SPECULAR_N) * SPECULAR;
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), SPECULAR_N) * inter.obj->specular;
 	return (_multiply(colour, specular));
 }
 
@@ -78,7 +78,7 @@ t_vector get_diffuse(t_scene *scene, t_intersect inter)
 	normal = inter.obj->surface_normal(inter.obj, inter.ray, inter.point);
 	normal = _divide(normal, _len(normal));
 	diffuse = fmax(_dot(normal, _divide(direction, _len(direction))), 0.0f);
-	diffuse *= DIFFUSE;
+	diffuse *= inter.obj->diffuse;
 	out = _multiply_element_wise(inter.obj->get_colour(inter.obj),
 		scene->light_lst->get_colour(scene->light_lst));
 	out = _multiply(out, diffuse);
