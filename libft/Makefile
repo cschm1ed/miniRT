@@ -41,7 +41,7 @@ CC 					:= cc
 
 AR 					:= ar rcs
 
-CFLAGS 				:= -Wall -Werror -Wextra -O2 -g
+CFLAGS 				:= -Wall -Werror -Wextra -O0 -g
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)

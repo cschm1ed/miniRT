@@ -25,6 +25,7 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 	double 		discriminant;
 
 	sphere = (t_sphere*)object;
+    line.direction = _divide(line.direction, _len(line.direction));
 	oc = _subtract(line.base, sphere->center);
 	a = _dot(line.direction, line.direction);
 	b = 2 * _dot(oc, line.direction);

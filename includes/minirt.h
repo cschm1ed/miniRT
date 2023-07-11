@@ -26,14 +26,15 @@
 # include "parsing.h"
 
 # define DISTANCE_FACTOR 0.2
-# define REFLECTIVENES 0.2
-# define DIFFUSE 0.4
+# define REFLECTIVENES 0.1
+# define DIFFUSE 0.6
 # define SPECULAR 0.3
+
 # define ANTI_ALIASING 1
 # define SPECULAR_N 20
-# define MAX_DEPTH 2
+# define MAX_DEPTH 10
 
-# define WIDTH 1600
+# define WIDTH 1000
 # define HEIGHT 1000
 
 # define SUCCESS 1

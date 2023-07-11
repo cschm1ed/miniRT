@@ -17,6 +17,6 @@ t_vector normal_sphere(void *sphere, t_line line, t_vector point)
 	t_sphere	*sp;
 
     (void)line;
-	sp = ((t_list*)sphere)->content;
-	return (_subtract(point, sp->center));
+	sp = (t_sphere*)((t_list*)sphere)->content;
+	return (_subtract(sp->center, point));
 }
