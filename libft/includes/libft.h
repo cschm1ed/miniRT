@@ -27,6 +27,9 @@ typedef struct s_list
     t_vector 		(*surface_normal)(void *object, t_line line, t_vector point);
     t_vector		(*get_colour)(t_list *self);
     int				flag;
+    double          diffuse;
+    double          specular;
+    double          reflective;
 }					t_list;
 
 int		ft_atoi(const char *str);
