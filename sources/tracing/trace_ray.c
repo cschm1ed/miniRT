@@ -25,8 +25,7 @@ int trace_ray(t_data *data, t_line line, int depth)
 	{
 		bounce.base = inters.point;
 		bounce.direction = (t_vector){0,0,0};
-		color = calculate_color(data, inters);
-		color += trace_ray(data, bounce, depth + 1);
+		color = calculate_color(data, inters, depth);
 		return (color);
 	}
 	return (0);

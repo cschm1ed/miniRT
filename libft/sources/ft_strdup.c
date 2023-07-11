@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2022/12/14 21:32:49 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:34 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// The ft_strdup() function allocates sufficient memory for a copy of the 
+// string s1, does the copy, and returns a pointer to it.
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+#include "../includes/libft.h"
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+char	*ft_strdup(const char *s1)
+{
+	char	*ptr;
 
-#endif
+	ptr = (char *)malloc(ft_strlen(s1) * sizeof(char) + 1);
+	if (ptr == NULL)
+		return (NULL);
+	ft_memcpy(ptr, s1, ft_strlen(s1));
+	ptr[ft_strlen(s1)] = 0;
+	return (ptr);
+}

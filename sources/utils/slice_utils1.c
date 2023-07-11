@@ -34,7 +34,7 @@ int get_center(char *str, t_vector *center)
 
 	if (check_centerString(str) == FAILURE)
 		return (FAILURE);
-	split = ft_split(str, ',');
+	split = ft_split(str, ",");
 	center->x = ft_atod((const char *) split[0]);
 	center->y = ft_atod((const char *) split[1]);
 	center->z = ft_atod((const char *) split[2]);
@@ -52,7 +52,7 @@ int get_trgb(char *str, int *colour)
 
 	if (check_rgbString(str) == FAILURE)
 		return (FAILURE);
-	split = ft_split(str, ',');
+	split = ft_split(str, ",");
 	t = 0;
 	r = ft_atoi((const char *) split[0]);
 	g = ft_atoi((const char *) split[1]);

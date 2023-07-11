@@ -16,9 +16,11 @@ t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight);
 t_vector get_diffuse(t_scene *scene, t_intersect inter);
 t_vector get_specular(t_light_source lightSource, t_intersect inter);
 
-int calculate_color(t_data *data, t_intersect inter)
+int calculate_color(t_data *data, t_intersect inter, int depth)
 {
 	t_vector 	colour;
+    t_vector    reflected;
+    t_line      reflection;
 
 	colour = (t_vector){0,0,0};
 	if (is_obscured(data->scene, inter.point))
@@ -27,6 +29,13 @@ int calculate_color(t_data *data, t_intersect inter)
 	colour = _add(colour, get_specular(*((t_light_source*)data->scene->light_lst->content), inter));
 	colour = _multiply(colour, get_intensity(data->scene->light_lst, inter.point));
 	colour = _add(colour, ambient_illumination(inter.obj, data->scene->ambient_light));
+
+    reflection.base = inter.point;
+    reflection.direction = _reflect(inter.ray.direction, inter.obj->surface_normal(inter.obj, inter.ray, inter.point));
+    reflection.base = _add(reflection.base, _multiply(reflection.direction, 0.00001));
+    reflected = _divide(colour_to_vector(trace_ray(data, reflection, depth + 1)), 255);
+    colour = _add(colour, _multiply(reflected, REFLECTIVENES));
+
 	colour = (t_vector){fmin(colour.x, 1), fmin(colour.y, 1), fmin(colour.z , 1)};
 	return (vector_to_colour(_multiply(colour, 255)));
 }

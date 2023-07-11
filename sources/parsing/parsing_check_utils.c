@@ -32,7 +32,7 @@ int check_centerString(char *str)
 	int i;
 
 	i = 0;
-	split = ft_split(str, ',');
+	split = ft_split(str, ",");
 	while (split[i] != NULL)
 	{
 		if (double_checker(split[i]) == FAILURE)
@@ -57,7 +57,7 @@ int check_rgbString(char *str)
 	int j;
 
 	i = 0;
-	split = ft_split(str, ',');
+	split = ft_split(str, ",");
 	while (split[i] != NULL)
 	{
 		j = 0;

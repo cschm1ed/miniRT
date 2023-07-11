@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2022/12/14 12:48:03 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:32 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// The ft_memchr() function locates the first occurrence of c (converted to
+// an unsigned char) in string 's'.
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+#include "../includes/libft.h"
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*str;
 
-#endif
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+			return ((void *)(s + i));
+		i ++;
+	}
+	return (NULL);
+}

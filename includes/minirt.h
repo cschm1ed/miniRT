@@ -20,24 +20,26 @@
 # include "X11/keysym.h"
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 # include "structs.h"
 # include "utils.h"
 # include "parsing.h"
 
 # define DISTANCE_FACTOR 0.2
+# define REFLECTIVENES 0.2
 # define DIFFUSE 0.4
-# define SPECULAR 0.5
+# define SPECULAR 0.3
 # define ANTI_ALIASING 1
 # define SPECULAR_N 20
+# define MAX_DEPTH 2
 
 # define WIDTH 1600
 # define HEIGHT 1000
+
 # define SUCCESS 1
 # define FAILURE -1
 # define TRUE 1
 # define FALSE 0
-# define MAX_DEPTH 1
 # define EPSILON 1e-9
 # define DEG_TO_RAD M_PI / 180.0
 # define MOVE_RATE 0.5

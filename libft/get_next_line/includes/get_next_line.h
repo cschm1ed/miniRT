@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2023/01/18 13:37:48 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/22 10:55:21 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+# include <stdlib.h>
+# include <unistd.h>
+# include "../../includes/libft.h"
+
+char	*get_next_line(int fd);
+char	*get_and_return_nl(char **buffer, int *eof);
+char	*read_line_to_buffer(int fd, char **buffer, int *eof);
+char	*free_buffer(char **buffer);
+
+char	*gnl_strjoin(char *dst, char *src);
+
 
 #endif

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2022/12/16 17:07:08 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:33 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// The ft_putstr_fd() function outputs string 's' to the given 
+// filedescriptor 'fd'.
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+#include "../includes/libft.h"
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
 
-#endif
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+		ft_putchar_fd(s[i++], fd);
+	return ;
+}

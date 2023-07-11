@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2022/12/17 17:40:51 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:32 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// The function ft_lstnew() creates a new node of a linked_list, and sets the
+// value of the member 'content' to the value of the provided argument
+// 'content'.
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+#include "../includes/libft.h"
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*list;
 
-#endif
+	list = ft_calloc(sizeof(t_list), 1);
+	if (list == 0)
+		return (0);
+	list->content = content;
+	list->next = 0;
+	return (list);
+}

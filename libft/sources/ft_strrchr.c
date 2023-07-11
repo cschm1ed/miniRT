@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 01:06:17 by cschmied          #+#    #+#             */
-/*   Updated: 2023/04/14 17:17:18 by cschmied         ###   ########.fr       */
+/*   Created: 2022/12/22 13:57:51 by cschmied          #+#    #+#             */
+/*   Updated: 2023/04/14 17:13:37 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// The ft_strrchr() function returns a pointer to the last occurence of 
+// character 'c' in the string 's'.
 
-# include <stdarg.h>
-# include "../includes/libft.h"
+#include "../includes/libft.h"
 
-int	ft_printf(char const *format_string, ...);
-int	print_char(char c);
-int	print_decimal(int n);
-int	print_hexpointer(unsigned long long n);
-int	print_itohex_lower(unsigned int n);
-int	print_itohex_upper(unsigned int n);
-int	print_string(const char *str);
-int	print_unsignedi(unsigned int n);
+char	*ft_strrchr(const char *s, int c)
+{
+	int				i;
+	unsigned char	uc;
+	char			*str;
 
-#endif
+	i = ft_strlen(s);
+	uc = (unsigned char)c;
+	str = (char *)s;
+	while (i >= 0)
+	{
+		if (str[i] == uc)
+			return (str + i);
+		i --;
+	}
+	return (NULL);
+}
