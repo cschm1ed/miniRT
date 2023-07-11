@@ -102,6 +102,7 @@ typedef struct s_triangle
 	t_vector B;
 	t_vector C;
 } t_triangle;
+
 typedef struct s_cone
 {
 	int colour;
@@ -141,7 +142,6 @@ typedef struct s_scene
 	t_list 			*cylindner_lst;
 	t_list			*triangle_lst;
 	t_list			*all_objs;
-    t_list          *all_last_tmp;
 } t_scene;
 
 typedef struct s_intersect

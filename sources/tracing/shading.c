@@ -45,7 +45,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 		inter.obj->surface_normal(inter.obj, inter.ray, inter.point));
 	ref_dir = _divide(ref_dir, _len(ref_dir));
 	colour = _multiply(_divide(colour_to_vector(lightSource.colour), 255), lightSource.light_ratio);
-	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), 500) * SPECULAR;
+	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), SPECULAR_N) * SPECULAR;
 	return (_multiply(colour, specular));
 }
 
@@ -97,12 +97,10 @@ int is_obscured(t_scene *scene, t_vector intersect)
 	distance = _len(direction);
 	intersect = _add(intersect, _multiply(_divide(direction, distance), 0.0001f));
 	inters.ray = (t_line){intersect, direction};
-	scene->all_last_tmp->next = NULL;
 	if (closest_intersection(scene, &inters))
 	{
 		if (_len(_subtract(inters.point, intersect)) + 0.0001f < distance)
-			return (ft_lstadd_back(&scene->all_objs, scene->plane_lst), TRUE);
+			return (TRUE);
 	}
-	ft_lstadd_back(&scene->all_objs, scene->plane_lst);
 	return (FALSE);
 }

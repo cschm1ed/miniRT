@@ -26,9 +26,10 @@
 # include "parsing.h"
 
 # define DISTANCE_FACTOR 0.2
-# define DIFFUSE 0.6
-# define SPECULAR 0.4
+# define DIFFUSE 0.4
+# define SPECULAR 0.5
 # define ANTI_ALIASING 1
+# define SPECULAR_N 20
 
 # define WIDTH 1600
 # define HEIGHT 1000
