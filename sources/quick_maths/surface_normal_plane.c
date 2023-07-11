@@ -18,5 +18,6 @@ t_vector normal_plane(void *plane, t_line line, t_vector point)
 
 	(void)line;
     (void)point;
+    pl = ((t_list*)plane)->content;
 	return (pl->v1);
 }

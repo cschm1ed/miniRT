@@ -74,7 +74,7 @@ double	get_intensity(t_list *light_sources, t_vector intersection)
 
 	distance = _len(_subtract(((t_light_source*)light_sources->content)->center, intersection));
 	distance *= DISTANCE_FACTOR;
-	return (fmin(1 / pow(distance, 2) * 1.5f, 1));
+	return (fmin(1 / pow(distance, 2) * 1.7f, 1));
 }
 
 t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight)

@@ -41,13 +41,13 @@ int line_cone(t_cone cone, t_line line, t_vector *result)
 	float AD_OA;
 	float D_OA;
 
-	AD_D = dot(cone.axis_direction, line.direction);
-	AD_OA = dot(cone.axis_direction, subtract(line.base, cone.apex);
-	D_OA = dot(line.direction, subtract(line.base, cone.apex));
+	AD_D = _dot(cone.axis_direction, line.direction);
+	AD_OA = _dot(cone.axis_direction, _subtract(line.base, cone.apex);
+	D_OA = _dot(line.direction, _subtract(line.base, cone.apex));
 	a = pow(AD_D, 2) - pow(cone.opening_angle, 2);
 	b = 2 * (AD_D * AD_OA - D_OA * pow(cone.opening_angle, 2));
 	c = pow(AD_OA, 2) - pow(D_OA, 2) * pow(cone.opening_angle, 2);
 
-	if (quadratic_equation(a, b, c, *result) == FALSE)
+	if (quadratic_equation(a, b, c, result) == FALSE)
 		return (FALSE);
 }

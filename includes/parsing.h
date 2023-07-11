@@ -19,6 +19,7 @@ int interpret_ambient_light(char **str, t_data *data);
 int interpret_plane(char **str, t_data *data);
 int interpret_sphere(char **str, t_data *data);
 int interpret_cylindner(char **str, t_data *data);
+int interpret_triangle(char **str, t_data *data);
 int	parsing(t_data *data);
 
 #endif

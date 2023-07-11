@@ -57,6 +57,7 @@ int			top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vect
 t_vector normal_sphere(void *sphere, t_line line, t_vector point);
 t_vector normal_plane(void *plane, t_line line, t_vector point);
 t_vector normal_cylindner(void *cylindner, t_line line, t_vector point);
+t_vector normal_triangle(void *triangle, t_line line, t_vector point);
 
 t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
 double 		rad_to_deg(double rad);

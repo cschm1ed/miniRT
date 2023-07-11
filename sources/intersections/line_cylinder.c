@@ -98,8 +98,8 @@ int line_cylindner(void *object, t_line line, t_vector *result)
 		t2 = (-b - sqrt(root_term)) / (2 * a);
 		if (t1 < t2 && t1 > 0)
 			t = t1;
-		else if (t2 > 0)
-			t = t2;
+        else
+            t = t2;
 		point = _add(line.base, _multiply(v, t));
 		check =  _dot(_subtract(point, cylindner.center), h);
 

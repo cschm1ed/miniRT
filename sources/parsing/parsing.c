@@ -21,7 +21,7 @@ int	slicer(char *str, t_data *data)
 	split = ft_split(str, ' ');
 	if (split == NULL)
 		return (FAILURE);
-	while (i < 6)
+	while (i < 7)
 	{
 		if (!ft_strcmp(data->parsing[i].name, split[0]))
 			if (data->parsing[i].f(split, data) == FAILURE)
@@ -58,5 +58,6 @@ int	parsing(t_data *data)
 	ft_lstadd_back(&data->scene->all_objs, data->scene->sphere_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->cylindner_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
+    ft_lstadd_back(&data->scene->all_objs, data->scene->triangle_lst);
 	return (SUCCESS);
 }

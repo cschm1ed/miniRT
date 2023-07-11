@@ -202,7 +202,7 @@ int interpret_triangle(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_triangle);
 	new_element->intersection = intersection_line_triangle;
-//	new_element->surface_normal = normal_cylindner;
+	new_element->surface_normal = normal_triangle;
 	new_element->get_colour = get_colour_triangle;
 	ft_lstadd_back(&data->scene->triangle_lst, new_element);
 	printf("parsing triangle ---> A %f,%f,%f B: %f,%f,%f C: %f,%f,%f colour: %d\n", new_triangle->A.x, new_triangle->A.y, new_triangle->A.z, new_triangle->B.x,

@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-static int line_in_plane(t_plane plane, t_line line);
+//static int line_in_plane(t_plane plane, t_line line);
 
 int intersection_line_plane(void *object, t_line line, t_vector *result)
 {
