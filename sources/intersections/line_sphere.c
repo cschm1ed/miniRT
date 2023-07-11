@@ -29,7 +29,7 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 	oc = _subtract(line.base, sphere->center);
 	a = _dot(line.direction, line.direction);
 	b = 2 * _dot(oc, line.direction);
-	c = _dot(oc, oc) - pow(sphere->diameter, 2);
+	c = _dot(oc, oc) - pow(sphere->diameter / 2, 2);
 	discriminant = pow(b, 2) - (4 * a * c);
 	if (discriminant >= 0)
 	{
