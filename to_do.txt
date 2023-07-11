@@ -1,6 +1,6 @@
 
-fix camera direction rotation / angle --> looking up not working
+cylinder height not working --> room with objects.rt
 
-sphere around light not blocking
+fix camera direction rotation / angle --> looking up not working
 
 reflectiveness

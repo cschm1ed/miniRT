@@ -18,6 +18,7 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 	t_sphere	*sphere;
 	double 		t1;
 	double 		t2;
+    double      t;
 	double 		a;
 	double 		b;
 	double 		c;
@@ -39,11 +40,11 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
 		t2 /= 2 * a;
 		if (t1 < 0 && t2 < 0)
 			return (FALSE);
-		if (_len(_add(_multiply(line.direction, t1), line.base)) <
-            _len(_add(_multiply(line.direction, t2), line.base)))
-			*result = _add(_multiply(line.direction, t1), line.base);
-		else
-			*result = _add(_multiply(line.direction, t2), line.base);
+        if (t1 < t2 && t1 > 0)
+            t = t1;
+        else
+            t = t2;
+        *result = _add(_multiply(line.direction, t), line.base);
 		return (TRUE);
 	}
 	return (FALSE);
