@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_cylinder.c                                    :+:      :+:    :+:   */
+/*   line_cylindner.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-int bottom_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vector point)
+int bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point)
 {
 	t_vector intersect;
 	t_vector axis_direction;
@@ -20,21 +20,21 @@ int bottom_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vecto
 	double t;
 	double distance;
 
-	axis_direction = _multiply(cylinder.axis_direction, -1);
+	axis_direction = _multiply(cylindner.axis_direction, -1);
 	dot_product = _dot(axis_direction, ray_direction);
 	if (fabs(dot_product) < 0.00001)
 		return (FALSE);
-	t = _dot(axis_direction, _subtract(cylinder.center, point)) / dot_product;
+	t = _dot(axis_direction, _subtract(cylindner.center, point)) / dot_product;
 	if (t < 0)
 		return (FALSE);
 	intersect = _add(point, _multiply(ray_direction, t));
-	distance = _len(_subtract(cylinder.center, intersect));
-	if (distance <= cylinder.diameter / 2)
+	distance = _len(_subtract(cylindner.center, intersect));
+	if (distance <= cylindner.diameter / 2)
 		return (TRUE);
 	return (FALSE);
 }
 
-int top_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vector point)
+int top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point)
 {
 	t_vector intersect;
 	t_vector apex;
@@ -42,21 +42,21 @@ int top_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vector p
 	double t;
 	double distance;
 
-	apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height));
-	dot_product = _dot(cylinder.axis_direction, ray_direction);
+	apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height));
+	dot_product = _dot(cylindner.axis_direction, ray_direction);
 	if (fabs(dot_product) < 0.00001)
 		return (FALSE);
-	t = _dot(cylinder.axis_direction, _subtract(apex, point)) / dot_product;
+	t = _dot(cylindner.axis_direction, _subtract(apex, point)) / dot_product;
 	if (t < 0)
 		return (FALSE);
 	intersect = _add(point, _multiply(ray_direction, t));
 	distance = _len(_subtract(apex, intersect));
-	if (distance <= cylinder.diameter / 2)
+	if (distance <= cylindner.diameter / 2)
 		return (TRUE);
 	return (FALSE);
 }
 
-int line_cylinder(void *object, t_line line, t_vector *result)
+int line_cylindner(void *object, t_line line, t_vector *result)
 {
 	t_vector h;
 	t_vector apex;
@@ -75,20 +75,20 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 	double root_term;
 	double check;
 
-	t_cylinder cylinder;
+	t_cylindner cylindner;
 
-	cylinder = *((t_cylinder*)object);
-	cylinder.axis_direction = _divide(cylinder.axis_direction, _len(cylinder.axis_direction));
-    apex = _add(cylinder.center, _multiply(cylinder.axis_direction, cylinder.height / 2));
+	cylindner = *((t_cylindner*)object);
+	cylindner.axis_direction = _divide(cylindner.axis_direction, _len(cylindner.axis_direction));
+    apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height / 2));
 
-	h = _multiply(_subtract(apex, cylinder.center), 2);
+	h = _multiply(_subtract(apex, cylindner.center), 2);
 	h_normal = _divide(h, _len(h));
-	w = _subtract(line.base, cylinder.center);
+	w = _subtract(line.base, cylindner.center);
 	v = _divide(line.direction, _len(line.direction));
 
 	a = _dot(v, v) - pow(_dot(v, h_normal), 2);
 	b = 2 * (_dot(v, w) - _dot(v, h_normal) * _dot(w, h_normal));
-	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylinder.diameter / 2, 2);
+	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylindner.diameter / 2, 2);
 
 	root_term = pow(b, 2) - (4 * a * c);
 
@@ -101,7 +101,7 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 		else if (t2 > 0)
 			t = t2;
 		point = _add(line.base, _multiply(v, t));
-		check =  _dot(_subtract(point, cylinder.center), h);
+		check =  _dot(_subtract(point, cylindner.center), h);
 
 		if (0 <= check && check <= _len(h))
 		{
@@ -110,18 +110,16 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 		}
 		if (_len(h) < check)
 		{
-			if (top_cap_intersection(cylinder, line.direction, point) == TRUE)
+			if (top_cap_intersection(cylindner, line.direction, point) == TRUE)
 			{
-                printf("top cap\n");
 				*result = point;
 				return (TRUE);
 			}
 		}
         if (0 > check)
         {
-            if (bottom_cap_intersection(cylinder, line.direction, point) == TRUE)
+            if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE)
             {
-                printf("bottom cap\n");
                 *result = point;
                 return (TRUE);
             }
@@ -131,4 +129,4 @@ int line_cylinder(void *object, t_line line, t_vector *result)
 }
 
 
-//https://nachodevblog.com/posts/ray-cylinder-intersection/
+//https://nachodevblog.com/posts/ray-cylindner-intersection/

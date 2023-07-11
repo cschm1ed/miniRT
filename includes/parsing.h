@@ -18,7 +18,7 @@ int interpret_camera(char **str, t_data *data);
 int interpret_ambient_light(char **str, t_data *data);
 int interpret_plane(char **str, t_data *data);
 int interpret_sphere(char **str, t_data *data);
-int interpret_cylinder(char **str, t_data *data);
+int interpret_cylindner(char **str, t_data *data);
 int	parsing(t_data *data);
 
 #endif

@@ -23,7 +23,7 @@ t_scene *init_scene(t_scene *scene)
 	scene->ambient_light = NULL;
 	scene->sphere_lst = NULL;
 	scene->plane_lst = NULL;
-	scene->cylinder_lst = NULL;
+	scene->cylindner_lst = NULL;
 	scene->triangle_lst = NULL;
 	scene->all_objs = NULL;
 	return scene;
@@ -39,7 +39,7 @@ int	init_parsing(t_data *data)
 	data->parsing[2] = (t_parsing){"A", interpret_ambient_light};
 	data->parsing[3] = (t_parsing){"pl", interpret_plane};
 	data->parsing[4] = (t_parsing){"sp", interpret_sphere};
-	data->parsing[5] = (t_parsing){"cy", interpret_cylinder};
+	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
 	return (SUCCESS);
 }
 

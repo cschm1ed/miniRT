@@ -25,7 +25,6 @@ int	intersection_line_sphere(t_sphere sphere, t_line line)
 	c = pow(sphere.center.x, 2) + pow(sphere.center.y, 2) + pow(sphere.center.z, 2) +
 			pow(line.base.x, 2) + pow(line.base.y, 2) + pow(line.base.z, 2)
 			- 2 * (sphere.center.x * line.base.x + sphere.center.y * line.base.y + sphere.center.z * line.base .z) * pow(sphere.diameter, 2);
-
 	result = b * b - 4 * a * c;
 	if (result < 0)
 		return (0);

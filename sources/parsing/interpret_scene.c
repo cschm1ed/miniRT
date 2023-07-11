@@ -98,15 +98,14 @@ int interpret_plane(char **str, t_data *data)
 	t_plane *new_plane;
 
 	new_plane = malloc(sizeof(t_plane));
-	if (count_elements(str) != 5)
+	if (count_elements(str) != 4)
 		return (ft_printf("Wrong number of elements in light_source, there are %d elements in side\n",
 			1, count_elements(str)), FAILURE);
 	else
 	{
 		if (get_center(str[1], &new_plane->base) == FAILURE
 			|| get_center(str[2], &new_plane->v1) == FAILURE
-            || get_center(str[3], &new_plane->v2) == FAILURE
-			|| get_trgb(str[4], &new_plane->colour) == FAILURE)
+			|| get_trgb(str[3], &new_plane->colour) == FAILURE)
 			return (free(new_plane), FAILURE);
 	}
 	new_element = ft_lstnew(new_plane);
@@ -146,36 +145,36 @@ int interpret_sphere(char **str, t_data *data)
 	return (SUCCESS);
 }
 
-int interpret_cylinder(char **str, t_data *data)
+int interpret_cylindner(char **str, t_data *data)
 {
 	t_list *new_element;
-	t_cylinder *new_cylinder;
+	t_cylindner *new_cylindner;
 
-	new_cylinder = malloc(sizeof(t_cylinder));
+	new_cylindner = malloc(sizeof(t_cylindner));
 	if (count_elements(str) != 6)
 	{
-		ft_printf("Wrong number of elements in cylinder, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	else
 	{
-		if (get_center(str[1], &new_cylinder->center) == FAILURE
-			|| get_center(str[2], &new_cylinder->axis_direction) == FAILURE
-			|| get_single_double(str[3], &new_cylinder->diameter) == FAILURE
-			|| get_single_double(str[4], &new_cylinder->height) == FAILURE
-			|| get_trgb(str[5], &new_cylinder->colour) == FAILURE)
+		if (get_center(str[1], &new_cylindner->center) == FAILURE
+			|| get_center(str[2], &new_cylindner->axis_direction) == FAILURE
+			|| get_single_double(str[3], &new_cylindner->diameter) == FAILURE
+			|| get_single_double(str[4], &new_cylindner->height) == FAILURE
+			|| get_trgb(str[5], &new_cylindner->colour) == FAILURE)
 		{
-			free(new_cylinder);
+			free(new_cylindner);
 			return (FAILURE);
 		}
 	}
-	new_element = ft_lstnew(new_cylinder);
-	new_element->intersection = line_cylinder;
-	new_element->surface_normal = normal_cylinder;
-	new_element->get_colour = get_colour_cylinder;
-	ft_lstadd_back(&data->scene->cylinder_lst, new_element);
-	printf("parsing cylinder ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylinder->center.x, new_cylinder->center.y, new_cylinder->center.z, new_cylinder->axis_direction.x,
-		   new_cylinder->center.y, new_cylinder->center.z, new_cylinder->diameter, new_cylinder->height, new_cylinder->colour);
+	new_element = ft_lstnew(new_cylindner);
+	new_element->intersection = line_cylindner;
+	new_element->surface_normal = normal_cylindner;
+	new_element->get_colour = get_colour_cylindner;
+	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
+	printf("parsing cylindner ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylindner->center.x, new_cylindner->center.y, new_cylindner->center.z, new_cylindner->axis_direction.x,
+		   new_cylindner->center.y, new_cylindner->center.z, new_cylindner->diameter, new_cylindner->height, new_cylindner->colour);
 	return (SUCCESS);
 }
 
@@ -187,7 +186,7 @@ int interpret_triangle(char **str, t_data *data)
 	new_triangle = malloc(sizeof(t_triangle));
 	if (count_elements(str) != 5)
 	{
-		ft_printf("Wrong number of elements in cylinder, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	else
@@ -203,7 +202,7 @@ int interpret_triangle(char **str, t_data *data)
 	}
 	new_element = ft_lstnew(new_triangle);
 	new_element->intersection = intersection_line_triangle;
-//	new_element->surface_normal = normal_cylinder;
+//	new_element->surface_normal = normal_cylindner;
 	new_element->get_colour = get_colour_triangle;
 	ft_lstadd_back(&data->scene->triangle_lst, new_element);
 	printf("parsing triangle ---> A %f,%f,%f B: %f,%f,%f C: %f,%f,%f colour: %d\n", new_triangle->A.x, new_triangle->A.y, new_triangle->A.z, new_triangle->B.x,

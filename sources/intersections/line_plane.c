@@ -21,12 +21,12 @@ int intersection_line_plane(void *object, t_line line, t_vector *result)
 	t_plane		*plane;
 
 	plane = (t_plane*)object;
-	n = _cross(plane->v1, plane->v2);
+	n = plane->v1;
 	line.direction = _divide(line.direction, _len(line.direction));
-	if (fabs(_dot(n, line.direction)) < EPSILON) // parallel
+if (fabs(_dot(n, line.direction)) < EPSILON) // parallel
 	{
-		if (line_in_plane(*plane, line) == TRUE)
-			return (TRUE);
+		//if (line_in_plane(*plane, line) == TRUE)
+		//	return (TRUE);
 		return (FALSE);
 	}
 	t = (_dot(_subtract(plane->base, line.base), n)
@@ -36,16 +36,4 @@ int intersection_line_plane(void *object, t_line line, t_vector *result)
 	*result = _multiply(line.direction, t);
 	*result = _add(*result, line.base);
 	return (TRUE);
-}
-
-int line_in_plane(t_plane plane, t_line line)
-{
-	t_vector	n;
-
-	n = _cross(plane.v1, plane.v2);
-	if (_dot(n, line.direction) != 0)
-		return (FALSE);
-	if (_dot(line.base, n) == _dot(plane.base, n))
-		return (TRUE);
-	return (FALSE);
 }

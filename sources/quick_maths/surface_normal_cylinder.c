@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   surface_normal_cylinder.c                          :+:      :+:    :+:   */
+/*   surface_normal_cylindner.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,15 @@
 
 #include "../../includes/minirt.h"
 
-t_vector normal_cylinder(void *cylinder, t_line line)
+t_vector normal_cylindner(void *cylindner, t_line line, t_vector point)
 {
-	t_cylinder	*cy;
-	t_vector apex;
+	t_cylindner	*cy;
 	t_vector q;
 	t_vector surface_normal;
 	double len_q;
 
-	cy = ((t_list*)cylinder)->content;
-	apex = _add(cy->center, _multiply(cy->axis_direction, cy->height));
+    (void)point;
+	cy = ((t_list*)cylindner)->content;
 	if (top_cap_intersection(*cy, line.direction, line.base) == TRUE)
 	{
 		surface_normal = cy->axis_direction;

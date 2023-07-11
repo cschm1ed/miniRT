@@ -56,7 +56,7 @@ int	parsing(t_data *data)
 	}
 	close(fd);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->sphere_lst);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->cylinder_lst);
+	ft_lstadd_back(&data->scene->all_objs, data->scene->cylindner_lst);
     data->scene->all_last_tmp = ft_lstlast(data->scene->all_objs);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
 	return (SUCCESS);

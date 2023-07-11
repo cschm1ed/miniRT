@@ -77,7 +77,7 @@ typedef struct s_plane
 	int 		colour;
 	t_vector	base;
 	t_vector	v1;
-	t_vector 	v2;
+    t_vector    v2;
 } t_plane;
 
 typedef struct s_line
@@ -86,14 +86,14 @@ typedef struct s_line
     t_vector	direction;
 }   t_line;
 
-typedef struct s_cylinder
+typedef struct s_cylindner
 {
 	int			colour;
 	t_vector	center;
 	t_vector	axis_direction;
 	double		diameter;
 	double		height;
-} t_cylinder;
+} t_cylindner;
 
 typedef struct s_triangle
 {
@@ -138,7 +138,7 @@ typedef struct s_scene
 	t_list			*light_lst;
 	t_list 			*sphere_lst;
 	t_list 			*plane_lst;
-	t_list 			*cylinder_lst;
+	t_list 			*cylindner_lst;
 	t_list			*triangle_lst;
 	t_list			*all_objs;
     t_list          *all_last_tmp;

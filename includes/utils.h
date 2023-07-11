@@ -50,13 +50,13 @@ int			no_event(t_data *data);
 // math stuff
 int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);
 int			intersection_line_plane(void *object, t_line line, t_vector *result);
-int			line_cylinder(void *cylinder, t_line line, t_vector *result);
+int			line_cylindner(void *cylindner, t_line line, t_vector *result);
 int			intersection_line_triangle(void *object, t_line line, t_vector *result);
-int			bottom_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vector point);
-int			top_cap_intersection(t_cylinder cylinder, t_vector ray_direction, t_vector point);
-t_vector	normal_sphere(void *sphere, t_line line);
-t_vector	normal_plane(void *plane, t_line line);
-t_vector normal_cylinder(void *cylinder, t_line line);
+int			bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
+int			top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
+t_vector normal_sphere(void *sphere, t_line line, t_vector point);
+t_vector normal_plane(void *plane, t_line line, t_vector point);
+t_vector normal_cylindner(void *cylindner, t_line line, t_vector point);
 
 t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
 double 		rad_to_deg(double rad);
@@ -93,7 +93,7 @@ void		create_vision_plane(t_data *data, t_plane *vp);
 
 t_vector	get_colour_sphere(t_list *obj);
 t_vector	get_colour_plane(t_list *obj);
-t_vector	get_colour_cylinder(t_list *obj);
+t_vector	get_colour_cylindner(t_list *obj);
 t_vector	get_colour_triangle(t_list *obj);
 t_vector	get_colour_lightsource(t_list *obj);
 

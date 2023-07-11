@@ -1,5 +1,6 @@
-fix camera direction rotation / angle
+
+fix camera direction rotation / angle --> looking up not working
 
 sphere around light not blocking
 
-plane not blocking light
+reflectiveness

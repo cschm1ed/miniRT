@@ -23,8 +23,11 @@ void	create_vision_plane(t_data *data, t_plane *vp)
 	cam->vector = _divide(cam->vector, _len(cam->vector));
 	vp->base = _add(cam->center, cam->vector);
 
-	vp->v1 = _rotate(cam->vector, -90, 0);
-	vp->v2 = _rotate(vp->v1, 0, 90);
+    vp->v1 = _cross(cam->vector, (t_vector){0, 0, 1});
+    vp->v1 = _divide(vp->v1, _len(vp->v1));
+
+	vp->v2 = _cross(cam->vector, vp->v1);
+    vp->v2 = _multiply(_divide(vp->v2, _len(vp->v2)), -1);
 }
 
 t_vector	get_direction(t_data *data, t_plane vp, double x, double y)
@@ -37,8 +40,10 @@ t_vector	get_direction(t_data *data, t_plane vp, double x, double y)
 	height = width / (WIDTH / HEIGHT);
 	start = _add(vp.base, _multiply(vp.v2, height / 2));
 	start = _add(start, _multiply(vp.v1, width / 2));
+
 	start = _add(start, _multiply(vp.v2, -y * (height / HEIGHT)));
 	start = _add(start, _multiply(vp.v1, -x * (width / WIDTH)));
+
 	return (_subtract(start, data->scene->camera->center));
 }
 
@@ -59,10 +64,13 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 		while (y < ui->height)
 		{
 
-			color = average_pixel(x, y, data, camera, vp);
-
-			//camera.direction = get_direction(data, vp, x, y);
-			//color = trace_ray(data, camera, 0);
+            if (ANTI_ALIASING)
+			    color = average_pixel(x, y, data, camera, vp);
+            else
+            {
+                camera.direction = get_direction(data, vp, x, y);
+                color = trace_ray(data, camera, 0);
+            }
 
 			if (color != 0)
 				put_pixel(x, y, color, data);

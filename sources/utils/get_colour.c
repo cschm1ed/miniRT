@@ -22,9 +22,9 @@ t_vector get_colour_plane(t_list *obj)
 	return (_divide(colour_to_vector(((t_plane*)obj->content)->colour), 255));
 }
 
-t_vector get_colour_cylinder(t_list *obj)
+t_vector get_colour_cylindner(t_list *obj)
 {
-	return (_divide(colour_to_vector(((t_cylinder*)obj->content)->colour), 255));
+	return (_divide(colour_to_vector(((t_cylindner*)obj->content)->colour), 255));
 }
 
 t_vector get_colour_triangle(t_list *obj)

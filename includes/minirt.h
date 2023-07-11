@@ -25,13 +25,13 @@
 # include "utils.h"
 # include "parsing.h"
 
-# define DISTANCE_FACTOR 5
-# define DIFFUSE 0.5
+# define DISTANCE_FACTOR 0.2
+# define DIFFUSE 0.6
 # define SPECULAR 0.4
+# define ANTI_ALIASING 1
 
-# define WIDTH 1000
+# define WIDTH 1600
 # define HEIGHT 1000
-# define FOV_HEIGHT 90
 # define SUCCESS 1
 # define FAILURE -1
 # define TRUE 1
