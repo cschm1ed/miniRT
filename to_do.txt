@@ -16,7 +16,6 @@ allgemein:
 - question regarding different resolution of window ???
 - check normal vectors of cylinder (shading doesnt work right now) - Eike
 - check of intersection in object (camera in object ) - Eike
-- resize of sphere regarding radius doesnt work - chris
 - check auf krisseleffekt wie im zeltversuch - am schluss wenn wir zeit haben
 - free funktion für escape funktion - Eike
 - check if multiple cameras oder ambient lights are existing in the map (parsing error handling) - Eike

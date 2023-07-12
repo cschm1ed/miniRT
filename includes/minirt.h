@@ -27,12 +27,12 @@
 
 # define DISTANCE_FACTOR 0.1
 # define REFLECTIVENES 0.1
-# define DIFFUSE 0.6
-# define SPECULAR 0.3
+# define DIFFUSE 0.4
+# define SPECULAR 0.5
 
 # define ANTI_ALIASING 1
-# define SPECULAR_N 20
-# define MAX_DEPTH 1
+# define SPECULAR_N 80
+# define MAX_DEPTH 2
 
 # define WIDTH 1000
 # define HEIGHT 1000
