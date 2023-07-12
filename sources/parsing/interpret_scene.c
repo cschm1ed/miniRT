@@ -22,16 +22,19 @@ int interpret_lightsource(char **str, t_data *data)
 	new_light = malloc(sizeof(t_light_source));
 	if (count_elements(str) != 4)
 		ft_printf("Wrong number of elements in light_source, there are %d elements in side\n", 1, count_elements(str));
-	else
+
+	printf("check light source \n");
+	if (get_center(str[1], &new_light->center) == FAILURE
+		|| get_single_double(str[2], &new_light->light_ratio) == FAILURE
+		|| get_trgb(str[3], &new_light->colour) == FAILURE)
 	{
-		if (get_center(str[1], &new_light->center) == FAILURE
-			|| get_single_double(str[2], &new_light->light_ratio) == FAILURE
-			|| get_trgb(str[3], &new_light->colour) == FAILURE)
-		{
-			free(new_light);
-			return (FAILURE);
-		}
+		printf("check 2\n");
+		printf("failure invalid input\n");
+		free(new_light);
+		return (FAILURE);
 	}
+
+	printf("check light source 2\n");
 	new_element = ft_lstnew(new_light);
 	new_element->get_colour = get_colour_lightsource;
 	ft_lstadd_back(&data->scene->light_lst, new_element);
@@ -54,6 +57,7 @@ int interpret_camera(char **str, t_data *data)
 			|| get_center(str[2], &new_camera->vector) == FAILURE
 			|| get_single_integer(str[3], &new_camera->degrees) == FAILURE)
 		{
+			printf("failure invalid input\n");
 			free(new_camera);
 			return (FAILURE);
 		}
@@ -81,7 +85,11 @@ int interpret_ambient_light(char **str, t_data *data)
 	{
 		if (get_single_double(str[1], &new_ambient_light->light_ratio) == FAILURE
 			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
-			return (free(new_ambient_light), FAILURE);
+		{
+			printf("failure invalid input\n");
+			free(new_ambient_light);
+			return (FAILURE);
+		}
 	}
 	data->scene->ambient_light = new_ambient_light;
 	return (SUCCESS);
@@ -110,7 +118,11 @@ int interpret_plane(char **str, t_data *data)
     if (get_center(str[1], &new_plane->base) == FAILURE
         || get_center(str[2], &new_plane->v1) == FAILURE
         || get_trgb(str[3], &new_plane->colour) == FAILURE)
-        return (free(new_plane), FAILURE);
+	{
+		printf("failure invalid input\n");
+		free(new_plane);
+		return (FAILURE);
+	}
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->surface_normal = normal_plane;
@@ -142,7 +154,11 @@ int interpret_sphere(char **str, t_data *data)
     if (get_center(str[1], &new_sphere->center) == FAILURE
         || get_single_double(str[2], &new_sphere->diameter) == FAILURE
         || get_trgb(str[3], &new_sphere->colour) == FAILURE)
-            return (free(new_sphere), FAILURE);
+	{
+		printf("failure invalid input\n");
+		free(new_sphere);
+		return (FAILURE);
+	}
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->surface_normal = normal_sphere;
@@ -177,10 +193,11 @@ int interpret_cylindner(char **str, t_data *data)
 			|| get_single_double(str[3], &new_cylindner->diameter) == FAILURE
 			|| get_single_double(str[4], &new_cylindner->height) == FAILURE
 			|| get_trgb(str[5], &new_cylindner->colour) == FAILURE)
-		{
-			free(new_cylindner);
-			return (FAILURE);
-		}
+	{
+		printf("failure invalid input\n");
+		free(new_cylindner);
+		return (FAILURE);
+	}
 	new_element->intersection = line_cylindner;
 	new_element->surface_normal = normal_cylindner;
 	new_element->get_colour = get_colour_cylindner;

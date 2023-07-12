@@ -30,3 +30,5 @@ bonus:
 - cone
 - multiple light sources
 - cehckerboard
+
+to do today: check normal vectors cylinder
