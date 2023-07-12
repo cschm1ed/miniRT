@@ -103,7 +103,7 @@ int line_cylindner(void *object, t_line line, t_vector *result)
 		point = _add(line.base, _multiply(v, t));
 		check =  _dot(_subtract(point, cylindner.center), h);
 
-		if (0 <= check && check <= _len(h))
+		if (0 <= check && check <= _len(h) * cylindner.height)
 		{
 			*result = point;
 			return (TRUE);

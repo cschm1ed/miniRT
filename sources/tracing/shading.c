@@ -26,9 +26,9 @@ int calculate_color(t_data *data, t_intersect inter, int depth)
     colour = _add(colour, get_reflection(data, inter, depth));
 	if (is_obscured(data->scene, inter.point))
 		return (vector_to_colour(_multiply(colour, 255)));
-	colour = _add(colour, get_diffuse(data->scene, inter));
-	colour = _add(colour, get_specular(*((t_light_source*)data->scene->light_lst->content), inter));
-	colour = _multiply(colour, get_intensity(data->scene->light_lst, inter.point));
+//	colour = _add(colour, get_diffuse(data->scene, inter));
+//	colour = _add(colour, get_specular(*((t_light_source*)data->scene->light_lst->content), inter));
+//	colour = _multiply(colour, get_intensity(data->scene->light_lst, inter.point));
 	colour = (t_vector){fmin(colour.x, 1), fmin(colour.y, 1), fmin(colour.z , 1)};
 	return (vector_to_colour(_multiply(colour, 255)));
     (void)depth;
