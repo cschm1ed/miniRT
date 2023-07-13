@@ -18,6 +18,6 @@ t_vector normal_sphere(void *sphere, t_line line, t_vector point)
     t_vector    n;
     (void)line;
 	sp = (t_sphere*)((t_list*)sphere)->content;
-    n = _subtract(sp->center, point);
+    n = _subtract(point, sp->center);
 	return (_divide(n, _len(n)));
 }
