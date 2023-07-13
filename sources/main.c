@@ -37,36 +37,6 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-/*void	draw_image(t_mlx_data *ui, t_data *data)
-{
-	int 	x;
-	int 	y;
-	int 	color;
-	t_line	camera;
-	double 	a1;
-	double 	a2;
-
-	x = 0;
-	y = 0;
-	while (x < ui->width)
-	{
-		while (y < ui->height)
-		{
-			a1 = ((double)90 / ui->width * x) - 45;
-			a2 = ((double)90 / ui->height * y) - 45;
-			camera.base = ((t_camera*)(data->scene->camera))->center;
-			camera.direction = angles_to_vector(a1, a2);
-			color = trace_ray(data, camera, 0);
-			if (color != 0)
-				put_pixel(x, ui->height - y, color, data);
-			color = 0;
-			y ++;
-		}
-		y = 0;
-		x ++;
-	}
-}*/
-
 void	loop_mlx(t_data *data)
 {
 	t_mlx_data *ui;
@@ -74,13 +44,16 @@ void	loop_mlx(t_data *data)
 	ui = &data->mlx_data;
 	ui->height = HEIGHT;
 	ui->width = WIDTH;
-	//data->redraw = TRUE;
     data->redraw = 0;
-	draw_image(ui, data);
+    draw_image(data);
+    ui->win = mlx_new_window(ui->mlx, WIDTH, HEIGHT, "miniRT");
+    if (ui->win == NULL)
+        free_stuff(data);
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 	mlx_hook(ui->win, 17, 0, &free_stuff, data);
+    mlx_hook(ui->win, 2, 0, &free_stuff, data);
+    mlx_loop_hook(ui->mlx, &no_event, data);
 	mlx_key_hook(ui->win, &handle_keypress, data);
-//	mlx_loop_hook(ui->mlx, &no_event, ui);
 	mlx_loop(ui->mlx);
 }
 

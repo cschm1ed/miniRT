@@ -47,7 +47,7 @@ t_vector	get_direction(t_data *data, t_plane vp, double x, double y)
 	return (_subtract(start, data->scene->camera->center));
 }
 
-void	draw_image(t_mlx_data *ui, t_data *data)
+int draw_image(t_data *data)
 {
 	int 	x;
 	int 	y;
@@ -59,11 +59,10 @@ void	draw_image(t_mlx_data *ui, t_data *data)
 	y = 0;
 	create_vision_plane(data, &vp);
 	camera.base = data->scene->camera->center;
-	while (x < ui->width)
+	while (x < data->mlx_data.width)
 	{
-		while (y < ui->height)
+		while (y < data->mlx_data.height)
 		{
-
             if (ANTI_ALIASING)
 			    color = average_pixel(x, y, data, camera, vp);
             else
@@ -71,17 +70,17 @@ void	draw_image(t_mlx_data *ui, t_data *data)
                 camera.direction = get_direction(data, vp, x, y);
                 color = trace_ray(data, camera, 0);
             }
-
 			if (color != 0)
 				put_pixel(x, y, color, data);
 			color = 0;
 			y++;
 		}
+        if (x % 10 == 0 && x != 0)
+            ft_printf("%d%%\n", x / (data->mlx_data.width / 100));
 		y = 0;
-        if (x % 4 == 0)
-            mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
 		x ++;
 	}
+    return (SUCCESS);
 }
 
 static int average_pixel(int x, int y, t_data *data, t_line camera, t_plane vp)

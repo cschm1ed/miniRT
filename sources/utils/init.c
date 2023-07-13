@@ -53,9 +53,6 @@ int	init_data(int argc, char **argv, t_data *data)
 		return (ft_printf("Error\n", STDERR_FILENO), FAILURE);
 	data->scene_filename = argv[1];
 	ui->mlx = mlx_init();
-	ui->win = mlx_new_window(ui->mlx, WIDTH, HEIGHT, "miniRT");
-	if (ui->win == NULL)
-		return (perror("malloc"), free(ui->mlx), FAILURE);
 	ui->img = mlx_new_image(ui->mlx, WIDTH, HEIGHT);
 	ui->img_addr = mlx_get_data_addr(ui->img, &ui->bits_per_pixel,
 					&ui->line_length, &ui->endian);

@@ -16,12 +16,7 @@ int	no_event(t_data *data)
 {
 	t_mlx_data *ui;
 
-	ui = &data->mlx_data;
-	if (data->redraw == TRUE)
-	{
-		draw_image(ui, data);
-		mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
-		data->redraw = 0;
-	}
+    ui = &data->mlx_data;
+    expose_image(data);
 	return (SUCCESS);
 }
