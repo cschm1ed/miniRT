@@ -34,8 +34,8 @@
 # define SPECULAR_N 80
 # define MAX_DEPTH 5
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 500
+# define HEIGHT 500
 
 # define SUCCESS 1
 # define FAILURE -1

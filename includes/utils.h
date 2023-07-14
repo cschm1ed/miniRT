@@ -15,13 +15,15 @@
 
 //trace stuff
 int 		trace_ray(t_data *data, t_line line, int depth);
-void		draw_image(t_mlx_data *ui, t_data *data);
+int draw_image(t_data *data);
 int			closest_intersection(t_scene *scene, t_intersect *intersect);
 //shading
+
 double	get_intensity(t_list *light_sources, t_vector intersection);
 int is_obscured(t_scene *scene, t_vector intersect);
 int calculate_color(t_data *data, t_intersect intersect, int depth);
 t_vector get_reflection(t_data *data, t_intersect inter, int depth);
+
 //slice_utils
 int			double_checker(char *str);
 long double	ft_atod(const char *str);
@@ -46,6 +48,7 @@ int			handle_keypress(int keysym, t_data *data);
 void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
 int			no_event(t_data *data);
+int         expose_image(t_data *data);
 
 // math stuff
 int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);

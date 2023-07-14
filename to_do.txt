@@ -1,10 +1,3 @@
-
-cylinder height not working --> room with objects.rt
-
-fix camera direction rotation / angle --> looking up not working
-
-reflectiveness
-
 Eike:
 
 Chris:
@@ -12,7 +5,6 @@ Chris:
 
 allgemein:
 
-- window managing size - Chris
 - question regarding different resolution of window ???
 - check normal vectors of cylinder (shading doesnt work right now) - Eike
 - check of intersection in object (camera in object ) - Eike

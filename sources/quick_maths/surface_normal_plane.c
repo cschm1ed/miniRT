@@ -16,8 +16,13 @@ t_vector normal_plane(void *plane, t_line line, t_vector point)
 {
 	t_plane	*pl;
 
-	(void)line;
     (void)point;
     pl = ((t_list*)plane)->content;
+    if (pl->v1.x < 0 && line.direction.x < 0)
+        pl->v1.x *= -1;
+    if (pl->v1.y < 0 && line.direction.x < 0)
+        pl->v1.y *= -1;
+    if (pl->v1.z < 0 && line.direction.z < 0)
+        pl->v1.z *= -1;
 	return (pl->v1);
 }
