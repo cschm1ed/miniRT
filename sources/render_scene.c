@@ -116,5 +116,5 @@ static int average_colours(int c1, int c2, int c3, int c4)
 	col1.x = (col1.x + col2.x + col3.x + col4.x) / 4;
 	col1.y = (col1.y + col2.y + col3.y + col4.y) / 4;
 	col1.z = (col1.z + col2.z + col3.z + col4.z) / 4;
-	return (trgb(0, col1.x, col1.y, col1.z));
+	return (get_colour(0, col1.x, col1.y, col1.z));
 }

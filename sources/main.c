@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
-	parsing(&data);
+	if (parsing(&data))
+		return (1);
 	t_list *light_element = data.scene->light_lst;
 	while (light_element != NULL)
 	{

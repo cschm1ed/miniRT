@@ -24,7 +24,7 @@ int c_multiply(int colour, t_vector intensity)
 	rgb.z = multiply_intensity(max, rgb.z, intensity.z);
 	rgb.y = multiply_intensity(max, rgb.y, intensity.y);
 	rgb.x = multiply_intensity(max, rgb.x, intensity.x);
-	return (trgb(0, rgb.x, rgb.y, rgb.z));
+	return (get_colour(0, rgb.x, rgb.y, rgb.z));
 }
 
 static int multiply_intensity(double max, double col, double intensity)

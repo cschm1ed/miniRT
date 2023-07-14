@@ -33,6 +33,8 @@ int interpret_lightsource(char **str, t_data *data)
 		free(new_light);
 		return (FAILURE);
 	}
+	if (get_trgb(str[3], &new_light->colour) == FAILURE)
+		printf("check ob es bei alleinigem if statement auslöst\n");
 
 	printf("check light source 2\n");
 	new_element = ft_lstnew(new_light);

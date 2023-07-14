@@ -19,7 +19,7 @@ t_vector colour_to_vector(int colour)
 
 int 	vector_to_colour(t_vector colour)
 {
-	return (trgb(0, colour.x, colour.y, colour.z));
+	return (get_colour(0, colour.x, colour.y, colour.z));
 }
 
 int 	c_add(int c1, int c2)

@@ -26,7 +26,7 @@ t_vector get_reflection(t_data *data, t_intersect inter, int depth);
 int			double_checker(char *str);
 long double	ft_atod(const char *str);
 int			count_elements(char **str);
-int			trgb(int t, int r, int g, int b);
+int			get_colour(int t, int r, int g, int b);
 int			get_center(char *str, t_vector *center );
 int			get_single_double(char *str, double *variable);
 int			get_single_integer(char *str, int *variable);

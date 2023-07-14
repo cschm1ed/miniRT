@@ -58,12 +58,14 @@ int get_trgb(char *str, int *colour)
 	g = ft_atoi((const char *) split[1]);
 	b = ft_atoi((const char *) split[2]);
 	printf("check test rgb\n");
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+	printf("r: %d g: %d b: %d\n", r,g,b);
+//	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
+	if ((r > 0 && r <= 255) && (g > 0 && g <= 255) && (b > 0 && b <= 255))
 	{
 		printf("check if statement\n");
 		return (FALSE);
 	}
-	(*colour) = trgb(t, r, g, b);
+	(*colour) = get_colour(t, r, g, b);
 	free_stringArray(split);
 	return (SUCCESS);
 }
