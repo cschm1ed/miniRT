@@ -23,20 +23,13 @@ int interpret_lightsource(char **str, t_data *data)
 	if (count_elements(str) != 4)
 		ft_printf("Wrong number of elements in light_source, there are %d elements in side\n", 1, count_elements(str));
 
-	printf("check light source \n");
 	if (get_center(str[1], &new_light->center) == FAILURE
 		|| get_single_double(str[2], &new_light->light_ratio) == FAILURE
 		|| get_trgb(str[3], &new_light->colour) == FAILURE)
 	{
-		printf("check 2\n");
-		printf("failure invalid input\n");
 		free(new_light);
 		return (FAILURE);
 	}
-	if (get_trgb(str[3], &new_light->colour) == FAILURE)
-		printf("check ob es bei alleinigem if statement auslöst\n");
-
-	printf("check light source 2\n");
 	new_element = ft_lstnew(new_light);
 	new_element->get_colour = get_colour_lightsource;
 	ft_lstadd_back(&data->scene->light_lst, new_element);
