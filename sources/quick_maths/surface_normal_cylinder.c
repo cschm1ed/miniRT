@@ -35,6 +35,7 @@ t_vector normal_cylindner(void *cylindner, t_line line, t_vector point)
 	len_q = sqrt(pow(_len(_subtract(point, cy->center)), 2) - pow(cy->diameter / 2, 2));
 	q = _add(cy->center, _multiply(cy->axis_direction, len_q));
 	surface_normal = _subtract(q, point);
+    return ((t_vector){1,1,1});
 	return (_divide(surface_normal, _len(surface_normal)));
 }
 

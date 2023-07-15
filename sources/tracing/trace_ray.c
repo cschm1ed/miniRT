@@ -33,7 +33,7 @@ int trace_ray(t_data *data, t_line line, int depth)
 
 int closest_intersection(t_scene *scene, t_intersect *intersect)
 {
-	t_vector	int_tmp;
+	t_intersect int_tmp;
 	t_list  	*objs;
 	double  	len_min;
 	double		len_tmp;
@@ -45,11 +45,12 @@ int closest_intersection(t_scene *scene, t_intersect *intersect)
     {
         if (objs->intersection(objs->content, intersect->ray, &int_tmp))
         {
-            len_tmp = _len(_subtract(int_tmp, intersect->ray.base));
+            len_tmp = _len(_subtract(int_tmp.point, intersect->ray.base));
             if (!hit || len_tmp < len_min)
             {
-                intersect->point = int_tmp;
                 intersect->obj = objs;
+                intersect->point = int_tmp.point;
+                intersect->normal = int_tmp.normal;
                 len_min = len_tmp;
                 hit = TRUE;
             }

@@ -118,9 +118,9 @@ int interpret_plane(char **str, t_data *data)
 		free(new_plane);
 		return (FAILURE);
 	}
+	new_plane->v2 = (t_vector){0,0,0};
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
-	new_element->surface_normal = normal_plane;
 	new_element->get_colour = get_colour_plane;
 	ft_lstadd_back(&data->scene->plane_lst, new_element);
 	return (SUCCESS);
@@ -156,7 +156,6 @@ int interpret_sphere(char **str, t_data *data)
 	}
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
-	new_element->surface_normal = normal_sphere;
 	new_element->get_colour = get_colour_sphere;
 	ft_lstadd_back(&data->scene->sphere_lst, new_element);
 	printf("parsing Sphere: center %f,%f,%f colour = %d\n", new_sphere->center.x, new_sphere->center.y, new_sphere->center.z, new_sphere->colour);
@@ -194,7 +193,6 @@ int interpret_cylindner(char **str, t_data *data)
 		return (FAILURE);
 	}
 	new_element->intersection = line_cylindner;
-	new_element->surface_normal = normal_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
 	printf("parsing cylindner ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylindner->center.x, new_cylindner->center.y, new_cylindner->center.z, new_cylindner->axis_direction.x,
@@ -228,7 +226,6 @@ int interpret_triangle(char **str, t_data *data)
         || get_trgb(str[4], &new_triangle->colour) == FAILURE)
 			return (free(new_triangle), FAILURE);
 	new_element->intersection = intersection_line_triangle;
-	new_element->surface_normal = normal_triangle;
 	new_element->get_colour = get_colour_triangle;
 	ft_lstadd_back(&data->scene->triangle_lst, new_element);
 	printf("parsing triangle ---> A %f,%f,%f B: %f,%f,%f C: %f,%f,%f colour: %d\n", new_triangle->A.x, new_triangle->A.y, new_triangle->A.z, new_triangle->B.x,

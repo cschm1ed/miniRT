@@ -21,7 +21,7 @@ int check_triangleIntersect(t_triangle triangle, t_vector intersection_point, t_
 	return (FALSE);
 }
 
-int intersection_line_triangle(void *object, t_line line, t_vector *result)
+int intersection_line_triangle(void *object, t_line line, t_intersect *inter)
 {
 	t_vector	n;
 	t_vector 	intersection_point;
@@ -42,7 +42,8 @@ int intersection_line_triangle(void *object, t_line line, t_vector *result)
 	intersection_point = _add(line.base, _multiply(line.direction, t));
 	if (check_triangleIntersect(triangle, intersection_point, n) == TRUE)
 	{
-		*result = intersection_point;
+		inter->point = intersection_point;
+        inter->normal = n;
 		return (TRUE);
 	}
 	return (FALSE);

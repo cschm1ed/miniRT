@@ -56,7 +56,7 @@ int top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector
 	return (FALSE);
 }
 
-int line_cylindner(void *object, t_line line, t_vector *result)
+int line_cylindner(void *object, t_line line, t_intersect *inter)
 {
 	t_vector h;
 	t_vector apex;
@@ -91,7 +91,6 @@ int line_cylindner(void *object, t_line line, t_vector *result)
 	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylindner.diameter / 2, 2);
 
 	root_term = pow(b, 2) - (4 * a * c);
-
 	if (root_term > 0)
 	{
 		t1 = (-b + sqrt(root_term)) / (2 * a);
@@ -105,14 +104,23 @@ int line_cylindner(void *object, t_line line, t_vector *result)
 
 		if (0 <= check && check <= _len(h) * cylindner.height)
 		{
-			*result = point;
+			inter->point = point;
+
+            double      len_q;
+            t_vector    q;
+
+            len_q = sqrt(pow(_len(_subtract(point, cylindner.center)), 2) - pow(cylindner.diameter / 2, 2));
+            q = _add(cylindner.center, _multiply(cylindner.axis_direction, len_q));
+            inter->normal = _subtract(point, q);
+
 			return (TRUE);
 		}
 		if (_len(h) < check)
 		{
 			if (top_cap_intersection(cylindner, line.direction, point) == TRUE)
 			{
-				*result = point;
+				inter->point = point;
+                inter->normal = cylindner.axis_direction;
 				return (TRUE);
 			}
 		}
@@ -120,7 +128,8 @@ int line_cylindner(void *object, t_line line, t_vector *result)
         {
             if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE)
             {
-                *result = point;
+                inter->point = point;
+                inter->normal = _multiply(cylindner.axis_direction, -1);
                 return (TRUE);
             }
         }

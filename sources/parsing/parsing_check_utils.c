@@ -36,9 +36,10 @@ int check_centerString(char *str)
 	while (split[i] != NULL)
 	{
 		if (double_checker(split[i]) == FAILURE)
-			return (FAILURE);
+			return (free_stringArray(split), FAILURE);
 		i++;
 	}
+	free_stringArray(split);
 	return (SUCCESS);
 }
 
@@ -64,11 +65,12 @@ int check_rgbString(char *str)
 		while (split[i][j] != '\0' && split[i][j] != '\n')
 		{
 			if (ft_isdigit(split[i][j]) == 0)
-				return (FAILURE);
+				return (free_stringArray(split), FAILURE);
 			j++;
 		}
 		i++;
 	}
+	free_stringArray(split);
 	return (SUCCESS);
 }
 

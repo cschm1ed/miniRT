@@ -51,14 +51,14 @@ int			no_event(t_data *data);
 int         expose_image(t_data *data);
 
 // math stuff
-int 		intersection_line_sphere(void *objecet, t_line line, t_vector *result);
-int			intersection_line_plane(void *object, t_line line, t_vector *result);
-int			line_cylindner(void *cylindner, t_line line, t_vector *result);
-int			intersection_line_triangle(void *object, t_line line, t_vector *result);
+int 		intersection_line_sphere(void *object, t_line line, t_intersect *result);
+int intersection_line_plane(void *object, t_line line, t_intersect *inter);
+int			line_cylindner(void *object, t_line line, t_intersect *inter);
+int			intersection_line_triangle(void *object, t_line line, t_intersect *result);
 int			bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
 int			top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
-t_vector normal_sphere(void *sphere, t_line line, t_vector point);
-t_vector normal_plane(void *plane, t_line line, t_vector point);
+t_vector normal_sphere(void *sphere, t_vector point, t_intersect inter);
+t_vector normal_plane(void *plane, t_vector point, t_intersect inter);
 t_vector normal_cylindner(void *cylindner, t_line line, t_vector point);
 t_vector normal_triangle(void *triangle, t_line line, t_vector point);
 

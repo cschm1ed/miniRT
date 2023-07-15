@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-int intersection_line_sphere(void *object, t_line line, t_vector *result)
+int intersection_line_sphere(void *object, t_line line, t_intersect *inter)
 {
 	t_vector	oc;
 	t_sphere	*sphere;
@@ -45,7 +45,9 @@ int intersection_line_sphere(void *object, t_line line, t_vector *result)
             t = t1;
         else
             t = t2;
-        *result = _add(_multiply(line.direction, t), line.base);
+        inter->point = _add(_multiply(line.direction, t), line.base);
+        inter->normal = _subtract(inter->point, sphere->center);
+        inter->normal = _divide(inter->normal, _len(inter->normal));
 		return (TRUE);
 	}
 	return (FALSE);

@@ -33,8 +33,6 @@ SRCS 			:= main.c \
 				   line_triangle.c \
 				   key_events.c \
 				   trace_ray.c \
-				   surface_normal_sphere.c \
-				   surface_normal_plane.c \
 				   angle_between_vectors.c \
 				   rad_to_deg.c \
 				   colour_x_intensity.c \
@@ -47,7 +45,6 @@ SRCS 			:= main.c \
 				   line_cylinder.c \
 				   surface_normal_cylinder.c \
 				   get_colour.c \
-				   surface_normal_triangle.c
 
 VPATH			:= sources:\
 					sources/parsing:\

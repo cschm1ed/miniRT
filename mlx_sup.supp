@@ -1,0 +1,1145 @@
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:_xcb_conn_wait
+   fun:_xcb_out_send
+   fun:xcb_writev
+   fun:_XSend
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:_xgeCheckExtInit
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_xcb_map_new
+   fun:_xcb_in_init
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_ambient_light
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:append_pending_request
+   fun:_XReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:get_lazyreply
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_xcb_in_read
+   fun:_xcb_conn_wait
+   fun:wait_for_reply
+   fun:xcb_wait_for_reply
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:__Balloc_D2A
+   fun:__d2b_D2A
+   fun:__dtoa
+   fun:__vfprintf
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XPollfdCacheInit
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:init_scene
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:ft_calloc
+   fun:ft_lstnew
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:ft_calloc
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XCreateGC
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   fun:handle_response
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:_xgeCheckExtInit
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:XextCreateExtension
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XInternAtom
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   fun:handle_response
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}

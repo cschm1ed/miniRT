@@ -29,12 +29,11 @@ int	slicer(char *str, t_data *data)
 		{
 			printf("iteration check\n");
 			if (data->parsing[i].f(split, data) == FAILURE)
-				return (FAILURE);
+				return (free_stringArray(split), FAILURE);
 		}
-
 		i++;
 	}
-	return (SUCCESS);
+	return (free_stringArray(split), SUCCESS);
 }
 
 

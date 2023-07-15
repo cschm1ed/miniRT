@@ -1,0 +1,2454 @@
+==25630== Memcheck, a memory error detector
+==25630== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25630== Using Valgrind-3.19.0.GIT-lbmacos and LibVEX; rerun with -h for copyright info
+==25630== Command: ./miniRT scenes/test3.rt
+==25630== Parent PID: 8695
+==25630== 
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4eb9a2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4eb9f2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4eba42 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003E13: interpret_lightsource (interpret_scene.c:26)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004825: get_single_double (slice_utils1.c:91)
+==25630==    by 0x100003E28: interpret_lightsource (interpret_scene.c:27)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ea6a2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec2e2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec333 is 0 bytes after a block of size 3 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec382 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EC9: interpret_camera (interpret_scene.c:51)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec582 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec5d2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ec622 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100003EDF: interpret_camera (interpret_scene.c:52)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed292 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed2e2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed332 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040D6: interpret_plane (interpret_scene.c:113)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed533 is 0 bytes after a block of size 3 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed582 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4ed5d2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000040EB: interpret_plane (interpret_scene.c:114)
+==25630==    by 0x100003C06: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_plane
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f1c12 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f1c62 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f1cb2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x1000042B6: interpret_sphere (interpret_scene.c:149)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004825: get_single_double (slice_utils1.c:91)
+==25630==    by 0x1000042CF: interpret_sphere (interpret_scene.c:150)
+==25630==    by 0x100003C3C: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f17e2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_sphere
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000048D5: ft_atod (slice_utils1.c:91)
+==25630==    by 0x1000041F6: set_DSR (interpret_scene.c:242)
+==25630==    by 0x1000043FF: interpret_cylindner (interpret_scene.c:179)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2282 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000048D5: ft_atod (slice_utils1.c:91)
+==25630==    by 0x100004203: set_DSR (interpret_scene.c:243)
+==25630==    by 0x1000043FF: interpret_cylindner (interpret_scene.c:179)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f22d2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000048D5: ft_atod (slice_utils1.c:91)
+==25630==    by 0x100004210: set_DSR (interpret_scene.c:244)
+==25630==    by 0x1000043FF: interpret_cylindner (interpret_scene.c:179)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2323 is 0 bytes after a block of size 3 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:ft_atod
+   fun:set_DSR
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x100004416: interpret_cylindner (interpret_scene.c:185)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2632 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100004416: interpret_cylindner (interpret_scene.c:185)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x100004416: interpret_cylindner (interpret_scene.c:185)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2682 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x100004416: interpret_cylindner (interpret_scene.c:185)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x1000049A5: get_center (slice_utils1.c:91)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f28d2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004A25: get_center (slice_utils1.c:91)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2922 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004AA5: get_center (slice_utils1.c:91)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f2972 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100004961: get_center (slice_utils1.c:37)
+==25630==    by 0x10000442D: interpret_cylindner (interpret_scene.c:186)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_center
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Invalid read of size 1
+==25630==    at 0x100004825: get_single_double (slice_utils1.c:91)
+==25630==    by 0x10000445D: interpret_cylindner (interpret_scene.c:188)
+==25630==    by 0x100003C6E: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630==  Address 0x10f4f21e2 is 0 bytes after a block of size 2 alloc'd
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009D45: ft_substr (ft_substr.c:32)
+==25630==    by 0x100009F8C: split (ft_split.c:86)
+==25630==    by 0x10000A182: ft_split (ft_split.c:105)
+==25630==    by 0x100003B1B: slicer (parsing.c:22)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:get_single_double
+   fun:interpret_cylindner
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x10000577B: intersection_line_plane (line_plane.c:40)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057A1: intersection_line_plane (line_plane.c:42)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057C5: intersection_line_plane (line_plane.c:44)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x10000577B: intersection_line_plane (line_plane.c:40)
+==25630==    by 0x100006210: closest_intersection (trace_ray.c:46)
+==25630==    by 0x100007EB3: is_obscured (shading.c:119)
+==25630==    by 0x1000074B3: calculate_color (shading.c:28)
+==25630==    by 0x100006121: trace_ray (trace_ray.c:28)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x10000614A: closest_intersection (trace_ray.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057A1: intersection_line_plane (line_plane.c:42)
+==25630==    by 0x100006210: closest_intersection (trace_ray.c:46)
+==25630==    by 0x100007EB3: is_obscured (shading.c:119)
+==25630==    by 0x1000074B3: calculate_color (shading.c:28)
+==25630==    by 0x100006121: trace_ray (trace_ray.c:28)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x10000614A: closest_intersection (trace_ray.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057C5: intersection_line_plane (line_plane.c:44)
+==25630==    by 0x100006210: closest_intersection (trace_ray.c:46)
+==25630==    by 0x100007EB3: is_obscured (shading.c:119)
+==25630==    by 0x1000074B3: calculate_color (shading.c:28)
+==25630==    by 0x100006121: trace_ray (trace_ray.c:28)
+==25630==    by 0x100006CC6: draw_image (render_scene.c:94)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100006146: closest_intersection (trace_ray.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:closest_intersection
+   fun:is_obscured
+   fun:calculate_color
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x10000577B: intersection_line_plane (line_plane.c:40)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006D47: draw_image (render_scene.c:96)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057A1: intersection_line_plane (line_plane.c:42)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006D47: draw_image (render_scene.c:96)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057C5: intersection_line_plane (line_plane.c:44)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006D47: draw_image (render_scene.c:96)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x10000577B: intersection_line_plane (line_plane.c:40)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006DE5: draw_image (render_scene.c:98)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057A1: intersection_line_plane (line_plane.c:42)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006DE5: draw_image (render_scene.c:98)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057C5: intersection_line_plane (line_plane.c:44)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006DE5: draw_image (render_scene.c:98)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x10000577B: intersection_line_plane (line_plane.c:40)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006E6C: draw_image (render_scene.c:100)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057A1: intersection_line_plane (line_plane.c:42)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006E6C: draw_image (render_scene.c:100)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Conditional jump or move depends on uninitialised value(s)
+==25630==    at 0x1000057C5: intersection_line_plane (line_plane.c:44)
+==25630==    by 0x100006096: trace_ray (trace_ray.c:46)
+==25630==    by 0x100006E6C: draw_image (render_scene.c:100)
+==25630==    by 0x100003763: loop_mlx (main.c:47)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100005F9D: trace_ray (trace_ray.c:16)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:intersection_line_plane
+   fun:trace_ray
+   fun:draw_image
+   fun:loop_mlx
+   fun:main
+}
+==25630== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==25630==    at 0x102001E36: writev (in /usr/lib/system/libsystem_kernel.dylib)
+==25630==    by 0x101B3D905: _xcb_conn_wait (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3E44B: _xcb_out_send (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3E3E3: xcb_writev (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x10016857D: _XSend (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100168A18: _XReadEvents (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10016780B: XWindowEvent (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002BB7: mlx_int_wait_first_expose (in ./miniRT)
+==25630==    by 0x100002937: mlx_new_window (in ./miniRT)
+==25630==    by 0x10000377D: loop_mlx (main.c:48)
+==25630==    by 0x100003721: main (main.c:35)
+==25630==  Address 0x10f4d62dc is 28 bytes inside a block of size 16,384 alloc'd
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AA17: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630==  Uninitialised value was created by a stack allocation
+==25630==    at 0x100002B20: mlx_int_anti_resize_win (in ./miniRT)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:_xcb_conn_wait
+   fun:_xcb_out_send
+   fun:xcb_writev
+   fun:_XSend
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+==25630== 
+==25630== HEAP SUMMARY:
+==25630==     in use at exit: 1,474,344 bytes in 911 blocks
+==25630==   total heap usage: 2,596 allocs, 1,685 frees, 2,762,678 bytes allocated
+==25630== 
+==25630== 8 bytes in 1 blocks are still reachable in loss record 2 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101E13CE5: strdup (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x1001556B0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1002744C0: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 8 bytes in 1 blocks are indirectly lost in loss record 3 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100274181: _xgeCheckExtInit (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FC8: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:_xgeCheckExtInit
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 10 bytes in 1 blocks are still reachable in loss record 4 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101E13CE5: strdup (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x1001556B0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001B3D79: XkbUseExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015B276: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 16 bytes in 1 blocks are still reachable in loss record 9 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101B401F6: _xcb_map_new (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3FAF9: _xcb_in_init (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3D35E: xcb_connect_to_fd (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B409A7: xcb_connect_to_display_with_auth_info (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x100168221: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_xcb_map_new
+   fun:_xcb_in_init
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 16 bytes in 1 blocks are still reachable in loss record 10 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100158B3E: _XInitDisplayLock (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9B9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 16 bytes in 1 blocks are still reachable in loss record 11 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100003FB9: interpret_ambient_light (interpret_scene.c:73)
+==25630==    by 0x100003BD0: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_ambient_light
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== 21 bytes in 1 blocks are still reachable in loss record 12 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015ABC0: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 24 bytes in 1 blocks are still reachable in loss record 17 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101E13CE5: strdup (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x1001556B0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1002744C0: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274094: _xgeFindDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FB2: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 24 bytes in 1 blocks are still reachable in loss record 18 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100168BCB: append_pending_request (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100168E8F: _XReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF8FD: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:append_pending_request
+   fun:_XReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 24 bytes in 1 blocks are indirectly lost in loss record 36 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100273FDA: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 29 bytes in 1 blocks are still reachable in loss record 37 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100156056: _XUpdateAtomCache (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100156217: XInternAtom (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1000025A7: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 32 bytes in 1 blocks are still reachable in loss record 104 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101B3FF18: get_lazyreply (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3FE66: xcb_get_extension_data (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3DA59: xcb_prefetch_maximum_request_length (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3DAB2: xcb_get_maximum_request_length (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x10015B08D: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:get_lazyreply
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 32 bytes in 1 blocks are still reachable in loss record 105 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101B3F117: _xcb_in_read (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3D7DC: _xcb_conn_wait (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3E7D8: wait_for_reply (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3E6D0: xcb_wait_for_reply (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3FE88: xcb_get_extension_data (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3DA59: xcb_prefetch_maximum_request_length (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B3DAB2: xcb_get_maximum_request_length (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x10015B08D: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_xcb_in_read
+   fun:_xcb_conn_wait
+   fun:wait_for_reply
+   fun:xcb_wait_for_reply
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 32 bytes in 1 blocks are indirectly lost in loss record 127 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10027449D: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274094: _xgeFindDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FB2: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 32 bytes in 1 blocks are definitely lost in loss record 192 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10027449D: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 33 bytes in 1 blocks are still reachable in loss record 193 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100156056: _XUpdateAtomCache (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100156217: XInternAtom (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002592: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 36 bytes in 1 blocks are still reachable in loss record 194 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101DDB71F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101DDBEFC: __d2b_D2A (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101DD8B61: __dtoa (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101DFF2DD: __vfprintf (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101E25AD2: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101DFE2B1: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x101DFC41D: printf (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x100003F2B: interpret_camera (interpret_scene.c:63)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:__Balloc_D2A
+   fun:__d2b_D2A
+   fun:__dtoa
+   fun:__vfprintf
+   fun:__v2printf
+   fun:vfprintf_l
+   fun:printf
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== 40 bytes in 1 blocks are still reachable in loss record 195 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100169712: _XPollfdCacheInit (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9C9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XPollfdCacheInit
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 40 bytes in 1 blocks are still reachable in loss record 196 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100003DD9: interpret_lightsource (interpret_scene.c:22)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== 48 bytes in 1 blocks are still reachable in loss record 203 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10016827A: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 48 bytes in 1 blocks are still reachable in loss record 204 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10016828F: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 48 bytes in 1 blocks are still reachable in loss record 205 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100158B7B: _XInitDisplayLock (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9B9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 48 bytes in 1 blocks are still reachable in loss record 206 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100158B9C: _XInitDisplayLock (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9B9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 48 bytes in 1 blocks are still reachable in loss record 207 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AF976: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 56 bytes in 1 blocks are still reachable in loss record 249 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101E13CE5: strdup (in /usr/lib/system/libsystem_c.dylib)
+==25630==    by 0x10015A762: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 56 bytes in 1 blocks are still reachable in loss record 250 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100003EA9: interpret_camera (interpret_scene.c:43)
+==25630==    by 0x100003B9A: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:interpret_camera
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== 64 bytes in 1 blocks are still reachable in loss record 263 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10000384D: init_scene (init.c:17)
+==25630==    by 0x100003688: main (main.c:19)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:init_scene
+   fun:main
+}
+==25630== 64 bytes in 1 blocks are still reachable in loss record 264 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100158B8C: _XInitDisplayLock (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9B9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 64 bytes in 1 blocks are still reachable in loss record 265 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009B80: ft_calloc (ft_calloc.c:23)
+==25630==    by 0x10000B46A: ft_lstnew (ft_lstnew.c:23)
+==25630==    by 0x100003E46: interpret_lightsource (interpret_scene.c:33)
+==25630==    by 0x100003B64: slicer (parsing.c:31)
+==25630==    by 0x100003D37: parsing (parsing.c:55)
+==25630==    by 0x1000036B3: main (main.c:23)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:ft_calloc
+   fun:ft_lstnew
+   fun:interpret_lightsource
+   fun:slicer
+   fun:parsing
+   fun:main
+}
+==25630== 72 bytes in 1 blocks are still reachable in loss record 291 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AA73: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 72 bytes in 1 blocks are still reachable in loss record 292 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AF95A: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 112 bytes in 1 blocks are still reachable in loss record 316 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10016819E: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 112 bytes in 1 blocks are still reachable in loss record 317 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AE00: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 128 bytes in 1 blocks are still reachable in loss record 325 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AD10: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 128 bytes in 1 blocks are still reachable in loss record 326 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001556A0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001B3D79: XkbUseExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015B276: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 128 bytes in 1 blocks are still reachable in loss record 327 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001556A0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1002744C0: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 128 bytes in 1 blocks are still reachable in loss record 328 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001556A0: XInitExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1002744C0: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274094: _xgeFindDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FB2: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 128 bytes in 1 blocks are still reachable in loss record 329 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100009B80: ft_calloc (ft_calloc.c:23)
+==25630==    by 0x100003A00: init_data (init.c:34)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:ft_calloc
+   fun:init_data
+   fun:main
+}
+==25630== 152 bytes in 1 blocks are still reachable in loss record 340 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001B3CC8: XkbUseExtension (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015B276: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 160 bytes in 1 blocks are still reachable in loss record 342 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10014ABA9: XCreateGC (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015B0ED: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XCreateGC
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 168 bytes in 1 blocks are still reachable in loss record 348 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AC33: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 192 bytes in 1 blocks are still reachable in loss record 349 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100158B5E: _XInitDisplayLock (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A9B9: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XInitDisplayLock
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 208 bytes in 1 blocks are still reachable in loss record 351 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10016A486: _XEnq (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001689E7: handle_response (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100168B30: _XReadEvents (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10016780B: XWindowEvent (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002BB7: mlx_int_wait_first_expose (in ./miniRT)
+==25630==    by 0x100002937: mlx_new_window (in ./miniRT)
+==25630==    by 0x10000377D: loop_mlx (main.c:48)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   fun:handle_response
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+==25630== 208 bytes in 1 blocks are indirectly lost in loss record 352 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100274135: _xgeCheckExtInit (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FC8: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   fun:_xgeCheckExtInit
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 256 bytes in 1 blocks are still reachable in loss record 360 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001BB4D6: XkbAllocClientMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF7B1: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 296 (24 direct, 272 indirect) bytes in 1 blocks are definitely lost in loss record 362 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x100274443: XextCreateExtension (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274050: _xgeFindDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100273FB2: xgeExtRegister (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100274537: XextAddDisplay (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x10027016B: XShmQueryVersion (in /opt/X11/lib/libXext.6.dylib)
+==25630==    by 0x100002640: mlx_int_deal_shm (in ./miniRT)
+==25630==    by 0x1000025B3: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:XextCreateExtension
+   fun:_xgeFindDisplay
+   fun:xgeExtRegister
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 344 bytes in 6 blocks are still reachable in loss record 364 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AED7D: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 512 bytes in 1 blocks are still reachable in loss record 372 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001562A1: _XInternAtom (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001561A2: XInternAtom (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002592: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XInternAtom
+   fun:XInternAtom
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 960 bytes in 1 blocks are still reachable in loss record 375 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001BB3F4: XkbAllocClientMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AEBD3: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 1,128 bytes in 1 blocks are still reachable in loss record 377 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x102B39505: __CFAllocateObject (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x102B3948D: __NSSingleObjectArrayI_new (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x104F834E0: _NSThreadGet0 (in /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation)
+==25630==    by 0x104F8300A: _NSInitializePlatform (in /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation)
+==25630==    by 0x102126392: objc_msgLookup_fpret (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x10002626B: dyld::notifySingle(dyld_image_states, ImageLoader const*, ImageLoader::InitializerTimingList*) (in /usr/lib/dyld)
+==25630==    by 0x100039FE8: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x100039F65: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x100039F65: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x100039F65: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x100039F65: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:__CFAllocateObject
+   fun:__NSSingleObjectArrayI_new
+   fun:_NSThreadGet0
+   fun:_NSInitializePlatform
+   fun:objc_msgLookup_fpret
+   fun:_ZN4dyldL12notifySingleE17dyld_image_statesPK11ImageLoaderPNS1_21InitializerTimingListE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+}
+==25630== 1,980 bytes in 23 blocks are still reachable in loss record 383 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AECEB: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 2,048 bytes in 1 blocks are still reachable in loss record 384 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AF023: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 2,048 bytes in 1 blocks are definitely lost in loss record 385 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x102B39BB2: __CFGetConverter (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x101C7F657: _dispatch_client_callout (in /usr/lib/system/libdispatch.dylib)
+==25630==    by 0x101C807DD: _dispatch_once_callout (in /usr/lib/system/libdispatch.dylib)
+==25630==    by 0x102B39B93: __CFGetConverter (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x102B39954: __CFGetConverter (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x102B39750: _CFProcessPath (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x102B39582: CFRetain (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25630==    by 0x104F835EC: ____NSThreads_block_invoke (in /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation)
+==25630==    by 0x101C7F657: _dispatch_client_callout (in /usr/lib/system/libdispatch.dylib)
+==25630==    by 0x101C807DD: _dispatch_once_callout (in /usr/lib/system/libdispatch.dylib)
+==25630==    by 0x104F835C7: _NSThreadGet0 (in /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__CFGetConverter
+   fun:_dispatch_client_callout
+   fun:_dispatch_once_callout
+   fun:__CFGetConverter
+   fun:__CFGetConverter
+   fun:_CFProcessPath
+   fun:CFRetain
+   fun:____NSThreads_block_invoke
+   fun:_dispatch_client_callout
+   fun:_dispatch_once_callout
+   fun:_NSThreadGet0
+}
+==25630== 2,516 bytes in 1 blocks are still reachable in loss record 386 of 399
+==25630==    at 0x100137EE6: realloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101B3D491: xcb_connect_to_fd (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B409A7: xcb_connect_to_display_with_auth_info (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x100168221: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 2,704 bytes in 13 blocks are still reachable in loss record 387 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10016A486: _XEnq (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001689E7: handle_response (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100168B7E: _XReadEvents (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10016780B: XWindowEvent (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002BB7: mlx_int_wait_first_expose (in ./miniRT)
+==25630==    by 0x100002937: mlx_new_window (in ./miniRT)
+==25630==    by 0x10000377D: loop_mlx (main.c:48)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   fun:handle_response
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:loop_mlx
+   fun:main
+}
+==25630== 3,072 bytes in 1 blocks are still reachable in loss record 388 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x1001AF06C: _XkbReadGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF912: _XkbHandleGetMapReply (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF897: XkbGetUpdatedMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AF992: XkbGetMap (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC72C: _XkbLoadDpy (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x1001AC5E5: XkbKeycodeToKeysym (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10000330F: mlx_int_param_KeyRelease (in ./miniRT)
+==25630==    by 0x100002AA1: mlx_loop (in ./miniRT)
+==25630==    by 0x100003721: main (main.c:35)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:_XkbHandleGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   fun:_XkbLoadDpy
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25630== 4,712 bytes in 1 blocks are still reachable in loss record 390 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015A74E: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 5,376 bytes in 1 blocks are still reachable in loss record 391 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AEAF: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 6,144 bytes in 1 blocks are still reachable in loss record 392 of 399
+==25630==    at 0x100137545: malloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x102138AFA: objc::scanner::Mixin<objc::CoreScanner, (objc::SelectorBundle)2, PrintCustomCore, (objc::scanner::Scope)2>::setCustomRecursively(objc_class*, bool) (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x10213B84C: protocol_copyPropertyList2 (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x10213B563: _method_getImplementationAndName (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x10213B346: free_class(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x102125FCC: objc_msgLookup (in /usr/lib/libobjc.A.dylib)
+==25630==    by 0x10002626B: dyld::notifySingle(dyld_image_states, ImageLoader const*, ImageLoader::InitializerTimingList*) (in /usr/lib/dyld)
+==25630==    by 0x100039FE8: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, char const*, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x1000380B3: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x1000380DD: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25630==    by 0x100038153: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25630==    by 0x100026661: dyld::initializeMainExecutable() (in /usr/lib/dyld)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_ZN4objc7scanner5MixinINS_11CoreScannerELNS_14SelectorBundleE2EL_Z15PrintCustomCoreELNS0_5ScopeE2EE20setCustomRecursivelyEP10objc_classb
+   fun:protocol_copyPropertyList2
+   fun:_method_getImplementationAndName
+   fun:_ZL10free_classP10objc_class
+   fun:objc_msgLookup
+   fun:_ZN4dyldL12notifySingleE17dyld_image_statesPK11ImageLoaderPNS1_21InitializerTimingListE
+   fun:_ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjPKcRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader19processInitializersERKNS_11LinkContextEjRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader19processInitializersERKNS_11LinkContextEjRNS_21InitializerTimingListERNS_15UninitedUpwardsE
+   fun:_ZN11ImageLoader15runInitializersERKNS_11LinkContextERNS_21InitializerTimingListE
+   fun:_ZN4dyld24initializeMainExecutableEv
+}
+==25630== 16,384 bytes in 1 blocks are still reachable in loss record 394 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x10015AA17: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== 21,272 bytes in 1 blocks are still reachable in loss record 396 of 399
+==25630==    at 0x100137BA0: calloc (in /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25630==    by 0x101B3D2AB: xcb_connect_to_fd (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x101B409A7: xcb_connect_to_display_with_auth_info (in /opt/X11/lib/libxcb.1.dylib)
+==25630==    by 0x100168221: _XConnectXCB (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x10015A782: XOpenDisplay (in /opt/X11/lib/libX11.6.dylib)
+==25630==    by 0x100002517: mlx_init (in ./miniRT)
+==25630==    by 0x1000039BF: init_data (init.c:55)
+==25630==    by 0x10000369D: main (main.c:21)
+==25630== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:init_data
+   fun:main
+}
+==25630== LEAK SUMMARY:
+==25630==    definitely lost: 2,104 bytes in 3 blocks
+==25630==    indirectly lost: 272 bytes in 4 blocks
+==25630==      possibly lost: 0 bytes in 0 blocks
+==25630==    still reachable: 72,217 bytes in 93 blocks
+==25630==         suppressed: 1,399,751 bytes in 811 blocks
+==25630== 
+==25630== For lists of detected and suppressed errors, rerun with: -s
+==25630== ERROR SUMMARY: 719385 errors from 48 contexts (suppressed: 218 from 166)

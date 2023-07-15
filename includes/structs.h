@@ -149,6 +149,7 @@ typedef struct s_intersect
     t_list      *obj;
     t_vector    point;
     t_line      ray;
+    t_vector    normal;
 }   t_intersect;
 
 #endif

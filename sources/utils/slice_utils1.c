@@ -85,11 +85,15 @@ long double    ft_atod(const char *str)
 	long double    double_part;
 
 	result = ft_atoi(str);
+	double_part = 0;
 	while (*str != '.' && *str != ',' && *str != '\0')
 		str++;
-	double_part = ft_atoi(str + 1);
-	while (double_part > 1)
-		double_part /= 10;
+	if (*(str + 1))
+	{
+		double_part = ft_atoi(str + 1);
+		while (double_part > 1)
+			double_part /= 10;
+	}
 	return (result + double_part);
 }
 
@@ -103,4 +107,5 @@ void free_stringArray(char **str)
 		free(str[i]);
 		i++;
 	}
+	free(str);
 }
