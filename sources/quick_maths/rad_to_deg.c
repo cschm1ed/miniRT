@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-double rad_to_deg(double rad)
+double	rad_to_deg(double rad)
 {
 	return (rad * (180.0f / M_PI));
 }

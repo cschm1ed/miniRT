@@ -12,9 +12,9 @@
 
 #include "../../includes/minirt.h"
 
-t_vector _pow(t_vector vector)
+t_vector	_pow(t_vector vector)
 {
-	t_vector out;
+	t_vector	out;
 
 	out.x = pow(vector.x, 2);
 	out.y = pow(vector.y, 2);

@@ -14,7 +14,7 @@
 
 double	_dot(t_vector v1, t_vector v2)
 {
-	double _dot_product;
+	double	_dot_product;
 
 	_dot_product = 0;
 	_dot_product += v1.x * v2.x;

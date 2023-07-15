@@ -14,7 +14,7 @@
 
 double	_len(t_vector vec)
 {
-	double out;
+	double	out;
 
 	out = pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2);
 	out = sqrt(out);

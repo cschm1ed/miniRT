@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector _scalar(t_vector v1, t_vector v2)
+t_vector	_scalar(t_vector v1, t_vector v2)
 {
 	v1.x = v1.x * v2.x;
 	v1.y = v1.y * v2.x;

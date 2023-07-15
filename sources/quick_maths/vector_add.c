@@ -12,9 +12,9 @@
 
 #include "../../includes/minirt.h"
 
-t_vector _add(t_vector v1, t_vector v2)
+t_vector	_add(t_vector v1, t_vector v2)
 {
-	t_vector out;
+	t_vector	out;
 
 	out.x = v1.x + v2.x;
 	out.y = v1.y + v2.y;
