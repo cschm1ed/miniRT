@@ -170,9 +170,9 @@ int interpret_cylindner(char **str, t_data *data)
 
 	new_cylindner = malloc(sizeof(t_cylindner));
     new_element = ft_lstnew(new_cylindner);
-    new_element->diffuse = DIFFUSE;
-    new_element->specular = SPECULAR;
-    new_element->reflective = REFLECTIVENES;
+    new_element->diffuse = DIFFUSE + REFLECTIVENES / 2;
+    new_element->specular = SPECULAR + REFLECTIVENES / 2;
+    new_element->reflective = 0;
 	if (count_elements(str) != 6)
 	{
         if (count_elements(str) == 9)
@@ -193,6 +193,7 @@ int interpret_cylindner(char **str, t_data *data)
 		free(new_cylindner);
 		return (FAILURE);
 	}
+	new_cylindner->axis_direction = _divide(new_cylindner->axis_direction, _len(new_cylindner->axis_direction));
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);

@@ -26,9 +26,9 @@
 # include "parsing.h"
 
 # define DISTANCE_FACTOR 0.1
-# define REFLECTIVENES 0.4
-# define DIFFUSE 0.2
-# define SPECULAR 0.3
+# define REFLECTIVENES 0.2
+# define DIFFUSE 0.4
+# define SPECULAR 0.4
 
 # define ANTI_ALIASING 1
 # define SPECULAR_N 80

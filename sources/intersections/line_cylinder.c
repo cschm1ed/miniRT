@@ -64,8 +64,8 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 	t_vector w;
 	t_vector v;
 	t_vector point;
-
 	double a;
+
 	double b;
 	double c;
 
@@ -77,9 +77,10 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 
 	t_cylindner cylindner;
 
+	line.direction = _divide(line.direction, _len(line.direction));
 	cylindner = *((t_cylindner*)object);
 	cylindner.axis_direction = _divide(cylindner.axis_direction, _len(cylindner.axis_direction));
-    apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height / 2));
+	apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height / 2));
 
 	h = _multiply(_subtract(apex, cylindner.center), 2);
 	h_normal = _divide(h, _len(h));
@@ -99,26 +100,43 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 			return (FALSE);
 		if (t1 < t2 && t1 > 0)
 			t = t1;
-        else
-            t = t2;
+		else
+			t = t2;
 		point = _add(line.base, _multiply(v, t));
 		check =  _dot(_subtract(point, cylindner.center), h);
 
 		if (0 <= check && check <= _len(h) * cylindner.height)
 		{
 			inter->point = point;
+//
+////            double      len_q;
+//			t_vector    q;
+//			t_vector 	c_s;
+//
+////            len_q = sqrt(pow(_len(_subtract(point, cylindner.center)), 2) - pow(cylindner.diameter / 2, 2));
+////            q = _add(cylindner.center, _multiply(cylindner.axis_direction, len_q));
+//			q = _multiply(cylindner.axis_direction, _dot(cylindner.axis_direction, _subtract(point, cylindner.center)));
+//			c_s = _subtract(q, cylindner.center);
+//			c_s = _divide(c_s, _len(c_s));
+//
+//			inter->normal = c_s;
 
-//            double      len_q;
-            t_vector    q;
-			t_vector 	c_s;
+			t_plane	pl;
+			t_line 	ln;
+			t_vector q;
 
-//            len_q = sqrt(pow(_len(_subtract(point, cylindner.center)), 2) - pow(cylindner.diameter / 2, 2));
-//            q = _add(cylindner.center, _multiply(cylindner.axis_direction, len_q));
-			q = _multiply(cylindner.axis_direction, _dot(cylindner.axis_direction, _subtract(point, cylindner.center)));
-			c_s = _subtract(q, cylindner.center);
-			c_s = _divide(c_s, _len(c_s));
+			pl.base = inter->point;
+			pl.v1 = cylindner.axis_direction;
+			ln.base = cylindner.center;
+			ln.direction  = cylindner.axis_direction;
 
-            inter->normal = c_s;
+			t = (_dot(_subtract(pl.base, ln.base), pl.v1)
+				 / _dot(ln.direction, pl.v1));
+
+			q = _add(cylindner.center, _multiply(ln.direction, t));
+			inter->normal = _subtract(inter->point, q);
+			inter->normal = _divide(inter->normal, _len(inter->normal));
+
 			return (TRUE);
 		}
 		if (_len(h) < check && _len(_cross(line.direction, cylindner.axis_direction)) == 0)
@@ -126,22 +144,91 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 			if (top_cap_intersection(cylindner, line.direction, point) == TRUE)
 			{
 				inter->point = point;
-                inter->normal = cylindner.axis_direction;
+				inter->normal = cylindner.axis_direction;
 				return (TRUE);
 			}
 		}
-        if (0 > check)
-        {
-            if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE)
-            {
-                inter->point = point;
-                inter->normal = _multiply(cylindner.axis_direction, -1);
-                return (TRUE);
-            }
-        }
+		if (0 > check)
+		{
+			if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE)
+			{
+				inter->point = point;
+				inter->normal = _multiply(cylindner.axis_direction, -1);
+				return (TRUE);
+			}
+		}
 	}
 	return (FALSE);
 }
 
+
+
+//int line_cylindner(void *object, t_line line, t_intersect *inter)
+//{
+//	t_cylindner *cy = (t_cylindner*)object;
+//
+//	double a;
+//	double b;
+//	double c;
+//
+//	inter->ray.direction = _divide(inter->ray.direction, _len(inter->ray.direction));
+//	a = _dot(inter->ray.direction, inter->ray.direction);
+//	a = a -pow(_dot(inter->ray.direction, cy->axis_direction), 2);
+//
+//	b = _dot(inter->ray.direction, _subtract(inter->ray.base, cy->center));
+//	b = b - _dot(inter->ray.direction, cy->axis_direction) * _dot(_subtract(inter->ray.base, cy->center), cy->axis_direction);
+//	b = b * 2;
+//
+//	c = _dot(_subtract(inter->ray.base, cy->center), _subtract(inter->ray.base, cy->center));
+//	c = c - pow(_dot(_subtract(inter->ray.base, cy->center), cy->axis_direction), 2);
+//	c = c - pow(cy->diameter / 2, 2);
+//
+//	double t1;
+//	double t2;
+//	double t;
+//	double disc;
+//
+//	disc = pow(b, 2) - (4 * a * c);
+//	if (disc < 0)
+//		return (FALSE);
+//	t1 = (-b + sqrt(disc)) / (2 * a);
+//	t2 = (-b - sqrt(disc)) / (2 * a);
+//
+//	if (t1 < 0 && t2 < 0)
+//		return (FALSE);
+//	if (t1 < t2 && t1 > 0)
+//		t = t1;
+//	else
+//		t = t2;
+//
+//	inter->point = _add(inter->ray.base, _multiply(inter->ray.direction, t));
+//
+//	t_plane pl;
+//
+//	pl.v1 = cy->axis_direction;
+//	pl.base = inter->point;
+//
+//	t_intersect tmp;
+//
+//	tmp.ray.direction = cy->axis_direction;
+//	tmp.ray.base = cy->center;
+//
+//	t_vector q;
+//
+//	t = (_dot(_subtract(pl.base, line.base), pl.v1)
+//		 / _dot(line.direction, pl.v1));
+//
+//	q = _add(cy->center, _multiply(line.direction, t));
+//
+//
+////	if (_len(_subtract(q, cy->center)) > cy->height
+////		|| _len(_subtract(q, cy->center)) < 0)
+////		return (FALSE);
+//
+//	inter->normal = _subtract(inter->point, q);
+//	inter->normal = _divide(inter->normal, _len(inter->normal));
+//	return (TRUE);
+//	(void)line;
+//}
 
 //https://nachodevblog.com/posts/ray-cylindner-intersection/

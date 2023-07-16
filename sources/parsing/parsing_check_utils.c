@@ -30,10 +30,8 @@ int check_centerString(char *str)
 {
 	char **split;
 	int i;
-	int j;
 
 	i = 0;
-	j = 0;
 	split = ft_split(str, ",");
 	if (split[3] != NULL)
 		return (free_stringArray(split),FAILURE);

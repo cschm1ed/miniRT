@@ -35,7 +35,6 @@ SRCS 			:= main.c \
 				   trace_ray.c \
 				   angle_between_vectors.c \
 				   rad_to_deg.c \
-				   colour_x_intensity.c \
 				   colour_to_vector.c \
 				   pow_vector.c \
 				   sqrt_vector.c \
@@ -58,7 +57,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g -Ofast
+CCFLAG 			:= -Wall -Werror -Wextra -g -march=native -Ofast
 
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping

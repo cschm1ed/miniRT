@@ -14,9 +14,6 @@
 
 int	no_event(t_data *data)
 {
-	t_mlx_data *ui;
-
-    ui = &data->mlx_data;
     expose_image(data);
 	return (SUCCESS);
 }

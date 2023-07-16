@@ -41,6 +41,7 @@ int closest_intersection(t_scene *scene, t_intersect *intersect)
 
     hit = FALSE;
     objs = scene->all_objs;
+	int_tmp.ray = intersect->ray;
     while (objs)
     {
         if (objs->intersection(objs->content, intersect->ray, &int_tmp))
