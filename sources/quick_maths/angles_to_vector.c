@@ -12,9 +12,9 @@
 
 #include "../../includes/minirt.h"
 
-t_vector angles_to_vector(double ayx, double az)
+t_vector	angles_to_vector(double ayx, double az)
 {
-	t_vector out;
+	t_vector	out;
 
 	out.x = sin(ayx * M_PI / 180);
 	out.y = cos(ayx * M_PI / 180);
@@ -22,12 +22,12 @@ t_vector angles_to_vector(double ayx, double az)
 	return (out);
 }
 
-t_vector _rotate(t_vector vec, double xy_degree, double xz_degree)
+t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree)
 {
-	t_vector result;
-	double xy_rad;
-	double xz_rad;
-	double tmp_x;
+	t_vector	result;
+	double		xy_rad;
+	double		xz_rad;
+	double		tmp_x;
 
 	xy_rad = xy_degree * DEG_TO_RAD;
 	xz_rad = xz_degree * DEG_TO_RAD;
@@ -37,5 +37,5 @@ t_vector _rotate(t_vector vec, double xy_degree, double xz_degree)
 	tmp_x = result.x;
 	result.x = tmp_x * cos(xy_rad) - result.y * sin(xy_rad);
 	result.y = tmp_x * sin(xy_rad) + result.y * cos(xy_rad);
-	return result;
+	return (result);
 }

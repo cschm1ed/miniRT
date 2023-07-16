@@ -14,7 +14,7 @@
 
 t_vector	_multiply(t_vector vector, double factor)
 {
-	t_vector out;
+	t_vector	out;
 
 	out.x = vector.x * factor;
 	out.y = vector.y * factor;
@@ -24,7 +24,7 @@ t_vector	_multiply(t_vector vector, double factor)
 
 t_vector	_divide(t_vector vector, double factor)
 {
-	t_vector out;
+	t_vector	out;
 
 	if (factor == 0)
 		return (vector);
@@ -34,9 +34,9 @@ t_vector	_divide(t_vector vector, double factor)
 	return (out);
 }
 
-t_vector _multiply_element_wise(t_vector v1, t_vector v2)
+t_vector	_multiply_element_wise(t_vector v1, t_vector v2)
 {
-	t_vector out;
+	t_vector	out;
 
 	out.x = v1.x * v2.x;
 	out.y = v1.y * v2.y;

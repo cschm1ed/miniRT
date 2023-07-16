@@ -3,7 +3,7 @@
 # Function to check if a suppression block includes relevant functions
 function includesRelevantFunctions() {
     local block="$1"
-    if [[ $block =~ (fun:main|fun:mlx_|fun:_X) ]]; then
+    if [[ $block =~ (fun:mlx_|fun:_X|ImageLoader|lib|dyld|lib|_NS|__CF|printf|???) ]]; then
         return 0
     else
         return 1
