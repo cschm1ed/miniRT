@@ -25,6 +25,7 @@ t_scene *init_scene(t_scene *scene)
 	scene->plane_lst = NULL;
 	scene->cylindner_lst = NULL;
 	scene->triangle_lst = NULL;
+	scene->cone_lst = NULL;
 	scene->all_objs = NULL;
 	return scene;
 }
@@ -41,6 +42,7 @@ int	init_parsing(t_data *data)
 	data->parsing[4] = (t_parsing){"sp", interpret_sphere};
 	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
     data->parsing[6] = (t_parsing){"tr", interpret_triangle};
+//	data->parsing[7] = (t_parsing){"tr", interpret_cone};
 	return (SUCCESS);
 }
 

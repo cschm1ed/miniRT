@@ -95,6 +95,8 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 	{
 		t1 = (-b + sqrt(root_term)) / (2 * a);
 		t2 = (-b - sqrt(root_term)) / (2 * a);
+		if (t1 < 0 && t2 < 0)
+			return (FALSE);
 		if (t1 < t2 && t1 > 0)
 			t = t1;
         else
@@ -106,16 +108,20 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 		{
 			inter->point = point;
 
-            double      len_q;
+//            double      len_q;
             t_vector    q;
+			t_vector 	c_s;
 
-            len_q = sqrt(pow(_len(_subtract(point, cylindner.center)), 2) - pow(cylindner.diameter / 2, 2));
-            q = _add(cylindner.center, _multiply(cylindner.axis_direction, len_q));
-            inter->normal = _subtract(point, q);
+//            len_q = sqrt(pow(_len(_subtract(point, cylindner.center)), 2) - pow(cylindner.diameter / 2, 2));
+//            q = _add(cylindner.center, _multiply(cylindner.axis_direction, len_q));
+			q = _multiply(cylindner.axis_direction, _dot(cylindner.axis_direction, _subtract(point, cylindner.center)));
+			c_s = _subtract(q, cylindner.center);
+			c_s = _divide(c_s, _len(c_s));
 
+            inter->normal = c_s;
 			return (TRUE);
 		}
-		if (_len(h) < check)
+		if (_len(h) < check && _len(_cross(line.direction, cylindner.axis_direction)) == 0)
 		{
 			if (top_cap_intersection(cylindner, line.direction, point) == TRUE)
 			{

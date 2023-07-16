@@ -32,6 +32,11 @@ t_vector get_colour_triangle(t_list *obj)
 	return (_divide(colour_to_vector(((t_triangle*)obj->content)->colour), 255));
 }
 
+t_vector get_colour_cone(t_list *obj)
+{
+	return (_divide(colour_to_vector(((t_cone*)obj->content)->colour), 255));
+}
+
 t_vector get_colour_lightsource(t_list *obj)
 {
 	return (_divide(colour_to_vector(((t_light_source*)obj->content)->colour), 255));

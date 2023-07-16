@@ -108,7 +108,7 @@ typedef struct s_cone
 	int colour;
 	t_vector apex;
 	t_vector axis_direction;
-	float	opening_angle;
+	double	opening_angle;
 } t_cone;
 
 
@@ -116,7 +116,7 @@ typedef struct s_camera
 {
 	t_vector 	center;
 	t_vector 	vector;
-	int 		degrees;
+	double		degrees;
 } t_camera;
 
 typedef struct s_ambient_light
@@ -141,6 +141,7 @@ typedef struct s_scene
 	t_list 			*plane_lst;
 	t_list 			*cylindner_lst;
 	t_list			*triangle_lst;
+	t_list			*cone_lst;
 	t_list			*all_objs;
 } t_scene;
 

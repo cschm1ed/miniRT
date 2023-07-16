@@ -22,7 +22,7 @@ int get_single_integer(char *str, int *variable)
 
 int get_single_double(char *str, double *variable)
 {
-	if (check_doubleString(str) == FAILURE)
+	if (double_checker(str) == FAILURE)
 		return (FAILURE);
 	(*variable) = ft_atod((const char*)str);
 	return (SUCCESS);
@@ -57,13 +57,8 @@ int get_trgb(char *str, int *colour)
 	r = ft_atoi((const char *) split[0]);
 	g = ft_atoi((const char *) split[1]);
 	b = ft_atoi((const char *) split[2]);
-	printf("check test rgb\n");
-	printf("r: %d g: %d b: %d\n", r,g,b);
 	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
-	{
-		printf("check if statement\n");
 		return (FAILURE);
-	}
 	(*colour) = get_colour(t, r, g, b);
 	free_stringArray(split);
 	return (SUCCESS);

@@ -55,6 +55,7 @@ int 		intersection_line_sphere(void *object, t_line line, t_intersect *result);
 int intersection_line_plane(void *object, t_line line, t_intersect *inter);
 int			line_cylindner(void *object, t_line line, t_intersect *inter);
 int			intersection_line_triangle(void *object, t_line line, t_intersect *result);
+int			line_cone(void *object, t_line line, t_intersect *inter);
 int			bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
 int			top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
 t_vector normal_sphere(void *sphere, t_vector point, t_intersect inter);
@@ -99,6 +100,7 @@ t_vector	get_colour_sphere(t_list *obj);
 t_vector	get_colour_plane(t_list *obj);
 t_vector	get_colour_cylindner(t_list *obj);
 t_vector	get_colour_triangle(t_list *obj);
+t_vector	get_colour_cone(t_list *obj);
 t_vector	get_colour_lightsource(t_list *obj);
 
 

@@ -30,9 +30,13 @@ int check_centerString(char *str)
 {
 	char **split;
 	int i;
+	int j;
 
 	i = 0;
+	j = 0;
 	split = ft_split(str, ",");
+	if (split[3] != NULL)
+		return (free_stringArray(split),FAILURE);
 	while (split[i] != NULL)
 	{
 		if (double_checker(split[i]) == FAILURE)
@@ -41,14 +45,6 @@ int check_centerString(char *str)
 	}
 	free_stringArray(split);
 	return (SUCCESS);
-}
-
-int check_doubleString(char *str)
-{
-	if (double_checker(str) == FAILURE)
-		return (FAILURE);
-	else
-		return (SUCCESS);
 }
 
 int check_rgbString(char *str)
@@ -83,19 +79,28 @@ int double_checker(char *str)
 	i = 0;
 	point_check = 0;
 	len = ft_strlen(str);
+	if (str[0] == '-' || str[i] == '+')
+		i++;
 	if (str[0] == '.')
 		return (FAILURE);
 	if (str[len - 1] == '.')
 		return (FAILURE);
-	while (str[i] != '\0')
+	while (str[i] != '\0' && str[i] != '\n')
 	{
-		if (ft_isdigit(str[i]) != 1 && str[i] != '.')
-			return (1);
+		if (ft_isdigit(str[i]) == 0 && str[i] != '.')
+		{
+			printf("non digit character found\n");
+			return (FAILURE);
+		}
 		if (str[i] == '.')
 			point_check++;
 		if (point_check > 1)
+		{
+			printf("too many dots for double variable\n");
 			return (FAILURE);
+		}
 		i++;
+
 	}
 	return (SUCCESS);
 }

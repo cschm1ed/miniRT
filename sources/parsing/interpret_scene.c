@@ -28,6 +28,7 @@ int interpret_lightsource(char **str, t_data *data)
 		|| get_trgb(str[3], &new_light->colour) == FAILURE)
 	{
 		free(new_light);
+		ft_printf("invalid input\n");
 		return (FAILURE);
 	}
 	new_element = ft_lstnew(new_light);
@@ -50,19 +51,19 @@ int interpret_camera(char **str, t_data *data)
 	{
 		if (get_center(str[1], &new_camera->center) == FAILURE
 			|| get_center(str[2], &new_camera->vector) == FAILURE
-			|| get_single_integer(str[3], &new_camera->degrees) == FAILURE)
+			|| get_single_double(str[3], &new_camera->degrees) == FAILURE)
 		{
-			printf("failure invalid input\n");
+			ft_printf("invalid input\n");
 			free(new_camera);
 			return (FAILURE);
 		}
 
 	}
 	data->scene->camera = new_camera;
-	printf("center.x = %f\n", new_camera->center.x);
-	printf("center.y = %f\n", new_camera->center.y);
-	printf("center.z = %f\n", new_camera->center.z);
-	printf("degress = %d\n", new_camera->degrees);
+//	printf("center.x = %f\n", new_camera->center.x);
+//	printf("center.y = %f\n", new_camera->center.y);
+//	printf("center.z = %f\n", new_camera->center.z);
+//	printf("degress = %f\n", new_camera->degrees);
 	return (SUCCESS);
 }
 
@@ -81,7 +82,7 @@ int interpret_ambient_light(char **str, t_data *data)
 		if (get_single_double(str[1], &new_ambient_light->light_ratio) == FAILURE
 			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
 		{
-			printf("failure invalid input\n");
+			ft_printf("invalid input\n");
 			free(new_ambient_light);
 			return (FAILURE);
 		}
@@ -114,7 +115,7 @@ int interpret_plane(char **str, t_data *data)
         || get_center(str[2], &new_plane->v1) == FAILURE
         || get_trgb(str[3], &new_plane->colour) == FAILURE)
 	{
-		printf("failure invalid input\n");
+		ft_printf("invalid input\n");
 		free(new_plane);
 		return (FAILURE);
 	}
@@ -150,7 +151,7 @@ int interpret_sphere(char **str, t_data *data)
         || get_single_double(str[2], &new_sphere->diameter) == FAILURE
         || get_trgb(str[3], &new_sphere->colour) == FAILURE)
 	{
-		printf("failure invalid input\n");
+		ft_printf("invalid input\n");
 		free(new_sphere);
 		return (FAILURE);
 	}
@@ -188,7 +189,7 @@ int interpret_cylindner(char **str, t_data *data)
 			|| get_single_double(str[4], &new_cylindner->height) == FAILURE
 			|| get_trgb(str[5], &new_cylindner->colour) == FAILURE)
 	{
-		printf("failure invalid input\n");
+		ft_printf("invalid input\n");
 		free(new_cylindner);
 		return (FAILURE);
 	}
@@ -224,7 +225,10 @@ int interpret_triangle(char **str, t_data *data)
         || get_center(str[2], &new_triangle->B) == FAILURE
         || get_center(str[3], &new_triangle->C) == FAILURE
         || get_trgb(str[4], &new_triangle->colour) == FAILURE)
-			return (free(new_triangle), FAILURE);
+	{
+		ft_printf("invalid input\n");
+		return (free(new_triangle), FAILURE);
+	}
 	new_element->intersection = intersection_line_triangle;
 	new_element->get_colour = get_colour_triangle;
 	ft_lstadd_back(&data->scene->triangle_lst, new_element);
@@ -233,11 +237,47 @@ int interpret_triangle(char **str, t_data *data)
 	return (SUCCESS);
 }
 
+//int interpret_cone(char **str, t_data *data)
+//{
+//	t_list *new_element;
+//	t_cone *new_cone;
+//
+//	new_cone = malloc(sizeof(t_cone));
+//	new_element = ft_lstnew(new_cone);
+//	new_element->diffuse = DIFFUSE;
+//	new_element->specular = SPECULAR;
+//	new_element->reflective = REFLECTIVENES;
+//	if (count_elements(str) != 5)
+//	{
+//		if (count_elements(str) == 8)
+//		{
+//			if (set_DSR(new_element, str, 6) == FAILURE)
+//				return (FAILURE);
+//		}
+//		else
+//			return (ft_printf("Wrong number of elements in cone, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+//	}
+//	if (get_center(str[1], &new_cone->apex) == FAILURE
+//		|| get_center(str[2], &new_cone->axis_direction) == FAILURE
+//		|| get_single_double(str[3], &new_cone->opening_angle) == FAILURE
+//		|| get_trgb(str[4], &new_cone->colour) == FAILURE)
+//	{
+//		ft_printf("invalid input\n");
+//		return (free(new_cone), FAILURE);
+//	}
+//	new_element->intersection = line_cone;
+//	new_element->get_colour = get_colour_cone;
+//	ft_lstadd_back(&data->scene->cone_lst, new_element);
+//	printf("parsing cone ---> apex %f,%f,%f axis_direction: %f,%f,%f angle: %f colour: %d\n", new_cone->apex.x, new_cone->apex.y, new_cone->apex.z, new_cone->axis_direction.x,
+//		   new_cone->axis_direction.y, new_cone->axis_direction.z, new_cone->opening_angle, new_cone->colour);
+//	return (SUCCESS);
+//}
+
 static int set_DSR(t_list *obj, char **str, int i)
 {
-    if (check_doubleString(str[i]) == FAILURE
-        || check_doubleString(str[i + 1]) == FAILURE
-        || check_doubleString(str[i + 2]) == FAILURE)
+    if (get_single_double(str[i], &obj->diffuse) == FAILURE
+        || get_single_double(str[i + 1], &obj->specular) == FAILURE
+        || get_single_double(str[i + 2], &obj->reflective) == FAILURE)
         return (FAILURE);
     obj->diffuse = ft_atod(str[i]);
     obj->specular = ft_atod(str[i + 1]);

@@ -17,11 +17,10 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	data.scene = init_scene(data.scene);
-
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	if (parsing(&data) == FAILURE)
-        return (1);
+		return (1);
 	t_list *light_element = data.scene->light_lst;
 	while (light_element != NULL)
 	{
