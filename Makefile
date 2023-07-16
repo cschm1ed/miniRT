@@ -42,6 +42,7 @@ SRCS 			:= main.c \
 				   render_scene.c \
 				   no_event.c \
 				   shading.c \
+				   line_cylinder2.c \
 				   line_cylinder.c \
 				   line_cone.c \
 				   surface_normal_cylinder.c \
