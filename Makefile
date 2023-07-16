@@ -28,6 +28,7 @@ SRCS 			:= main.c \
 				   vector_scalar.c \
 				   angles_to_vector.c \
 				   vector_multiply.c \
+				   parallel_vector_check.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \

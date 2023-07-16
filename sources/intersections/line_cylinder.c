@@ -12,6 +12,27 @@
 
 #include "../../includes/minirt.h"
 
+t_vector normal_tube_cylinder(t_vector point, t_cylindner cylindner)
+{
+	t_plane	pl;
+	t_line 	ln;
+	t_vector q;
+	t_vector n;
+	double 		t;
+
+	pl.base = point;
+	pl.v1 = cylindner.axis_direction;
+	ln.base = cylindner.center;
+	ln.direction  = cylindner.axis_direction;
+
+	t = (_dot(_subtract(pl.base, ln.base), pl.v1)
+		 / _dot(ln.direction, pl.v1));
+
+	q = _add(cylindner.center, _multiply(ln.direction, t));
+	n = _subtract(point, q);
+	return (_divide(n, _len(n)));
+}
+
 int bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point)
 {
 	t_vector intersect;
@@ -82,6 +103,31 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 	cylindner.axis_direction = _divide(cylindner.axis_direction, _len(cylindner.axis_direction));
 	apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height / 2));
 
+	if (_parallel(line.direction, cylindner.axis_direction) == TRUE)
+	{
+		printf("hit\n");
+		t = (_dot(_subtract(cylindner.center, line.base), cylindner.axis_direction)
+			 / _dot(line.direction, cylindner.axis_direction));
+		if (t < 0)
+			return (FALSE);
+		inter->point = _add(line.base, _multiply(line.direction, t));
+		inter->normal = _multiply(cylindner.axis_direction, -1);
+		return (TRUE);
+	}
+	if (_opposite(line.direction, cylindner.axis_direction) == TRUE)
+	{
+
+		t = (_dot(_subtract(apex, line.base), cylindner.axis_direction)
+			 / _dot(line.direction, cylindner.axis_direction));
+		if (t < 0)
+			return (FALSE);
+		inter->point = _add(line.base, _multiply(line.direction, t));
+		inter->normal = cylindner.axis_direction;
+		return (TRUE);
+	}
+
+if (1 == 2)
+{
 	h = _multiply(_subtract(apex, cylindner.center), 2);
 	h_normal = _divide(h, _len(h));
 	w = _subtract(line.base, cylindner.center);
@@ -89,11 +135,10 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 
 	a = _dot(v, v) - pow(_dot(v, h_normal), 2);
 	b = 2 * (_dot(v, w) - _dot(v, h_normal) * _dot(w, h_normal));
-	c = _dot(w, w) - pow(_dot(w, h_normal),2) - pow(cylindner.diameter / 2, 2);
+	c = _dot(w, w) - pow(_dot(w, h_normal), 2) - pow(cylindner.diameter / 2, 2);
 
 	root_term = pow(b, 2) - (4 * a * c);
-	if (root_term > 0)
-	{
+	if (root_term > 0) {
 		t1 = (-b + sqrt(root_term)) / (2 * a);
 		t2 = (-b - sqrt(root_term)) / (2 * a);
 		if (t1 < 0 && t2 < 0)
@@ -103,11 +148,11 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 		else
 			t = t2;
 		point = _add(line.base, _multiply(v, t));
-		check =  _dot(_subtract(point, cylindner.center), h);
+		check = _dot(_subtract(point, cylindner.center), h);
 
-		if (0 <= check && check <= _len(h) * cylindner.height)
-		{
+		if (0 <= check && check <= _len(h) * cylindner.height) {
 			inter->point = point;
+			inter->normal = normal_tube_cylinder(inter->point, cylindner);
 //
 ////            double      len_q;
 //			t_vector    q;
@@ -120,44 +165,26 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 //			c_s = _divide(c_s, _len(c_s));
 //
 //			inter->normal = c_s;
-
-			t_plane	pl;
-			t_line 	ln;
-			t_vector q;
-
-			pl.base = inter->point;
-			pl.v1 = cylindner.axis_direction;
-			ln.base = cylindner.center;
-			ln.direction  = cylindner.axis_direction;
-
-			t = (_dot(_subtract(pl.base, ln.base), pl.v1)
-				 / _dot(ln.direction, pl.v1));
-
-			q = _add(cylindner.center, _multiply(ln.direction, t));
-			inter->normal = _subtract(inter->point, q);
-			inter->normal = _divide(inter->normal, _len(inter->normal));
-
 			return (TRUE);
 		}
-		if (_len(h) < check && _len(_cross(line.direction, cylindner.axis_direction)) == 0)
-		{
-			if (top_cap_intersection(cylindner, line.direction, point) == TRUE)
-			{
+//		if (_len(h) < check && _len(_cross(line.direction, cylindner.axis_direction)) == 0)
+		if (_len(h) < check) {
+			if (top_cap_intersection(cylindner, line.direction, point) == TRUE) {
 				inter->point = point;
 				inter->normal = cylindner.axis_direction;
 				return (TRUE);
 			}
 		}
-		if (0 > check)
-		{
-			if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE)
-			{
+//		if (0 > check && _len(_cross(line.direction, cylindner.axis_direction)) == 0)
+		if (0 > check) {
+			if (bottom_cap_intersection(cylindner, line.direction, point) == TRUE) {
 				inter->point = point;
 				inter->normal = _multiply(cylindner.axis_direction, -1);
 				return (TRUE);
 			}
 		}
 	}
+}
 	return (FALSE);
 }
 
