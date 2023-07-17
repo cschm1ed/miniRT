@@ -35,9 +35,9 @@ int get_center(char *str, t_vector *center)
 	if (check_centerString(str) == FAILURE)
 		return (FAILURE);
 	split = ft_split(str, ",");
-	center->x = ft_atod((const char *) split[0]);
-	center->y = ft_atod((const char *) split[1]);
-	center->z = ft_atod((const char *) split[2]);
+	center->x = ft_atod(split[0]);
+	center->y = ft_atod(split[1]);
+	center->z = ft_atod(split[2]);
 	free_stringArray(split);
 	return (SUCCESS);
 }
@@ -83,7 +83,7 @@ long double    ft_atod(const char *str)
 	double_part = 0;
 	while (*str != '.' && *str != ',' && *str != '\0')
 		str++;
-	if (*(str + 1))
+	if (*str && *(str + 1))
 	{
 		double_part = ft_atoi(str + 1);
 		while (double_part > 1)
