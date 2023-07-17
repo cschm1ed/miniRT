@@ -28,6 +28,7 @@ SRCS 			:= main.c \
 				   vector_scalar.c \
 				   angles_to_vector.c \
 				   vector_multiply.c \
+				   parallel_vector_check.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \
@@ -41,6 +42,7 @@ SRCS 			:= main.c \
 				   render_scene.c \
 				   no_event.c \
 				   shading.c \
+				   line_cylinder2.c \
 				   line_cylinder.c \
 				   line_cone.c \
 				   surface_normal_cylinder.c \
