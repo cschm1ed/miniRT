@@ -14,7 +14,8 @@ NAME 			:= miniRT
 SRCS 			:= main.c \
 				   init.c \
 				   parsing.c \
-				   interpret_scene.c \
+				   interpret_scene_1.c \
+				   interpret_scene_2.c \
 				   free_stuff.c \
 				   put_pixel.c \
 				   trgb.c \
@@ -48,6 +49,8 @@ SRCS 			:= main.c \
 				   surface_normal_cylinder.c \
 				   get_colour.c \
 				   check_map.c \
+				   check_map_object_1.c \
+				   check_map_object_2.c \
 
 VPATH			:= sources:\
 					sources/parsing:\

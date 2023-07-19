@@ -90,6 +90,16 @@ t_vector	colour_to_vector(int colour);
 int 		vector_to_colour(t_vector colour);
 int 		c_add(int c1, int c2);
 
+int			set_DSR(t_list *obj, char **str, int i);
+// check imterpret functions
+int			check_light_source(t_light_source *new_light, char **str);
+int			check_camera(t_camera *new_camera, char **str);
+int			check_ambient_light(t_ambient_light *new_ambient_light, char **str);
+int			check_plane(t_plane *new_plane, t_list *new_element, char **str);
+int			check_sphere(t_sphere *new_sphere, t_list *new_element, char **str);
+int			check_cylinder(t_cylindner *new_cylindner, t_list *new_element, char **str);
+int			check_triangle(t_triangle *new_triangle, t_list *new_element, char **str);
+
 
 
 int			free_stuff(t_data *data);
