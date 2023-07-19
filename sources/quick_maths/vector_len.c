@@ -20,3 +20,8 @@ double	_len(t_vector vec)
 	out = sqrt(out);
 	return (out);
 }
+
+t_vector _norm(t_vector v)
+{
+	return (_divide(v, _len(v)));
+}

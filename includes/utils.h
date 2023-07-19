@@ -26,7 +26,7 @@ t_vector get_reflection(t_data *data, t_intersect inter, int depth);
 
 //slice_utils
 int			double_checker(char *str);
-long double	ft_atod(const char *str);
+double		ft_atod(const char *str);
 int			count_elements(char **str);
 int			get_colour(int t, int r, int g, int b);
 int			get_center(char *str, t_vector *center );

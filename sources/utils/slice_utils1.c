@@ -24,7 +24,7 @@ int get_single_double(char *str, double *variable)
 {
 	if (double_checker(str) == FAILURE)
 		return (FAILURE);
-	(*variable) = ft_atod((const char*)str);
+	(*variable) = ft_atod(str);
 	return (SUCCESS);
 }
 
@@ -74,22 +74,37 @@ int count_elements(char **str)
 	return (i);
 }
 
-long double    ft_atod(const char *str)
+double	ft_atod(const char *str)
 {
-	long double    result;
-	long double    double_part;
+	double	result;
+	int		sign;
+	double	decimal_place;
 
-	result = ft_atoi(str);
-	double_part = 0;
-	while (*str != '.' && *str != ',' && *str != '\0')
-		str++;
-	if (*str && *(str + 1))
+	result = 0;
+	sign = 1;
+	decimal_place = 0.1;
+	if (*str == '-')
 	{
-		double_part = ft_atoi(str + 1);
-		while (double_part > 1)
-			double_part /= 10;
+		sign = -1;
+		str++;
 	}
-	return (result + double_part);
+	while (ft_isdigit(*str))
+	{
+		result = result * 10.0 + (*str - '0');
+		str++;
+	}
+	if (*str == '.')
+	{
+		str++;
+		while (ft_isdigit(*str))
+		{
+			result += (*str - '0') * decimal_place;
+			decimal_place *= 0.1;
+			str++;
+		}
+	}
+
+	return sign * result;
 }
 
 void free_stringArray(char **str)

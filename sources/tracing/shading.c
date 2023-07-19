@@ -115,7 +115,8 @@ int is_obscured(t_scene *scene, t_vector intersect)
 	direction = _subtract(((t_light_source*)scene->light_lst->content)->center, intersect);
 	distance = _len(direction);
 	intersect = _add(intersect, _multiply(_divide(direction, distance), 0.0001f));
-	inters.ray = (t_line){intersect, direction};
+	inters.ray.base = intersect;
+	inters.ray.direction = direction;
 	if (closest_intersection(scene, &inters))
 	{
 		if (_len(_subtract(inters.point, intersect)) + 0.0001f < distance)

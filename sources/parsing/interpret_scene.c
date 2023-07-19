@@ -197,8 +197,10 @@ int interpret_cylindner(char **str, t_data *data)
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
-	printf("parsing cylindner ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylindner->center.x, new_cylindner->center.y, new_cylindner->center.z, new_cylindner->axis_direction.x,
-		   new_cylindner->center.y, new_cylindner->center.z, new_cylindner->diameter, new_cylindner->height, new_cylindner->colour);
+	printf("center: ");
+	print_vector(new_cylindner->center);
+	printf("axis: ");
+	print_vector(new_cylindner->axis_direction);
 	return (SUCCESS);
 }
 
