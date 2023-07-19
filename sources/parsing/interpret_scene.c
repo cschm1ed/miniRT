@@ -28,7 +28,7 @@ int interpret_lightsource(char **str, t_data *data)
 		|| get_trgb(str[3], &new_light->colour) == FAILURE)
 	{
 		free(new_light);
-		ft_printf("invalid input\n");
+		ft_printf("invalid input lightsource\n");
 		return (FAILURE);
 	}
 	new_element = ft_lstnew(new_light);
@@ -44,7 +44,7 @@ int interpret_camera(char **str, t_data *data)
 	new_camera = malloc(sizeof(t_camera));
 	if (count_elements(str) != 4)
 	{
-		ft_printf("Wrong number of elements in light_source, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("Wrong number of elements in camera, there are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	else
@@ -53,7 +53,7 @@ int interpret_camera(char **str, t_data *data)
 			|| get_center(str[2], &new_camera->vector) == FAILURE
 			|| get_single_double(str[3], &new_camera->degrees) == FAILURE)
 		{
-			ft_printf("invalid input\n");
+			ft_printf("invalid input camera\n");
 			free(new_camera);
 			return (FAILURE);
 		}
@@ -70,7 +70,7 @@ int interpret_ambient_light(char **str, t_data *data)
 	new_ambient_light = malloc(sizeof(t_ambient_light));
 	if (count_elements(str) != 3)
 	{
-		ft_printf("Wrong number of elements in light_source, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("Wrong number of elements in ambient light, there are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	else
@@ -78,7 +78,7 @@ int interpret_ambient_light(char **str, t_data *data)
 		if (get_single_double(str[1], &new_ambient_light->light_ratio) == FAILURE
 			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
 		{
-			ft_printf("invalid input\n");
+			ft_printf("invalid input ambient light\n");
 			free(new_ambient_light);
 			return (FAILURE);
 		}
@@ -105,13 +105,13 @@ int interpret_plane(char **str, t_data *data)
                 return (FAILURE);
         }
         else
-            return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+            return (ft_printf("Wrong number of elements in plane, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
     }
     if (get_center(str[1], &new_plane->base) == FAILURE
         || get_center(str[2], &new_plane->v1) == FAILURE
         || get_trgb(str[3], &new_plane->colour) == FAILURE)
 	{
-		ft_printf("invalid input\n");
+		ft_printf("invalid input plane\n");
 		free(new_plane);
 		return (FAILURE);
 	}
@@ -141,13 +141,13 @@ int interpret_sphere(char **str, t_data *data)
                 return (FAILURE);
         }
         else
-            return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+            return (ft_printf("Wrong number of elements in sphere, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
     }
     if (get_center(str[1], &new_sphere->center) == FAILURE
         || get_single_double(str[2], &new_sphere->diameter) == FAILURE
         || get_trgb(str[3], &new_sphere->colour) == FAILURE)
 	{
-		ft_printf("invalid input\n");
+		ft_printf("invalid input sphere\n");
 		free(new_sphere);
 		return (FAILURE);
 	}
@@ -185,7 +185,7 @@ int interpret_cylindner(char **str, t_data *data)
 			|| get_single_double(str[4], &new_cylindner->height) == FAILURE
 			|| get_trgb(str[5], &new_cylindner->colour) == FAILURE)
 	{
-		ft_printf("invalid input\n");
+		ft_printf("invalid input cylinder\n");
 		free(new_cylindner);
 		return (FAILURE);
 	}
@@ -215,18 +215,18 @@ int interpret_triangle(char **str, t_data *data)
 	{
         if (count_elements(str) == 8)
         {
-            if (set_DSR(new_element, str, 6) == FAILURE)
+            if (set_DSR(new_element, str, 5) == FAILURE)
                 return (FAILURE);
         }
         else
-		    return (ft_printf("Wrong number of elements in cylindner, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+		    return (ft_printf("Wrong number of elements in triangle, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
 	}
     if (get_center(str[1], &new_triangle->A) == FAILURE
         || get_center(str[2], &new_triangle->B) == FAILURE
         || get_center(str[3], &new_triangle->C) == FAILURE
         || get_trgb(str[4], &new_triangle->colour) == FAILURE)
 	{
-		ft_printf("invalid input\n");
+		ft_printf("invalid input triangle\n");
 		return (free(new_triangle), FAILURE);
 	}
 	new_element->intersection = intersection_line_triangle;

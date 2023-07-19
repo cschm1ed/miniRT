@@ -136,7 +136,7 @@ double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
 
 	if (get_distance(cy, inter, &d1, &d2) == FALSE)
 		return (FALSE);
-	h = cy->height / 2;
+	h = fabs(cy->height / 2);
 	get_proj_len(cy, inter, d1, d2, &pl1, &pl2);
 	if (pl1 < -h || pl1 > h)
 		d1 = INFINITY;
@@ -288,7 +288,6 @@ t_vector get_cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
 		cap.v1 = _multiply(normal, -1);
 >>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
 	}
-
 	inters.ray = inter->ray;
 	if (intersection_line_plane(&cap, inters.ray, &inters) == FALSE)
 		return ((t_vector){.x = INFINITY, .y = INFINITY, .z = INFINITY});

@@ -21,7 +21,7 @@ int	slicer(char *str, t_data *data)
 	i = 0;
 	check = 0;
 
-	split = ft_split(str, " ");
+	split = ft_split(str, " \t");
 	if (split == NULL)
 		return (FAILURE);
 	while (i < 7)
