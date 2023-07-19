@@ -12,6 +12,7 @@
 
 #include "../../includes/minirt.h"
 
+
 t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight);
 t_vector get_diffuse(t_scene *scene, t_intersect inter);
 t_vector get_specular(t_light_source lightSource, t_intersect inter);
@@ -19,40 +20,35 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter);
 int calculate_color(t_data *data, t_intersect inter, int depth)
 {
 	t_vector 	colour;
-    double      intensity;
+	double      intensity;
 
 	colour = (t_vector){0,0,0};
-    if (inter.obj->reflective != 1)
-	    colour = _add(colour, ambient_illumination(inter.obj, data->scene->ambient_light));
-<<<<<<< HEAD
-//    colour = _add(colour, get_reflection(data, inter, depth));
-    if (is_obscured(data->scene, inter.point))
-=======
-    colour = _add(colour, get_reflection(data, inter, depth));
-    if (is_obscured(data->scene, inter))
->>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
-        return (vector_to_colour(_multiply(colour, 255)));
-    intensity = get_intensity(data->scene->light_lst, inter.point);
-//    colour = _add(colour, _multiply(get_diffuse(data->scene, inter), intensity));
-//    colour = _add(colour, _multiply(get_specular(*((t_light_source*)data->scene->light_lst->content), inter), intensity));
+	if (inter.obj->reflective != 1)
+		colour = _add(colour, ambient_illumination(inter.obj, data->scene->ambient_light));
+	colour = _add(colour, get_reflection(data, inter, depth));
+	if (is_obscured(data->scene, inter))
+		return (vector_to_colour(_multiply(colour, 255)));
+	intensity = get_intensity(data->scene->light_lst, inter.point);
+	colour = _add(colour, _multiply(get_diffuse(data->scene, inter), intensity));
+	colour = _add(colour, _multiply(get_specular(*((t_light_source*)data->scene->light_lst->content), inter), intensity));
 	colour = (t_vector){fmin(colour.x, 1), fmin(colour.y, 1), fmin(colour.z , 1)};
 	return (vector_to_colour(_multiply(colour, 255)));
-    (void)depth;
+	(void)depth;
 }
 
 inline t_vector get_reflection(t_data *data, t_intersect inter, int depth)
 {
-    t_vector    reflected;
-    t_line      reflection;
-    t_vector    dir_norm;
+	t_vector    reflected;
+	t_line      reflection;
+	t_vector    dir_norm;
 
-    reflection.base = inter.point;
-    reflection.direction = _reflect(inter.ray.direction, inter.normal);
-    dir_norm = _divide(reflection.direction, _len(reflection.direction));
-    reflection.base = _add(reflection.base, _multiply(dir_norm, 0.0001f));
-    reflected = colour_to_vector(trace_ray(data, reflection, depth + 1));
-    reflected = _divide(reflected, 255);
-    return (_multiply(reflected, inter.obj->reflective));
+	reflection.base = inter.point;
+	reflection.direction = _reflect(inter.ray.direction, inter.normal);
+	dir_norm = _divide(reflection.direction, _len(reflection.direction));
+	reflection.base = _add(reflection.base, _multiply(dir_norm, 0.0001f));
+	reflected = colour_to_vector(trace_ray(data, reflection, depth + 1));
+	reflected = _divide(reflected, 255);
+	return (_multiply(reflected, inter.obj->reflective));
 }
 
 t_vector get_specular(t_light_source lightSource, t_intersect inter)
@@ -66,7 +62,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 	direction = _subtract(lightSource.center, inter.point);
 	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
 	ref_dir = _reflect(_multiply(direction, 1),
-		inter.normal);
+					   inter.normal);
 	ref_dir = _divide(ref_dir, _len(ref_dir));
 	colour = _multiply(_divide(colour_to_vector(lightSource.colour), 255), lightSource.light_ratio);
 	specular = pow(fmax(_dot(inc_dir, ref_dir), 0), SPECULAR_N) * inter.obj->specular;
@@ -87,7 +83,7 @@ inline t_vector get_diffuse(t_scene *scene, t_intersect inter)
 	diffuse = fmax(_dot(normal, _divide(direction, _len(direction))), 0.0f);
 	diffuse *= inter.obj->diffuse;
 	out = _multiply_element_wise(inter.obj->get_colour(inter.obj),
-		scene->light_lst->get_colour(scene->light_lst));
+								 scene->light_lst->get_colour(scene->light_lst));
 	out = _multiply(out, diffuse);
 	return (out);
 }
@@ -126,7 +122,7 @@ inline int is_obscured(t_scene *scene, t_intersect intersect)
 	if (closest_intersection(scene, &inters))
 	{
 		if (_len(_subtract(inters.point, intersect.point)) + 0.0001f < distance)
-				return (TRUE);
+			return (TRUE);
 	}
 	return (FALSE);
 }
