@@ -59,6 +59,7 @@ int draw_image(t_data *data)
 	y = 0;
 	create_vision_plane(data, &vp);
 	camera.base = data->scene->camera->center;
+	print_vector(camera.base);
 	while (x < data->mlx_data.width)
 	{
 		while (y < data->mlx_data.height)

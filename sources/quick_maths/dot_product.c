@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-double	_dot(t_vector v1, t_vector v2)
+inline double	_dot(t_vector v1, t_vector v2)
 {
 	double	_dot_product;
 

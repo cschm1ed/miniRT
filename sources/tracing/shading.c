@@ -24,8 +24,13 @@ int calculate_color(t_data *data, t_intersect inter, int depth)
 	colour = (t_vector){0,0,0};
     if (inter.obj->reflective != 1)
 	    colour = _add(colour, ambient_illumination(inter.obj, data->scene->ambient_light));
+<<<<<<< HEAD
 //    colour = _add(colour, get_reflection(data, inter, depth));
     if (is_obscured(data->scene, inter.point))
+=======
+    colour = _add(colour, get_reflection(data, inter, depth));
+    if (is_obscured(data->scene, inter))
+>>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
         return (vector_to_colour(_multiply(colour, 255)));
     intensity = get_intensity(data->scene->light_lst, inter.point);
 //    colour = _add(colour, _multiply(get_diffuse(data->scene, inter), intensity));
@@ -35,7 +40,7 @@ int calculate_color(t_data *data, t_intersect inter, int depth)
     (void)depth;
 }
 
-t_vector get_reflection(t_data *data, t_intersect inter, int depth)
+inline t_vector get_reflection(t_data *data, t_intersect inter, int depth)
 {
     t_vector    reflected;
     t_line      reflection;
@@ -68,7 +73,7 @@ t_vector get_specular(t_light_source lightSource, t_intersect inter)
 	return (_multiply(colour, specular));
 }
 
-t_vector get_diffuse(t_scene *scene, t_intersect inter)
+inline t_vector get_diffuse(t_scene *scene, t_intersect inter)
 {
 	double		diffuse;
 	t_vector 	normal;
@@ -87,7 +92,7 @@ t_vector get_diffuse(t_scene *scene, t_intersect inter)
 	return (out);
 }
 
-double	get_intensity(t_list *light_sources, t_vector intersection)
+inline double	get_intensity(t_list *light_sources, t_vector intersection)
 {
 	double distance;
 
@@ -96,7 +101,7 @@ double	get_intensity(t_list *light_sources, t_vector intersection)
 	return (fmin(1 / pow(distance, 2) * 1.7f, 1));
 }
 
-t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight)
+inline t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight)
 {
 	t_vector ambient;
 
@@ -106,20 +111,22 @@ t_vector ambient_illumination(t_list *obj, t_ambient_light *ambientLight)
 	return (ambient);
 }
 
-int is_obscured(t_scene *scene, t_vector intersect)
+inline int is_obscured(t_scene *scene, t_intersect intersect)
 {
 	t_vector    direction;
 	t_intersect inters;
 	double 		distance;
 
-	direction = _subtract(((t_light_source*)scene->light_lst->content)->center, intersect);
+	direction = _subtract(((t_light_source*)scene->light_lst->content)->center, intersect.point);
 	distance = _len(direction);
-	intersect = _add(intersect, _multiply(_divide(direction, distance), 0.0001f));
-	inters.ray = (t_line){intersect, direction};
+	//intersect = _add(intersect, _multiply(_divide(_subtract(scene->camera->center, intersect), _len(_subtract(scene->camera->center, intersect))), 0.0001f));
+	intersect.point = _add(intersect.point, _multiply(_divide(direction, distance), 0.0001f));
+	inters.ray.base = intersect.point;
+	inters.ray.direction = direction;
 	if (closest_intersection(scene, &inters))
 	{
-		if (_len(_subtract(inters.point, intersect)) + 0.0001f < distance)
-			return (TRUE);
+		if (_len(_subtract(inters.point, intersect.point)) + 0.0001f < distance)
+				return (TRUE);
 	}
 	return (FALSE);
 }

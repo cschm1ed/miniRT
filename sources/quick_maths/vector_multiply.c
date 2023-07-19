@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector	_multiply(t_vector vector, double factor)
+inline t_vector	_multiply(t_vector vector, double factor)
 {
 	t_vector	out;
 
@@ -22,7 +22,7 @@ t_vector	_multiply(t_vector vector, double factor)
 	return (out);
 }
 
-t_vector	_divide(t_vector vector, double factor)
+inline t_vector	_divide(t_vector vector, double factor)
 {
 	t_vector	out;
 
@@ -34,7 +34,7 @@ t_vector	_divide(t_vector vector, double factor)
 	return (out);
 }
 
-t_vector	_multiply_element_wise(t_vector v1, t_vector v2)
+inline t_vector	_multiply_element_wise(t_vector v1, t_vector v2)
 {
 	t_vector	out;
 

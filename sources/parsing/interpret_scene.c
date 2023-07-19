@@ -60,10 +60,6 @@ int interpret_camera(char **str, t_data *data)
 
 	}
 	data->scene->camera = new_camera;
-//	printf("center.x = %f\n", new_camera->center.x);
-//	printf("center.y = %f\n", new_camera->center.y);
-//	printf("center.z = %f\n", new_camera->center.z);
-//	printf("degress = %f\n", new_camera->degrees);
 	return (SUCCESS);
 }
 
@@ -170,9 +166,9 @@ int interpret_cylindner(char **str, t_data *data)
 
 	new_cylindner = malloc(sizeof(t_cylindner));
     new_element = ft_lstnew(new_cylindner);
-    new_element->diffuse = DIFFUSE + REFLECTIVENES / 2;
-    new_element->specular = SPECULAR + REFLECTIVENES / 2;
-    new_element->reflective = 0;
+    new_element->diffuse = DIFFUSE + REFLECTIVENES;
+    new_element->specular = SPECULAR + REFLECTIVENES;
+    new_element->reflective = REFLECTIVENES;
 	if (count_elements(str) != 6)
 	{
         if (count_elements(str) == 9)
@@ -193,12 +189,15 @@ int interpret_cylindner(char **str, t_data *data)
 		free(new_cylindner);
 		return (FAILURE);
 	}
+	new_cylindner->axis_direction = _add(new_cylindner->axis_direction, (t_vector){EPSILON, EPSILON, EPSILON});
 	new_cylindner->axis_direction = _divide(new_cylindner->axis_direction, _len(new_cylindner->axis_direction));
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
-	printf("parsing cylindner ---> center: %f,%f,%f axis_direction: %f,%f,%f diameter: %f height: %f colour: %d\n", new_cylindner->center.x, new_cylindner->center.y, new_cylindner->center.z, new_cylindner->axis_direction.x,
-		   new_cylindner->center.y, new_cylindner->center.z, new_cylindner->diameter, new_cylindner->height, new_cylindner->colour);
+	printf("center: ");
+	print_vector(new_cylindner->center);
+	printf("axis: ");
+	print_vector(new_cylindner->axis_direction);
 	return (SUCCESS);
 }
 

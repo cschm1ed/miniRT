@@ -26,14 +26,18 @@
 # include "parsing.h"
 
 # define DISTANCE_FACTOR 0.1
-# define REFLECTIVENES 0.2
-# define DIFFUSE 0.4
-# define SPECULAR 0.4
+# define REFLECTIVENES 0.05
+# define DIFFUSE 0.6
+# define SPECULAR 0.3
 
-# define ANTI_ALIASING 1
-# define SPECULAR_N 80
+# define SPECULAR_N 70
 
+<<<<<<< HEAD
 # define MAX_DEPTH 1
+=======
+# define ANTI_ALIASING 1
+# define MAX_DEPTH 3
+>>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -42,7 +46,7 @@
 # define FAILURE -1
 # define TRUE 1
 # define FALSE 0
-# define EPSILON 1e-9
+# define EPSILON 1e-7
 # define DEG_TO_RAD M_PI / 180.0
 # define MOVE_RATE 0.5
 # define COLOR_BLUE 0xFF0000

@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-double	_len(t_vector vec)
+inline double	_len(t_vector vec)
 {
 	double	out;
 

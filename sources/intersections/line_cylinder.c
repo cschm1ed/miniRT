@@ -12,27 +12,6 @@
 
 #include "../../includes/minirt.h"
 
-t_vector normal_tube_cylinder(t_vector point, t_cylindner cylindner)
-{
-	t_plane	pl;
-	t_line 	ln;
-	t_vector q;
-	t_vector n;
-	double 		t;
-
-	pl.base = point;
-	pl.v1 = cylindner.axis_direction;
-	ln.base = cylindner.center;
-	ln.direction  = cylindner.axis_direction;
-
-	t = (_dot(_subtract(pl.base, ln.base), pl.v1)
-		 / _dot(ln.direction, pl.v1));
-
-	q = _add(cylindner.center, _multiply(ln.direction, t));
-	n = _subtract(point, q);
-	return (_divide(n, _len(n)));
-}
-
 int bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point)
 {
 	t_vector intersect;
