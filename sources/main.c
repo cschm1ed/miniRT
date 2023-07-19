@@ -21,6 +21,9 @@ int	main(int argc, char **argv)
 		return (1);
 	if (parsing(&data) == FAILURE)
 		return (1);
+	if (check_map(&data) == FAILURE)
+		return (1);
+
 	t_list *light_element = data.scene->light_lst;
 	while (light_element != NULL)
 	{
@@ -48,8 +51,8 @@ void	loop_mlx(t_data *data)
     if (ui->win == NULL)
         free_stuff(data);
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
-	mlx_hook(ui->win, 17, 0, &free_stuff, data);
-    mlx_hook(ui->win, 2, 0, &free_stuff, data);
+//	mlx_hook(ui->win, 17, 0, &free_stuff, data);
+//    mlx_hook(ui->win, 2, 0, &free_stuff, data);
     mlx_loop_hook(ui->mlx, &no_event, data);
 	mlx_key_hook(ui->win, &handle_keypress, data);
 	mlx_loop(ui->mlx);

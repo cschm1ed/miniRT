@@ -47,6 +47,7 @@ SRCS 			:= main.c \
 				   line_cone.c \
 				   surface_normal_cylinder.c \
 				   get_colour.c \
+				   check_map.c \
 
 VPATH			:= sources:\
 					sources/parsing:\

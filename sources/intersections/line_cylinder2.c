@@ -59,6 +59,7 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 
 	cylindner = *((t_cylindner*)object);
 	apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height));
+//	printf("apex: %f %f %f \n", apex.x, apex.y, apex.z);
 	check2 = 1;
 
 	if (_len(_subtract(apex, line.base)) < _len(_subtract(cylindner.center, line.base)))
@@ -85,7 +86,7 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 	}
 	if (check2 == 1)
 	{
-		h = _multiply(_subtract(apex, cylindner.center), 2);
+		h = _subtract(apex, cylindner.center);
 		h_normal = _divide(h, _len(h));
 		w = _subtract(line.base, cylindner.center);
 		v = _divide(line.direction, _len(line.direction));
@@ -108,7 +109,7 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 			point = _add(line.base, _multiply(v, t));
 			check = _dot(_subtract(point, cylindner.center), h);
 
-			if (0 <= check && check <= _len(h))
+			if (0 <= check && check <= cylindner.height)
 			{
 				inter->point = point;
 				inter->normal = normal_tube_cylinder(inter->point, cylindner);

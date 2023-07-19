@@ -42,6 +42,7 @@ int			check_rgbString(char *str);
 t_scene		*init_scene(t_scene *scene);
 int			init_parsing(t_data *data);
 int			init_data(int argc, char **argv, t_data *data);
+int			check_map(t_data *data);
 
 // mlx stuff
 int			handle_keypress(int keysym, t_data *data);
