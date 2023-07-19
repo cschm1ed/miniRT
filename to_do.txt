@@ -1,17 +1,8 @@
-Eike:
-
-Chris:
-
 
 allgemein:
 
-- question regarding different resolution of window ???
-- check normal vectors of cylinder (shading doesnt work right now) - Eike
 - check of intersection in object (camera in object ) - Eike
 - check auf krisseleffekt wie im zeltversuch - am schluss wenn wir zeit haben
-- free funktion für escape funktion - Eike
-- check if multiple cameras oder ambient lights are existing in the map (parsing error handling) - Eike
-- check auf colour range (0 - 255 -> error handling) - Eike
 - memory leaks - Chris
 
 zeitansatz:
@@ -21,5 +12,3 @@ bonus:
 - cone
 - multiple light sources
 - cehckerboard
-
-to do today: check normal vectors cylinder
