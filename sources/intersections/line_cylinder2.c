@@ -210,7 +210,7 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 
 	cy = ((t_cylindner*)object);
 	t = cylinder_side_intersect(cy, inter);
-	if (t == FALSE)
+	if (t == FALSE || t == INFINITY)
 		return (FALSE);
 	if (_len(_subtract(_add(cy->center, cy->axis_direction), inter->ray.base)) <
 			_len(_subtract(_add(cy->center, _multiply(cy->axis_direction, -1)), inter->ray.base)))

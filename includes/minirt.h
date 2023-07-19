@@ -30,13 +30,13 @@
 # define DIFFUSE 0.6
 # define SPECULAR 0.3
 
-# define SPECULAR_N 70
+# define SPECULAR_N 80
 
 # define ANTI_ALIASING 1
-# define MAX_DEPTH 3
+# define MAX_DEPTH 4
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 1200
+# define HEIGHT 1200
 
 # define SUCCESS 1
 # define FAILURE -1
