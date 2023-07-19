@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (check_map(&data) == FAILURE)
 		return (1);
-
 	t_list *light_element = data.scene->light_lst;
 	while (light_element != NULL)
 	{

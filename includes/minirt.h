@@ -32,12 +32,8 @@
 
 # define SPECULAR_N 70
 
-<<<<<<< HEAD
-# define MAX_DEPTH 1
-=======
 # define ANTI_ALIASING 1
 # define MAX_DEPTH 3
->>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
 
 # define WIDTH 1000
 # define HEIGHT 1000
