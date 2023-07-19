@@ -201,12 +201,19 @@ int get_distance(t_cylindner *cy, t_intersect *inter, double *d1, double *d2)
 	return (TRUE);
 }
 
+<<<<<<< HEAD
+	cylindner = *((t_cylindner*)object);
+	apex = _add(cylindner.center, _multiply(cylindner.axis_direction, cylindner.height));
+//	printf("apex: %f %f %f \n", apex.x, apex.y, apex.z);
+	check2 = 1;
+=======
 int line_cylindner(void *object, t_line line, t_intersect *inter)
 {
 	(void)line;
 	t_vector cap_inters;
 	t_cylindner *cy;
 	double		t;
+>>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
 
 	cy = ((t_cylindner*)object);
 	t = cylinder_side_intersect(cy, inter);
@@ -245,8 +252,41 @@ t_vector get_cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
 	}
 	else
 	{
+<<<<<<< HEAD
+		h = _subtract(apex, cylindner.center);
+		h_normal = _divide(h, _len(h));
+		w = _subtract(line.base, cylindner.center);
+		v = _divide(line.direction, _len(line.direction));
+
+		a = _dot(v, v) - pow(_dot(v, h_normal), 2);
+		b = 2 * (_dot(v, w) - _dot(v, h_normal) * _dot(w, h_normal));
+		c = _dot(w, w) - pow(_dot(w, h_normal), 2) - pow(cylindner.diameter / 2, 2);
+
+		root_term = pow(b, 2) - (4 * a * c);
+		if (root_term > 0)
+		{
+			t1 = (-b + sqrt(root_term)) / (2 * a);
+			t2 = (-b - sqrt(root_term)) / (2 * a);
+			if (t1 < 0 && t2 < 0)
+				return (FALSE);
+			if (t1 < t2 && t1 > 0)
+				t = t1;
+			else
+				t = t2;
+			point = _add(line.base, _multiply(v, t));
+			check = _dot(_subtract(point, cylindner.center), h);
+
+			if (0 <= check && check <= cylindner.height)
+			{
+				inter->point = point;
+				inter->normal = normal_tube_cylinder(inter->point, cylindner);
+				return (TRUE);
+			}
+		}
+=======
 		cap.base = _add(cy->center, _multiply(normal, cy->height * -0.5));
 		cap.v1 = _multiply(normal, -1);
+>>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
 	}
 	inters.ray = inter->ray;
 	if (intersection_line_plane(&cap, inters.ray, &inters) == FALSE)

@@ -12,3 +12,17 @@ bonus:
 - cone
 - multiple light sources
 - cehckerboard
+<<<<<<< HEAD
+
+to do today: check normal vectors cylinder
+
+
+check if camera is there
+check if ambient colour and kight source are no there
+vorgehen:
+
+- funktion die checkt ob camera leer ist und fehler meldung anschleißend ausgibt
+- funktion wird nach dem parsing geschaltet
+-
+=======
+>>>>>>> ba8a734a4379bc3550f7e446d20d5df303f0315c
