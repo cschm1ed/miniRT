@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-t_vector	sqrtf_vector(t_vector vector)
+inline t_vector	sqrtf_vector(t_vector vector)
 {
 	t_vector	out;
 

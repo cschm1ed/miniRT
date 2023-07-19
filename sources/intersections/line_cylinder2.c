@@ -12,26 +12,26 @@
 
 #include "../../includes/minirt.h"
 
-//t_vector normal_tube_cylinder(t_vector point, t_cylindner cylindner)
-//{
-//	t_plane	pl;
-//	t_line 	ln;
-//	t_vector q;
-//	t_vector n;
-//	double 		t;
-//
-//	pl.base = point;
-//	pl.v1 = cylindner.axis_direction;
-//	ln.base = cylindner.center;
-//	ln.direction  = cylindner.axis_direction;
-//
-//	t = (_dot(_subtract(pl.base, ln.base), pl.v1)
-//		 / _dot(ln.direction, pl.v1));
-//
-//	q = _add(cylindner.center, _multiply(ln.direction, t));
-//	n = _subtract(point, q);
-//	return (_divide(n, _len(n)));
-//}
+t_vector normal_tube_cylinder(t_vector point, t_cylindner cylindner)
+{
+	t_plane	pl;
+	t_line 	ln;
+	t_vector q;
+	t_vector n;
+	double 		t;
+
+	pl.base = point;
+	pl.v1 = cylindner.axis_direction;
+	ln.base = cylindner.center;
+	ln.direction  = cylindner.axis_direction;
+
+	t = (_dot(_subtract(pl.base, ln.base), pl.v1)
+		 / _dot(ln.direction, pl.v1));
+
+	q = _add(cylindner.center, _multiply(ln.direction, t));
+	n = _subtract(point, q);
+	return (_divide(n, _len(n)));
+}
 
 //int line_cylindner(void *object, t_line line, t_intersect *inter)
 //{
@@ -122,7 +122,7 @@
 double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter);
 void	get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double d2, double *pl1, double *pl2);
 int get_distance(t_cylindner *cy, t_intersect *inter, double *d1, double *d2);
-t_vector cap_inters(t_cylindner *cy, t_intersect *inter, int is_top);
+t_vector get_cap_inters(t_cylindner *cy, t_intersect *inter, int is_top);
 
 
 double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
@@ -155,7 +155,7 @@ double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
 	return (t);
 }
 
-void	get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double d2, double *pl1, double *pl2)
+inline void	get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double d2, double *pl1, double *pl2)
 {
 	t_vector p1;
 	t_vector p2;
@@ -204,8 +204,7 @@ int get_distance(t_cylindner *cy, t_intersect *inter, double *d1, double *d2)
 int line_cylindner(void *object, t_line line, t_intersect *inter)
 {
 	(void)line;
-	t_vector i_top;
-	t_vector i_bot;
+	t_vector cap_inters;
 	t_cylindner *cy;
 	double		t;
 
@@ -213,17 +212,14 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 	t = cylinder_side_intersect(cy, inter);
 	if (t == FALSE)
 		return (FALSE);
-	i_top = cap_inters(cy, inter, 1);
-	i_bot = cap_inters(cy, inter, 0);
-	if ((i_top.x != INFINITY || i_top.y != INFINITY || i_top.z != INFINITY) && _len(_subtract(i_top, inter->ray.base)) < t)
+	if (_len(_subtract(_add(cy->center, cy->axis_direction), inter->ray.base)) <
+			_len(_subtract(_add(cy->center, _multiply(cy->axis_direction, -1)), inter->ray.base)))
+		cap_inters = get_cap_inters(cy, inter, 1);
+	else
+		cap_inters = get_cap_inters(cy, inter, 0);
+	if ((cap_inters.x != INFINITY || cap_inters.y != INFINITY || cap_inters.z != INFINITY) && _len(_subtract(cap_inters, inter->ray.base)) < t)
 	{
-		inter->point = i_top;
-		inter->normal = _divide(cy->axis_direction, _len(cy->axis_direction));
-		return (TRUE);
-	}
-	if ((i_bot.x != INFINITY || i_bot.y != INFINITY || i_bot.z != INFINITY) && _len(_subtract(i_bot, inter->ray.base)) < t)
-	{
-		inter->point = i_bot;
+		inter->point = cap_inters;
 		inter->normal = _multiply(_divide(cy->axis_direction, _len(cy->axis_direction)), -1);
 		return (TRUE);
 	}
@@ -231,14 +227,13 @@ int line_cylindner(void *object, t_line line, t_intersect *inter)
 		return (FALSE);
 	inter->ray.direction = _divide(inter->ray.direction, _len(inter->ray.direction));
 	inter->point = _add(inter->ray.base, _multiply(inter->ray.direction, t));
-	inter->normal = (t_vector){.x = 1, .y = 1, .z = 1};
+	inter->normal = normal_tube_cylinder(inter->point, *cy);
 	return (TRUE);
 }
 
-t_vector cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
+t_vector get_cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
 {
 	t_plane cap;
-	t_vector p1_cap;
 	t_intersect inters;
 	t_vector normal;
 
@@ -250,7 +245,7 @@ t_vector cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
 	}
 	else
 	{
-		cap.base = _subtract(cy->center, _multiply(normal, cy->height * 0.5));
+		cap.base = _add(cy->center, _multiply(normal, cy->height * -0.5));
 		cap.v1 = _multiply(normal, -1);
 	}
 
@@ -258,9 +253,7 @@ t_vector cap_inters(t_cylindner *cy, t_intersect *inter, int is_top)
 	if (intersection_line_plane(&cap, inters.ray, &inters) == FALSE)
 		return ((t_vector){.x = INFINITY, .y = INFINITY, .z = INFINITY});
 	inters.normal = cap.v1;
-
-	p1_cap = _subtract(inters.point, cap.base);
-	if (_len(p1_cap) < cy->diameter / 2)
+	if (_len(_subtract(inters.point, cap.base)) < cy->diameter / 2)
 		return (inters.point);
 	return ((t_vector){.x = INFINITY, .y = INFINITY, .z = INFINITY});
 }

@@ -12,16 +12,11 @@
 
 #include "../../includes/minirt.h"
 
-double	_len(t_vector vec)
+inline double	_len(t_vector vec)
 {
 	double	out;
 
 	out = pow(vec.x, 2) + pow(vec.y, 2) + pow(vec.z, 2);
 	out = sqrt(out);
 	return (out);
-}
-
-t_vector _norm(t_vector v)
-{
-	return (_divide(v, _len(v)));
 }

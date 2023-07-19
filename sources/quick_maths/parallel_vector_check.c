@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-int _parallel(t_vector v1, t_vector v2)
+inline int _parallel(t_vector v1, t_vector v2)
 {
 	v1 = _divide(v1, _len(v1));
 	v2 = _divide(v2, _len(v2));
@@ -22,7 +22,7 @@ int _parallel(t_vector v1, t_vector v2)
 	return (FALSE);
 }
 
-int _opposite(t_vector v1, t_vector v2)
+inline int _opposite(t_vector v1, t_vector v2)
 {
 	v1 = _divide(v1, _len(v1));
 	v2 = _divide(v2, _len(v2));
