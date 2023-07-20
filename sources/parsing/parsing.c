@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:54:41 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:54:35 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:37:26 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	slicer(char *str, t_data *data)
 {
 	char	**split;
 	int		i;
-	int 	check;
+	int		check;
 
 	i = 0;
 	check = 0;
@@ -39,14 +39,13 @@ int	slicer(char *str, t_data *data)
 	return (free_stringArray(split), SUCCESS);
 }
 
-int check_AC(char *str)
+int	check_AC(char *str)
 {
-	static int count_C;
-	static int count_A;
+	int	count_C;
+	int	count_A;
 
 	count_C = 0;
 	count_A = 0;
-
 	if (!ft_strncmp(str, "C", 1))
 		count_C++;
 	if (count_C > 1)
@@ -72,7 +71,6 @@ int	parsing(t_data *data)
 		perror("malloc failure");
 	while (str != NULL)
 	{
-//		printf("check %s\n", AC_check[0]);
 		if (check_AC(str) == FAILURE)
 		{
 			printf("hit\n");
@@ -88,6 +86,6 @@ int	parsing(t_data *data)
 	ft_lstadd_back(&data->scene->all_objs, data->scene->sphere_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->cylindner_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
-    ft_lstadd_back(&data->scene->all_objs, data->scene->triangle_lst);
+	ft_lstadd_back(&data->scene->all_objs, data->scene->triangle_lst);
 	return (SUCCESS);
 }

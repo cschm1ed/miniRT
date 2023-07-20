@@ -111,6 +111,21 @@ typedef struct s_cone
 	double	opening_angle;
 } t_cone;
 
+typedef struct	s_touple {
+	float	x;
+	float	y;
+} t_touple;
+
+typedef struct s_c {
+	t_vector	normal;
+	double		a;
+	double		b;
+	double		c;
+	double		dot1;
+	double 		dot2;
+	t_vector	w;
+	t_vector	v;
+} t_c;
 
 typedef struct s_camera
 {

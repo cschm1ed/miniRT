@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_check_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 02:02:19 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/22 02:02:31 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:36:04 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-int check_integerString(char *str)
+int	check_integerString(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
@@ -26,15 +26,15 @@ int check_integerString(char *str)
 	return (SUCCESS);
 }
 
-int check_centerString(char *str)
+int	check_centerString(char *str)
 {
-	char **split;
-	int i;
+	char	**split;
+	int		i;
 
 	i = 0;
 	split = ft_split(str, ",");
 	if (split[3] != NULL)
-		return (free_stringArray(split),FAILURE);
+		return (free_stringArray(split), FAILURE);
 	while (split[i] != NULL)
 	{
 		if (double_checker(split[i]) == FAILURE)
@@ -45,11 +45,11 @@ int check_centerString(char *str)
 	return (SUCCESS);
 }
 
-int check_rgbString(char *str)
+int	check_rgbString(char *str)
 {
-	char **split;
-	int i;
-	int j;
+	char	**split;
+	int		i;
+	int		j;
 
 	i = 0;
 	split = ft_split(str, ",");
@@ -68,11 +68,11 @@ int check_rgbString(char *str)
 	return (SUCCESS);
 }
 
-int double_checker(char *str)
+int	double_checker(char *str)
 {
-	int len;
-	int i;
-	int point_check;
+	int	len;
+	int	i;
+	int	point_check;
 
 	i = 0;
 	point_check = 0;

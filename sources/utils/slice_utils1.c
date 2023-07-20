@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   slice_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:11:55 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 21:57:45 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:18:18 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-int get_single_integer(char *str, int *variable)
+int	get_single_integer(char *str, int *variable)
 {
 	if (check_integerString(str) == FAILURE)
 		return (FAILURE);
@@ -20,7 +20,7 @@ int get_single_integer(char *str, int *variable)
 	return (SUCCESS);
 }
 
-int get_single_double(char *str, double *variable)
+int	get_single_double(char *str, double *variable)
 {
 	if (double_checker(str) == FAILURE)
 		return (FAILURE);
@@ -28,9 +28,9 @@ int get_single_double(char *str, double *variable)
 	return (SUCCESS);
 }
 
-int get_center(char *str, t_vector *center)
+int	get_center(char *str, t_vector *center)
 {
-	char **split;
+	char	**split;
 
 	if (check_centerString(str) == FAILURE)
 		return (FAILURE);
@@ -42,13 +42,13 @@ int get_center(char *str, t_vector *center)
 	return (SUCCESS);
 }
 
-int get_trgb(char *str, int *colour)
+int	get_trgb(char *str, int *colour)
 {
-	char **split;
-	int r;
-	int g;
-	int b;
-	int t;
+	char	**split;
+	int		r;
+	int		g;
+	int		b;
+	int		t;
 
 	if (check_rgbString(str) == FAILURE)
 		return (FAILURE);
@@ -64,9 +64,9 @@ int get_trgb(char *str, int *colour)
 	return (SUCCESS);
 }
 
-int count_elements(char **str)
+int	count_elements(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -104,12 +104,12 @@ double	ft_atod(const char *str)
 		}
 	}
 
-	return sign * result;
+	return (sign * result);
 }
 
-void free_stringArray(char **str)
+void	free_stringArray(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
