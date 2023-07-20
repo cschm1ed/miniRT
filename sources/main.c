@@ -16,9 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_data			data;
 	t_list			*light_element;
-	t_light_source	*light_source;
 
-	light_source = (t_light_source *)light_element->content;
 	light_element = data.scene->light_lst;
 	data.scene = init_scene(data.scene);
 	if (init_data(argc, argv, &data) == FAILURE)

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <tclDecls.h>
 #include "../includes/minirt.h"
 
 static int	average_pixel(t_data *data, t_line cam, t_plane vp, t_touple pos);

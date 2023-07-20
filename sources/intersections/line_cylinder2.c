@@ -41,22 +41,22 @@ double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
 	double pl2;
 	double t;
 
-	if (get_distance(cy, inter, &d1, &d2) == FALSE)
+	if (get_distance(cy, inter, &dist.x, &dist.y) == FALSE)
 		return (FALSE);
-	get_proj_len(cy, inter, d1, d2, &pl1, &pl2);
+	get_proj_len(cy, inter, dist.x, dist.y, &pl1, &pl2);
 	if (pl1 < -cy->height / 2 || pl1 > cy->height / 2)
-		d1 = INFINITY;
+		dist.x = INFINITY;
 	if (pl2 < -cy->height / 2 || pl2 > cy->height / 2)
-		d2 = INFINITY;
-	t = d2;
-	if (d1 < d2)
-		t = d1;
+		dist.y = INFINITY;
+	t = dist.y;
+	if (dist.x < dist.y)
+		t = dist.x;
 	if (t < 0)
 	{
-		if (d1 > d2)
-			t = d1;
+		if (dist.x > dist.y)
+			t = dist.x;
 		else
-			t = d2;
+			t = dist.y;
 	}
 	return (t);
 }
