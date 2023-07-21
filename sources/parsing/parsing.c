@@ -35,7 +35,7 @@ int	slicer(char *str, t_data *data)
 		i++;
 	}
 	if (check == 0)
-		return (free_stringArray(split), printf("unknown identifier found\n"), FAILURE);
+		return (free_stringArray(split), printf("ERROR\nunknown identifier found\n"), FAILURE);
 	return (free_stringArray(split), SUCCESS);
 }
 
@@ -72,10 +72,7 @@ int	parsing(t_data *data)
 	while (str != NULL)
 	{
 		if (check_AC(str) == FAILURE)
-		{
-			printf("hit\n");
 			return (FAILURE);
-		}
 		if (*str != '\n')
 			if (slicer(str, data) == FAILURE)
 				return (FAILURE);

@@ -86,17 +86,11 @@ int	double_checker(char *str)
 	while (str[i] != '\0' && str[i] != '\n')
 	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != '.')
-		{
-			printf("non digit character found\n");
 			return (FAILURE);
-		}
 		if (str[i] == '.')
 			point_check++;
 		if (point_check > 1)
-		{
-			printf("too many dots for double variable\n");
 			return (FAILURE);
-		}
 		i++;
 
 	}

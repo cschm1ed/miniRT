@@ -21,18 +21,17 @@ int	check_map(t_data *data)
 	camera = data->scene->camera;
 	ambient_light = data->scene->ambient_light;
 	light_source = data->scene->light_lst;
-
 	if (camera == NULL)
 	{
-		printf("error no camera\n");
+		printf("ERROR\nno camera\n");
 		free_stuff(data);
 		return (FAILURE);
 	}
 	if (ambient_light == NULL && light_source == NULL)
 	{
-		printf("error no ambient light or lightsource \n");
+		printf("ERROR\nerror no ambient light or lightsource \n");
 		free_stuff(data);
 		return (FAILURE);
 	}
-	return (TRUE);
+	return (SUCCESS);
 }

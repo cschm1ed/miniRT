@@ -15,20 +15,16 @@
 int	main(int argc, char **argv)
 {
 	t_data			data;
-	t_list			*light_element;
 
-	light_element = data.scene->light_lst;
 	data.scene = init_scene(data.scene);
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	if (parsing(&data) == FAILURE)
-		return (1);
+		return (printf("parsing failed\n"), 1);
 	if (check_map(&data) == FAILURE)
-		return (1);
-	while (light_element != NULL)
-		light_element = light_element->next;
+		return (printf("check map failed\n"), 1);
 	loop_mlx(&data);
-	return (0);
+	return (printf("as expected\n"), 0);
 }
 
 void	loop_mlx(t_data *data)

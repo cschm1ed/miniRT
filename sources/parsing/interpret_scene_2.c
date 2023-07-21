@@ -31,10 +31,6 @@ int	interpret_cylindner(char **str, t_data *data)
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
-	printf("center: ");
-	print_vector(new_cy->center);
-	printf("axis: ");
-	print_vector(new_cy->axis_direction);
 	return (SUCCESS);
 }
 

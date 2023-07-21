@@ -111,6 +111,11 @@ typedef struct s_cone
 	double	opening_angle;
 } t_cone;
 
+typedef struct s_ptr_touple {
+	double *d1;
+	double *d2;
+} t_ptr_touple;
+
 typedef struct	s_touple {
 	float	x;
 	float	y;

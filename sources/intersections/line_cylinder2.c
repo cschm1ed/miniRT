@@ -13,7 +13,7 @@
 #include "../../includes/minirt.h"
 
 double		cylinder_side_intersect(t_cylindner *cy, t_intersect *inter);
-void		get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double d2, double *pl1, double *pl2);
+void		get_proj_len(t_cylindner *cy, t_intersect *inter, double *pl1, double *pl2, t_vector dist);
 int			get_distance(t_cylindner *cy, t_intersect *inter, double *d1, double *d2);
 t_vector	get_cap_inters(t_cylindner *cy, t_intersect *inter, int is_top);
 
@@ -43,7 +43,7 @@ double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
 
 	if (get_distance(cy, inter, &dist.x, &dist.y) == FALSE)
 		return (FALSE);
-	get_proj_len(cy, inter, dist.x, dist.y, &pl1, &pl2);
+	get_proj_len(cy, inter, &pl1, &pl2, dist);
 	if (pl1 < -cy->height / 2 || pl1 > cy->height / 2)
 		dist.x = INFINITY;
 	if (pl2 < -cy->height / 2 || pl2 > cy->height / 2)
@@ -61,7 +61,7 @@ double cylinder_side_intersect(t_cylindner *cy, t_intersect *inter)
 	return (t);
 }
 
-inline void	get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double d2, double *pl1, double *pl2)
+inline void get_proj_len(t_cylindner *cy, t_intersect *inter, double *pl1, double *pl2, t_vector dist)
 {
 	t_vector p1;
 	t_vector p2;
@@ -69,8 +69,8 @@ inline void	get_proj_len(t_cylindner *cy, t_intersect *inter, double d1, double 
 
 	normal = _divide(cy->axis_direction, _len(cy->axis_direction));
 	inter->ray.direction = _divide(inter->ray.direction, _len(inter->ray.direction));
-	p1 = _add(inter->ray.base, _multiply(inter->ray.direction, d1));
-	p2 = _add(inter->ray.base, _multiply(inter->ray.direction, d2));
+	p1 = _add(inter->ray.base, _multiply(inter->ray.direction, dist.x));
+	p2 = _add(inter->ray.base, _multiply(inter->ray.direction, dist.y));
 	*pl1 = _dot(_subtract(p1, cy->center), normal);
 	*pl2 = _dot(_subtract(p2, cy->center), normal);
 }
