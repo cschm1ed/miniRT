@@ -14,7 +14,7 @@
 
 static inline t_vector	get_normal(t_plane *pl, t_vector line);
 
-int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
+inline int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
 {
 	t_vector	n;
 	double		t;
@@ -35,7 +35,7 @@ int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
 	return (TRUE);
 }
 
-static t_vector	get_normal(t_plane *pl, t_vector line)
+inline static t_vector	get_normal(t_plane *pl, t_vector line)
 {
 	if (_dot(pl->v1, line) > 0)
 		return (_multiply(pl->v1, -1));

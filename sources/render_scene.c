@@ -72,7 +72,7 @@ int	draw_image(t_data *data)
 			color = 0;
 			y++;
 		}
-		if (x % 10 == 0 && x != 0)
+		if (x % 10 == 0 && x != 0 && x / (data->mlx_data.width / 100) < 100)
 			ft_printf("%d%%\n", x / (data->mlx_data.width / 100));
 		y = 0;
 		x ++;

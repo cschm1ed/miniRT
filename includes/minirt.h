@@ -35,8 +35,8 @@
 # define ANTI_ALIASING 1
 # define MAX_DEPTH 4
 
-# define WIDTH 1200
-# define HEIGHT 1200
+# define WIDTH 1000
+# define HEIGHT WIDTH
 
 # define SUCCESS 1
 # define FAILURE -1
@@ -44,18 +44,5 @@
 # define FALSE 0
 # define EPSILON 1e-7
 # define DEG_TO_RAD M_PI / 180.0
-# define MOVE_RATE 0.5
-# define COLOR_BLUE 0xFF0000
-
-# define KEYBOARD_A                     0x00
-# define KEYBOARD_S                     0x01
-# define KEYBOARD_D                     0x02
-# define KEYBOARD_W                     0x0D
-
-# define KEYBOARD_X                     0x07
-# define KEYBOARD_Y                     0x10
-
-# define KEYBOARD_1                     0x12
-# define KEYBOARD_2                     0x13
 
 #endif

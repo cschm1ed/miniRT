@@ -1,18 +1,16 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trace_ray.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/23 19:23:10 by cschmied          #+#    #+#             */
+/*   Updated: 2023/07/20 13:29:25 by cschmied         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-/**
- * trgb - converts individual color components into a single integer
- * @t: transparency component
- * @r: red component
- * @g: green component
- * @b: blue component
- *
- * Combines transparency, red, green, and blue components into a single integer.
- *
- * Return: the combined color value as an integer
- */
 
 int	get_colour(int t, int r, int g, int b)
 {

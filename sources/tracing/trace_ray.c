@@ -35,8 +35,7 @@ int	closest_intersection(t_scene *scene, t_intersect *intersect)
 {
 	t_intersect	int_tmp;
 	t_list		*objs;
-	double		len_min;
-	double		len_tmp;
+	t_touple	len;
 	int			hit;
 
 	hit = FALSE;
@@ -46,13 +45,13 @@ int	closest_intersection(t_scene *scene, t_intersect *intersect)
 	{
 		if (objs->intersection(objs->content, intersect->ray, &int_tmp))
 		{
-			len_tmp = _len(_subtract(int_tmp.point, intersect->ray.base));
-			if (!hit || len_tmp < len_min)
+			len.x = _len(_subtract(int_tmp.point, intersect->ray.base));
+			if (!hit || len.x < len.y)
 			{
 				intersect->obj = objs;
 				intersect->point = int_tmp.point;
 				intersect->normal = int_tmp.normal;
-				len_min = len_tmp;
+				len.y = len.x;
 				hit = TRUE;
 			}
 		}
@@ -70,4 +69,40 @@ t_vector	_reflect(t_vector inc, t_vector normal)
 	mul = _multiply(normal, dot);
 	mul = _multiply(mul, 2.0f);
 	return (_subtract(inc, mul));
+}
+
+inline int	is_obscured(t_scene *scene, t_intersect intersect)
+{
+	t_vector	direction;
+	t_intersect	inters;
+	double		distance;
+
+	direction = _subtract(((t_light_source *)scene->light_lst->content) \
+							->center, intersect.point);
+	distance = _len(direction);
+	intersect.point = _add(intersect.point, \
+							_multiply(_divide(direction, distance), 0.0001f));
+	inters.ray.base = intersect.point;
+	inters.ray.direction = direction;
+	if (closest_intersection(scene, &inters))
+	{
+		if (_len(_subtract(inters.point, intersect.point)) + 0.0001f < distance)
+			return (TRUE);
+	}
+	return (FALSE);
+}
+
+inline t_vector	get_reflection(t_data *data, t_intersect inter, int depth)
+{
+	t_vector	reflected;
+	t_line		reflection;
+	t_vector	dir_norm;
+
+	reflection.base = inter.point;
+	reflection.direction = _reflect(inter.ray.direction, inter.normal);
+	dir_norm = _divide(reflection.direction, _len(reflection.direction));
+	reflection.base = _add(reflection.base, _multiply(dir_norm, 0.0001f));
+	reflected = colour_to_vector(trace_ray(data, reflection, depth + 1));
+	reflected = _divide(reflected, 255);
+	return (_multiply(reflected, inter.obj->reflective));
 }
