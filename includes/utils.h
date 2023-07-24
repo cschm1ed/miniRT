@@ -19,7 +19,6 @@ int draw_image(t_data *data);
 int			closest_intersection(t_scene *scene, t_intersect *intersect);
 //shading
 
-double	get_intensity(t_list *light_sources, t_vector intersection);
 int 	is_obscured(t_scene *scene, t_intersect intersect);
 int calculate_color(t_data *data, t_intersect intersect, int depth);
 t_vector get_reflection(t_data *data, t_intersect inter, int depth);

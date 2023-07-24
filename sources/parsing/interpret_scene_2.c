@@ -3,43 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   interpret_scene_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: estruckm <estruckm@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 18:25:18 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/19 18:25:18 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:32:50 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-int interpret_cylindner(char **str, t_data *data)
+int	interpret_cylindner(char **str, t_data *data)
 {
-	t_list *new_element;
-	t_cylindner *new_cylindner;
+	t_list		*new_element;
+	t_cylindner	*new_cy;
 
-	new_cylindner = malloc(sizeof(t_cylindner));
-	new_element = ft_lstnew(new_cylindner);
+	new_cy = malloc(sizeof(t_cylindner));
+	new_element = ft_lstnew(new_cy);
 	new_element->diffuse = DIFFUSE + REFLECTIVENES;
 	new_element->specular = SPECULAR + REFLECTIVENES;
 	new_element->reflective = REFLECTIVENES;
-	if (check_cylinder(new_cylindner, new_element, str) == FAILURE)
+	if (check_cylinder(new_cy, new_element, str) == FAILURE)
 		return (FAILURE);
-	new_cylindner->axis_direction = _add(new_cylindner->axis_direction, (t_vector){EPSILON, EPSILON, EPSILON});
-	new_cylindner->axis_direction = _divide(new_cylindner->axis_direction, _len(new_cylindner->axis_direction));
+	new_cy->axis_direction = \
+		_add(new_cy->axis_direction, (t_vector){EPSILON, EPSILON, EPSILON});
+	new_cy->axis_direction = \
+		_divide(new_cy->axis_direction, _len(new_cy->axis_direction));
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
 	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
-	printf("center: ");
-	print_vector(new_cylindner->center);
-	printf("axis: ");
-	print_vector(new_cylindner->axis_direction);
 	return (SUCCESS);
 }
 
-int interpret_triangle(char **str, t_data *data)
+int	interpret_triangle(char **str, t_data *data)
 {
-	t_list *new_element;
-	t_triangle *new_triangle;
+	t_list		*new_element;
+	t_triangle	*new_triangle;
 
 	new_triangle = malloc(sizeof(t_triangle));
 	new_element = ft_lstnew(new_triangle);

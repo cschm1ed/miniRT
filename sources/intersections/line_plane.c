@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_plane.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 11:23:31 by cschmied          #+#    #+#             */
-/*   Updated: 2023/06/23 11:23:31 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:38:30 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static inline t_vector	get_normal(t_plane *pl, t_vector line);
 
-int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
+inline int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
 {
 	t_vector	n;
 	double		t;
@@ -32,11 +32,10 @@ int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
 	inter->point = _multiply(line.direction, t);
 	inter->point = _add(inter->point, line.base);
 	inter->normal = get_normal(plane, inter->ray.direction);
-//	inter->normal = plane->v1;
 	return (TRUE);
 }
 
-static t_vector	get_normal(t_plane *pl, t_vector line)
+inline static t_vector	get_normal(t_plane *pl, t_vector line)
 {
 	if (_dot(pl->v1, line) > 0)
 		return (_multiply(pl->v1, -1));
