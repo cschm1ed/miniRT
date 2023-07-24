@@ -42,7 +42,7 @@ int	init_parsing(t_data *data)
 	data->parsing[4] = (t_parsing){"sp", interpret_sphere};
 	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
     data->parsing[6] = (t_parsing){"tr", interpret_triangle};
-//	data->parsing[7] = (t_parsing){"tr", interpret_cone};
+	data->parsing[7] = (t_parsing){"co", interpret_cone};
 	return (SUCCESS);
 }
 
