@@ -108,6 +108,7 @@ typedef struct s_cone
 	int colour;
 	t_vector apex;
 	t_vector axis_direction;
+	double height;
 	double	opening_angle;
 } t_cone;
 

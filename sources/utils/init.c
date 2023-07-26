@@ -6,7 +6,11 @@
 /*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:31:45 by estruckm          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2023/07/24 15:35:13 by estruckm         ###   ########.fr       */
+=======
 /*   Updated: 2023/07/20 13:17:39 by cschmied         ###   ########.fr       */
+>>>>>>> 753b5c6ab4409e6c285934c917f3e61ab75ba2a8
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +45,8 @@ int	init_parsing(t_data *data)
 	data->parsing[3] = (t_parsing){"pl", interpret_plane};
 	data->parsing[4] = (t_parsing){"sp", interpret_sphere};
 	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
+    data->parsing[6] = (t_parsing){"tr", interpret_triangle};
+	data->parsing[7] = (t_parsing){"co", interpret_cone};
 	data->parsing[6] = (t_parsing){"tr", interpret_triangle};
 //	data->parsing[7] = (t_parsing){"tr", interpret_cone};
 	return (SUCCESS);
