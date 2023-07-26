@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:53:13 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 12:59:22 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:52:26 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 
 	if (condition > 0)
 	{
+		printf("hit\n");
 		t = quadratic_equation(a, b, c);
 		inter->point = _add(line.base, _multiply(line.direction, t));
 		if (0 <= _dot(_subtract(inter->point, cone.apex), h_n))
@@ -108,6 +109,3 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 	}
 	return (FALSE);
 }
-
-
-
