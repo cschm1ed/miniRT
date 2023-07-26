@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:54:41 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:37:26 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/07/26 12:34:41 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	slicer(char *str, t_data *data)
 	split = ft_split(str, " \t");
 	if (split == NULL)
 		return (FAILURE);
-	while (i < 7)
+	while (i < 8)
 	{
 		if (!ft_strcmp(data->parsing[i].name, split[0]))
 		{

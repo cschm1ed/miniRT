@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/18 17:31:45 by estruckm          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/07/24 15:35:13 by estruckm         ###   ########.fr       */
-=======
-/*   Updated: 2023/07/20 13:17:39 by cschmied         ###   ########.fr       */
->>>>>>> 753b5c6ab4409e6c285934c917f3e61ab75ba2a8
+/*   Created: 2023/07/26 12:25:49 by estruckm          #+#    #+#             */
+/*   Updated: 2023/07/26 12:38:49 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +43,6 @@ int	init_parsing(t_data *data)
 	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
     data->parsing[6] = (t_parsing){"tr", interpret_triangle};
 	data->parsing[7] = (t_parsing){"co", interpret_cone};
-	data->parsing[6] = (t_parsing){"tr", interpret_triangle};
 //	data->parsing[7] = (t_parsing){"tr", interpret_cone};
 	return (SUCCESS);
 }

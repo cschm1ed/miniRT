@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   interpret_scene_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 18:25:18 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:32:50 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/07/26 12:56:35 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,41 +52,45 @@ int	interpret_triangle(char **str, t_data *data)
 	return (SUCCESS);
 }
 
-//int interpret_cone(char **str, t_data *data)
-//{
-//	t_list *new_element;
-//	t_cone *new_cone;
-//
-//	new_cone = malloc(sizeof(t_cone));
-//	new_element = ft_lstnew(new_cone);
-//	new_element->diffuse = DIFFUSE;
-//	new_element->specular = SPECULAR;
-//	new_element->reflective = REFLECTIVENES;
-//	if (count_elements(str) != 5)
-//	{
-//		if (count_elements(str) == 8)
-//		{
-//			if (set_DSR(new_element, str, 6) == FAILURE)
-//				return (FAILURE);
-//		}
-//		else
-//			return (ft_printf("Wrong number of elements in cone, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
-//	}
-//	if (get_center(str[1], &new_cone->apex) == FAILURE
-//		|| get_center(str[2], &new_cone->axis_direction) == FAILURE
-//		|| get_single_double(str[3], &new_cone->opening_angle) == FAILURE
-//		|| get_trgb(str[4], &new_cone->colour) == FAILURE)
-//	{
-//		ft_printf("invalid input\n");
-//		return (free(new_cone), FAILURE);
-//	}
-//	new_element->intersection = line_cone;
-//	new_element->get_colour = get_colour_cone;
-//	ft_lstadd_back(&data->scene->cone_lst, new_element);
-//	printf("parsing cone ---> apex %f,%f,%f axis_direction: %f,%f,%f angle: %f colour: %d\n", new_cone->apex.x, new_cone->apex.y, new_cone->apex.z, new_cone->axis_direction.x,
-//		   new_cone->axis_direction.y, new_cone->axis_direction.z, new_cone->opening_angle, new_cone->colour);
-//	return (SUCCESS);
-//}
+int interpret_cone(char **str, t_data *data)
+{
+	t_list *new_element;
+	t_cone *new_cone;
+
+	new_cone = malloc(sizeof(t_cone));
+	new_element = ft_lstnew(new_cone);
+	new_element->diffuse = DIFFUSE;
+	new_element->specular = SPECULAR;
+	new_element->reflective = REFLECTIVENES;
+	if (count_elements(str) != 6)
+	{
+		if (count_elements(str) == 8)
+		{
+			if (set_DSR(new_element, str, 6) == FAILURE)
+				return (FAILURE);
+		}
+		else
+			return (ft_printf("Wrong number of elements in cone, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+	}
+	if (get_center(str[1], &new_cone->apex) == FAILURE
+		|| get_center(str[2], &new_cone->axis_direction) == FAILURE
+		|| get_single_double(str[3], &new_cone->opening_angle) == FAILURE
+		|| get_single_double(str[4], &new_cone->height) == FAILURE
+		|| get_trgb(str[5], &new_cone->colour) == FAILURE)
+	{
+		ft_printf("invalid input\n");
+		return (free(new_cone), FAILURE);
+	}
+	new_element->intersection = line_cone;
+	new_element->get_colour = get_colour_cone;
+	ft_lstadd_back(&data->scene->cone_lst, new_element);
+	printf("parsing cone ---> apex %f,%f,%f axis_direction: %f,%f,%f angle: %f height: %f colour: %d\n", new_cone->apex.x, new_cone->apex.y, new_cone->apex.z, new_cone->axis_direction.x,
+		   new_cone->axis_direction.y, new_cone->axis_direction.z, new_cone->opening_angle, new_cone->height, new_cone->colour);
+	new_cone->center = _add(new_cone->apex, _multiply(new_cone->axis_direction, new_cone->height));
+	new_cone->radius = _len(_subtract(new_cone->apex, new_cone->center)) / tan(new_cone->opening_angle / 2);
+	new_cone->cos_angle = cos(new_cone->opening_angle / 2);
+	return (SUCCESS);
+}
 
 int set_DSR(t_list *obj, char **str, int i)
 {
