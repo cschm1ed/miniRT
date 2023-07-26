@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:26:06 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 12:26:10 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:13:49 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,26 @@ static t_vector	get_diffuse(t_scene *scene, t_intersect inter);
 static t_vector	get_specular(t_light_source lightSource, t_intersect inter);
 static inline double	get_intensity(t_list *light_sources, t_vector inter);
 
-int	calculate_color(t_data *data, t_intersect inter, int depth)
+int    calculate_color(t_data *data, t_intersect inter, int depth)
 {
-	t_vector	colour;
-	double		intensity;
+    t_vector    colour;
+    double        intensity;
 
-	colour = (t_vector){0, 0, 0};
-	if (inter.obj->reflective != 1)
-// 		colour = _add(colour, ambient_illumination(inter.obj, data->scene->ambient_light));
-// //	colour = _add(colour, get_reflection(data, inter, depth));
-// 	if (is_obscured(data->scene, inter))
-// 		return (vector_to_colour(_multiply(colour, 255)));
-// 	intensity = get_intensity(data->scene->light_lst, inter.point);
-// //	colour = _add(colour, _multiply(get_diffuse(data->scene, inter), intensity));
-// //	colour = _add(colour, _multiply(get_specular(*((t_light_source*)data->scene->light_lst->content), inter), intensity));
-// 	colour = (t_vector){fmin(colour.x, 1), fmin(colour.y, 1), fmin(colour.z , 1)};
-	if (inter.obj->reflective != 1)
-		colour = _add(colour, ambient_illumination(inter.obj, \
-			data->scene->ambient_light));
-	colour = _add(colour, get_reflection(data, inter, depth));
-	if (is_obscured(data->scene, inter))
-		return (vector_to_colour(_multiply(colour, 255)));
-	intensity = get_intensity(data->scene->light_lst, inter.point);
-	colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
-				intensity));
-	colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
-					data->scene->light_lst->content), inter), intensity));
-	colour = (t_vector){.x = fmin(colour.x, 1), \
-				.y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
-	return (vector_to_colour(_multiply(colour, 255)));
+    colour = (t_vector){0, 0, 0};
+    if (inter.obj->reflective != 1)
+        colour = _add(colour, ambient_illumination(inter.obj, \
+            data->scene->ambient_light));
+    colour = _add(colour, get_reflection(data, inter, depth));
+    if (is_obscured(data->scene, inter))
+        return (vector_to_colour(_multiply(colour, 255)));
+    intensity = get_intensity(data->scene->light_lst, inter.point);
+    colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
+                intensity));
+    colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
+                    data->scene->light_lst->content), inter), intensity));
+    colour = (t_vector){.x = fmin(colour.x, 1), \
+                .y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
+    return (vector_to_colour(_multiply(colour, 255)));
 }
 
 static t_vector	get_specular(t_light_source lightSource, t_intersect inter)
