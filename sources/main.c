@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:23:17 by nristorc          #+#    #+#             */
-/*   Updated: 2023/06/18 19:57:58 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:02:11 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	main(int argc, char **argv)
 		return (printf("parsing failed\n"), 1);
 	if (check_map(&data) == FAILURE)
 		return (printf("check map failed\n"), 1);
+	printf("segfault test\n");
 	loop_mlx(&data);
+	printf("segfault test2\n");
 	return (printf("as expected\n"), 0);
 }
 

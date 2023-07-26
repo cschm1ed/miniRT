@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:48:32 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 21:02:51 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/25 19:27:12 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,12 @@ typedef struct s_cone
 {
 	int colour;
 	t_vector apex;
+	t_vector center;
 	t_vector axis_direction;
 	double height;
 	double	opening_angle;
+	double radius;
+	double cos_angle;
 } t_cone;
 
 typedef struct s_ptr_touple {
