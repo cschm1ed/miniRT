@@ -23,17 +23,20 @@ int    calculate_color(t_data *data, t_intersect inter, int depth)
     double        intensity;
 
     colour = (t_vector){0, 0, 0};
-    if (inter.obj->reflective != 1)
+    if (inter.obj->reflective != 1 || data->scene->light_lst == NULL)
         colour = _add(colour, ambient_illumination(inter.obj, \
             data->scene->ambient_light));
-    colour = _add(colour, get_reflection(data, inter, depth));
-    if (is_obscured(data->scene, inter))
-        return (vector_to_colour(_multiply(colour, 255)));
-    intensity = get_intensity(data->scene->light_lst, inter.point);
-    colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
+		if (data->scene->light_lst)
+		{
+    		colour = _add(colour, get_reflection(data, inter, depth));
+			if (is_obscured(data->scene, inter))
+				return (vector_to_colour(_multiply(colour, 255)));
+			intensity = get_intensity(data->scene->light_lst, inter.point);
+			colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
                 intensity));
-    colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
+			colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
                     data->scene->light_lst->content), inter), intensity));
+		}
     colour = (t_vector){.x = fmin(colour.x, 1), \
                 .y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
     return (vector_to_colour(_multiply(colour, 255)));
