@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:54:41 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 12:34:41 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:50:25 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int	parsing(t_data *data)
 	ft_lstadd_back(&data->scene->all_objs, data->scene->cylindner_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
 	ft_lstadd_back(&data->scene->all_objs, data->scene->triangle_lst);
+	ft_lstadd_back(&data->scene->all_objs, data->scene->cone_lst);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:53:13 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 14:52:26 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:22:41 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int quadratic_equation(double a, double b, double c)
 	double result_1;
 	double result_2;
 
-	result_1 = (-b + sqrt((pow(b, 2) - 4 * a * c)) / 2 * a);
-	result_2 = (-b - sqrt((pow(b, 2) - 4 * a * c)) / 2 * a);
+	result_1 = (-b + sqrt((pow(b, 2) - 4 * a * c))) / 2 * a;
+	result_2 = (-b - sqrt((pow(b, 2) - 4 * a * c))) / 2 * a;
 	if (result_1 > result_2)
 		return (result_2);
 	else
@@ -74,30 +74,29 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 	double condition;
 
 	cone = *((t_cone*)object);
-	printf("segfault test iteration intersection\n");
 
-	h_n = _divide(_subtract(cone.center, cone.apex), _len(_subtract(cone.center, cone.apex)));
-	m = pow(cone.radius, 2) / pow(_len(_subtract(cone.center, cone.apex)), 2);
+	h_n = _divide(_subtract(cone.apex, cone.center), _len(_subtract(cone.apex, cone.center)));
+	m = pow(cone.radius, 2) / pow(_len(_subtract(cone.apex, cone.center)), 2);
 	v = line.direction;
 	w = _subtract(line.base, cone.apex);
 
 	a = _dot(v, v) - (m * pow(_dot(v, h_n), 2)) - pow(_dot(v, h_n), 2);
 	b = 2 * (_dot(v, w) - (m * _dot(v, h_n) * _dot(w, h_n)) - (_dot(v, h_n) * _dot(w, h_n)));
-	c = _dot(w, w) - (m * _dot(w, h_n)) - pow(_dot(w, h_n), 2);
+	c = _dot(w, w) - (m * pow(_dot(w, h_n), 2)) - pow(_dot(w, h_n), 2);
 	condition = pow(b, 2) - (4 * a * c);
 
-
+	printf("condition %f > 0\n", condition);
 	if (condition > 0)
 	{
 		printf("hit\n");
 		t = quadratic_equation(a, b, c);
 		inter->point = _add(line.base, _multiply(line.direction, t));
-		if (0 <= _dot(_subtract(inter->point, cone.apex), h_n))
+		if (0 <= _dot(_subtract(inter->point, cone.apex), h_n) &&  _dot(_subtract(inter->point, cone.apex), h_n) <= _len(_subtract(cone.apex, cone.center)))
 		{
 			inter->normal = cone_surface_normal(cone, inter);
 			return (TRUE);
 		}
-		if ( _dot(_subtract(inter->point, cone.apex), h_n) > _len(_subtract(cone.center, cone.apex)))
+		if ( _dot(_subtract(inter->point, cone.apex), h_n) > _len(_subtract(cone.apex, cone.center)))
 		{
 			if (cap_intersection(cone, line.direction, inter->point) == TRUE)
 			{
