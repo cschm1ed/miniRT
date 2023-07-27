@@ -161,11 +161,6 @@ typedef struct s_scene
 	t_camera		*camera;
 	t_ambient_light	*ambient_light;
 	t_list			*light_lst;
-	t_list 			*sphere_lst;
-	t_list 			*plane_lst;
-	t_list 			*cylindner_lst;
-	t_list			*triangle_lst;
-	t_list			*cone_lst;
 	t_list			*all_objs;
 } t_scene;
 

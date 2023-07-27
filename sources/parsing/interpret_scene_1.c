@@ -64,7 +64,7 @@ int	interpret_plane(char **str, t_data *data)
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->get_colour = get_colour_plane;
-	ft_lstadd_back(&data->scene->plane_lst, new_element);
+	ft_lstadd_back(&data->scene->all_objs, new_element);
 	return (SUCCESS);
 }
 
@@ -83,6 +83,6 @@ int	interpret_sphere(char **str, t_data *data)
 	new_element->flag = 2;
 	new_element->intersection = intersection_line_sphere;
 	new_element->get_colour = get_colour_sphere;
-	ft_lstadd_back(&data->scene->sphere_lst, new_element);
+	ft_lstadd_back(&data->scene->all_objs, new_element);
 	return (SUCCESS);
 }

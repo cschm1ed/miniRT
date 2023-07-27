@@ -85,10 +85,8 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 	c = _dot(w, w) - (m * pow(_dot(w, h_n), 2)) - pow(_dot(w, h_n), 2);
 	condition = pow(b, 2) - (4 * a * c);
 
-	printf("condition %f > 0\n", condition);
 	if (condition > 0)
 	{
-		printf("hit\n");
 		t = quadratic_equation(a, b, c);
 		inter->point = _add(line.base, _multiply(line.direction, t));
 		if (0 <= _dot(_subtract(inter->point, cone.apex), h_n) &&  _dot(_subtract(inter->point, cone.apex), h_n) <= _len(_subtract(cone.apex, cone.center)))
