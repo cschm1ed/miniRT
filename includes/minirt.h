@@ -33,7 +33,7 @@
 # define SPECULAR_N 80
 
 # define ANTI_ALIASING 1
-# define MAX_DEPTH 1
+# define MAX_DEPTH 2
 
 # define WIDTH 1000
 # define HEIGHT WIDTH

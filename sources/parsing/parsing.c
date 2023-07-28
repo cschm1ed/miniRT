@@ -80,10 +80,5 @@ int	parsing(t_data *data)
 		str = (get_next_line(fd));
 	}
 	close(fd);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->sphere_lst);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->cylindner_lst);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->plane_lst);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->triangle_lst);
-	ft_lstadd_back(&data->scene->all_objs, data->scene->cone_lst);
 	return (SUCCESS);
 }

@@ -30,7 +30,7 @@ int	interpret_cylindner(char **str, t_data *data)
 		_divide(new_cy->axis_direction, _len(new_cy->axis_direction));
 	new_element->intersection = line_cylindner;
 	new_element->get_colour = get_colour_cylindner;
-	ft_lstadd_back(&data->scene->cylindner_lst, new_element);
+	ft_lstadd_back(&data->scene->all_objs, new_element);
 	return (SUCCESS);
 }
 
@@ -48,7 +48,7 @@ int	interpret_triangle(char **str, t_data *data)
 		return (FAILURE);
 	new_element->intersection = intersection_line_triangle;
 	new_element->get_colour = get_colour_triangle;
-	ft_lstadd_back(&data->scene->triangle_lst, new_element);
+	ft_lstadd_back(&data->scene->all_objs, new_element);
 	return (SUCCESS);
 }
 
@@ -83,7 +83,7 @@ int interpret_cone(char **str, t_data *data)
 	}
 	new_element->intersection = line_cone;
 	new_element->get_colour = get_colour_cone;
-	ft_lstadd_back(&data->scene->cone_lst, new_element);
+	ft_lstadd_back(&data->scene->all_objs, new_element);
 	printf("parsing cone ---> apex %f,%f,%f axis_direction: %f,%f,%f angle: %f height: %f colour: %d\n", new_cone->apex.x, new_cone->apex.y, new_cone->apex.z, new_cone->axis_direction.x,
 		   new_cone->axis_direction.y, new_cone->axis_direction.z, new_cone->opening_angle, new_cone->height, new_cone->colour);
 	new_cone->center = _add(new_cone->apex, _multiply(_multiply(new_cone->axis_direction, -1), new_cone->height));

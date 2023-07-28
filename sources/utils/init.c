@@ -21,11 +21,6 @@ t_scene	*init_scene(t_scene *scene)
 	scene->camera = NULL;
 	scene->light_lst = NULL;
 	scene->ambient_light = NULL;
-	scene->sphere_lst = NULL;
-	scene->plane_lst = NULL;
-	scene->cylindner_lst = NULL;
-	scene->triangle_lst = NULL;
-	scene->cone_lst = NULL;
 	scene->all_objs = NULL;
 	return (scene);
 }
