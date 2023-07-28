@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 18:25:18 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 12:56:35 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:56:24 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,12 @@ int interpret_cone(char **str, t_data *data)
 	ft_lstadd_back(&data->scene->cone_lst, new_element);
 	printf("parsing cone ---> apex %f,%f,%f axis_direction: %f,%f,%f angle: %f height: %f colour: %d\n", new_cone->apex.x, new_cone->apex.y, new_cone->apex.z, new_cone->axis_direction.x,
 		   new_cone->axis_direction.y, new_cone->axis_direction.z, new_cone->opening_angle, new_cone->height, new_cone->colour);
-	new_cone->center = _add(new_cone->apex, _multiply(new_cone->axis_direction, new_cone->height));
-	new_cone->radius = _len(_subtract(new_cone->apex, new_cone->center)) / tan(new_cone->opening_angle / 2);
-	new_cone->cos_angle = cos(new_cone->opening_angle / 2);
+	new_cone->center = _add(new_cone->apex, _multiply(_multiply(new_cone->axis_direction, -1), new_cone->height));
+	new_cone->radius = new_cone->height * tan(new_cone->opening_angle * DEG_TO_RAD / 2);
+	new_cone->cos_angle = cos(new_cone->opening_angle * DEG_TO_RAD / 2);
+	printf("center: %f,%f,%f radius: %f cos_angle: %f\n", new_cone->center.x, new_cone->center.y, new_cone->center.z, new_cone->radius, new_cone->cos_angle);
+	printf("height mit vector berechnet: %f height ohne: %f\n", _len(_subtract(new_cone->apex, new_cone->center)), new_cone->height);
+
 	return (SUCCESS);
 }
 

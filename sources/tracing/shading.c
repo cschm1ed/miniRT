@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:26:06 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/26 13:13:49 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:25:04 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int    calculate_color(t_data *data, t_intersect inter, int depth)
     t_vector    colour;
     double        intensity;
 
+	(void)intensity;
+	(void)depth;
     colour = (t_vector){0, 0, 0};
     if (inter.obj->reflective != 1 || data->scene->light_lst == NULL)
         colour = _add(colour, ambient_illumination(inter.obj, \
             data->scene->ambient_light));
-		if (data->scene->light_lst)
+		if (!data->scene->light_lst)
 		{
     		colour = _add(colour, get_reflection(data, inter, depth));
 			if (is_obscured(data->scene, inter))

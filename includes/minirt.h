@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:46:43 by estruckm          #+#    #+#             */
-/*   Updated: 2023/06/18 19:46:31 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:23:40 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@
 # define FALSE 0
 # define EPSILON 1e-7
 # define DEG_TO_RAD M_PI / 180.0
+# define KEYBOARD_Escape	0x35
 
 #endif

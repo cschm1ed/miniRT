@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:18:06 by cschmied          #+#    #+#             */
-/*   Updated: 2023/07/20 13:37:58 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:23:23 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	handle_keypress(int keysym, t_data *data)
 {
-	if (keysym == XK_Escape)
+	printf("moin i bins\n");
+	// (void)data;
+	// keysym = 1;
+	if (keysym == KEYBOARD_Escape)
 		free_stuff(data);
 	return (SUCCESS);
 }
