@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:26:06 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/27 13:25:04 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:48:16 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,6 @@ int    calculate_color(t_data *data, t_intersect inter, int depth)
     if (inter.obj->reflective != 1 || data->scene->light_lst == NULL)
         colour = _add(colour, ambient_illumination(inter.obj, \
             data->scene->ambient_light));
-<<<<<<< HEAD
-		if (!data->scene->light_lst)
-		{
-    		colour = _add(colour, get_reflection(data, inter, depth));
-			if (is_obscured(data->scene, inter))
-				return (vector_to_colour(_multiply(colour, 255)));
-			intensity = get_intensity(data->scene->light_lst, inter.point);
-			colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
-                intensity));
-			colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
-                    data->scene->light_lst->content), inter), intensity));
-		}
-=======
 	if (data->scene->light_lst)
 	{
     	colour = _add(colour, get_reflection(data, inter, depth));
@@ -52,7 +39,6 @@ int    calculate_color(t_data *data, t_intersect inter, int depth)
 		colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
                    data->scene->light_lst->content), inter), intensity));
 	}
->>>>>>> 6a71519941b0495765c32e2c750a7310cdc919aa
     colour = (t_vector){.x = fmin(colour.x, 1), \
                 .y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
     return (vector_to_colour(_multiply(colour, 255)));
