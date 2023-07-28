@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:53:13 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/28 19:18:05 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:29:42 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,43 +82,43 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 	h_n = _divide(_subtract(cone.center, cone.apex), _len(_subtract(cone.center, cone.apex)));
 	m = pow(cone.radius, 2) / pow(_len(_subtract(cone.center, cone.apex)), 2);
 	v = line.direction;
-	// w = _subtract(line.base, cone.apex);
-	w = _multiply(_subtract(line.base, cone.apex), -1);
-	co = _subtract(line.base, cone.apex);
+	w = _subtract(line.base, cone.apex);
+	// w = _multiply(_subtract(line.base, cone.apex), -1);
+	// co = _subtract(line.base, cone.apex);
 
-	// a = _dot(v, v) - (m * pow(_dot(v, h_n), 2)) - pow(_dot(v, h_n), 2);
-	// b = 2 * (_dot(v, w) - (m * _dot(v, h_n) * _dot(w, h_n)) - (_dot(v, h_n) * _dot(w, h_n)));
-	// c = _dot(w, w) - (m * pow(_dot(w, h_n), 2)) - pow(_dot(w, h_n), 2);
-	a = _dot(v, w) * _dot(v, w) - (cone.opening_angle * cone.opening_angle);
-	b = 2 * _dot(v, w) * _dot(co, w) - _dot(v, co) * (cone.opening_angle / 2* cone.opening_angle / 2);
-	c = _dot(co, w) * _dot(co, w) - _dot(co, co) * (cone.opening_angle / 2 * cone.opening_angle / 2);
+	a = _dot(v, v) - (m * pow(_dot(v, h_n), 2)) - pow(_dot(v, h_n), 2);
+	b = 2 * (_dot(v, w) - (m * _dot(v, h_n) * _dot(w, h_n)) - (_dot(v, h_n) * _dot(w, h_n)));
+	c = _dot(w, w) - (m * pow(_dot(w, h_n), 2)) - pow(_dot(w, h_n), 2);
+	// a = _dot(v, w) * _dot(v, w) - (cone.opening_angle * cone.opening_angle);
+	// b = 2 * _dot(v, w) * _dot(co, w) - _dot(v, co) * (cone.opening_angle / 2* cone.opening_angle / 2);
+	// c = _dot(co, w) * _dot(co, w) - _dot(co, co) * (cone.opening_angle / 2 * cone.opening_angle / 2);
 	condition = pow(b, 2) - (4 * a * c);
 
 	if (condition > 0)
 	{
 		t = quadratic_equation(a, b, c);
 		inter->point = _add(line.base, _multiply(line.direction, t));
-		axis_direction = _subtract(cone.apex, cone.center);
-		p_apex = _subtract(inter->point, cone.apex);
-		h = _dot(p_apex, cone.axis_direction);
-		if (h < 0 || h > cone.height)
-			return (FALSE);
-		// if (0 <= _dot(_subtract(inter->point, cone.apex), h_n) &&  _dot(_subtract(inter->point, cone.apex), h_n) <= _len(_subtract(cone.center, cone.apex)))
-		// {
-		// 	// printf("hit surface\n");
-		// 	inter->normal = cone_surface_normal(cone, inter);
-		// 	return (TRUE);
-		// }
-		// if ( _dot(_subtract(inter->point, cone.apex), h_n) > _len(_subtract(cone.center, cone.apex)))
-		// {
-		// 	if (cap_intersection(cone, line.direction, inter->point) == TRUE)
-		// 	{
-		// 		// printf("hit cap\n");
-		// 		inter->normal = _multiply(cone.axis_direction, -1);
-		// 		return (TRUE);
-		// 	}
+		// axis_direction = _subtract(cone.apex, cone.center);
+		// p_apex = _subtract(inter->point, cone.apex);
+		// h = _dot(p_apex, cone.axis_direction);
+		// if (h < 0 || h > cone.height)
 		// 	return (FALSE);
-		// }
+		if (0 <= _dot(_subtract(inter->point, cone.apex), h_n) &&  _dot(_subtract(inter->point, cone.apex), h_n) <= _len(_subtract(cone.center, cone.apex)))
+		{
+			// printf("hit surface\n");
+			inter->normal = cone_surface_normal(cone, inter);
+			return (TRUE);
+		}
+		if ( _dot(_subtract(inter->point, cone.apex), h_n) > _len(_subtract(cone.center, cone.apex)))
+		{
+			if (cap_intersection(cone, line.direction, inter->point) == TRUE)
+			{
+				// printf("hit cap\n");
+				inter->normal = _multiply(cone.axis_direction, -1);
+				return (TRUE);
+			}
+			return (FALSE);
+		}
 	}
 	return (FALSE);
 }
