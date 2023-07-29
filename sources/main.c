@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 10:23:17 by nristorc          #+#    #+#             */
-/*   Updated: 2023/07/27 18:42:02 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/29 13:07:52 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	main(int argc, char **argv)
 		return (printf("parsing failed\n"), 1);
 	if (check_map(&data) == FAILURE)
 		return (printf("check map failed\n"), 1);
-	printf("segfault test\n");
 	loop_mlx(&data);
-	printf("segfault test2\n");
-	return (printf("as expected\n"), 0);
+	free_stuff(&data);
+	return (0);
 }
 
 void	loop_mlx(t_data *data)
@@ -42,8 +41,7 @@ void	loop_mlx(t_data *data)
 	if (ui->win == NULL)
 		free_stuff(data);
 	mlx_put_image_to_window(ui->mlx, ui->win, ui->img, 0, 0);
-	// mlx_hook(ui->win, 17, 0, &free_stuff, data);
-	// mlx_hook(ui->win, 2, 0, &free_stuff, data);
+	mlx_hook(ui->win, 17, 0, &free_stuff, data);
 	mlx_loop_hook(ui->mlx, &no_event, data);
 	mlx_key_hook(ui->win, &handle_keypress, data);
 	mlx_loop(ui->mlx);

@@ -6,7 +6,7 @@
 #    By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 22:55:36 by estruckm          #+#    #+#              #
-#    Updated: 2023/06/18 20:00:30 by estruckm         ###   ########.fr        #
+#    Updated: 2023/07/29 13:09:13 by estruckm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,8 +62,8 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g -march=native -Ofast
-
+CCFLAG 			:= -Wall -Werror -Wextra -g
+#-march=native -Ofast
 # -fsanitize=address
 #-g -fprofile-instr-generate -fcoverage-mapping
 

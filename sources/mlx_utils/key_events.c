@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:18:06 by cschmied          #+#    #+#             */
-/*   Updated: 2023/07/28 19:23:23 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/29 13:07:46 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	handle_keypress(int keysym, t_data *data)
 {
-	printf("moin i bins\n");
-	// (void)data;
-	// keysym = 1;
 	if (keysym == KEYBOARD_Escape)
 		free_stuff(data);
 	return (SUCCESS);

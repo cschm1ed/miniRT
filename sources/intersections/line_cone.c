@@ -6,7 +6,7 @@
 /*   By: estruckm <estruckm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:53:13 by estruckm          #+#    #+#             */
-/*   Updated: 2023/07/28 19:29:42 by estruckm         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:52:10 by estruckm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ int line_cone(void *object, t_line line, t_intersect *inter)
 	t_vector v;
 	t_vector w;
 	t_cone cone;
-	t_vector p_apex;
-	t_vector axis_direction;
-	t_vector co;
+	// t_vector p_apex;
+	// t_vector axis_direction;
+	// t_vector co;
 
 	double m;
 	double t;
 	double a;
 	double b;
 	double c;
-	double h;
+	// double h;
 	double condition;
 
 	cone = *((t_cone*)object);
