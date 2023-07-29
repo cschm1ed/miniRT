@@ -35,7 +35,6 @@ void	loop_mlx(t_data *data)
 	ui = &data->mlx_data;
 	ui->height = HEIGHT;
 	ui->width = WIDTH;
-	data->redraw = 0;
 	draw_image(data);
 	ui->win = mlx_new_window(ui->mlx, WIDTH, HEIGHT, "miniRT");
 	if (ui->win == NULL)
@@ -47,7 +46,8 @@ void	loop_mlx(t_data *data)
 	mlx_loop(ui->mlx);
 }
 
-void	print_vector(t_vector vec)
+int	no_event(t_data *data)
 {
-	printf("x: %f, y: %f, z %f\n", vec.x, vec.y, vec.z);
+	(void)data;
+	return (SUCCESS);
 }

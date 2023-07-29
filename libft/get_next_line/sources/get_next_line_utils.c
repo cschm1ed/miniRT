@@ -17,11 +17,13 @@
  * @dst: the destination string
  * @src: the source string to append
  * 
- * Allocates memory and creates a new string which is the concatenation of 'dst' and 'src'.
+ * Allocates memory and creates a new
+ * string which is the concatenation of 'dst' and 'src'.
  * The memory of the input strings is freed.
  * The memory of the new string must be freed by the caller.
  * 
- * Return: a pointer to the newly concatenated string, or NULL if memory allocation failed
+ * Return: a pointer to the newly concatenated
+ * string, or NULL if memory allocation failed
  */
 
 char	*gnl_strjoin(char *dst, char *src)

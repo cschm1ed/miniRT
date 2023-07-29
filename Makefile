@@ -20,6 +20,7 @@ SRCS 			:= main.c \
 				   put_pixel.c \
 				   trgb.c \
 				   slice_utils1.c \
+				   slice_utils2.c \
 				   parsing_check_utils.c \
 				   dot_product.c \
 				   cross_product.c \
@@ -27,9 +28,7 @@ SRCS 			:= main.c \
 				   vector_add.c \
 				   vector_subtract.c \
 				   vector_scalar.c \
-				   angles_to_vector.c \
 				   vector_multiply.c \
-				   parallel_vector_check.c \
 				   line_sphere.c \
 				   line_plane.c \
 				   line_triangle.c \
@@ -41,11 +40,10 @@ SRCS 			:= main.c \
 				   pow_vector.c \
 				   sqrt_vector.c \
 				   render_scene.c \
-				   no_event.c \
+				   render_scene_utils.c \
 				   shading.c \
-				   line_cylinder2.c \
-				   line_cone.c \
-				   surface_normal_cylinder.c \
+				   line_cylinder.c \
+				   line_cylinder_utils.c \
 				   get_colour.c \
 				   check_map.c \
 				   check_map_object_1.c \
@@ -63,9 +61,6 @@ BUILDDIR		:= build
 
 CC 				:= gcc
 CCFLAG 			:= -Wall -Werror -Wextra -g
-#-march=native -Ofast
-# -fsanitize=address
-#-g -fprofile-instr-generate -fcoverage-mapping
 
 MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macos -L /usr/X11/lib -lX11 \
                    			-lmlx -lXext -lm -framework OpenGL -framework AppKit

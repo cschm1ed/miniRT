@@ -13,16 +13,18 @@
 #include "../includes/get_next_line.h"
 
 /**
- * read_line_to_buffer - reads a line from a file descriptor and appends it to a buffer
+ * read_line_to_buffer - reads a line from
+ * a file descriptor and appends it to a buffer
  * @fd: the file descriptor to read from
  * @buffer: pointer to the buffer to append to
  * @eof: pointer to the end of file flag
  * 
- * Reads a line from the given file descriptor and appends it to the buffer.
+ * Reads a line from the given file descriptor
+ * and appends it to the buffer.
  * 
- * Return: a pointer to the updated buffer, or NULL if there is an error
+ * Return: a pointer to the updated buffer,
+ * or NULL if there is an error
  */
-
 
 char	*read_line_to_buffer(int fd, char **buffer, int *eof)
 {
@@ -34,7 +36,7 @@ char	*read_line_to_buffer(int fd, char **buffer, int *eof)
 		return (NULL);
 	r_val = read(fd, tmp, BUFFER_SIZE);
 	if (r_val == 0)
-	{	
+	{
 		*eof = 1;
 		return (free(tmp), *buffer);
 	}
@@ -47,13 +49,17 @@ char	*read_line_to_buffer(int fd, char **buffer, int *eof)
 }
 
 /**
- * get_and_return_nl - finds and returns the newline character in the buffer
- * @buffer: pointer to the buffer containing the newline character
+ * get_and_return_nl - finds and returns
+ * the newline character in the buffer
+ * @buffer: pointer to the buffer
+ * containing the newline character
  * @eof: pointer to the end of file flag
  * 
- * Retrieves the newline character in the buffer and returns the line containing it.
+ * Retrieves the newline character in the buffer
+ * and returns the line containing it.
  * 
- * Return: a pointer to the line containing the newline character, or NULL if there is an error
+ * Return: a pointer to the line containing the
+ * newline character, or NULL if there is an error
  */
 
 char	*get_and_return_nl(char **buffer, int *eof)
@@ -82,10 +88,13 @@ char	*get_and_return_nl(char **buffer, int *eof)
  * get_next_line - reads a line from a file descriptor
  * @fd: the file descriptor to read from
  * 
- * Reads a line from the given file descriptor, up to a newline character or end of file.
- * Memory for the returned line is allocated and must be freed by the caller.
+ * Reads a line from the given file descriptor,
+ * up to a newline character or end of file.
+ * Memory for the returned line is allocated
+ * and must be freed by the caller.
  * 
- * Return: a pointer to the read line, or NULL if there is an error or the end of file is reached
+ * Return: a pointer to the read line, or NULL if
+ * there is an error or the end of file is reached
  */
 
 char	*get_next_line(int fd)

@@ -24,7 +24,7 @@ int	trace_ray(t_data *data, t_line line, int depth)
 	if (closest_intersection(data->scene, &inters))
 	{
 		bounce.base = inters.point;
-		bounce.direction = (t_vector){0, 0, 0};
+		bounce.dir = (t_vector){0, 0, 0};
 		color = calculate_color(data, inters, depth);
 		return (color);
 	}
@@ -83,7 +83,7 @@ inline int	is_obscured(t_scene *scene, t_intersect intersect)
 	intersect.point = _add(intersect.point, \
 							_multiply(_divide(direction, distance), 0.0001f));
 	inters.ray.base = intersect.point;
-	inters.ray.direction = direction;
+	inters.ray.dir = direction;
 	if (closest_intersection(scene, &inters))
 	{
 		if (_len(_subtract(inters.point, intersect.point)) + 0.0001f < distance)
@@ -99,8 +99,8 @@ inline t_vector	get_reflection(t_data *data, t_intersect inter, int depth)
 	t_vector	dir_norm;
 
 	reflection.base = inter.point;
-	reflection.direction = _reflect(inter.ray.direction, inter.normal);
-	dir_norm = _divide(reflection.direction, _len(reflection.direction));
+	reflection.dir = _reflect(inter.ray.dir, inter.normal);
+	dir_norm = _divide(reflection.dir, _len(reflection.dir));
 	reflection.base = _add(reflection.base, _multiply(dir_norm, 0.0001f));
 	reflected = colour_to_vector(trace_ray(data, reflection, depth + 1));
 	reflected = _divide(reflected, 255);

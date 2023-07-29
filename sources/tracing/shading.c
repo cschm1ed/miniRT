@@ -17,31 +17,29 @@ static t_vector	get_diffuse(t_scene *scene, t_intersect inter);
 static t_vector	get_specular(t_light_source lightSource, t_intersect inter);
 static inline double	get_intensity(t_list *light_sources, t_vector inter);
 
-int    calculate_color(t_data *data, t_intersect inter, int depth)
+int	calculate_color(t_data *data, t_intersect inter, int depth)
 {
-    t_vector    colour;
-    double        intensity;
+	t_vector	colour;
+	double		intensity;
 
-	(void)intensity;
-	(void)depth;
-    colour = (t_vector){0, 0, 0};
-    if (inter.obj->reflective != 1 || data->scene->light_lst == NULL)
-        colour = _add(colour, ambient_illumination(inter.obj, \
-            data->scene->ambient_light));
+	colour = (t_vector){0, 0, 0};
+	if (inter.obj->reflective != 1 || data->scene->light_lst == NULL)
+		colour = _add(colour, ambient_illumination(inter.obj, \
+			data->scene->ambient_light));
 	if (data->scene->light_lst)
 	{
-    	colour = _add(colour, get_reflection(data, inter, depth));
+		colour = _add(colour, get_reflection(data, inter, depth));
 		if (is_obscured(data->scene, inter))
 			return (vector_to_colour(_multiply(colour, 255)));
 		intensity = get_intensity(data->scene->light_lst, inter.point);
 		colour = _add(colour, _multiply(get_diffuse(data->scene, inter), \
-               intensity));
+					intensity));
 		colour = _add(colour, _multiply(get_specular(*((t_light_source *) \
-                   data->scene->light_lst->content), inter), intensity));
+					data->scene->light_lst->content), inter), intensity));
 	}
-    colour = (t_vector){.x = fmin(colour.x, 1), \
-                .y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
-    return (vector_to_colour(_multiply(colour, 255)));
+	colour = (t_vector){.x = fmin(colour.x, 1), \
+					.y = fmin(colour.y, 1), .z = fmin(colour.z, 1)};
+	return (vector_to_colour(_multiply(colour, 255)));
 }
 
 static t_vector	get_specular(t_light_source lightSource, t_intersect inter)
@@ -53,7 +51,7 @@ static t_vector	get_specular(t_light_source lightSource, t_intersect inter)
 	t_vector	colour;
 
 	direction = _subtract(lightSource.center, inter.point);
-	inc_dir = _divide(inter.ray.direction, _len(inter.ray.direction));
+	inc_dir = _divide(inter.ray.dir, _len(inter.ray.dir));
 	ref_dir = _reflect(_multiply(direction, 1), \
 						inter.normal);
 	ref_dir = _divide(ref_dir, _len(ref_dir));

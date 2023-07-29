@@ -62,7 +62,7 @@ int	interpret_plane(char **str, t_data *data)
 	new_element->reflective = REFLECTIVENES;
 	if (check_plane(new_plane, new_element, str) == FAILURE)
 		return (FAILURE);
-	new_plane->v2 = (t_vector){0,0,0};
+	new_plane->v2 = (t_vector){0, 0, 0};
 	new_element->flag = 1;
 	new_element->intersection = intersection_line_plane;
 	new_element->get_colour = get_colour_plane;

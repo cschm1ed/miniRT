@@ -14,14 +14,16 @@
 # define UTILS_H
 
 //trace stuff
-int 		trace_ray(t_data *data, t_line line, int depth);
-int draw_image(t_data *data);
+int			trace_ray(t_data *data, t_line line, int depth);
+int			draw_image(t_data *data);
 int			closest_intersection(t_scene *scene, t_intersect *intersect);
-//shading
+t_vector	get_direction(t_data *data, t_plane vp, double x, double y);
+int			average_pixel(t_data *data, t_line cam, t_plane vp, t_touple pos);
 
-int 	is_obscured(t_scene *scene, t_intersect intersect);
-int calculate_color(t_data *data, t_intersect intersect, int depth);
-t_vector get_reflection(t_data *data, t_intersect inter, int depth);
+//shading
+int			is_obscured(t_scene *scene, t_intersect intersect);
+int			calculate_color(t_data *data, t_intersect intersect, int depth);
+t_vector	get_reflection(t_data *data, t_intersect inter, int depth);
 
 //slice_utils
 int			double_checker(char *str);
@@ -30,13 +32,11 @@ int			count_elements(char **str);
 int			get_colour(int t, int r, int g, int b);
 int			get_center(char *str, t_vector *center );
 int			get_single_double(char *str, double *variable);
-int			get_single_integer(char *str, int *variable);
 
 int			check_integerString(char *str);
-int			check_centerString(char *str);
-int			check_doubleString(char *str);
+int			check_centerstring(char *str);
 int			get_trgb(char *str, int *colour);
-int			check_rgbString(char *str);
+int			check_rgbstring(char *str);
 // inits
 t_scene		*init_scene(t_scene *scene);
 int			init_parsing(t_data *data);
@@ -48,73 +48,43 @@ int			handle_keypress(int keysym, t_data *data);
 void		loop_mlx(t_data *data);
 void		put_pixel(int x, int y, int color, t_data *data);
 int			no_event(t_data *data);
-int         expose_image(t_data *data);
 
 // math stuff
-int 		intersection_line_sphere(void *object, t_line line, t_intersect *result);
-int intersection_line_plane(void *object, t_line line, t_intersect *inter);
-int			line_cylindner(void *object, t_line line, t_intersect *inter);
-int			intersection_line_triangle(void *object, t_line line, t_intersect *result);
-int			line_cone(void *object, t_line line, t_intersect *inter);
-//int			bottom_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
-//int			top_cap_intersection(t_cylindner cylindner, t_vector ray_direction, t_vector point);
-t_vector normal_sphere(void *sphere, t_vector point, t_intersect inter);
-t_vector normal_plane(void *plane, t_vector point, t_intersect inter);
-t_vector normal_cylindner(void *cylindner, t_line line, t_vector point);
-t_vector normal_triangle(void *triangle, t_line line, t_vector point);
-t_vector normal_tube_cylinder(t_vector point, t_cylindner cylindner);
-
-t_vector	_rotate(t_vector vec, double xy_degree, double xz_degree);
-double 		rad_to_deg(double rad);
-double 		angle_between_vectors(t_vector v1, t_vector v2);
+double		rad_to_deg(double rad);
 t_vector	_multiply(t_vector vector, double scalar);
 double		_len(t_vector vec);
 t_vector	_add(t_vector v1, t_vector v2);
 double		_dot(t_vector v1, t_vector v2);
-t_vector 	_cross(t_vector v1, t_vector v2);
+t_vector	_cross(t_vector v1, t_vector v2);
 t_vector	_subtract(t_vector v1, t_vector v2);
-t_vector	angles_to_vector(double ayx, double axz);
-t_vector		_multiply(t_vector vec, double factor);
-double		vector_scalar(t_vector vector1, t_vector vector2);
-t_vector		_divide(t_vector vector, double factor);
-t_vector	sqrtf_vector(t_vector vector);
-t_vector	_pow(t_vector vector);
-int			_parallel(t_vector v1, t_vector v2);
-int			_opposite(t_vector v1, t_vector v2);
+t_vector	_multiply(t_vector vec, double factor);
+t_vector	_divide(t_vector vector, double factor);
 t_vector	_multiply_element_wise(t_vector v1, t_vector v2);
 t_vector	_reflect(t_vector incoming, t_vector normal);
 
-int			c_multiply(int colour, t_vector intensity);
 t_vector	colour_to_vector(int colour);
-int 		vector_to_colour(t_vector colour);
-int 		c_add(int c1, int c2);
+int			vector_to_colour(t_vector colour);
 
-int			set_DSR(t_list *obj, char **str, int i);
-// check imterpret functions
+int			set_dsr(t_list *obj, char **str, int i);
 int			check_light_source(t_light_source *new_light, char **str);
 int			check_camera(t_camera *new_camera, char **str);
 int			check_ambient_light(t_ambient_light *new_ambient_light, char **str);
 int			check_plane(t_plane *new_plane, t_list *new_element, char **str);
 int			check_sphere(t_sphere *new_sphere, t_list *new_element, char **str);
-int			check_cylinder(t_cylindner *new_cylindner, t_list *new_element, char **str);
-int			check_triangle(t_triangle *new_triangle, t_list *new_element, char **str);
-
-
+int			check_cylinder(t_cylindner *new_cylindner, \
+					t_list *new_element, char **str);
+int			check_triangle(t_triangle *new_triangle, \
+					t_list *new_element, char **str);
 
 int			free_stuff(t_data *data);
-void		free_stringArray(char **str);
-
-void		print_vector(t_vector vector);
-
-t_vector	get_direction(t_data *data, t_plane vp, double x, double y);
-void		create_vision_plane(t_data *data, t_plane *vp);
+void		free_stringarray(char **str);
 
 t_vector	get_colour_sphere(t_list *obj);
 t_vector	get_colour_plane(t_list *obj);
 t_vector	get_colour_cylindner(t_list *obj);
 t_vector	get_colour_triangle(t_list *obj);
-t_vector	get_colour_cone(t_list *obj);
 t_vector	get_colour_lightsource(t_list *obj);
 
+int			average_colours(int c1, int c2, int c3, int c4);
 
 #endif

@@ -12,21 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-int	check_integerString(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
-	{
-		if (ft_isdigit(str[i]) == 0)
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
-}
-
-int	check_centerString(char *str)
+int	check_centerstring(char *str)
 {
 	char	**split;
 	int		i;
@@ -34,18 +20,18 @@ int	check_centerString(char *str)
 	i = 0;
 	split = ft_split(str, ",");
 	if (split[3] != NULL)
-		return (free_stringArray(split), FAILURE);
+		return (free_stringarray(split), FAILURE);
 	while (split[i] != NULL)
 	{
 		if (double_checker(split[i]) == FAILURE)
-			return (free_stringArray(split), FAILURE);
+			return (free_stringarray(split), FAILURE);
 		i++;
 	}
-	free_stringArray(split);
+	free_stringarray(split);
 	return (SUCCESS);
 }
 
-int	check_rgbString(char *str)
+int	check_rgbstring(char *str)
 {
 	char	**split;
 	int		i;
@@ -59,12 +45,12 @@ int	check_rgbString(char *str)
 		while (split[i][j] != '\0' && split[i][j] != '\n')
 		{
 			if (ft_isdigit(split[i][j]) == 0)
-				return (free_stringArray(split), FAILURE);
+				return (free_stringarray(split), FAILURE);
 			j++;
 		}
 		i++;
 	}
-	free_stringArray(split);
+	free_stringarray(split);
 	return (SUCCESS);
 }
 
@@ -92,7 +78,6 @@ int	double_checker(char *str)
 		if (point_check > 1)
 			return (FAILURE);
 		i++;
-
 	}
 	return (SUCCESS);
 }

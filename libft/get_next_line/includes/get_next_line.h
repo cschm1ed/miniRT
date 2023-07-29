@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -27,6 +27,5 @@ char	*read_line_to_buffer(int fd, char **buffer, int *eof);
 char	*free_buffer(char **buffer);
 
 char	*gnl_strjoin(char *dst, char *src);
-
 
 #endif

@@ -14,7 +14,8 @@
 
 static inline t_vector	get_normal(t_plane *pl, t_vector line);
 
-inline int	intersection_line_plane(void *object, t_line line, t_intersect *inter)
+inline int	intersection_line_plane(void *object, \
+					t_line line, t_intersect *inter)
 {
 	t_vector	n;
 	double		t;
@@ -22,16 +23,16 @@ inline int	intersection_line_plane(void *object, t_line line, t_intersect *inter
 
 	plane = (t_plane *)object;
 	n = plane->v1;
-	line.direction = _divide(line.direction, _len(line.direction));
-	if (fabs(_dot(n, line.direction)) < EPSILON)
+	line.dir = _divide(line.dir, _len(line.dir));
+	if (fabs(_dot(n, line.dir)) < EPSILON)
 		return (FALSE);
 	t = (_dot(_subtract(plane->base, line.base), n)
-			/ _dot(line.direction, n));
+			/ _dot(line.dir, n));
 	if (t < 0)
 		return (FALSE);
-	inter->point = _multiply(line.direction, t);
+	inter->point = _multiply(line.dir, t);
 	inter->point = _add(inter->point, line.base);
-	inter->normal = get_normal(plane, inter->ray.direction);
+	inter->normal = get_normal(plane, inter->ray.dir);
 	return (TRUE);
 }
 

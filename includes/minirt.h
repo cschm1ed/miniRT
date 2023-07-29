@@ -17,13 +17,13 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "X11/keysym.h"
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
 # include "../libft/includes/libft.h"
 # include "structs.h"
 # include "utils.h"
 # include "parsing.h"
+# include "intersections.h"
 
 # define DISTANCE_FACTOR 0.1
 # define REFLECTIVENES 0.05
@@ -43,7 +43,6 @@
 # define TRUE 1
 # define FALSE 0
 # define EPSILON 1e-7
-# define DEG_TO_RAD M_PI / 180.0
-# define KEYBOARD_Escape	0x35
+# define KEYBOARD_ESCAPE	0x35
 
 #endif

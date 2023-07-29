@@ -12,19 +12,54 @@
 
 #include "../../includes/minirt.h"
 
-int	free_stuff(t_data *data)
+int	count_elements(char **str)
 {
-	mlx_destroy_image(data->mlx_data.mlx, data->mlx_data.img);
-	mlx_destroy_window(data->mlx_data.mlx, data->mlx_data.win);
-	free(data->mlx_data.mlx);
-	if (data->scene->light_lst)
-		ft_lstclear(&data->scene->light_lst, free);
-	if (data->scene->ambient_light)
-		free(data->scene->ambient_light);
-	if (data->scene->camera)
-		free(data->scene->camera);
-	if (data->scene)
-		free(data->scene);
-	exit(0);
-	return (SUCCESS);
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+		i++;
+	return (i);
+}
+
+double	ft_atod(const char *str)
+{
+	double	result;
+	double	decimal_place;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	decimal_place = 0.1;
+	if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	while (ft_isdigit(*str))
+		result = result * 10.0 + (*(str++) - '0');
+	if (*str == '.')
+	{
+		str++;
+		while (ft_isdigit(*str))
+		{
+			result += (*str - '0') * decimal_place;
+			decimal_place *= 0.1;
+			str++;
+		}
+	}
+	return (sign * result);
+}
+
+void	free_stringarray(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

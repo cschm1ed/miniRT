@@ -21,15 +21,16 @@
 
 typedef struct s_list
 {
-    void			*content;
-    struct s_list	*next;
-    int 			(*intersection)(void *object, t_line line, t_intersect *result);
-    t_vector		(*get_colour)(t_list *self);
-    int				flag;
-    double          diffuse;
-    double          specular;
-    double          reflective;
-}					t_list;
+	void			*content;
+	struct s_list	*next;
+	int				(*intersection)(void *object, t_line line,
+			t_intersect *result);
+	t_vector		(*get_colour)(t_list *(self));
+	int				flag;
+	double			diffuse;
+	double			specular;
+	double			reflective;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -66,7 +67,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int     ft_strcmp(const char *str1, const char *str2);
+int		ft_strcmp(const char *str1, const char *str2);
 //bonus
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));

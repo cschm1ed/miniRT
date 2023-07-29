@@ -14,7 +14,7 @@
 
 int	handle_keypress(int keysym, t_data *data)
 {
-	if (keysym == KEYBOARD_Escape)
+	if (keysym == KEYBOARD_ESCAPE)
 		free_stuff(data);
 	return (SUCCESS);
 }

@@ -16,7 +16,8 @@ int	check_light_source(t_light_source *new_light, char **str)
 {
 	if (count_elements(str) != 4)
 	{
-		ft_printf("ERROR\nWrong number of elements in light_source, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("ERROR\nWrong number of elements in light_source," \
+		"here are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	if (get_center(str[1], &new_light->center) == FAILURE
@@ -34,7 +35,8 @@ int	check_camera(t_camera *new_camera, char **str)
 {
 	if (count_elements(str) != 4)
 	{
-		ft_printf("ERROR\nWrong number of elements in camera, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("ERROR\nWrong number of elements in camera, there are" \
+		" %d elements in side\n", 1, count_elements(str));
 		free(new_camera);
 		return (FAILURE);
 	}
@@ -52,37 +54,40 @@ int	check_camera(t_camera *new_camera, char **str)
 	return (TRUE);
 }
 
-int check_ambient_light(t_ambient_light *new_ambient_light, char **str)
+int	check_ambient_light(t_ambient_light *ambient_light, char **str)
 {
 	if (count_elements(str) != 3)
 	{
-		ft_printf("ERROR\nWrong number of elements in ambient light, there are %d elements in side\n", 1, count_elements(str));
+		ft_printf("ERROR\nWrong number of elements in ambient light, " \
+		"there are %d elements in side\n", 1, count_elements(str));
 		return (FAILURE);
 	}
 	else
 	{
-		if (get_single_double(str[1], &new_ambient_light->light_ratio) == FAILURE
-			|| get_trgb(str[2], &new_ambient_light->colour) == FAILURE)
+		if (get_single_double(str[1], &ambient_light->light_ratio) == FAILURE
+			|| get_trgb(str[2], &ambient_light->colour) == FAILURE)
 		{
-		ft_printf("ERROR\ninvalid input ambient light\n");
-		free(new_ambient_light);
-		return (FAILURE);
+			ft_printf("ERROR\ninvalid input ambient light\n");
+			free(ambient_light);
+			return (FAILURE);
 		}
 	}
 	return (TRUE);
 }
 
-int check_plane(t_plane *new_plane, t_list *new_element, char **str)
+int	check_plane(t_plane *new_plane, t_list *new_element, char **str)
 {
 	if (count_elements(str) != 4)
 	{
 		if (count_elements(str) == 7)
 		{
-			if (set_DSR(new_element, str, 4) == FAILURE)
+			if (set_dsr(new_element, str, 4) == FAILURE)
 				return (FAILURE);
 		}
 		else
-			return (ft_printf("ERROR\nWrong number of elements in plane, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+			return (ft_printf("ERROR\nWrong number of elements in plane," \
+			" there are %d elements in side\n", \
+			1, count_elements(str)), FAILURE);
 	}
 	if (get_center(str[1], &new_plane->base) == FAILURE
 		|| get_center(str[2], &new_plane->v1) == FAILURE
@@ -101,11 +106,13 @@ int	check_sphere(t_sphere *new_sphere, t_list *new_element, char **str)
 	{
 		if (count_elements(str) == 7)
 		{
-			if (set_DSR(new_element, str, 4) == FAILURE)
+			if (set_dsr(new_element, str, 4) == FAILURE)
 				return (FAILURE);
 		}
 		else
-			return (ft_printf("ERROR\nWrong number of elements in sphere, there are %d elements in side\n", 1, count_elements(str)), FAILURE);
+			return (ft_printf("ERROR\nWrong number of elements in sphere," \
+			" there are %d elements in side\n", 1, \
+			count_elements(str)), FAILURE);
 	}
 	if (get_center(str[1], &new_sphere->center) == FAILURE
 		|| get_single_double(str[2], &new_sphere->diameter) == FAILURE
