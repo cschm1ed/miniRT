@@ -27,9 +27,9 @@ t_scene	*init_scene(t_scene *scene)
 
 int	init_parsing(t_data *data)
 {
-	data->parsing = ft_calloc(sizeof(t_parsing), 8);
-	if (data->parsing == NULL)
-		return (perror("malloc"), FAILURE);
+//	data->parsing = ft_calloc(sizeof(t_parsing), 8);
+//	if (data->parsing == NULL)
+//		return (perror("malloc"), FAILURE);
 	data->parsing[0] = (t_parsing){"L", interpret_lightsource};
 	data->parsing[1] = (t_parsing){"C", interpret_camera};
 	data->parsing[2] = (t_parsing){"A", interpret_ambient_light};
@@ -38,7 +38,6 @@ int	init_parsing(t_data *data)
 	data->parsing[5] = (t_parsing){"cy", interpret_cylindner};
     data->parsing[6] = (t_parsing){"tr", interpret_triangle};
 	data->parsing[7] = (t_parsing){"co", interpret_cone};
-//	data->parsing[7] = (t_parsing){"tr", interpret_cone};
 	return (SUCCESS);
 }
 

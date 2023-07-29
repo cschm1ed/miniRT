@@ -58,7 +58,7 @@ int	get_trgb(char *str, int *colour)
 	g = ft_atoi((const char *) split[1]);
 	b = ft_atoi((const char *) split[2]);
 	if ((r < 0 || r > 255) || (g < 0 || g > 255) || (b < 0 || b > 255))
-		return (FAILURE);
+		return (free_stringArray(split), FAILURE);
 	(*colour) = get_colour(t, r, g, b);
 	free_stringArray(split);
 	return (SUCCESS);

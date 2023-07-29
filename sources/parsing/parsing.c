@@ -34,9 +34,10 @@ int	slicer(char *str, t_data *data)
 		}
 		i++;
 	}
+	free_stringArray(split);
 	if (check == 0)
-		return (free_stringArray(split), printf("ERROR\nunknown identifier found\n"), FAILURE);
-	return (free_stringArray(split), SUCCESS);
+		return (ft_printf("ERROR\nunknown identifier found\n"), FAILURE);
+	return (SUCCESS);
 }
 
 int	check_AC(char *str)
@@ -72,13 +73,15 @@ int	parsing(t_data *data)
 	while (str != NULL)
 	{
 		if (check_AC(str) == FAILURE)
-			return (FAILURE);
+			return (free(str), FAILURE);
 		if (*str != '\n')
 			if (slicer(str, data) == FAILURE)
-				return (FAILURE);
+				return (free(str), FAILURE);
 		free(str);
 		str = (get_next_line(fd));
 	}
+	if (str)
+		free(str);
 	close(fd);
 	return (SUCCESS);
 }

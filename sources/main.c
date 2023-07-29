@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 	if (init_data(argc, argv, &data) == FAILURE)
 		return (1);
 	if (parsing(&data) == FAILURE)
-		return (printf("parsing failed\n"), 1);
+		return (free_stuff(&data), ft_printf("parsing failed\n"), 1);
 	if (check_map(&data) == FAILURE)
-		return (printf("check map failed\n"), 1);
+		return (free_stuff(&data), ft_printf("check map failed\n"), 1);
 	loop_mlx(&data);
 	free_stuff(&data);
 	return (0);

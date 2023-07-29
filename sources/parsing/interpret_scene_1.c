@@ -32,7 +32,9 @@ int	interpret_camera(char **str, t_data *data)
 
 	new_camera = malloc(sizeof(t_camera));
 	if (check_camera(new_camera, str) == FAILURE)
+	{
 		return (FAILURE);
+	}
 	data->scene->camera = new_camera;
 	return (SUCCESS);
 }

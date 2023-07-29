@@ -35,13 +35,18 @@ typedef struct s_mlx_data
 	int				height;
 }	t_mlx_data;
 
+typedef struct s_parsing
+{
+	char		*name;
+	int			(*f)(char **str, t_data *data);
+} t_parsing;
+
 typedef struct s_data
 {
 	char			*scene_filename;
-	t_parsing		*parsing;
+	t_parsing		parsing[8];
 	t_mlx_data		mlx_data;
 	struct s_scene	*scene;
-    t_list          *tmp;
 	int 			redraw;
 }	t_data;
 
@@ -58,12 +63,6 @@ typedef struct s_pos
 	double		y;
 	double		z;
 } t_pos;
-
-typedef struct s_parsing
-{
-	char		*name;
-	int			(*f)(char **str, t_data *data);
-} t_parsing;
 
 typedef struct s_sphere
 {

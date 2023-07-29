@@ -35,6 +35,7 @@ int	check_camera(t_camera *new_camera, char **str)
 	if (count_elements(str) != 4)
 	{
 		ft_printf("ERROR\nWrong number of elements in camera, there are %d elements in side\n", 1, count_elements(str));
+		free(new_camera);
 		return (FAILURE);
 	}
 	else
