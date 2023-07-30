@@ -57,29 +57,46 @@ int	check_ac(char *str)
 	return (SUCCESS);
 }
 
-int	parsing(t_data *data)
+static int	map_parsing(char *str, int fd, t_data *data)
 {
-	int		fd;
-	char	*str;
+	int	i;
 
-	fd = open(data->scene_filename, O_RDONLY);
-	if (fd == -1)
-		return (perror("open"), FAILURE);
-	str = get_next_line(fd);
-	if (str == NULL)
-		perror("malloc failure");
+	i = 1;
 	while (str != NULL)
 	{
 		if (check_ac(str) == FAILURE)
 			return (free(str), FAILURE);
 		if (*str != '\n')
+		{
 			if (slicer(str, data) == FAILURE)
-				return (free(str), FAILURE);
+				return (ft_printf("line %d: %s", i, str), free(str), FAILURE);
+			else
+				ft_printf("%s", str);
+		}
 		free(str);
 		str = (get_next_line(fd));
+		i++;
 	}
 	if (str)
 		free(str);
+	return (SUCCESS);
+}
+
+int	parsing(t_data *data)
+{
+	int		fd;
+	char	*str;
+	int i;
+
+	fd = open(data->scene_filename, O_RDONLY);
+	if (fd == -1)
+		return (perror("Error open"), FAILURE);
+	i = 1;
+	str = get_next_line(fd);
+	if (str == NULL)
+		perror("malloc failure");
+	if (map_parsing(str, fd, data) == FAILURE)
+		return (FAILURE);
 	close(fd);
 	return (SUCCESS);
 }

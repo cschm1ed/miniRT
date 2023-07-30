@@ -50,7 +50,7 @@ typedef struct s_proj_len
 typedef struct s_data
 {
 	char			*scene_filename;
-	t_parsing		parsing[8];
+	t_parsing		parsing[7];
 	t_mlx_data		mlx_data;
 	struct s_scene	*scene;
 }	t_data;

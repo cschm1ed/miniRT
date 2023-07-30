@@ -39,6 +39,11 @@ int	check_rgbstring(char *str)
 
 	i = 0;
 	split = ft_split(str, ",");
+	if (count_elements(split) != 3)
+	{
+		ft_printf("wrong number arguments in colour\n");
+		return (FAILURE);
+	}
 	while (split[i] != NULL)
 	{
 		j = 0;
