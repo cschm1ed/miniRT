@@ -33,10 +33,10 @@
 # define SPECULAR_N 80
 
 # define ANTI_ALIASING 1
-# define MAX_DEPTH 2
+# define MAX_DEPTH 7
 
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 1000
+# define HEIGHT WIDTH
 
 # define SUCCESS 1
 # define FAILURE -1

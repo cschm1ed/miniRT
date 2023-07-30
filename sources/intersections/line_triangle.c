@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-static int	check_triangleintersect(t_triangle triangle,
+inline static int	check_triangleintersect(t_triangle triangle,
 		t_vector intersection_point, t_vector n)
 {
 	int	check;
@@ -32,10 +32,9 @@ static int	check_triangleintersect(t_triangle triangle,
 	return (FALSE);
 }
 
-int	intersection_line_triangle(void *object, t_line line, t_intersect *inter)
+inline int	intersection_line_triangle(void *object, t_line line, t_intersect *inter)
 {
 	t_vector	n;
-	t_vector	intersection_point;
 	t_triangle	triangle;
 	double		d;
 	double		t;
@@ -51,12 +50,13 @@ int	intersection_line_triangle(void *object, t_line line, t_intersect *inter)
 	t = t / _dot(n, line.dir);
 	if (t < 0)
 		return (FALSE);
-	intersection_point = _add(line.base, _multiply(line.dir, t));
-	if (check_triangleintersect(triangle, intersection_point, n) == TRUE)
+	if (check_triangleintersect(triangle, \
+			_add(line.base, _multiply(line.dir, t)), n) == TRUE)
 	{
-		inter->point = intersection_point;
-		inter->normal = n;
-		return (TRUE);
+		inter->point = _add(line.base, _multiply(line.dir, t));
+		if (_dot(n, _subtract(inter->ray.base, inter->point)) < 0)
+			n = _multiply(n, -1);
+		return (inter->normal = n, TRUE);
 	}
 	return (FALSE);
 }

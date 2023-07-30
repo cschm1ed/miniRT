@@ -60,7 +60,7 @@ VPATH			:= sources:\
 BUILDDIR		:= build
 
 CC 				:= gcc
-CCFLAG 			:= -Wall -Werror -Wextra -g
+CCFLAG 			:= -Wall -Werror -Wextra -flto -Ofast -march=native
 
 MLXFLAGS 		:= -I /usr/X11/include -L ./minilibx_macos -L /usr/X11/lib -lX11 \
                    			-lmlx -lXext -lm -framework OpenGL -framework AppKit
